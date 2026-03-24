@@ -1,14 +1,14 @@
 """
 Generate publication-quality figures for the ETCG paper.
 
-Outputs (all saved to the figures/ directory):
+Outputs (all saved to figures/ in the repo root):
   figure-02-boxplot.pdf   — RQ1: Score distribution, ETCG vs Baseline
   figure-03-radar.pdf     — RQ2: Five-dimension quality profile
   figure-04-barchart.pdf  — RQ4: Mean score by spec richness group × condition
 
 Usage:
-  cd paper-2-EMSE
-  python figures/generate_figures.py
+  cd etcg-supplementary
+  python scripts/generate_figures.py
 
 Requirements:
   pip install matplotlib numpy
@@ -27,9 +27,10 @@ import numpy as np
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 
-BASE_DIR   = Path(__file__).parent.parent          # paper-2-EMSE/
-SCORES_FILE = BASE_DIR / "research" / "etcg-scores.json"
-OUT_DIR    = Path(__file__).parent                 # figures/
+BASE_DIR    = Path(__file__).parent.parent          # repo root
+SCORES_FILE = BASE_DIR / "data" / "etcg-scores.json"
+OUT_DIR     = BASE_DIR / "figures"
+OUT_DIR.mkdir(exist_ok=True)
 
 # ── Style ──────────────────────────────────────────────────────────────────────
 # Springer-compatible: Times-style serif, minimal grid, no top/right spines
@@ -284,8 +285,8 @@ def make_barchart():
 
 if __name__ == "__main__":
     print("Generating ETCG paper figures...")
-    print(f"Reading scores from: {SCORES_FILE}")
-    print(f"Writing figures to:  {OUT_DIR}")
+    print(f"Reading scores from: {SCORES_FILE.relative_to(BASE_DIR)}")
+    print(f"Writing figures to:  {OUT_DIR.relative_to(BASE_DIR)}")
     print()
     make_boxplot()
     make_radar()
