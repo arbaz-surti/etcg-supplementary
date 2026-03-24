@@ -1,0 +1,1349 @@
+{
+  "run_metadata": {
+    "framework": "ETCG v1.0",
+    "model": "openai/gpt-4o",
+    "temperature": 0.2,
+    "max_tokens": 1500,
+    "timestamp": "2026-03-24T10:39:37.939303Z",
+    "spec_count": 25,
+    "success_count": 25,
+    "total_charters": 125
+  },
+  "results": [
+    {
+      "spec_id": "SPEC-01",
+      "original_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-01",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:19.173938Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS to online ordering platform integration",
+            "approach": "Pair testing with a developer",
+            "risk_focus": "Synchronization failures leading to outdated stock status",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Online ordering portal",
+            "approach": "Session-based testing",
+            "risk_focus": "User experience issues when adding out-of-stock items to cart",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Menu sync process",
+            "approach": "Time-boxed testing",
+            "risk_focus": "Delayed propagation of out-of-stock status",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS system",
+            "approach": "Error guessing",
+            "risk_focus": "Incorrect status updates on the POS",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Mobile ordering app",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Inconsistent item availability between web and mobile platforms",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-02",
+      "original_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-02",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:25.730633Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Firmware reconnection logic",
+            "approach": "Pairwise testing",
+            "risk_focus": "Inability to reconnect across device/POS combinations",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction handling during disconnection",
+            "approach": "Error guessing",
+            "risk_focus": "Unexpected transaction failures or data corruption",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "User interface feedback",
+            "approach": "Cognitive walkthrough",
+            "risk_focus": "Inadequate user feedback during reconnection attempts",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Firmware update process",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Failures or errors during firmware update",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Network stability and resilience",
+            "approach": "Stress testing",
+            "risk_focus": "System instability under frequent disconnections",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-03",
+      "original_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-03",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:30.374535Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "staff/management network",
+            "approach": "pairwise testing",
+            "risk_focus": "compatibility issues with management devices",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "brand-approved device network",
+            "approach": "session-based testing",
+            "risk_focus": "network stability and performance under load",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "POS/line-busting network",
+            "approach": "error guessing",
+            "risk_focus": "connectivity disruptions during transactions",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "guest network",
+            "approach": "boundary value analysis",
+            "risk_focus": "access control and security vulnerabilities",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "overall network integration",
+            "approach": "exploratory testing tours",
+            "risk_focus": "interoperability issues across different network types",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-04",
+      "original_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-04",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:35.354800Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Catering voucher tender key transaction experience",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Incorrect voucher application or rejection",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS functionality for tender behavior and processing",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Edge cases in voucher amount handling",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "POS reporting in financial reports",
+            "approach": "Data flow analysis",
+            "risk_focus": "Inaccurate financial reporting",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Analytics reports for new tender detail",
+            "approach": "Exploratory testing with data visualization",
+            "risk_focus": "Misrepresentation of sales data",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Third-party reporting and data flow",
+            "approach": "Session-based testing",
+            "risk_focus": "Data discrepancies in business intelligence platform",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-05",
+      "original_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-05",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:40.574783Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Menu configuration for extra-large size",
+            "approach": "Session-based testing",
+            "risk_focus": "Incorrect display of extra-large size options",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS ordering system for new size tier",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Inaccurate order processing for extra-large size",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Pricing engine for extra-large beverages",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Incorrect pricing calculations for extra-large size",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Modifier application for extra-large beverages",
+            "approach": "Error guessing",
+            "risk_focus": "Failure to apply modifiers correctly",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Seasonal hero build variants",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Incorrect seasonal variant availability",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-06",
+      "original_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-06",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:45.930493Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Time Window Configuration",
+            "approach": "Time-based testing",
+            "risk_focus": "Incorrect scheduling of menu items",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS Platform Compatibility",
+            "approach": "Cross-version testing",
+            "risk_focus": "Incompatibility between POS versions 18.x and 19.x",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "User Interface for Scheduling",
+            "approach": "Usability testing",
+            "risk_focus": "Confusing or misleading UI elements",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Date and Time Separation Logic",
+            "approach": "Boundary testing",
+            "risk_focus": "Errors in date and time separation logic",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Non-traditional Store Locations",
+            "approach": "Contextual testing",
+            "risk_focus": "Failure in time-sensitive operations",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-07",
+      "original_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-07",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:51.327438Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS role configuration for Brand A",
+            "approach": "Role-based testing",
+            "risk_focus": "Unauthorized voiding of empty checks by restricted roles",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction management for Brand B",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Disruption of legitimate void operations",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Role-based access control settings",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Incorrect configuration of access control bits",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Fraud prevention mechanisms",
+            "approach": "Error guessing",
+            "risk_focus": "Bypassing of fraud prevention controls",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "System behavior with food item orders",
+            "approach": "Exploratory testing with data variations",
+            "risk_focus": "Inconsistent behavior between food and beverage orders",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-08",
+      "original_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-08",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:37:57.564391Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Data Mapping settings in the reporting and analytics configuration tool",
+            "approach": "Pair testing with a business analyst",
+            "risk_focus": "Incorrect application of the markup percentage change",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction records for the specific third-party delivery platform",
+            "approach": "Session-based testing",
+            "risk_focus": "Retroactive application of the markup change to prior transactions",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Integration with the third-party reporting platform",
+            "approach": "API testing",
+            "risk_focus": "Failure to update the markup percentage on the third-party reporting platform",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "User interface of the reporting and analytics configuration tool",
+            "approach": "Heuristic evaluation",
+            "risk_focus": "User interface not reflecting the updated markup percentage",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Data pipeline processing for the specific third-party delivery platform",
+            "approach": "Data flow analysis",
+            "risk_focus": "Data pipeline errors or delays due to the markup change",
+            "priority": "Low",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-09",
+      "original_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-09",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:02.080502Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS terminals certificate import process",
+            "approach": "Session-based testing",
+            "risk_focus": "Failure to import new certificates correctly",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Tablet integration with loyalty platform",
+            "approach": "Pair testing with a developer",
+            "risk_focus": "Incompatibility with new certificates",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Content management configuration settings",
+            "approach": "Checklist-based testing",
+            "risk_focus": "Incorrect referencing of certificates",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "UAT environment zone setup",
+            "approach": "Exploratory testing with test charters",
+            "risk_focus": "Misconfiguration of the testing environment",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Communication with external loyalty platform vendor",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Delayed or incorrect installation of certificates",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-10",
+      "original_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-10",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:08.120847Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Mobile app order placement",
+            "approach": "Session-based testing",
+            "risk_focus": "Incorrect price lock at order placement",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Pricing engine updates",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Price discrepancies due to edge case price changes",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "POS order processing",
+            "approach": "Error guessing",
+            "risk_focus": "Order processing errors at POS",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Mobile app and POS integration",
+            "approach": "Pair testing",
+            "risk_focus": "Integration issues between mobile app and POS",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "User interface feedback",
+            "approach": "Usability testing",
+            "risk_focus": "Misleading or incorrect price information displayed to users",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-11",
+      "original_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-11",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:13.445123Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Financial Report Layout",
+            "approach": "Session-based testing",
+            "risk_focus": "Incorrect placement of the Third-Party Delivery Detail Section",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Order Type Section",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Summary-level delivery sales display issues",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Tender Media and Group Sales Sections",
+            "approach": "Boundary testing",
+            "risk_focus": "Visibility and readability issues due to layout change",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Discounts and Service Charges Sections",
+            "approach": "Heuristic-based testing",
+            "risk_focus": "Misalignment or formatting errors",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Overall Report Consistency",
+            "approach": "Comparison testing",
+            "risk_focus": "Inconsistencies between old and new report layouts",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-12",
+      "original_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-12",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:18.899575Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS configuration for new zone",
+            "approach": "Session-based testing",
+            "risk_focus": "Incorrect configuration inheritance",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Hierarchy and zone management",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Improper zone assignment",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Menu and page design",
+            "approach": "Pair testing",
+            "risk_focus": "Incorrect page design display",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Zone configuration inheritance",
+            "approach": "Error guessing",
+            "risk_focus": "Configuration conflicts with existing zones",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Full-menu integration",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "User experience inconsistencies",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-13",
+      "original_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-13",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:25.270185Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "App functionality on Gen 10 tablets with iOS 18.5",
+            "approach": "Session-based testing",
+            "risk_focus": "Compatibility issues with current production OS",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "App functionality on Gen 11 tablets with iOS 18.5",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Performance degradation on newer hardware",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "App functionality on Gen 10 tablets with iOS 26.1",
+            "approach": "Error guessing",
+            "risk_focus": "Unexpected behavior with future OS version",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "App functionality on Gen 11 tablets with iOS 26.1",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Edge case failures on new OS and hardware",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Cross-device and cross-OS functionality",
+            "approach": "Pairwise testing",
+            "risk_focus": "Inconsistencies between devices and OS versions",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-14",
+      "original_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-14",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:30.245697Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS terminal display",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Incorrect cancellation message display",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Configuration file settings",
+            "approach": "Configuration testing",
+            "risk_focus": "Mismatched configuration leading to incorrect messaging",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Backend cloud processing",
+            "approach": "Isolation testing",
+            "risk_focus": "Impact of cloud processing on message display",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Override settings",
+            "approach": "Exploratory testing with toggling",
+            "risk_focus": "Presence of overrides affecting message display",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "User interface consistency",
+            "approach": "Heuristic evaluation",
+            "risk_focus": "Inconsistent UI messaging across different transactions",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-15",
+      "original_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-15",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:35.667757Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Existing Serialized Coupons",
+            "approach": "Session-based testing",
+            "risk_focus": "Interference with new BIN ranges",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Discount Processing at POS",
+            "approach": "Pair testing",
+            "risk_focus": "Incorrect discount application",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Content Management System",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Data integrity issues",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Serialized Coupon Validation",
+            "approach": "Error guessing",
+            "risk_focus": "Unexpected errors or failures",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "BIN Range Configuration",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Edge case failures",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-16",
+      "original_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-16",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:41.096697Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Script Execution on POS Terminals",
+            "approach": "Pair Testing",
+            "risk_focus": "Script execution errors or failures",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Windows Defender Exclusion Configuration",
+            "approach": "Boundary Testing",
+            "risk_focus": "Incorrect exclusion paths or configurations",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Remote Management Tool Functionality",
+            "approach": "Scenario-Based Testing",
+            "risk_focus": "Tool still being flagged as a threat",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS Terminal System Stability",
+            "approach": "Stress Testing",
+            "risk_focus": "Unexpected system behaviour or crashes",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Cross-Environment Script Deployment",
+            "approach": "Environment-Based Testing",
+            "risk_focus": "Inconsistent behaviour across different lab environments",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-17",
+      "original_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-17",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:46.419071Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Notification Scheduling Interface",
+            "approach": "Session-based testing",
+            "risk_focus": "Usability issues and scheduling conflicts",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Notification Display on Clock-in",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Display errors and timing issues",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Notification Content Management",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Data truncation and formatting issues",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS Workstation Performance",
+            "approach": "Load testing",
+            "risk_focus": "Performance degradation with multiple notifications",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Employee Clock-in Workflow Integration",
+            "approach": "Pair testing",
+            "risk_focus": "Integration issues with existing clock-in process",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-18",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-18",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:38:51.655621Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Payment processing and device connectivity",
+            "approach": "Session-based testing",
+            "risk_focus": "Payment failures due to DNS resolution issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Online ordering and delivery platform integrations",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Order failures or delays caused by DNS changes",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Wi-Fi network connectivity and remote management tools",
+            "approach": "Error guessing",
+            "risk_focus": "Connectivity disruptions affecting remote management",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Loyalty processing and gift card functionality in offline mode",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Loyalty points or gift card balance discrepancies",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Reporting and analytics",
+            "approach": "Exploratory testing tours",
+            "risk_focus": "Data inaccuracies due to DNS-related data retrieval issues",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-19",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-19",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:00.477589Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Beverage Size Selection Buttons",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Incorrect price or description modification on order ticket",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore Beverage Size Selection Buttons using Scenario-based testing to discover Incorrect price or description modification on order ticket."
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Main Product Panel Accessibility",
+            "approach": "Heuristic analysis",
+            "risk_focus": "Inaccessibility of Bakery and Beverage items",
+            "priority": "High",
+            "estimated_duration": "45 min",
+            "description": "Explore Main Product Panel Accessibility using Heuristic analysis to discover Inaccessibility of Bakery and Beverage items."
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Visual Layout and Design",
+            "approach": "A/B testing",
+            "risk_focus": "Inconsistencies with brand-forward visual design",
+            "priority": "Medium",
+            "estimated_duration": "30 min",
+            "description": "Explore Visual Layout and Design using A/B testing to discover Inconsistencies with brand-forward visual design."
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Order Transmission to Kitchen and Receipt Printer",
+            "approach": "End-to-end testing",
+            "risk_focus": "Incorrect size modifier or price on kitchen display and receipt",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore Order Transmission to Kitchen and Receipt Printer using End-to-end testing to discover Incorrect size modifier or price on kitchen display and receipt."
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "POS Hardware Compatibility",
+            "approach": "Cross-platform testing",
+            "risk_focus": "Layout rendering issues on different screen resolutions",
+            "priority": "Medium",
+            "estimated_duration": "45 min",
+            "description": "Explore POS Hardware Compatibility using Cross-platform testing to discover Layout rendering issues on different screen resolutions."
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-20",
+      "original_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-20",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:06.284544Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "FQDN Resolution to New IP",
+            "approach": "Pair Testing with Network Administrator",
+            "risk_focus": "Failure to resolve FQDN to new IP without application restart",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction Posting to Reporting System",
+            "approach": "Time-boxed Testing",
+            "risk_focus": "Delays in transaction posting after endpoint change",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Order Storage to Central Management System",
+            "approach": "Scenario-based Testing",
+            "risk_focus": "Order storage failures or delays post-migration",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Labour Management Functionality",
+            "approach": "Role-based Testing",
+            "risk_focus": "Incorrect recording of labour events after endpoint change",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "System Reversion to Original Endpoint",
+            "approach": "Error Guessing",
+            "risk_focus": "Errors or failures when reverting to original endpoint",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-21",
+      "original_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-21",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:11.505872Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "COM port-to-printer assignments",
+            "approach": "Session-based testing",
+            "risk_focus": "Loss of configuration after POS restart or update",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "COM5 printer with RJ45-to-RJ12 adapter",
+            "approach": "Stress testing",
+            "risk_focus": "Latency or connectivity issues during sustained print jobs",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Error handling for offline printers",
+            "approach": "Fault injection",
+            "risk_focus": "Silent failure of print jobs when a printer is offline",
+            "priority": "High",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Order routing logic",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Cross-routing of print jobs between different order types",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Concurrent order processing",
+            "approach": "Concurrency testing",
+            "risk_focus": "Dropped or misrouted print jobs during simultaneous orders",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-22",
+      "original_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-22",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:19.928760Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "DLL Version Verification",
+            "approach": "Log Analysis",
+            "risk_focus": "Incorrect DLL version deployment",
+            "priority": "High",
+            "estimated_duration": "30 min",
+            "description": "Explore DLL Version Verification using Log Analysis to discover Incorrect DLL version deployment."
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Standard Loyalty Transactions",
+            "approach": "Scenario Testing",
+            "risk_focus": "Incorrect points balance and reward eligibility",
+            "priority": "High",
+            "estimated_duration": "45 min",
+            "description": "Explore Standard Loyalty Transactions using Scenario Testing to discover Incorrect points balance and reward eligibility."
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Offline Transaction Handling",
+            "approach": "Fault Injection",
+            "risk_focus": "Continuous retry loop during offline state",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore Offline Transaction Handling using Fault Injection to discover Continuous retry loop during offline state."
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Network Reconnection Processing",
+            "approach": "State Transition Testing",
+            "risk_focus": "Redundant retries upon reconnection",
+            "priority": "Medium",
+            "estimated_duration": "45 min",
+            "description": "Explore Network Reconnection Processing using State Transition Testing to discover Redundant retries upon reconnection."
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Performance During Sustained Transactions",
+            "approach": "Load Testing",
+            "risk_focus": "Performance degradation or crashes",
+            "priority": "Medium",
+            "estimated_duration": "60 min",
+            "description": "Explore Performance During Sustained Transactions using Load Testing to discover Performance degradation or crashes."
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-23",
+      "original_id": "SPEC-23",
+      "domain": "Healthcare",
+      "etcg_output": {
+        "spec_id": "SPEC-23",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:25.948318Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Lab Results Release Delay Configuration",
+            "approach": "Time-based testing",
+            "risk_focus": "Incorrect release timing or delay override issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Critical Result Notifications",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Failure to trigger alerts or send notifications",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Secure Messaging from Lab Result Detail Page",
+            "approach": "Role-based testing",
+            "risk_focus": "Message delivery failures or incorrect result attachment",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "PDF Download Functionality",
+            "approach": "Data integrity testing",
+            "risk_focus": "Incomplete or incorrect PDF content",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Audit Logging for Result Views and Actions",
+            "approach": "Log analysis",
+            "risk_focus": "Missing or incorrect audit entries",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-24",
+      "original_id": "SPEC-24",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-24",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:31.472690Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Real-Time GPS Tracking on Interactive Map",
+            "approach": "Time-boxed testing",
+            "risk_focus": "Delayed or inaccurate GPS updates",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Exception Alert Notification System",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Failure to send timely alerts",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Multi-Carrier Shipment Timeline",
+            "approach": "Data flow analysis",
+            "risk_focus": "Incorrect event ordering due to API delays",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Dashboard Filtering and Drill-Down",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Inaccurate filtering or missing shipment details",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Proof of Delivery Display",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Delayed or missing proof of delivery",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-25",
+      "original_id": "SPEC-25",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-25",
+        "model_used": "openai/gpt-4o",
+        "temperature": 0.2,
+        "timestamp": "2026-03-24T10:39:37.931514Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Barcode Scanning for Receiving",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Incorrect logging of received quantities and reason codes",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Cycle Count Task Assignment",
+            "approach": "Role-based testing",
+            "risk_focus": "Improper task assignment and scheduling by inventory managers",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Discrepancy Resolution Workflow",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Failure to trigger count holds and resolve discrepancies correctly",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Inventory Adjustment Logging",
+            "approach": "Audit trail verification",
+            "risk_focus": "Incomplete or inaccurate logging of inventory adjustments",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Reconciliation Report Generation",
+            "approach": "Data integrity testing",
+            "risk_focus": "Inaccurate or incomplete reconciliation reports",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    }
+  ]
+}
