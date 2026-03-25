@@ -36,7 +36,11 @@ load_dotenv(BASE_DIR / ".env")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-MODEL = "openai/gpt-4o"
+# OpenRouter model route used for automated scoring (run: 2026-03-24).
+# "openai/gpt-4o" resolves to OpenAI's current stable GPT-4o snapshot at
+# inference time.  For strict reproducibility of the published results, pin to
+# a specific snapshot, e.g.:  "openai/gpt-4o-2024-11-20"
+MODEL       = "openai/gpt-4o"
 TEMPERATURE = 0.0   # zero temperature for maximum scoring consistency
 
 ETCG_RESULTS_FILE     = BASE_DIR / "research" / "etcg-results.json"
