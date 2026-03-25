@@ -57,6 +57,7 @@ plt.rcParams.update({
 
 # Colour palette (accessible, print-safe)
 ETCG_COLOR     = "#2166AC"   # strong blue
+INTR_COLOR     = "#4DAC26"   # green (intermediate)
 BASELINE_COLOR = "#D6604D"   # muted red
 SPARSE_COLOR   = "#74ADD1"   # light blue
 STRUCT_COLOR   = "#1A6699"   # deep blue
@@ -69,8 +70,9 @@ with open(SCORES_FILE) as f:
 scores = data["scores"]
 
 # Separate conditions
-etcg_scores     = [s for s in scores if s["condition"] == "etcg"     and "error" not in s]
-baseline_scores = [s for s in scores if s["condition"] == "baseline" and "error" not in s]
+etcg_scores     = [s for s in scores if s["condition"] == "etcg"         and "error" not in s]
+intr_scores     = [s for s in scores if s["condition"] == "intermediate" and "error" not in s]
+baseline_scores = [s for s in scores if s["condition"] == "baseline"     and "error" not in s]
 
 # Spec richness classification
 SPARSE_SPECS     = {f"SPEC-{i:02d}" for i in range(1, 19)}   # SPEC-01 to SPEC-18
@@ -80,6 +82,7 @@ def richness(spec_id):
     return "structured" if spec_id in STRUCTURED_SPECS else "sparse"
 
 etcg_pcts     = [s["percentage"] for s in etcg_scores]
+intr_pcts     = [s["percentage"] for s in intr_scores]
 baseline_pcts = [s["percentage"] for s in baseline_scores]
 
 dims = ["specificity", "testability", "risk_coverage", "clarity", "actionability"]
@@ -88,11 +91,15 @@ dim_labels = ["Specificity", "Testability", "Risk\nCoverage", "Clarity", "Action
 # ── Figure 2: Box plot — score distribution ───────────────────────────────────
 
 def make_boxplot():
-    fig, ax = plt.subplots(figsize=(3.5, 4.0))
+    fig, ax = plt.subplots(figsize=(4.5, 4.0))
+
+    conditions  = [etcg_pcts, intr_pcts, baseline_pcts]
+    colors      = [ETCG_COLOR, INTR_COLOR, BASELINE_COLOR]
+    labels      = ["ETCG", "Intermediate", "Baseline"]
 
     bp = ax.boxplot(
-        [etcg_pcts, baseline_pcts],
-        labels=["ETCG", "Baseline"],
+        conditions,
+        labels=labels,
         patch_artist=True,
         notch=False,
         widths=0.45,
@@ -103,24 +110,19 @@ def make_boxplot():
                         markeredgewidth=0.8),
     )
 
-    bp["boxes"][0].set_facecolor(ETCG_COLOR)
-    bp["boxes"][0].set_alpha(0.85)
-    bp["fliers"][0].set_markerfacecolor(ETCG_COLOR)
-    bp["fliers"][0].set_markeredgecolor(ETCG_COLOR)
-
-    bp["boxes"][1].set_facecolor(BASELINE_COLOR)
-    bp["boxes"][1].set_alpha(0.85)
-    bp["fliers"][1].set_markerfacecolor(BASELINE_COLOR)
-    bp["fliers"][1].set_markeredgecolor(BASELINE_COLOR)
+    for idx, (color, vals) in enumerate(zip(colors, conditions)):
+        bp["boxes"][idx].set_facecolor(color)
+        bp["boxes"][idx].set_alpha(0.85)
+        bp["fliers"][idx].set_markerfacecolor(color)
+        bp["fliers"][idx].set_markeredgecolor(color)
 
     # Annotate mean
-    for i, (vals, color) in enumerate([(etcg_pcts, ETCG_COLOR),
-                                        (baseline_pcts, BASELINE_COLOR)], 1):
+    for i, (vals, color) in enumerate(zip(conditions, colors), 1):
         m = np.mean(vals)
         ax.plot(i, m, marker="D", color="white", markersize=5,
                 markeredgecolor=color, markeredgewidth=1.5, zorder=5)
         ax.text(i + 0.28, m, f"{m:.1f}%", va="center", ha="left",
-                fontsize=8, color=color, fontweight="bold")
+                fontsize=7.5, color=color, fontweight="bold")
 
     ax.set_ylabel("Charter Quality Score (%)")
     ax.set_ylim(25, 108)
@@ -129,10 +131,9 @@ def make_boxplot():
     ax.set_axisbelow(True)
 
     # Annotate SD
-    ax.text(1, 29, f"SD = {np.std(etcg_pcts, ddof=1):.1f}%",
-            ha="center", fontsize=8, color=ETCG_COLOR)
-    ax.text(2, 29, f"SD = {np.std(baseline_pcts, ddof=1):.1f}%",
-            ha="center", fontsize=8, color=BASELINE_COLOR)
+    for i, (vals, color) in enumerate(zip(conditions, colors), 1):
+        ax.text(i, 29, f"SD={np.std(vals, ddof=1):.1f}%",
+                ha="center", fontsize=7.5, color=color)
 
     diamond_patch = plt.Line2D([0], [0], marker="D", color="grey",
                                linestyle="none", markersize=6,
@@ -151,6 +152,7 @@ def make_boxplot():
 
 def make_radar():
     etcg_means     = [np.mean([s["scores"][d] for s in etcg_scores])     for d in dims]
+    intr_means     = [np.mean([s["scores"][d] for s in intr_scores])     for d in dims]
     baseline_means = [np.mean([s["scores"][d] for s in baseline_scores]) for d in dims]
 
     N = len(dims)
@@ -158,43 +160,41 @@ def make_radar():
     angles += angles[:1]   # close the polygon
 
     etcg_vals     = etcg_means     + etcg_means[:1]
+    intr_vals     = intr_means     + intr_means[:1]
     baseline_vals = baseline_means + baseline_means[:1]
 
     fig, ax = plt.subplots(figsize=(3.8, 3.8), subplot_kw=dict(polar=True))
 
-    # Draw gridlines
     ax.set_ylim(1.5, 3.15)
     ax.set_yticks([2.0, 2.5, 3.0])
     ax.set_yticklabels(["2.0", "2.5", "3.0"], fontsize=7.5, color="grey")
-
-    # Set axis labels
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(dim_labels, fontsize=9)
-
-    # Adjust label distance
     ax.tick_params(axis="x", pad=8)
 
-    # Plot ETCG
+    # Plot all three conditions
     ax.plot(angles, etcg_vals, color=ETCG_COLOR, linewidth=2, linestyle="-")
-    ax.fill(angles, etcg_vals, color=ETCG_COLOR, alpha=0.18)
+    ax.fill(angles, etcg_vals, color=ETCG_COLOR, alpha=0.15)
 
-    # Plot Baseline
+    ax.plot(angles, intr_vals, color=INTR_COLOR, linewidth=2, linestyle="-.")
+    ax.fill(angles, intr_vals, color=INTR_COLOR, alpha=0.10)
+
     ax.plot(angles, baseline_vals, color=BASELINE_COLOR, linewidth=2,
             linestyle="--")
-    ax.fill(angles, baseline_vals, color=BASELINE_COLOR, alpha=0.10)
+    ax.fill(angles, baseline_vals, color=BASELINE_COLOR, alpha=0.08)
 
     # Data point markers
-    ax.plot(angles[:-1], etcg_means,     "o", color=ETCG_COLOR,
-            markersize=5, zorder=5)
-    ax.plot(angles[:-1], baseline_means, "s", color=BASELINE_COLOR,
-            markersize=5, zorder=5)
+    ax.plot(angles[:-1], etcg_means,     "o", color=ETCG_COLOR,     markersize=5, zorder=5)
+    ax.plot(angles[:-1], intr_means,     "^", color=INTR_COLOR,     markersize=5, zorder=5)
+    ax.plot(angles[:-1], baseline_means, "s", color=BASELINE_COLOR, markersize=5, zorder=5)
 
     # Legend
-    etcg_patch     = mpatches.Patch(color=ETCG_COLOR,     alpha=0.7, label="ETCG")
-    baseline_patch = mpatches.Patch(color=BASELINE_COLOR, alpha=0.5, label="Baseline")
-    ax.legend(handles=[etcg_patch, baseline_patch],
-              loc="upper right", bbox_to_anchor=(1.32, 1.12),
-              frameon=True, framealpha=0.9, edgecolor="lightgrey")
+    etcg_patch = mpatches.Patch(color=ETCG_COLOR,     alpha=0.7, label="ETCG")
+    intr_patch = mpatches.Patch(color=INTR_COLOR,     alpha=0.6, label="Intermediate")
+    bl_patch   = mpatches.Patch(color=BASELINE_COLOR, alpha=0.5, label="Baseline")
+    ax.legend(handles=[etcg_patch, intr_patch, bl_patch],
+              loc="upper right", bbox_to_anchor=(1.42, 1.12),
+              frameon=True, framealpha=0.9, edgecolor="lightgrey", fontsize=8)
 
     ax.spines["polar"].set_visible(False)
     ax.grid(color="grey", alpha=0.3, linestyle="--")
@@ -209,70 +209,60 @@ def make_radar():
 # ── Figure 4: Bar chart — richness group × condition ─────────────────────────
 
 def make_barchart():
-    # Compute means and SDs by richness group for both conditions
-    etcg_sparse     = [s["percentage"] for s in etcg_scores
-                       if richness(s["spec_id"]) == "sparse"]
-    etcg_structured = [s["percentage"] for s in etcg_scores
-                       if richness(s["spec_id"]) == "structured"]
-    bl_sparse       = [s["percentage"] for s in baseline_scores
-                       if richness(s["spec_id"]) == "sparse"]
-    bl_structured   = [s["percentage"] for s in baseline_scores
-                       if richness(s["spec_id"]) == "structured"]
+    # Compute means and SDs by richness group for all three conditions
+    def group_pcts(cond_scores, grp):
+        return [s["percentage"] for s in cond_scores if richness(s["spec_id"]) == grp]
 
-    groups     = ["Sparse\n(SPEC-01–18)", "Structured\n(SPEC-19–25)"]
-    etcg_means = [np.mean(etcg_sparse),     np.mean(etcg_structured)]
-    etcg_sds   = [np.std(etcg_sparse, ddof=1), np.std(etcg_structured, ddof=1)]
-    bl_means   = [np.mean(bl_sparse),       np.mean(bl_structured)]
-    bl_sds     = [np.std(bl_sparse, ddof=1),   np.std(bl_structured, ddof=1)]
+    etcg_sparse  = group_pcts(etcg_scores,     "sparse")
+    etcg_struct  = group_pcts(etcg_scores,     "structured")
+    intr_sparse  = group_pcts(intr_scores,     "sparse")
+    intr_struct  = group_pcts(intr_scores,     "structured")
+    bl_sparse    = group_pcts(baseline_scores, "sparse")
+    bl_struct    = group_pcts(baseline_scores, "structured")
+
+    groups = ["Sparse\n(SPEC-01–18)", "Structured\n(SPEC-19–25)"]
+    e_means = [np.mean(etcg_sparse),  np.mean(etcg_struct)]
+    e_sds   = [np.std(etcg_sparse,  ddof=1), np.std(etcg_struct,  ddof=1)]
+    i_means = [np.mean(intr_sparse),  np.mean(intr_struct)]
+    i_sds   = [np.std(intr_sparse,  ddof=1), np.std(intr_struct,  ddof=1)]
+    b_means = [np.mean(bl_sparse),    np.mean(bl_struct)]
+    b_sds   = [np.std(bl_sparse,    ddof=1), np.std(bl_struct,    ddof=1)]
 
     x     = np.arange(len(groups))
-    width = 0.32
+    width = 0.22
 
-    fig, ax = plt.subplots(figsize=(4.5, 4.0))
+    fig, ax = plt.subplots(figsize=(5.0, 4.0))
 
-    bars_etcg = ax.bar(x - width / 2, etcg_means, width,
-                       yerr=etcg_sds, capsize=5,
-                       color=ETCG_COLOR, alpha=0.85,
-                       error_kw=dict(elinewidth=1.2, ecolor="#1a1a2e"),
-                       label="ETCG")
+    bars_e = ax.bar(x - width, e_means, width, yerr=e_sds, capsize=4,
+                    color=ETCG_COLOR, alpha=0.85,
+                    error_kw=dict(elinewidth=1.2, ecolor="#1a1a2e"), label="ETCG")
+    bars_i = ax.bar(x,         i_means, width, yerr=i_sds, capsize=4,
+                    color=INTR_COLOR,  alpha=0.85,
+                    error_kw=dict(elinewidth=1.2, ecolor="#1a3a0a"), label="Intermediate")
+    bars_b = ax.bar(x + width, b_means, width, yerr=b_sds, capsize=4,
+                    color=BASELINE_COLOR, alpha=0.85,
+                    error_kw=dict(elinewidth=1.2, ecolor="#5c1010"), label="Baseline")
 
-    bars_bl   = ax.bar(x + width / 2, bl_means, width,
-                       yerr=bl_sds, capsize=5,
-                       color=BASELINE_COLOR, alpha=0.85,
-                       error_kw=dict(elinewidth=1.2, ecolor="#5c1010"),
-                       label="Baseline")
-
-    # Value labels on bars
-    for bar, mean, sd in zip(bars_etcg, etcg_means, etcg_sds):
-        ax.text(bar.get_x() + bar.get_width() / 2,
-                bar.get_height() + sd + 0.8,
-                f"{mean:.1f}%", ha="center", va="bottom",
-                fontsize=8, color=ETCG_COLOR, fontweight="bold")
-
-    for bar, mean, sd in zip(bars_bl, bl_means, bl_sds):
-        ax.text(bar.get_x() + bar.get_width() / 2,
-                bar.get_height() + sd + 0.8,
-                f"{mean:.1f}%", ha="center", va="bottom",
-                fontsize=8, color=BASELINE_COLOR, fontweight="bold")
+    for bars, means, sds, color in [
+        (bars_e, e_means, e_sds, ETCG_COLOR),
+        (bars_i, i_means, i_sds, INTR_COLOR),
+        (bars_b, b_means, b_sds, BASELINE_COLOR),
+    ]:
+        for bar, mean, sd in zip(bars, means, sds):
+            ax.text(bar.get_x() + bar.get_width() / 2,
+                    bar.get_height() + sd + 0.5,
+                    f"{mean:.1f}%", ha="center", va="bottom",
+                    fontsize=7, color=color, fontweight="bold")
 
     ax.set_ylabel("Mean Charter Quality Score (%)")
     ax.set_xticks(x)
     ax.set_xticklabels(groups)
-    ax.set_ylim(75, 115)
-    ax.set_yticks(range(75, 106, 5))
+    ax.set_ylim(70, 118)
+    ax.set_yticks(range(70, 106, 5))
     ax.yaxis.grid(True, alpha=0.3, linestyle="--")
     ax.set_axisbelow(True)
     ax.legend(loc="lower right", frameon=True, framealpha=0.9,
-              edgecolor="lightgrey")
-
-    # Annotate SD reduction arrow for ETCG structured
-    ax.annotate(
-        "SD: 11.1% → 1.1%",
-        xy=(0.72, 102), fontsize=7.5, color=ETCG_COLOR,
-        ha="center",
-        bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
-                  edgecolor=ETCG_COLOR, alpha=0.8),
-    )
+              edgecolor="lightgrey", fontsize=8)
 
     fig.tight_layout()
     out = OUT_DIR / "figure-04-barchart.pdf"

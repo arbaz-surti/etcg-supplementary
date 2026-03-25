@@ -36,7 +36,7 @@ from dotenv import load_dotenv
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent   # repo root
 load_dotenv(BASE_DIR / ".env")
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
