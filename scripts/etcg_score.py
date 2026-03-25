@@ -1,8 +1,14 @@
 """
 ETCG Rubric Scorer
 ==================
-Scores all 250 charters (125 ETCG + 125 baseline) using the 5-dimension rubric
-via GPT-4o as the primary evaluator, with blind scoring (condition not revealed).
+Scores all 375 charters (125 ETCG + 125 intermediate + 125 baseline) using the
+5-dimension rubric via GPT-4o as the primary evaluator, with blind scoring
+(condition not revealed).
+
+Three-condition design:
+  baseline     — minimal role, no guidance, no schema
+  intermediate — expert role + guidance, no schema
+  etcg         — expert role + guidance + constrained JSON schema
 
 Rubric dimensions (each 1–3):
   1. Specificity   — precise target, named approach, scoped risk
@@ -14,7 +20,7 @@ Rubric dimensions (each 1–3):
 Scoring is done in a single pass per charter. Charters are randomised across
 conditions before scoring to prevent condition-order bias.
 
-Output: research/etcg-scores.json
+Output: data/etcg-scores.json
 """
 
 import json
@@ -43,9 +49,10 @@ OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL       = "openai/gpt-4o"
 TEMPERATURE = 0.0   # zero temperature for maximum scoring consistency
 
-ETCG_RESULTS_FILE     = BASE_DIR / "research" / "etcg-results.json"
-BASELINE_RESULTS_FILE = BASE_DIR / "research" / "etcg-baseline-results.json"
-SCORES_FILE           = BASE_DIR / "research" / "etcg-scores.json"
+ETCG_RESULTS_FILE         = BASE_DIR / "data" / "etcg-results.json"
+BASELINE_RESULTS_FILE     = BASE_DIR / "data" / "etcg-baseline-results.json"
+INTERMEDIATE_RESULTS_FILE = BASE_DIR / "data" / "etcg-intermediate-results.json"
+SCORES_FILE               = BASE_DIR / "data" / "etcg-scores.json"
 
 RANDOM_SEED = 42   # for reproducible shuffle
 
@@ -171,6 +178,8 @@ def run_scoring():
         etcg_data = json.load(f)
     with open(BASELINE_RESULTS_FILE) as f:
         baseline_data = json.load(f)
+    with open(INTERMEDIATE_RESULTS_FILE) as f:
+        intermediate_data = json.load(f)
 
     # Build flat list of all charters with condition label
     all_items = []
@@ -203,6 +212,23 @@ def run_scoring():
                 "domain": domain,
                 "condition": "baseline",
                 "charter_id": f"BL-{i:02d}",
+                "charter_data": charter_text,
+                "charter_text": charter_text,
+            })
+
+    for result in intermediate_data["results"]:
+        if "error" in result:
+            continue
+        spec_id = result["spec_id"]
+        domain  = result["domain"]
+        raw = result["intermediate_output"]["raw_output"]
+        charters = extract_baseline_charters(raw)   # same free-text splitter
+        for i, charter_text in enumerate(charters, 1):
+            all_items.append({
+                "spec_id": spec_id,
+                "domain": domain,
+                "condition": "intermediate",
+                "charter_id": f"IM-{i:02d}",
                 "charter_data": charter_text,
                 "charter_text": charter_text,
             })
@@ -263,8 +289,9 @@ def run_scoring():
 
     # ── Compute Summary Statistics ─────────────────────────────────────────────
 
-    etcg_scores    = [s for s in scored if s["condition"] == "etcg"     and "error" not in s]
-    baseline_scores = [s for s in scored if s["condition"] == "baseline" and "error" not in s]
+    etcg_scores         = [s for s in scored if s["condition"] == "etcg"         and "error" not in s]
+    intermediate_scores = [s for s in scored if s["condition"] == "intermediate" and "error" not in s]
+    baseline_scores     = [s for s in scored if s["condition"] == "baseline"     and "error" not in s]
 
     def mean(vals): return round(sum(vals) / len(vals), 2) if vals else 0
     def stdev(vals):
@@ -278,8 +305,9 @@ def run_scoring():
 
     dims = ["specificity", "testability", "risk_coverage", "clarity", "actionability"]
 
-    etcg_pcts    = [s["percentage"] for s in etcg_scores]
-    baseline_pcts = [s["percentage"] for s in baseline_scores]
+    etcg_pcts         = [s["percentage"] for s in etcg_scores]
+    intermediate_pcts = [s["percentage"] for s in intermediate_scores]
+    baseline_pcts     = [s["percentage"] for s in baseline_scores]
 
     summary = {
         "etcg": {
@@ -287,6 +315,12 @@ def run_scoring():
             "overall_mean_pct": mean(etcg_pcts),
             "overall_stdev_pct": stdev(etcg_pcts),
             "dimensions": {d: dim_stats(etcg_scores, d) for d in dims},
+        },
+        "intermediate": {
+            "n": len(intermediate_scores),
+            "overall_mean_pct": mean(intermediate_pcts),
+            "overall_stdev_pct": stdev(intermediate_pcts),
+            "dimensions": {d: dim_stats(intermediate_scores, d) for d in dims},
         },
         "baseline": {
             "n": len(baseline_scores),
@@ -327,18 +361,16 @@ def run_scoring():
     print(f"Errors: {errors}")
     print()
     print("── RESULTS SUMMARY ──────────────────────────────────────")
-    print(f"ETCG    overall: {summary['etcg']['overall_mean_pct']}% (±{summary['etcg']['overall_stdev_pct']}%)")
-    print(f"Baseline overall: {summary['baseline']['overall_mean_pct']}% (±{summary['baseline']['overall_stdev_pct']}%)")
+    print(f"ETCG         overall: {summary['etcg']['overall_mean_pct']}% (±{summary['etcg']['overall_stdev_pct']}%)")
+    print(f"Intermediate overall: {summary['intermediate']['overall_mean_pct']}% (±{summary['intermediate']['overall_stdev_pct']}%)")
+    print(f"Baseline     overall: {summary['baseline']['overall_mean_pct']}% (±{summary['baseline']['overall_stdev_pct']}%)")
     print()
-    print("ETCG dimension means:")
+    print("Dimension means (ETCG / Intermediate / Baseline):")
     for d in dims:
-        ds = summary["etcg"]["dimensions"][d]
-        print(f"  {d:<16}: {ds['mean']}/3")
-    print()
-    print("Baseline dimension means:")
-    for d in dims:
-        ds = summary["baseline"]["dimensions"][d]
-        print(f"  {d:<16}: {ds['mean']}/3")
+        de = summary["etcg"]["dimensions"][d]
+        di = summary["intermediate"]["dimensions"][d]
+        db = summary["baseline"]["dimensions"][d]
+        print(f"  {d:<16}: {de['mean']}/3  /  {di['mean']}/3  /  {db['mean']}/3")
     print()
     print("Domain breakdown (ETCG):")
     for domain, stats in summary["by_domain"].items():
