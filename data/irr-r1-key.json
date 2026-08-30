@@ -1,0 +1,752 @@
+[
+  {
+    "spec_id": "SPEC-12",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 2,
+      "actionability": 2,
+      "rationale": "The charter identifies a feature area and approach but lacks precision in scope and risk, requiring some interpretation for execution."
+    },
+    "auto_pct": 66.7,
+    "neutral_id": "CHR-001"
+  },
+  {
+    "spec_id": "SPEC-17",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined with a specific feature, clear approach, and meaningful risk, making it actionable and testable."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-002"
+  },
+  {
+    "spec_id": "SPEC-02",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, and covers meaningful risks with a clear and actionable approach for stress and load testing."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-003"
+  },
+  {
+    "spec_id": "SPEC-07",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-004"
+  },
+  {
+    "spec_id": "SPEC-05",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-005"
+  },
+  {
+    "spec_id": "SPEC-22",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-006"
+  },
+  {
+    "spec_id": "SPEC-19",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a feature area with some specificity but lacks a precise approach; it is mostly clear but requires minor interpretation and addresses a generic risk."
+    },
+    "auto_pct": 73.3,
+    "neutral_id": "CHR-007"
+  },
+  {
+    "spec_id": "SPEC-05",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-008"
+  },
+  {
+    "spec_id": "SPEC-14",
+    "condition": "etcg",
+    "charter_id": "ET-01",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-009"
+  },
+  {
+    "spec_id": "SPEC-23",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-010"
+  },
+  {
+    "spec_id": "SPEC-06",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-011"
+  },
+  {
+    "spec_id": "SPEC-04",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-012"
+  },
+  {
+    "spec_id": "SPEC-20",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific and clear, targeting a precise feature with a named approach, but the risk focus is somewhat generic and low-priority."
+    },
+    "auto_pct": 93.3,
+    "neutral_id": "CHR-013"
+  },
+  {
+    "spec_id": "SPEC-24",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-014"
+  },
+  {
+    "spec_id": "SPEC-08",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-015"
+  },
+  {
+    "spec_id": "SPEC-13",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, and clear, with a well-defined approach and risk focus on cross-device and cross-OS inconsistencies using pairwise testing."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-016"
+  },
+  {
+    "spec_id": "SPEC-10",
+    "condition": "etcg",
+    "charter_id": "ET-03",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a specific feature area and approach but lacks detail on the risk, though it is clear and directly executable."
+    },
+    "auto_pct": 80.0,
+    "neutral_id": "CHR-017"
+  },
+  {
+    "spec_id": "SPEC-25",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-018"
+  },
+  {
+    "spec_id": "SPEC-21",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-019"
+  },
+  {
+    "spec_id": "SPEC-20",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-020"
+  },
+  {
+    "spec_id": "SPEC-16",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined, targeting specific compatibility risks with a clear approach and actionable steps, making it highly testable and impactful."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-021"
+  },
+  {
+    "spec_id": "SPEC-18",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-022"
+  },
+  {
+    "spec_id": "SPEC-03",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a specific area and risk but lacks detailed approach guidance, requiring some interpretation for execution."
+    },
+    "auto_pct": 80.0,
+    "neutral_id": "CHR-023"
+  },
+  {
+    "spec_id": "SPEC-24",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined, targeting specific features and risks with a clear approach, making it highly actionable and testable."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-024"
+  },
+  {
+    "spec_id": "SPEC-01",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-025"
+  },
+  {
+    "spec_id": "SPEC-21",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-026"
+  },
+  {
+    "spec_id": "SPEC-10",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-027"
+  },
+  {
+    "spec_id": "SPEC-04",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a feature area and approach but lacks precise scope and risk details, requiring minor interpretation for execution."
+    },
+    "auto_pct": 73.3,
+    "neutral_id": "CHR-028"
+  },
+  {
+    "spec_id": "SPEC-15",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-029"
+  },
+  {
+    "spec_id": "SPEC-09",
+    "condition": "etcg",
+    "charter_id": "ET-01",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-030"
+  },
+  {
+    "spec_id": "SPEC-08",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-031"
+  },
+  {
+    "spec_id": "SPEC-25",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, and is actionable without further clarification."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-032"
+  },
+  {
+    "spec_id": "SPEC-12",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a feature area and approach but lacks precise details on specific risks or methods, requiring some interpretation for execution."
+    },
+    "auto_pct": 73.3,
+    "neutral_id": "CHR-033"
+  },
+  {
+    "spec_id": "SPEC-07",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is precise, actionable, and targets a specific risk with a clear approach and goal, making it highly effective for exploratory testing."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-034"
+  },
+  {
+    "spec_id": "SPEC-14",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-035"
+  },
+  {
+    "spec_id": "SPEC-01",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a feature area and approach but lacks precision in scope and risk, though it is clear and directly executable."
+    },
+    "auto_pct": 80.0,
+    "neutral_id": "CHR-036"
+  },
+  {
+    "spec_id": "SPEC-18",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies specific areas like reporting and database operations but lacks a precise approach; it is mostly clear but requires some interpretation to execute."
+    },
+    "auto_pct": 73.3,
+    "neutral_id": "CHR-037"
+  },
+  {
+    "spec_id": "SPEC-09",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-038"
+  },
+  {
+    "spec_id": "SPEC-02",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a specific feature area and approach but lacks detail on the risk, making it somewhat generic."
+    },
+    "auto_pct": 80.0,
+    "neutral_id": "CHR-039"
+  },
+  {
+    "spec_id": "SPEC-13",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter is clear and targets a meaningful risk but lacks specific details on the approach and requires some interpretation for execution."
+    },
+    "auto_pct": 80.0,
+    "neutral_id": "CHR-040"
+  },
+  {
+    "spec_id": "SPEC-11",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, clear, and actionable, but the risk focus on misalignment or formatting errors is somewhat generic and low-impact."
+    },
+    "auto_pct": 93.3,
+    "neutral_id": "CHR-041"
+  },
+  {
+    "spec_id": "SPEC-16",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-042"
+  },
+  {
+    "spec_id": "SPEC-23",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-043"
+  },
+  {
+    "spec_id": "SPEC-17",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined, actionable, and targets specific risks related to notification customization with clear scenarios and objectives."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-044"
+  },
+  {
+    "spec_id": "SPEC-03",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, is directly executable, and provides a meaningful exploratory direction."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-045"
+  },
+  {
+    "spec_id": "SPEC-11",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter is clear and testable with a focus on compatibility and performance, but it lacks specificity in terms of the tools and systems involved and addresses a somewhat generic risk."
+    },
+    "auto_pct": 80.0,
+    "neutral_id": "CHR-046"
+  },
+  {
+    "spec_id": "SPEC-19",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, and clear, with a distinct approach targeting a meaningful risk."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-047"
+  },
+  {
+    "spec_id": "SPEC-06",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-048"
+  },
+  {
+    "spec_id": "SPEC-22",
+    "condition": "etcg",
+    "charter_id": "ET-03",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3,
+      "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+    },
+    "auto_pct": 100.0,
+    "neutral_id": "CHR-049"
+  },
+  {
+    "spec_id": "SPEC-15",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2,
+      "rationale": "The charter identifies a feature area and approach but lacks precise scope and risk; it is mostly clear but requires some interpretation and provides a general direction for testing."
+    },
+    "auto_pct": 73.3,
+    "neutral_id": "CHR-050"
+  }
+]

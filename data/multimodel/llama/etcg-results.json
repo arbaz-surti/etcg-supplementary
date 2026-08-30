@@ -1,0 +1,1344 @@
+{
+  "run_metadata": {
+    "purpose": "multi-model generation (revision task 2.3)",
+    "condition": "etcg",
+    "generator_slug": "llama",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "label": "Llama 3.3 70B Instruct (Meta, open-weight)",
+    "temperature": 0.2,
+    "max_tokens": 1500,
+    "reasoning": null,
+    "prompt_source": "identical to the primary run's condition prompt",
+    "timestamp": "2026-08-29T12:00:04+00:00",
+    "spec_count": 25,
+    "success_count": 25,
+    "complete": true
+  },
+  "results": [
+    {
+      "spec_id": "SPEC-01",
+      "original_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-01",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:33.314234+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Menu sync interval configuration",
+            "approach": "Equivalence partitioning",
+            "risk_focus": "Incorrect or inconsistent sync intervals causing availability discrepancies",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS to online ordering platform integration",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent or delayed status updates between POS and online ordering portal",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Error handling at checkout",
+            "approach": "Error guessing",
+            "risk_focus": "Inadequate or misleading error messages when attempting to order out-of-stock items",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Online ordering portal item availability display",
+            "approach": "Exploratory testing with a focus on visual inspection",
+            "risk_focus": "Incorrect or inconsistent display of item availability status",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Recovery and reconciliation after Out of Stock flag removal",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Failure to correctly restore item availability or inconsistent behavior after removing the Out of Stock flag",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-02",
+      "original_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-02",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:42.674744+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Reconnection after network cable unplugging",
+            "approach": "Error guessing",
+            "risk_focus": "Transaction failure due to firmware reconnection issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS to payment terminal integration",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent state management across device/POS version combinations",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Firmware update process",
+            "approach": "Exploratory scripting",
+            "risk_focus": "Update failures or inconsistencies across different device/POS versions",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Transaction processing after reconnection",
+            "approach": "User journey mapping",
+            "risk_focus": "User experience issues or transaction errors post-reconnection",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Edge cases in network connectivity",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Firmware or system failures under extreme network conditions",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-03",
+      "original_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-03",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:52.822442+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Staff/management network with new Wi-Fi 7 access points",
+            "approach": "Error guessing",
+            "risk_focus": "Authentication and authorization issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS/line-busting network using line-busting tablets",
+            "approach": "State transition testing",
+            "risk_focus": "Network connectivity and transaction processing problems",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Guest network with various devices",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Security vulnerabilities and data breaches",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Brand-approved device network with different devices",
+            "approach": "Pairwise testing",
+            "risk_focus": "Compatibility issues and device-specific problems",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Secondary network template with new Wi-Fi 7 access points",
+            "approach": "Domain testing",
+            "risk_focus": "Failover and redundancy issues",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-04",
+      "original_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-04",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:02.441167+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Transaction experience with catering voucher tendering",
+            "approach": "Error guessing",
+            "risk_focus": "Incorrect or incomplete transaction processing",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS reporting in financial reports",
+            "approach": "State transition testing",
+            "risk_focus": "Inaccurate or inconsistent financial data",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Analytics reports including system sales and tender media",
+            "approach": "Exploratory data analysis",
+            "risk_focus": "Data inconsistencies or discrepancies",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Third-party data pipeline integration",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Data loss or corruption during transmission",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Regression testing on existing POS functionality",
+            "approach": "User journey mapping",
+            "risk_focus": "Unintended consequences or side effects on existing features",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-05",
+      "original_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-05",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:13.631098+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Pricing engine for extra-large beverages",
+            "approach": "Equivalence partitioning",
+            "risk_focus": "Incorrect pricing calculations",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS ordering for extra-large beverages with modifications",
+            "approach": "Error guessing",
+            "risk_focus": "Ordering errors or inconsistencies with modifier counts",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Menu configuration for seasonal hero build variants",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent menu item availability or display issues",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Threshold pricing for extra-large beverages",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Pricing errors at threshold boundaries",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Integration of extra-large size tier with existing menu items",
+            "approach": "Exploratory testing with a focus on compatibility",
+            "risk_focus": "Compatibility issues or inconsistencies with existing menu items",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-06",
+      "original_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-06",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:23.069811+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Time Window Configuration",
+            "approach": "Error Guessing",
+            "risk_focus": "Invalid or inconsistent scheduling",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Menu Item Scheduling",
+            "approach": "State Transition Testing",
+            "risk_focus": "Inconsistent menu item availability across different time windows",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "POS Platform Version 18.x Compatibility",
+            "approach": "Exploratory Testing with Scenarios",
+            "risk_focus": "Compatibility issues with older POS platform versions",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Time Window Configuration Edge Cases",
+            "approach": "Boundary Value Analysis",
+            "risk_focus": "Defects occurring at boundary values of start and end dates/times",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Non-Traditional Store Locations",
+            "approach": "Domain Testing",
+            "risk_focus": "Issues related to dependency on non-traditional store locations",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-07",
+      "original_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-07",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:33.323502+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS role configuration for Brand A roles",
+            "approach": "Equivalence partitioning",
+            "risk_focus": "Unauthorized void on empty check",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction management for voiding individual items",
+            "approach": "State transition testing",
+            "risk_focus": "Disruption to legitimate void operations",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Role-based access control for Brand B roles",
+            "approach": "Error guessing",
+            "risk_focus": "Inconsistent restriction application across roles",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Transaction return process",
+            "approach": "Exploratory testing with scenarios",
+            "risk_focus": "Bypassing of standard return process",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Edge cases for opening closed checks",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Unintended consequences on check status management",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-08",
+      "original_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-08",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:57.377015+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Retroactive application of delivery markup percentage update",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Incorrect application of markup to prior transactions",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Data pipeline integration with third-party delivery platform",
+            "approach": "State transition testing",
+            "risk_focus": "Data inconsistencies or loss during markup percentage update",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Reporting and analytics configuration tool",
+            "approach": "Error guessing",
+            "risk_focus": "Invalid or incorrect configuration of markup percentage update",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Third-party reporting platform integration",
+            "approach": "Exploratory testing with external dependencies",
+            "risk_focus": "Incompatibility or inconsistencies with third-party reporting platform",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Environment-specific behavior of delivery markup percentage update",
+            "approach": "Comparative testing across environments",
+            "risk_focus": "Inconsistent application of markup percentage update across UAT, Pre-Production, and Production environments",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-09",
+      "original_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-09",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:57:07.328908+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Certificate import process on POS terminals and tablets",
+            "approach": "Error guessing",
+            "risk_focus": "Certificate installation failures or incorrect configuration",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Content management page settings and certificate referencing",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent or outdated certificate references",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Loyalty platform integration with new certificates",
+            "approach": "Exploratory testing with external dependencies",
+            "risk_focus": "Integration failures or data inconsistencies due to certificate renewal",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Certificate expiration and renewal timing",
+            "approach": "Time-based testing",
+            "risk_focus": "Service disruptions due to premature certificate expiration or delayed renewal",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "UAT environment zone configuration and certificate testing",
+            "approach": "Test environment exploration",
+            "risk_focus": "Inadequate or incorrect testing environment setup",
+            "priority": "Low",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-10",
+      "original_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-10",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:57:19.618488+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Price locking mechanism for advance orders",
+            "approach": "Equivalence partitioning",
+            "risk_focus": "Price discrepancies due to item price changes",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Mobile app to POS order transmission",
+            "approach": "State transition testing",
+            "risk_focus": "Order processing errors when prices change",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Pricing engine updates and item price changes",
+            "approach": "Error guessing",
+            "risk_focus": "Inconsistent price locking behavior across items",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Advance order fulfillment at future pickup times",
+            "approach": "Exploratory testing with time-based variables",
+            "risk_focus": "Timing-related issues affecting price locking",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "User payment processing and confirmation",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Payment processing errors due to price changes",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-11",
+      "original_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-11",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:57:30.673473+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Report layout after relocation of Third-Party Delivery Detail Section",
+            "approach": "Error guessing",
+            "risk_focus": "Data misalignment or incorrect summary figures",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Rewards section in relation to the new position of Third-Party Delivery Detail Section",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent display of rewards information",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Tender Media, Group Sales, Discounts, and Service Charges sections after layout change",
+            "approach": "Exploratory testing with a focus on usability",
+            "risk_focus": "Negative impact on user experience due to layout changes",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Order Type section with summary-level delivery sales",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Incorrect or missing summary data after layout change",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Printing functionality of the Property Financial Report with new layout",
+            "approach": "Ad-hoc testing",
+            "risk_focus": "Printing errors or layout issues on different devices or browsers",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-12",
+      "original_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-12",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:57:43.388578+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Zone configuration inheritance",
+            "approach": "Error guessing",
+            "risk_focus": "Incorrect configuration inheritance",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Menu and page design assignment",
+            "approach": "State transition testing",
+            "risk_focus": "Incorrect page design assignment for properties",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Hierarchy management",
+            "approach": "Exploratory tour",
+            "risk_focus": "Inconsistent hierarchy structure",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS configuration compatibility",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Configuration compatibility issues",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Zone addition impact on existing locations",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Unintended impact on existing non-traditional locations",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-13",
+      "original_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-13",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:57:59.054604+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Digital ordering application on iOS 18.5 with Gen 10 tablet",
+            "approach": "Error guessing",
+            "risk_focus": "Compatibility issues with current production environment",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Multi-device ordering workflow",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent order processing across different devices and OS versions",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "New version features on iOS 26.1 with Gen 11 tablet",
+            "approach": "Exploratory testing with a focus on heuristics",
+            "risk_focus": "Unexpected behavior changes introduced in the new version",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Payment processing on different OS versions",
+            "approach": "Domain testing",
+            "risk_focus": "Payment processing errors or inconsistencies across iOS versions",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "App performance under various network conditions",
+            "approach": "Scalability testing",
+            "risk_focus": "Performance degradation or app crashes under low network connectivity",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-14",
+      "original_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-14",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:58:09.525566+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS terminal display",
+            "approach": "Error guessing",
+            "risk_focus": "Incorrect messaging after gift card transaction cancellation",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Configuration files",
+            "approach": "State transition testing",
+            "risk_focus": "Mismatched configuration causing incorrect terminal display",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Gift card processing with cloud processing disabled",
+            "approach": "Exploratory testing with boundary value analysis",
+            "risk_focus": "Edge cases in gift card transaction cancellation",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Override settings",
+            "approach": "Pairwise testing",
+            "risk_focus": "Incorrect override settings causing UI messaging issues",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Backend cloud processing disable functionality",
+            "approach": "User journey testing",
+            "risk_focus": "Cloud processing disable functionality impacting gift card transaction cancellation messaging",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-15",
+      "original_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-15",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:58:18.695394+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Serialized coupon redemption",
+            "approach": "Error guessing",
+            "risk_focus": "Interference with existing coupon functionality",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS system integration",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent coupon application across different payment methods",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Content management system configuration",
+            "approach": "Domain testing",
+            "risk_focus": "Invalid or overlapping BIN range configurations",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Coupon and discount processing",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "User-specific issues with coupon application and redemption",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Edge cases and boundary values",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Errors occurring at the boundaries of valid BIN range values",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-16",
+      "original_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-16",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:58:28.872537+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Script execution on POS terminals with varying Windows Defender configurations",
+            "approach": "Error guessing",
+            "risk_focus": "Incompatibility issues leading to system crashes or failures",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Remote management tool functionality after exclusion",
+            "approach": "State transition testing",
+            "risk_focus": "Unintended changes in remote support session behavior",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "POS terminal performance under load with the new exclusion",
+            "approach": "Scalability testing",
+            "risk_focus": "Performance degradation or increased resource utilization",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Windows Defender alerts and notifications post-exclusion",
+            "approach": "Exploratory testing with a focus on heuristics",
+            "risk_focus": "False positives or unexpected security warnings",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Reversibility and rollback of the antivirus exclusion script",
+            "approach": "Reverse testing",
+            "risk_focus": "Irreversible system changes or difficulties in restoring original settings",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-17",
+      "original_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-17",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:58:39.575066+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Notification scheduling",
+            "approach": "Error guessing",
+            "risk_focus": "Invalid or inconsistent notification scheduling",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Notification display on POS workstation screens",
+            "approach": "State transition testing",
+            "risk_focus": "Notifications not displaying correctly or at the wrong time",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Employee clock-in workflow integration",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Notifications not triggering correctly when crew members clock in",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Notification management",
+            "approach": "Domain testing",
+            "risk_focus": "Unauthorized access or modification of notifications",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "POS workstation performance with notifications enabled",
+            "approach": "Load testing",
+            "risk_focus": "Performance degradation or crashes when notifications are enabled",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-18",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-18",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:58:48.860491+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Payment processing and online ordering",
+            "approach": "Error guessing",
+            "risk_focus": "Transaction failures and order processing errors",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "DNS resolution and network connectivity",
+            "approach": "State transition testing",
+            "risk_focus": "Network outages and DNS resolution failures",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Loyalty and gift card processing",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Inaccurate loyalty point tracking and gift card balance issues",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Reporting and analytics",
+            "approach": "Data-driven testing",
+            "risk_focus": "Inaccurate or incomplete reporting data",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Employee management and creation workflows",
+            "approach": "User journey testing",
+            "risk_focus": "Employee data inconsistencies and workflow interruptions",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-19",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-19",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:58:58.534885+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Beverage size selection buttons",
+            "approach": "Error guessing",
+            "risk_focus": "Incorrect price modification and description updates on the order ticket",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Main product panel layout",
+            "approach": "State transition testing",
+            "risk_focus": "Inconsistent or missing items after navigating through different user flows",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Bakery and Beverage item accessibility",
+            "approach": "Exploratory tour",
+            "risk_focus": "Orphaned items or inaccessible menu options after tab removal",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS hardware compatibility",
+            "approach": "Compatibility testing",
+            "risk_focus": "Layout rendering issues on different screen resolutions and hardware form factors",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Order transmission to kitchen display and receipt printer",
+            "approach": "Follow-the-data",
+            "risk_focus": "Incorrect or incomplete order data transmission, affecting kitchen operations and customer receipts",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-20",
+      "original_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-20",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:59:09.718453+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS workstation's ability to resolve the FQDN to the new endpoint after host file update",
+            "approach": "Error guessing",
+            "risk_focus": "Posting delays or order storage failures due to incorrect endpoint resolution",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction posting to the reporting and analytics system",
+            "approach": "State transition testing",
+            "risk_focus": "Delays or failures in transaction posting after endpoint change",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Labour management functionality after endpoint change",
+            "approach": "Exploratory testing with personas",
+            "risk_focus": "Disruptions to labour management actions, such as clock-in or job code changes",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS application logs for error messages or timeout warnings related to the FQDN or endpoint",
+            "approach": "Log analysis and monitoring",
+            "risk_focus": "Undetected errors or issues causing system instability or data corruption",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Recovery and fallback behavior after removing the host file override",
+            "approach": "Fault injection and failure testing",
+            "risk_focus": "Failure to reconnect to the original endpoint or persistent issues after host file override removal",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-21",
+      "original_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-21",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:59:21.175341+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Printer routing for in-store orders",
+            "approach": "State transition testing",
+            "risk_focus": "Incorrect printer routing for in-store orders",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Error handling for offline or jammed printers",
+            "approach": "Error guessing",
+            "risk_focus": "Silent failure or incorrect error messages for printer issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Concurrent order scenarios",
+            "approach": "Exploratory testing with simultaneous user interactions",
+            "risk_focus": "Cross-routing or dropped print jobs during concurrent orders",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "COM5 printer connectivity with RJ45-to-RJ12 adapter",
+            "approach": "Soak testing",
+            "risk_focus": "Intermittent connectivity or latency issues with COM5 printer",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "POS configuration retention after restart or software update",
+            "approach": "Recovery testing",
+            "risk_focus": "Loss of printer configurations or incorrect routing after POS restart or update",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-22",
+      "original_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-22",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:59:32.739201+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Offline Transaction Retry Behaviour",
+            "approach": "Error Guessing",
+            "risk_focus": "Unintended retry loops with expired or invalid loyalty accounts",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Loyalty Transaction Queueing",
+            "approach": "State Transition Testing",
+            "risk_focus": "Failure to queue transactions when the POS is offline",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Performance Under Sustained Load",
+            "approach": "Load Testing",
+            "risk_focus": "Performance degradation or crashes during prolonged transaction sessions",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Compatibility with Loyalty Provider Transaction Types",
+            "approach": "Equivalence Partitioning",
+            "risk_focus": "Incompatibility issues with certain transaction types (e.g., standard earn, redemption, comped transaction)",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Logging and Retry Attempt Visibility",
+            "approach": "Exploratory Logging Analysis",
+            "risk_focus": "Inaccurate or misleading log entries for offline transactions and retry attempts",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-23",
+      "original_id": "SPEC-23",
+      "domain": "Healthcare",
+      "etcg_output": {
+        "spec_id": "SPEC-23",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:59:44.134617+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Lab Results Viewing",
+            "approach": "Error Guessing",
+            "risk_focus": "Data inconsistencies and incorrect result displays",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Secure Provider Messaging",
+            "approach": "State Transition Testing",
+            "risk_focus": "Message delivery failures and incorrect result attachments",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "FHIR Integration and Data Syncing",
+            "approach": "Exploratory Testing with Scenarios",
+            "risk_focus": "Partial or failed data syncing and its impact on patient visibility",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Result Release Delay and Provider Overrides",
+            "approach": "Boundary Value Analysis",
+            "risk_focus": "Incorrect or delayed result releases due to override or configuration issues",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Critical Result Notifications and Visual Alerts",
+            "approach": "User Flow Testing with Variations",
+            "risk_focus": "Failure to trigger or display critical result notifications and alerts",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-24",
+      "original_id": "SPEC-24",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-24",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:59:53.967566+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Real-time shipment tracking with GPS updates",
+            "approach": "Error guessing",
+            "risk_focus": "Inaccurate or delayed location updates",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Automated exception alerting",
+            "approach": "State transition testing",
+            "risk_focus": "Failed or delayed notifications to shippers and consignees",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Multi-carrier shipment integration",
+            "approach": "Exploratory testing with scenarios",
+            "risk_focus": "Inconsistent or missing timeline events",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Proof of delivery processing",
+            "approach": "Domain testing",
+            "risk_focus": "Delayed or missing proof of delivery updates",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Edge cases with lost GPS signal or out-of-order events",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Incorrect handling of edge cases, such as stale-location indicators or event reordering",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-25",
+      "original_id": "SPEC-25",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-25",
+        "model_used": "meta-llama/llama-3.3-70b-instruct",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T12:00:04.006536+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Receiving workflow with barcode scanning",
+            "approach": "Error guessing",
+            "risk_focus": "Data inconsistencies due to incorrect barcode scans or over/short-receipts",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Cycle count module with variance calculation",
+            "approach": "State transition testing",
+            "risk_focus": "Incorrect count-hold states or unresolved discrepancies",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Inventory adjustments and audit trail logging",
+            "approach": "Exploratory testing with a focus on data analysis",
+            "risk_focus": "Inaccurate or incomplete audit trails",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Handheld device connectivity and local storage",
+            "approach": "Testing with simulated network failures",
+            "risk_focus": "Data loss or duplication due to connectivity issues",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Unit of measure conversions in cycle counting",
+            "approach": "Equivalence partitioning",
+            "risk_focus": "Inaccurate counts or conversions due to unit of measure discrepancies",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    }
+  ]
+}

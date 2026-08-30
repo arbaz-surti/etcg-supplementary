@@ -1,0 +1,4111 @@
+{
+  "run_metadata": {
+    "scorer_model": "openai/gpt-4o",
+    "scorer_temperature": 0.0,
+    "timestamp": "2026-03-24T10:53:15.398510Z",
+    "total_charters_scored": 250,
+    "errors": 0
+  },
+  "summary": {
+    "etcg": {
+      "n": 125,
+      "overall_mean_pct": 95.47,
+      "overall_stdev_pct": 9.79,
+      "dimensions": {
+        "specificity": {
+          "mean": 2.82,
+          "stdev": 0.39
+        },
+        "testability": {
+          "mean": 2.89,
+          "stdev": 0.32
+        },
+        "risk_coverage": {
+          "mean": 2.86,
+          "stdev": 0.34
+        },
+        "clarity": {
+          "mean": 2.93,
+          "stdev": 0.26
+        },
+        "actionability": {
+          "mean": 2.82,
+          "stdev": 0.38
+        }
+      }
+    },
+    "baseline": {
+      "n": 125,
+      "overall_mean_pct": 92.58,
+      "overall_stdev_pct": 14.51,
+      "dimensions": {
+        "specificity": {
+          "mean": 2.7,
+          "stdev": 0.52
+        },
+        "testability": {
+          "mean": 2.81,
+          "stdev": 0.47
+        },
+        "risk_coverage": {
+          "mean": 2.74,
+          "stdev": 0.51
+        },
+        "clarity": {
+          "mean": 2.94,
+          "stdev": 0.35
+        },
+        "actionability": {
+          "mean": 2.7,
+          "stdev": 0.52
+        }
+      }
+    },
+    "by_spec_richness": {
+      "sparse_specs": {
+        "spec_ids": "SPEC-01 through SPEC-18",
+        "description": "0\u20133 acceptance criteria, description-only, no user flows",
+        "n_specs": 18,
+        "etcg": {
+          "n_charters": 90,
+          "mean_pct": 93.78,
+          "stdev_pct": 11.07,
+          "dimensions": {
+            "specificity": 2.74,
+            "testability": 2.84,
+            "risk_coverage": 2.82,
+            "clarity": 2.9,
+            "actionability": 2.76
+          }
+        },
+        "baseline": {
+          "n_charters": 90,
+          "mean_pct": 91.55
+        }
+      },
+      "structured_specs": {
+        "spec_ids": "SPEC-19 through SPEC-25",
+        "description": "6\u20138 acceptance criteria, user roles, user flows, edge cases",
+        "n_specs": 7,
+        "etcg": {
+          "n_charters": 35,
+          "mean_pct": 99.81,
+          "stdev_pct": 1.13,
+          "dimensions": {
+            "specificity": 3.0,
+            "testability": 3.0,
+            "risk_coverage": 2.97,
+            "clarity": 3.0,
+            "actionability": 3.0
+          }
+        },
+        "baseline": {
+          "n_charters": 35,
+          "mean_pct": 95.24
+        }
+      }
+    }
+  },
+  "scores": [
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise details on specific risks or methods, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, and is actionable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, actionable, and clear, targeting a precise feature component with a well-defined risk and approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers a significant risk of data integrity, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific area (content management system) and risk (integration of new BIN ranges affecting coupon records), but the approach is somewhat general and requires minor interpretation for execution."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precision in scope and risk, though it is clear and directly executable."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific risk related to DNS issues but lacks a precise approach and clear start state, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise risk focus and requires some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, targeting a precise risk with a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is precise with a clear target, approach, and risk, is directly executable, covers a meaningful risk, is clear and unambiguous, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific dashboard functionalities with clear risks and a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, testable, and clear, with a distinct approach targeting a meaningful risk of performance degradation on new hardware."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area and risk but lacks detail in approach and requires some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, actionable, and clearly targets a significant risk with a well-defined approach and goal."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and risk but lacks precise scope and approach details, requiring minor interpretation for execution."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies specific areas like reporting and database operations but lacks a precise approach; it is mostly clear but requires some interpretation to execute."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, actionable, and clearly targets a high-impact risk with a defined approach and scope."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise details on the specific markup change and its risks, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers significant risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise scope and risk; it is mostly clear but requires some interpretation and provides a general direction for testing."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a distinct approach targeting a meaningful risk of inconsistent behavior across environments."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, and is actionable with a high-impact focus."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific features with a clear approach and risk, and is directly executable with a meaningful exploratory direction."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on the UI for scheduling, but the risk and approach are somewhat generic, lacking specific details on what aspects of usability will be tested."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined with a specific feature, clear approach, and meaningful risk, making it actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific and clear, targeting a precise feature with a named approach, but the risk focus is somewhat generic and low-priority."
+      },
+      "total_score": 14,
+      "percentage": 93.3
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific error handling and edge cases with a clear approach and significant risk focus, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific network area with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and covers meaningful risks with a clear and actionable approach for stress and load testing."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a well-defined approach and risk focus, making it highly actionable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a well-defined approach and risk focus, making it highly actionable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on specific labour management functions, but the approach is somewhat generic and lacks a distinct exploratory method."
+      },
+      "total_score": 13,
+      "percentage": 86.7
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a significant risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, targeting a meaningful risk with a distinct exploratory approach using personas."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific sections with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific features and risks with a clear approach, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area and approach but lacks detail on the risk, making it somewhat generic."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area but lacks a precise approach, is directly executable, addresses a generic risk, is clearly written, and suggests a general direction for testing."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature and risk with a clear approach, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-written and actionable, targeting specific aspects of network accessibility and security, though the feature area could be more precisely defined."
+      },
+      "total_score": 14,
+      "percentage": 93.3
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 1,
+        "testability": 1,
+        "risk_coverage": 1,
+        "clarity": 1,
+        "actionability": 1,
+        "rationale": "The charter is vague, lacks specificity, is not actionable, and does not articulate any risk or approach."
+      },
+      "total_score": 5,
+      "percentage": 33.3
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific loyalty transaction components with a clear approach and risk, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area but lacks a precise approach and risk, requires minor interpretation, addresses a generic risk, is clearly written, and suggests a general direction for testing."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, is directly executable, and provides a meaningful exploratory direction."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a well-defined risk focus and a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is precise, actionable, and targets a specific risk with a clear approach and goal, making it highly effective for exploratory testing."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful security risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risk, is clear, and provides a distinct exploratory approach by focusing on cross-version compatibility testing."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific components with a clear approach and risk, and is directly executable with a meaningful exploratory direction."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area and approach but lacks detail on the risk, though it is clear and directly executable."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area with some specificity but lacks a precise approach; it is mostly clear but requires minor interpretation and addresses generic risks."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area and risk but lacks detailed scope and approach, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific UI component with a clear heuristic evaluation approach and a meaningful risk related to markup percentage display."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a significant risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area but lacks a precise approach or risk, is directly executable, addresses a generic risk, is clearly written, and suggests a general direction for testing."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 1,
+        "testability": 1,
+        "risk_coverage": 1,
+        "clarity": 1,
+        "actionability": 1,
+        "rationale": "The charter is vague, lacks a specific feature focus, is not directly actionable, does not articulate a clear risk, is poorly written, and provides no useful direction for testing."
+      },
+      "total_score": 5,
+      "percentage": 33.3
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a well-defined approach and risk focus on cross-device and cross-OS inconsistencies using pairwise testing."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is clear and actionable with a specific approach and risk focus, but the feature area is somewhat general."
+      },
+      "total_score": 14,
+      "percentage": 93.3
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific compatibility risks with a clear approach and actionable steps, making it highly testable and impactful."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, actionable, and clear, targeting a precise feature with a well-defined approach and meaningful risk coverage."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precision and clarity in defining the risk and execution details."
+      },
+      "total_score": 10,
+      "percentage": 66.7
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific system stability and configuration persistence risks with a clear approach and actionable tasks."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable but lacks specificity in approach and targets a somewhat generic risk."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area with some specificity but lacks a precise approach; it is mostly clear but requires minor interpretation and addresses generic risks."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise scope and risk details, requiring minor interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is precise, actionable, and targets a specific risk with clear instructions and objectives."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area with some specificity but lacks a precise approach; it is mostly clear but requires minor interpretation and addresses a generic risk."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers significant risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise scope and risk details, requiring minor interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on compatibility and performance, but lacks a specific risk focus and a distinct exploratory approach."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful usability risks, is clearly written, and provides a distinct approach for exploratory testing."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers a significant risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific integration feature with a clear approach and risk, and is actionable with a distinct exploratory method."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is precise, actionable, and covers meaningful risks with clear objectives and a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clearly targets a meaningful risk with a distinct approach, making it highly actionable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on the transaction flow, but it lacks specificity in the approach and risk coverage is somewhat generic."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on basic functionality, but it lacks specificity in approach and targets generic risks."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable but lacks specificity in the feature component and targets a low-priority risk with a generic approach."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on usability and scheduling conflicts, but the approach is somewhat generic without specific techniques outlined."
+      },
+      "total_score": 13,
+      "percentage": 86.7
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific and clear, with a direct approach and goal, but addresses a relatively low-impact risk."
+      },
+      "total_score": 14,
+      "percentage": 93.3
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precision in scope and risk, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a distinct approach targeting a meaningful risk of performance degradation under load."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers a significant risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 1,
+        "testability": 1,
+        "risk_coverage": 1,
+        "clarity": 1,
+        "actionability": 1,
+        "rationale": "The charter is vague and lacks detail on the feature, approach, risk, and testing method, making it unclear and not actionable."
+      },
+      "total_score": 5,
+      "percentage": 33.3
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a well-defined approach and meaningful risk focus."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, actionable, and targets specific risks related to delivery updates and user experience across devices."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, is directly executable, and provides a meaningful exploratory direction."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and risk but lacks specificity in approach and requires interpretation for execution."
+      },
+      "total_score": 10,
+      "percentage": 66.7
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precision and clarity in defining the risk and execution details."
+      },
+      "total_score": 10,
+      "percentage": 66.7
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, clear, and actionable, but the risk focus on misalignment or formatting errors is somewhat generic and low-impact."
+      },
+      "total_score": 14,
+      "percentage": 93.3
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a distinct approach targeting a meaningful risk."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise details on the specific integration component and risk, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific aspects of the notification feature with clear scenarios and risks, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a significant risk, is clearly written, and provides a distinct approach for testing system performance under load."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined with a specific feature, approach, and risk, making it clear, actionable, and directly testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers significant risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific deployment and rollback procedures with clear objectives and resources, addressing significant risks with a structured approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, with a distinct approach targeting a meaningful risk."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific risk of misleading price information but lacks detail in approach and clarity, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable but lacks specificity in the approach and risk coverage, focusing on a generic risk of inconsistency."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, testable, and clear, targeting a meaningful risk with a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-07",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precise scope and risk, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific area and risk but lacks detailed approach guidance, requiring some interpretation for execution."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-24",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with defined roles and tasks, but lacks a specific risk focus and provides a somewhat generic approach to usability testing."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is specific, testable, and covers meaningful risks with clear language, but the exploratory approach could be more distinct."
+      },
+      "total_score": 14,
+      "percentage": 93.3
+    },
+    {
+      "spec_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on compatibility and performance, but it lacks specificity in terms of the tools and systems involved and addresses a somewhat generic risk."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, actionable, and targets specific risks related to notification customization with clear scenarios and objectives."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and related components but lacks a precise approach or specific risk, requiring some interpretation for execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific user roles and permissions with a clear approach and risk focus, making it highly actionable and testable."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-01",
+      "scores": {
+        "specificity": 1,
+        "testability": 1,
+        "risk_coverage": 1,
+        "clarity": 1,
+        "actionability": 1,
+        "rationale": "The charter is vague, lacks a specific feature focus, is not directly testable, does not articulate a clear risk, is poorly written, and provides no actionable testing approach."
+      },
+      "total_score": 5,
+      "percentage": 33.3
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-23",
+      "domain": "Healthcare",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers significant risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, is directly executable, and provides a meaningful exploratory direction."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area but lacks precise scope and approach details, is mostly clear and actionable, and targets a meaningful risk with real user impact."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting specific components of the data pipeline with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers significant risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and suggests a direction but lacks precise scope and approach, requiring some interpretation before execution."
+      },
+      "total_score": 11,
+      "percentage": 73.3
+    },
+    {
+      "spec_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precision in scope and risk, requiring some interpretation for execution."
+      },
+      "total_score": 10,
+      "percentage": 66.7
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is precise, actionable, and targets a specific risk with a clear approach, making it highly effective for exploratory testing."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, and clear, targeting a precise feature with a meaningful risk and a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific feature area and approach but lacks detail on the risk, making it somewhat generic."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers significant risks related to network stability, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-25",
+      "domain": "Logistics",
+      "condition": "baseline",
+      "charter_id": "BL-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, covers meaningful risks, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on multi-device consistency, but it lacks specificity in approach and targets a somewhat generic risk."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is highly specific, testable, and clear, with a distinct approach and meaningful risk focus."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and approach but lacks precision in risk, is directly executable, and provides a general direction for testing."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-03",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 2,
+        "actionability": 2,
+        "rationale": "The charter identifies a specific device and OS but lacks detail on the app functionality; it requires interpretation for execution, addresses a generic risk, and provides a broad approach."
+      },
+      "total_score": 10,
+      "percentage": 66.7
+    },
+    {
+      "spec_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-01",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and targets a meaningful risk but lacks specific details on the approach and requires some interpretation for execution."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    },
+    {
+      "spec_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-02",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is well-defined, targeting a specific feature with a clear approach and risk, making it actionable and testable without further clarification."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "condition": "etcg",
+      "charter_id": "ET-04",
+      "scores": {
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+      },
+      "total_score": 15,
+      "percentage": 100.0
+    },
+    {
+      "spec_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-04",
+      "scores": {
+        "specificity": 2,
+        "testability": 3,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "The charter is clear and testable with a focus on environment-specific issues, but it lacks specificity in the approach and targets a somewhat generic risk."
+      },
+      "total_score": 12,
+      "percentage": 80.0
+    }
+  ]
+}

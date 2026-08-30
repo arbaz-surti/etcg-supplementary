@@ -25,3 +25,9 @@ build/
 
 # Generated figures (reproducible from scripts)
 figures/
+
+# Mid-session working snapshots — never part of the archived package.
+# The one exception is a required analysis input (the pre-repair scoring file
+# that the Threats provenance numbers are recomputed from).
+*.pre-*-backup
+!data/etcg-scores.json.pre-splitfix-backup

@@ -1,0 +1,1409 @@
+{
+  "run_metadata": {
+    "purpose": "multi-model generation (revision task 2.3)",
+    "condition": "etcg",
+    "generator_slug": "sonnet",
+    "model": "anthropic/claude-sonnet-4.5",
+    "label": "Claude Sonnet 4.5 (Anthropic)",
+    "temperature": 0.2,
+    "max_tokens": 1500,
+    "reasoning": null,
+    "prompt_source": "identical to the primary run's condition prompt",
+    "timestamp": "2026-08-29T11:56:57+00:00",
+    "spec_count": 25,
+    "success_count": 25,
+    "complete": true
+  },
+  "results": [
+    {
+      "spec_id": "SPEC-01",
+      "original_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-01",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:52:46.780572+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS to online ordering platform menu sync mechanism",
+            "approach": "time-based observation and state transition testing",
+            "risk_focus": "sync delays, failures, or incomplete propagation of out-of-stock status across platforms",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Online ordering portal cart and checkout flow",
+            "approach": "negative path testing with out-of-stock items",
+            "risk_focus": "poor user experience from late error detection and inconsistent availability messaging",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Out-of-stock status restoration workflow",
+            "approach": "bidirectional state change testing",
+            "risk_focus": "items failing to become available again after stock status is restored on POS",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Multi-platform consistency across web and mobile ordering apps",
+            "approach": "cross-platform comparative testing",
+            "risk_focus": "discrepancies in item availability display between web and mobile interfaces",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Concurrent operations during menu sync process",
+            "approach": "race condition and timing attack testing",
+            "risk_focus": "data corruption or sync conflicts when multiple items are marked out-of-stock simultaneously or during active sync",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"POS to online ordering platform menu sync mechanism\",\n      \"approach\": \"time-based observation and state transition testing\",\n      \"risk_focus\": \"sync delays, failures, or incomplete propagation of out-of-stock status across platforms\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Online ordering portal cart and checkout flow\",\n      \"approach\": \"negative path testing with out-of-stock items\",\n      \"risk_focus\": \"poor user experience from late error detection and inconsistent availability messaging\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Out-of-stock status restoration workflow\",\n      \"approach\": \"bidirectional state change testing\",\n      \"risk_focus\": \"items failing to become available again after stock status is restored on POS\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Multi-platform consistency across web and mobile ordering apps\",\n      \"approach\": \"cross-platform comparative testing\",\n      \"risk_focus\": \"discrepancies in item availability display between web and mobile interfaces\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Concurrent operations during menu sync process\",\n      \"approach\": \"race condition and timing attack testing\",\n      \"risk_focus\": \"data corruption or sync conflicts when multiple items are marked out-of-stock simultaneously or during active sync\",\n      \"priority\": \"Low\",\n      \"estimated_duration\": \"60 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-02",
+      "original_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-02",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:52:57.448186+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Network reconnection handling after mid-transaction cable disconnection across all 6 device/POS combinations",
+            "approach": "Scenario-based testing with deliberate network interruption at various transaction stages",
+            "risk_focus": "Firmware failure to re-establish connection after cable reconnection, resulting in persistent transaction failures",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction state management and error recovery mechanisms post-firmware update",
+            "approach": "State transition testing with focus on error states and recovery paths",
+            "risk_focus": "Data corruption, incomplete transactions, or inconsistent system state when connection is lost and restored",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Firmware compatibility and behavioral differences across terminal models A, B, and C with both POS versions",
+            "approach": "Comparative testing across device configurations using identical test scenarios",
+            "risk_focus": "Configuration-specific failures or inconsistent reconnection behavior between different hardware/software combinations",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Normal payment processing workflows and non-reconnection scenarios post-firmware deployment",
+            "approach": "Regression testing through typical user transaction flows without network disruption",
+            "risk_focus": "Unintended side effects or performance degradation in standard payment operations introduced by the firmware patch",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Edge cases in network connectivity patterns and timing variations during reconnection",
+            "approach": "Boundary value analysis with varied disconnection durations, multiple reconnection attempts, and rapid connect/disconnect cycles",
+            "risk_focus": "Timeout handling failures, race conditions, or memory leaks under unusual network instability patterns",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Network reconnection handling after mid-transaction cable disconnection across all 6 device/POS combinations\",\n      \"approach\": \"Scenario-based testing with deliberate network interruption at various transaction stages\",\n      \"risk_focus\": \"Firmware failure to re-establish connection after cable reconnection, resulting in persistent transaction failures\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Transaction state management and error recovery mechanisms post-firmware update\",\n      \"approach\": \"State transition testing with focus on error states and recovery paths\",\n      \"risk_focus\": \"Data corruption, incomplete transactions, or inconsistent system state when connection is lost and restored\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Firmware compatibility and behavioral differences across terminal models A, B, and C with both POS versions\",\n      \"approach\": \"Comparative testing across device configurations using identical test scenarios\",\n      \"risk_focus\": \"Configuration-specific failures or inconsistent reconnection behavior between different hardware/software combinations\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Normal payment processing workflows and non-reconnection scenarios post-firmware deployment\",\n      \"approach\": \"Regression testing through typical user transaction flows without network disruption\",\n      \"risk_focus\": \"Unintended side effects or performance degradation in standard payment operations introduced by the firmware patch\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Edge cases in network connectivity patterns and timing variations during reconnection\",\n      \"approach\": \"Boundary value analysis with varied disconnection durations, multiple reconnection attempts, and rapid connect/disconnect cycles\",\n      \"risk_focus\": \"Timeout handling failures, race conditions, or memory leaks under unusual network instability patterns\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-03",
+      "original_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-03",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:53:07.544724+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS/line-busting network with line-busting tablets connecting to new Wi-Fi 7 access points",
+            "approach": "session-based testing with real transaction scenarios and network handoff simulation",
+            "risk_focus": "transaction failures, payment processing interruptions, or data loss during critical point-of-sale operations",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Backward compatibility between Wi-Fi 7 access points and existing Wi-Fi 6 client devices across all network types",
+            "approach": "compatibility matrix testing with mixed hardware generations",
+            "risk_focus": "connection failures, degraded performance, or authentication issues when legacy devices connect to new access points",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Network handoff and roaming behavior between multiple Wi-Fi 7 access points during active sessions",
+            "approach": "mobility testing with continuous connectivity monitoring while moving between coverage zones",
+            "risk_focus": "dropped connections, session interruptions, or latency spikes affecting staff workflows and customer service",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Guest network isolation and security boundaries on Wi-Fi 7 hardware",
+            "approach": "boundary value analysis and negative testing with unauthorized access attempts",
+            "risk_focus": "network segmentation breaches, unauthorized access to internal networks, or data exposure vulnerabilities",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Network performance under peak load conditions across staff, brand-approved, and POS networks simultaneously",
+            "approach": "stress testing with concurrent multi-device connections and high-bandwidth operations",
+            "risk_focus": "bandwidth contention, quality of service degradation, or network instability affecting business operations during peak hours",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"POS/line-busting network with line-busting tablets connecting to new Wi-Fi 7 access points\",\n      \"approach\": \"session-based testing with real transaction scenarios and network handoff simulation\",\n      \"risk_focus\": \"transaction failures, payment processing interruptions, or data loss during critical point-of-sale operations\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Backward compatibility between Wi-Fi 7 access points and existing Wi-Fi 6 client devices across all network types\",\n      \"approach\": \"compatibility matrix testing with mixed hardware generations\",\n      \"risk_focus\": \"connection failures, degraded performance, or authentication issues when legacy devices connect to new access points\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Network handoff and roaming behavior between multiple Wi-Fi 7 access points during active sessions\",\n      \"approach\": \"mobility testing with continuous connectivity monitoring while moving between coverage zones\",\n      \"risk_focus\": \"dropped connections, session interruptions, or latency spikes affecting staff workflows and customer service\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Guest network isolation and security boundaries on Wi-Fi 7 hardware\",\n      \"approach\": \"boundary value analysis and negative testing with unauthorized access attempts\",\n      \"risk_focus\": \"network segmentation breaches, unauthorized access to internal networks, or data exposure vulnerabilities\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Network performance under peak load conditions across staff, brand-approved, and POS networks simultaneously\",\n      \"approach\": \"stress testing with concurrent multi-device connections and high-bandwidth operations\",\n      \"risk_focus\": \"bandwidth contention, quality of service degradation, or network instability affecting business operations during peak hours\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"60 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-04",
+      "original_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-04",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:53:17.147570+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Catering voucher tender key transaction processing and payment flow",
+            "approach": "End-to-end transaction workflow testing with various order scenarios",
+            "risk_focus": "Payment processing failures, incorrect tender behavior, or data inconsistencies during catering voucher transactions",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Financial reporting across Property Financial, Employee Financial, and Revenue Center Financial reports",
+            "approach": "Data integrity verification through cross-report reconciliation",
+            "risk_focus": "Incorrect financial data aggregation, missing catering voucher transactions, or misclassified tender amounts in financial reports",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Analytics reports including system sales, tender media, POS category, tax, and 24h sales summary",
+            "approach": "Boundary value analysis and edge case testing with multiple transaction types",
+            "risk_focus": "Calculation errors, rounding issues, tax misapplication, or incorrect tender media categorization in analytics",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Third-party data pipeline and business intelligence platform integration",
+            "approach": "Data flow tracing and format validation across system boundaries",
+            "risk_focus": "Data loss, transformation errors, timing issues, or format incompatibilities in external data transmission",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Existing POS functionality and in-store catering order type behavior",
+            "approach": "Regression testing through negative testing and interference scenarios",
+            "risk_focus": "Unintended side effects on existing tender types, order processing disruptions, or behavioral changes to legacy catering workflows",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Catering voucher tender key transaction processing and payment flow\",\n      \"approach\": \"End-to-end transaction workflow testing with various order scenarios\",\n      \"risk_focus\": \"Payment processing failures, incorrect tender behavior, or data inconsistencies during catering voucher transactions\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Financial reporting across Property Financial, Employee Financial, and Revenue Center Financial reports\",\n      \"approach\": \"Data integrity verification through cross-report reconciliation\",\n      \"risk_focus\": \"Incorrect financial data aggregation, missing catering voucher transactions, or misclassified tender amounts in financial reports\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Analytics reports including system sales, tender media, POS category, tax, and 24h sales summary\",\n      \"approach\": \"Boundary value analysis and edge case testing with multiple transaction types\",\n      \"risk_focus\": \"Calculation errors, rounding issues, tax misapplication, or incorrect tender media categorization in analytics\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Third-party data pipeline and business intelligence platform integration\",\n      \"approach\": \"Data flow tracing and format validation across system boundaries\",\n      \"risk_focus\": \"Data loss, transformation errors, timing issues, or format incompatibilities in external data transmission\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Existing POS functionality and in-store catering order type behavior\",\n      \"approach\": \"Regression testing through negative testing and interference scenarios\",\n      \"risk_focus\": \"Unintended side effects on existing tender types, order processing disruptions, or behavioral changes to legacy catering workflows\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"60 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-05",
+      "original_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-05",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:53:27.418736+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Pricing engine calculation for extra-large size with modifiers",
+            "approach": "Boundary value analysis with various modifier combinations (0, 1, 6, 7+ modifiers)",
+            "risk_focus": "Incorrect price calculations, threshold pricing failures, or modifier count validation errors",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS ordering workflow for extra-large beverages across all eligible drink types",
+            "approach": "End-to-end transaction testing with different beverage categories and payment methods",
+            "risk_focus": "Order processing failures, incorrect size selection persistence, or transaction completion errors",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Menu configuration display and size tier hierarchy",
+            "approach": "Visual inspection and comparative testing across different device types and screen resolutions",
+            "risk_focus": "UI rendering issues, missing size options, incorrect size ordering, or inconsistent display across platforms",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Seasonal hero build variants with extra-large size option",
+            "approach": "Scenario-based testing with edge cases including seasonal item transitions and availability rules",
+            "risk_focus": "Configuration conflicts between standard and seasonal variants, incorrect pricing inheritance, or availability logic failures",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Modifier availability and compatibility with extra-large size",
+            "approach": "Combinatorial testing of all available modifiers with focus on restricted or conditional modifications",
+            "risk_focus": "Modifier restrictions not applying correctly, unavailable modifiers appearing, or modifier pricing errors specific to extra-large size",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Pricing engine calculation for extra-large size with modifiers\",\n      \"approach\": \"Boundary value analysis with various modifier combinations (0, 1, 6, 7+ modifiers)\",\n      \"risk_focus\": \"Incorrect price calculations, threshold pricing failures, or modifier count validation errors\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"POS ordering workflow for extra-large beverages across all eligible drink types\",\n      \"approach\": \"End-to-end transaction testing with different beverage categories and payment methods\",\n      \"risk_focus\": \"Order processing failures, incorrect size selection persistence, or transaction completion errors\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Menu configuration display and size tier hierarchy\",\n      \"approach\": \"Visual inspection and comparative testing across different device types and screen resolutions\",\n      \"risk_focus\": \"UI rendering issues, missing size options, incorrect size ordering, or inconsistent display across platforms\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Seasonal hero build variants with extra-large size option\",\n      \"approach\": \"Scenario-based testing with edge cases including seasonal item transitions and availability rules\",\n      \"risk_focus\": \"Configuration conflicts between standard and seasonal variants, incorrect pricing inheritance, or availability logic failures\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Modifier availability and compatibility with extra-large size\",\n      \"approach\": \"Combinatorial testing of all available modifiers with focus on restricted or conditional modifications\",\n      \"risk_focus\": \"Modifier restrictions not applying correctly, unavailable modifiers appearing, or modifier pricing errors specific to extra-large size\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-06",
+      "original_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-06",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:53:37.924777+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Time window configuration logic with separated date and time fields",
+            "approach": "boundary value analysis and time-based scenario testing",
+            "risk_focus": "incorrect recurring schedule execution, off-by-one errors, or timezone handling issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Migration behavior from legacy combined datetime to new separated date/time model",
+            "approach": "upgrade path testing and data persistence validation",
+            "risk_focus": "data loss, misinterpretation of existing schedules, or configuration corruption during version transition",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Cross-version compatibility between POS platform 18.x and 19.x",
+            "approach": "comparative testing across platform versions with identical configurations",
+            "risk_focus": "behavioral inconsistencies, platform-specific defects, or feature degradation in either version",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Daily recurrence logic and end date enforcement",
+            "approach": "state transition testing with multi-day observation and edge case scenarios",
+            "risk_focus": "schedule overrun beyond end date, skipped days, or incorrect daily trigger behavior",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "User interface for new separated date and time input fields",
+            "approach": "usability testing and input validation exploration",
+            "risk_focus": "user confusion, invalid input acceptance, or unclear error messaging leading to misconfiguration",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Time window configuration logic with separated date and time fields\",\n      \"approach\": \"boundary value analysis and time-based scenario testing\",\n      \"risk_focus\": \"incorrect recurring schedule execution, off-by-one errors, or timezone handling issues\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Migration behavior from legacy combined datetime to new separated date/time model\",\n      \"approach\": \"upgrade path testing and data persistence validation\",\n      \"risk_focus\": \"data loss, misinterpretation of existing schedules, or configuration corruption during version transition\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Cross-version compatibility between POS platform 18.x and 19.x\",\n      \"approach\": \"comparative testing across platform versions with identical configurations\",\n      \"risk_focus\": \"behavioral inconsistencies, platform-specific defects, or feature degradation in either version\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Daily recurrence logic and end date enforcement\",\n      \"approach\": \"state transition testing with multi-day observation and edge case scenarios\",\n      \"risk_focus\": \"schedule overrun beyond end date, skipped days, or incorrect daily trigger behavior\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"User interface for new separated date and time input fields\",\n      \"approach\": \"usability testing and input validation exploration\",\n      \"risk_focus\": \"user confusion, invalid input acceptance, or unclear error messaging leading to misconfiguration\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-07",
+      "original_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-07",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:53:48.581188+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Void on empty check functionality for restricted roles across both brands",
+            "approach": "Negative testing with role-based permission validation",
+            "risk_focus": "Unauthorized void operations on empty checks that could enable fraud patterns",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore void on empty check functionality for restricted roles across both brands using negative testing with role-based permission validation to discover unauthorized void operations on empty checks that could enable fraud patterns."
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Legitimate void operations (individual items, transaction returns, opening closed checks)",
+            "approach": "Scenario-based testing with valid business workflows",
+            "risk_focus": "Regression defects that block legitimate void operations and disrupt normal business processes",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore legitimate void operations (individual items, transaction returns, opening closed checks) using scenario-based testing with valid business workflows to discover regression defects that block legitimate void operations and disrupt normal business processes."
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Authorization workflow for roles that already require authorization (Crew roles)",
+            "approach": "State transition testing across authorization boundaries",
+            "risk_focus": "Inconsistent authorization behavior or unintended permission changes for previously restricted roles",
+            "priority": "Medium",
+            "estimated_duration": "45 min",
+            "description": "Explore authorization workflow for roles that already require authorization (Crew roles) using state transition testing across authorization boundaries to discover inconsistent authorization behavior or unintended permission changes for previously restricted roles."
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Food item versus beverage item order handling in void scenarios",
+            "approach": "Comparative testing between order types and edge case exploration",
+            "risk_focus": "Inconsistent void behavior or bypass vulnerabilities based on order item type",
+            "priority": "Medium",
+            "estimated_duration": "45 min",
+            "description": "Explore food item versus beverage item order handling in void scenarios using comparative testing between order types and edge case exploration to discover inconsistent void behavior or bypass vulnerabilities based on order item type."
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Cross-brand role configuration and permission inheritance",
+            "approach": "Data-driven testing across Brand A and Brand B role matrices",
+            "risk_focus": "Configuration inconsistencies or incomplete restriction deployment across brands",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore cross-brand role configuration and permission inheritance using data-driven testing across Brand A and Brand B role matrices to discover configuration inconsistencies or incomplete restriction deployment across brands."
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Void on empty check functionality for restricted roles across both brands\",\n      \"approach\": \"Negative testing with role-based permission validation\",\n      \"risk_focus\": \"Unauthorized void operations on empty checks that could enable fraud patterns\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore void on empty check functionality for restricted roles across both brands using negative testing with role-based permission validation to discover unauthorized void operations on empty checks that could enable fraud patterns.\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Legitimate void operations (individual items, transaction returns, opening closed checks)\",\n      \"approach\": \"Scenario-based testing with valid business workflows\",\n      \"risk_focus\": \"Regression defects that block legitimate void operations and disrupt normal business processes\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore legitimate void operations (individual items, transaction returns, opening closed checks) using scenario-based testing with valid business workflows to discover regression defects that block legitimate void operations and disrupt normal business processes.\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Authorization workflow for roles that already require authorization (Crew roles)\",\n      \"approach\": \"State transition testing across authorization boundaries\",\n      \"risk_focus\": \"Inconsistent authorization behavior or unintended permission changes for previously restricted roles\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\",\n      \"description\": \"Explore authorization workflow for roles that already require authorization (Crew roles) using state transition testing across authorization boundaries to discover inconsistent authorization behavior or unintended permission changes for previously restricted roles.\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Food item versus beverage item order handling in void scenarios\",\n      \"approach\": \"Comparative testing between order types and edge case exploration\",\n      \"risk_focus\": \"Inconsistent void behavior or bypass vulnerabilities based on order item type\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\",\n      \"description\": \"Explore food item versus beverage item order handling in void scenarios using comparative testing between order types and edge case exploration to discover inconsistent void behavior or bypass vulnerabilities based on order item type.\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Cross-brand role configuration and permission inheritance\",\n      \"approach\": \"Data-driven testing across Brand A and Brand B role matrices\",\n      \"risk_focus\": \"Configuration inconsistencies or incomplete restriction deployment across brands\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore cross-brand role configuration and permission inheritance using data-driven testing across Brand A and Brand B role matrices to discover configuration inconsistencies or incomplete restriction deployment across brands.\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-08",
+      "original_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-08",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:54:00.767294+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "charter": "Explore the delivery markup calculation and application logic using boundary date testing to discover retroactive vs prospective application errors and data inconsistencies across transaction timelines.",
+            "target_area": "Delivery markup calculation engine and effective date logic",
+            "approach": "Boundary date testing with transactions before, on, and after the effective date",
+            "risk_focus": "Retroactive vs prospective application errors and data inconsistencies across transaction timelines",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "charter": "Explore the platform-specific configuration isolation using comparative analysis to discover cross-platform contamination where the 26% markup incorrectly applies to other delivery platforms.",
+            "target_area": "Data Mapping settings and platform-specific configuration isolation",
+            "approach": "Comparative analysis across all delivery platforms with parallel transaction testing",
+            "risk_focus": "Cross-platform contamination where the 26% markup incorrectly applies to other delivery platforms",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "charter": "Explore the reporting and analytics outputs using data reconciliation techniques to discover calculation discrepancies, rounding errors, and mismatches between internal and third-party reporting platforms.",
+            "target_area": "Reporting outputs, analytics dashboards, and third-party data synchronization",
+            "approach": "Data reconciliation between internal reports and third-party platform reports",
+            "risk_focus": "Calculation discrepancies, rounding errors, and mismatches between internal and third-party reporting platforms",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "charter": "Explore the configuration change propagation across environments using environment parity testing to discover deployment inconsistencies, configuration drift, or timing mismatches between UAT, Pre-Production, and Production.",
+            "target_area": "Configuration deployment pipeline and environment synchronization",
+            "approach": "Environment parity testing with configuration verification across UAT, Pre-Prod, and Production",
+            "risk_focus": "Deployment inconsistencies, configuration drift, or timing mismatches between environments",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "charter": "Explore the brand-specific markup application using negative testing and edge cases to discover brand filtering failures, incorrect markup application, or data pipeline transformation errors.",
+            "target_area": "Brand-specific filtering logic and data transformation pipeline",
+            "approach": "Negative testing with edge cases including multi-brand orders and brand switching scenarios",
+            "risk_focus": "Brand filtering failures, incorrect markup application to wrong brand, or data pipeline transformation errors",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"charter\": \"Explore the delivery markup calculation and application logic using boundary date testing to discover retroactive vs prospective application errors and data inconsistencies across transaction timelines.\",\n      \"target_area\": \"Delivery markup calculation engine and effective date logic\",\n      \"approach\": \"Boundary date testing with transactions before, on, and after the effective date\",\n      \"risk_focus\": \"Retroactive vs prospective application errors and data inconsistencies across transaction timelines\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"charter\": \"Explore the platform-specific configuration isolation using comparative analysis to discover cross-platform contamination where the 26% markup incorrectly applies to other delivery platforms.\",\n      \"target_area\": \"Data Mapping settings and platform-specific configuration isolation\",\n      \"approach\": \"Comparative analysis across all delivery platforms with parallel transaction testing\",\n      \"risk_focus\": \"Cross-platform contamination where the 26% markup incorrectly applies to other delivery platforms\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"charter\": \"Explore the reporting and analytics outputs using data reconciliation techniques to discover calculation discrepancies, rounding errors, and mismatches between internal and third-party reporting platforms.\",\n      \"target_area\": \"Reporting outputs, analytics dashboards, and third-party data synchronization\",\n      \"approach\": \"Data reconciliation between internal reports and third-party platform reports\",\n      \"risk_focus\": \"Calculation discrepancies, rounding errors, and mismatches between internal and third-party reporting platforms\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"charter\": \"Explore the configuration change propagation across environments using environment parity testing to discover deployment inconsistencies, configuration drift, or timing mismatches between UAT, Pre-Production, and Production.\",\n      \"target_area\": \"Configuration deployment pipeline and environment synchronization\",\n      \"approach\": \"Environment parity testing with configuration verification across UAT, Pre-Prod, and Production\",\n      \"risk_focus\": \"Deployment inconsistencies, configuration drift, or timing mismatches between environments\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"charter\": \"Explore the brand-specific markup application using negative testing and edge cases to discover brand filtering failures, incorrect markup application, or data pipeline transformation errors.\",\n      \"target_area\": \"Brand-specific filtering logic and data transformation pipeline\",\n      \"approach\": \"Negative testing with edge cases including multi-brand orders and brand switching scenarios\",\n      \"risk_focus\": \"Brand filtering failures, incorrect markup application to wrong brand, or data pipeline transformation errors\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-09",
+      "original_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-09",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:54:11.113245+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "SSL certificate import process on POS terminals and tablets",
+            "approach": "state transition testing across different device states and network conditions",
+            "risk_focus": "certificate import failures, incomplete installations, or corrupted certificate data that could cause service disruption",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Loyalty platform integration handshake and authentication",
+            "approach": "boundary and negative testing with expired, invalid, and mismatched certificates",
+            "risk_focus": "authentication failures, SSL handshake errors, or graceful degradation issues when certificates are invalid or mismatched between systems",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Content management configuration and certificate reference mapping",
+            "approach": "configuration variation testing with different page settings and certificate references",
+            "risk_focus": "incorrect certificate selection, broken references, or configuration mismatches that prevent proper certificate usage by the POS platform",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Certificate renewal transition period and rollback scenarios",
+            "approach": "time-based scenario testing simulating pre-expiry, during-expiry, and post-expiry states",
+            "risk_focus": "service interruptions during certificate switchover, fallback mechanism failures, or data loss during the transition from old to new certificates",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Multi-brand isolation and certificate scope",
+            "approach": "cross-brand interference testing with concurrent transactions across different brands",
+            "risk_focus": "unintended certificate application to other brands, cross-brand data leakage, or service disruption to unaffected brands during deployment",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"SSL certificate import process on POS terminals and tablets\",\n      \"approach\": \"state transition testing across different device states and network conditions\",\n      \"risk_focus\": \"certificate import failures, incomplete installations, or corrupted certificate data that could cause service disruption\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Loyalty platform integration handshake and authentication\",\n      \"approach\": \"boundary and negative testing with expired, invalid, and mismatched certificates\",\n      \"risk_focus\": \"authentication failures, SSL handshake errors, or graceful degradation issues when certificates are invalid or mismatched between systems\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Content management configuration and certificate reference mapping\",\n      \"approach\": \"configuration variation testing with different page settings and certificate references\",\n      \"risk_focus\": \"incorrect certificate selection, broken references, or configuration mismatches that prevent proper certificate usage by the POS platform\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Certificate renewal transition period and rollback scenarios\",\n      \"approach\": \"time-based scenario testing simulating pre-expiry, during-expiry, and post-expiry states\",\n      \"risk_focus\": \"service interruptions during certificate switchover, fallback mechanism failures, or data loss during the transition from old to new certificates\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Multi-brand isolation and certificate scope\",\n      \"approach\": \"cross-brand interference testing with concurrent transactions across different brands\",\n      \"risk_focus\": \"unintended certificate application to other brands, cross-brand data leakage, or service disruption to unaffected brands during deployment\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-10",
+      "original_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-10",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:54:21.654432+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Price lock mechanism for advance orders with single and multiple item price increases",
+            "approach": "Scenario-based testing with systematic price manipulation between order placement and fulfillment",
+            "risk_focus": "Price discrepancies, overcharging customers, or order processing failures when item prices increase after payment",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Order transmission from mobile app to POS system at fulfillment time",
+            "approach": "Data flow analysis and boundary testing across system integration points",
+            "risk_focus": "Communication errors, data corruption, or price recalculation triggers during order handoff to POS",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Price lock behavior under extreme price change scenarios",
+            "approach": "Stress and edge case testing with dramatic price variations (increases, decreases, zero, negative)",
+            "risk_focus": "System instability, calculation errors, or unexpected behavior when prices change drastically or to edge values",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Order receipt, confirmation displays, and audit trail accuracy",
+            "approach": "User journey testing with focus on information consistency across touchpoints",
+            "risk_focus": "Inconsistent price display between order confirmation, receipts, and transaction history causing customer confusion or disputes",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Concurrent operations involving multiple advance orders and rapid price changes",
+            "approach": "Race condition and timing-based testing with parallel order placement",
+            "risk_focus": "Race conditions, cache inconsistencies, or database locking issues when multiple orders exist during price updates",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Price lock mechanism for advance orders with single and multiple item price increases\",\n      \"approach\": \"Scenario-based testing with systematic price manipulation between order placement and fulfillment\",\n      \"risk_focus\": \"Price discrepancies, overcharging customers, or order processing failures when item prices increase after payment\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Order transmission from mobile app to POS system at fulfillment time\",\n      \"approach\": \"Data flow analysis and boundary testing across system integration points\",\n      \"risk_focus\": \"Communication errors, data corruption, or price recalculation triggers during order handoff to POS\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Price lock behavior under extreme price change scenarios\",\n      \"approach\": \"Stress and edge case testing with dramatic price variations (increases, decreases, zero, negative)\",\n      \"risk_focus\": \"System instability, calculation errors, or unexpected behavior when prices change drastically or to edge values\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Order receipt, confirmation displays, and audit trail accuracy\",\n      \"approach\": \"User journey testing with focus on information consistency across touchpoints\",\n      \"risk_focus\": \"Inconsistent price display between order confirmation, receipts, and transaction history causing customer confusion or disputes\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Concurrent operations involving multiple advance orders and rapid price changes\",\n      \"approach\": \"Race condition and timing-based testing with parallel order placement\",\n      \"risk_focus\": \"Race conditions, cache inconsistencies, or database locking issues when multiple orders exist during price updates\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"60 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-11",
+      "original_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-11",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:54:33.433809+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Third-Party Delivery Partner section positioning and Order Type section integrity",
+            "approach": "Comparative analysis of report layouts before and after the change across multiple property configurations",
+            "risk_focus": "Data integrity issues, broken references, or missing summary data in the Order Type section after relocation of the detailed delivery section",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Report section ordering and visibility of Tender Media, Group Sales, Discounts, and Service Charges sections",
+            "approach": "Visual inspection and stakeholder perspective simulation with various report generation scenarios",
+            "risk_focus": "Incorrect section sequencing, overlapping content, or formatting issues that reduce readability and defeat the purpose of improved visibility",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Third-Party Delivery Partner detailed section at new bottom position below Rewards section",
+            "approach": "Boundary and edge case testing with extreme data volumes and empty data scenarios",
+            "risk_focus": "Rendering failures, pagination errors, truncated data, or performance degradation when the delivery detail section contains large datasets or no data at the report bottom",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Financial report export and print functionality with relocated Third-Party Delivery section",
+            "approach": "Cross-format validation testing across PDF, Excel, and printed outputs",
+            "risk_focus": "Format-specific layout corruption, misaligned sections, missing data, or incorrect page breaks in exported or printed versions of the report",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Numerical accuracy and reconciliation between Order Type summary and relocated Third-Party Delivery detail",
+            "approach": "Data reconciliation testing using known transaction sets and cross-referencing totals",
+            "risk_focus": "Calculation errors, mismatched totals, or broken linkage between summary-level delivery sales and detailed breakdown after section relocation",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Third-Party Delivery Partner section positioning and Order Type section integrity\",\n      \"approach\": \"Comparative analysis of report layouts before and after the change across multiple property configurations\",\n      \"risk_focus\": \"Data integrity issues, broken references, or missing summary data in the Order Type section after relocation of the detailed delivery section\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Report section ordering and visibility of Tender Media, Group Sales, Discounts, and Service Charges sections\",\n      \"approach\": \"Visual inspection and stakeholder perspective simulation with various report generation scenarios\",\n      \"risk_focus\": \"Incorrect section sequencing, overlapping content, or formatting issues that reduce readability and defeat the purpose of improved visibility\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Third-Party Delivery Partner detailed section at new bottom position below Rewards section\",\n      \"approach\": \"Boundary and edge case testing with extreme data volumes and empty data scenarios\",\n      \"risk_focus\": \"Rendering failures, pagination errors, truncated data, or performance degradation when the delivery detail section contains large datasets or no data at the report bottom\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Financial report export and print functionality with relocated Third-Party Delivery section\",\n      \"approach\": \"Cross-format validation testing across PDF, Excel, and printed outputs\",\n      \"risk_focus\": \"Format-specific layout corruption, misaligned sections, missing data, or incorrect page breaks in exported or printed versions of the report\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Numerical accuracy and reconciliation between Order Type summary and relocated Third-Party Delivery detail\",\n      \"approach\": \"Data reconciliation testing using known transaction sets and cross-referencing totals\",\n      \"risk_focus\": \"Calculation errors, mismatched totals, or broken linkage between summary-level delivery sales and detailed breakdown after section relocation\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-12",
+      "original_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-12",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:54:43.147426+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS configuration inheritance for new full-menu non-traditional zone",
+            "approach": "Boundary analysis and configuration comparison between zone types",
+            "risk_focus": "Incorrect configuration inheritance causing limited-menu settings to apply to full-menu locations",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Page design assignment and menu item availability at new zone properties",
+            "approach": "End-to-end transaction simulation with full menu navigation",
+            "risk_focus": "Missing menu items, incorrect page layouts, or unintended bakery/beverage-only page designs appearing",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Hierarchy relationships and zone assignment for properties in new full-menu zone",
+            "approach": "Data integrity testing and hierarchy traversal validation",
+            "risk_focus": "Properties incorrectly assigned to wrong zones or orphaned from hierarchy causing configuration failures",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Interaction between new full-menu zone and existing non-traditional zones",
+            "approach": "Cross-zone comparison testing and isolation verification",
+            "risk_focus": "Configuration bleed between zones causing full-menu settings to affect limited-menu locations or vice versa",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "POS configuration update and propagation timing for new zone properties",
+            "approach": "State transition testing and refresh cycle observation",
+            "risk_focus": "Delayed or failed configuration updates leaving properties with stale or incomplete menu designs",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"POS configuration inheritance for new full-menu non-traditional zone\",\n      \"approach\": \"Boundary analysis and configuration comparison between zone types\",\n      \"risk_focus\": \"Incorrect configuration inheritance causing limited-menu settings to apply to full-menu locations\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Page design assignment and menu item availability at new zone properties\",\n      \"approach\": \"End-to-end transaction simulation with full menu navigation\",\n      \"risk_focus\": \"Missing menu items, incorrect page layouts, or unintended bakery/beverage-only page designs appearing\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Hierarchy relationships and zone assignment for properties in new full-menu zone\",\n      \"approach\": \"Data integrity testing and hierarchy traversal validation\",\n      \"risk_focus\": \"Properties incorrectly assigned to wrong zones or orphaned from hierarchy causing configuration failures\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Interaction between new full-menu zone and existing non-traditional zones\",\n      \"approach\": \"Cross-zone comparison testing and isolation verification\",\n      \"risk_focus\": \"Configuration bleed between zones causing full-menu settings to affect limited-menu locations or vice versa\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"POS configuration update and propagation timing for new zone properties\",\n      \"approach\": \"State transition testing and refresh cycle observation\",\n      \"risk_focus\": \"Delayed or failed configuration updates leaving properties with stale or incomplete menu designs\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-13",
+      "original_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-13",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:54:53.446551+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Core ordering workflow on Gen 10 and Gen 11 tablets running iOS 18.5",
+            "approach": "Scenario-based testing with production-representative order flows",
+            "risk_focus": "Critical functional regressions in the live production environment that could disrupt customer ordering",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Version upgrade transition and data persistence across iOS 18.5 devices",
+            "approach": "State transition testing with active orders and cached data",
+            "risk_focus": "Data loss, order corruption, or session failures during app upgrade from previous version",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Cross-device and cross-OS compatibility between Gen 10/Gen 11 and iOS 18.5/26.1 combinations",
+            "approach": "Comparative testing across all four device-OS configurations",
+            "risk_focus": "Inconsistent behavior, UI rendering issues, or feature availability differences across hardware and OS versions",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Application performance and resource utilization on iOS 26.1",
+            "approach": "Stress testing with high-volume interactions and memory monitoring",
+            "risk_focus": "Performance degradation, memory leaks, or crashes on the future production OS that could impact deployment readiness",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Undocumented changes and edge case behaviors in the new application version",
+            "approach": "Free-form exploratory testing with boundary value and negative testing",
+            "risk_focus": "Hidden defects, unexpected feature changes, or edge case failures not covered by vendor documentation",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Core ordering workflow on Gen 10 and Gen 11 tablets running iOS 18.5\",\n      \"approach\": \"Scenario-based testing with production-representative order flows\",\n      \"risk_focus\": \"Critical functional regressions in the live production environment that could disrupt customer ordering\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Version upgrade transition and data persistence across iOS 18.5 devices\",\n      \"approach\": \"State transition testing with active orders and cached data\",\n      \"risk_focus\": \"Data loss, order corruption, or session failures during app upgrade from previous version\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Cross-device and cross-OS compatibility between Gen 10/Gen 11 and iOS 18.5/26.1 combinations\",\n      \"approach\": \"Comparative testing across all four device-OS configurations\",\n      \"risk_focus\": \"Inconsistent behavior, UI rendering issues, or feature availability differences across hardware and OS versions\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Application performance and resource utilization on iOS 26.1\",\n      \"approach\": \"Stress testing with high-volume interactions and memory monitoring\",\n      \"risk_focus\": \"Performance degradation, memory leaks, or crashes on the future production OS that could impact deployment readiness\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Undocumented changes and edge case behaviors in the new application version\",\n      \"approach\": \"Free-form exploratory testing with boundary value and negative testing\",\n      \"risk_focus\": \"Hidden defects, unexpected feature changes, or edge case failures not covered by vendor documentation\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-14",
+      "original_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-14",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:03.636758+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Gift card transaction cancellation with cloud processing disabled",
+            "approach": "State-based testing with configuration validation",
+            "risk_focus": "Incorrect terminal message display and configuration file mismatches",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore gift card transaction cancellation with cloud processing disabled using state-based testing with configuration validation to discover incorrect terminal message display and configuration file mismatches."
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS terminal display messaging during gift card operations",
+            "approach": "Comparative testing between different transaction cancellation scenarios",
+            "risk_focus": "Message inconsistencies across different cancellation contexts and transaction types",
+            "priority": "High",
+            "estimated_duration": "45 min",
+            "description": "Explore POS terminal display messaging during gift card operations using comparative testing between different transaction cancellation scenarios to discover message inconsistencies across different cancellation contexts and transaction types."
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Configuration file loading and override mechanisms",
+            "approach": "Fault injection and configuration manipulation",
+            "risk_focus": "Residual overrides, configuration precedence issues, and file loading failures",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore configuration file loading and override mechanisms using fault injection and configuration manipulation to discover residual overrides, configuration precedence issues, and file loading failures."
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Gift card transaction workflow with cloud processing toggle",
+            "approach": "Boundary and edge case testing around cloud processing states",
+            "risk_focus": "Unexpected behavior during cloud processing state transitions and edge conditions",
+            "priority": "Medium",
+            "estimated_duration": "45 min",
+            "description": "Explore gift card transaction workflow with cloud processing toggle using boundary and edge case testing around cloud processing states to discover unexpected behavior during cloud processing state transitions and edge conditions."
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Crew member interaction flow during gift card cancellation",
+            "approach": "User journey simulation with interruption patterns",
+            "risk_focus": "Confusing user experience, workflow disruptions, and crew member error potential due to incorrect messaging",
+            "priority": "Medium",
+            "estimated_duration": "30 min",
+            "description": "Explore crew member interaction flow during gift card cancellation using user journey simulation with interruption patterns to discover confusing user experience, workflow disruptions, and crew member error potential due to incorrect messaging."
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Gift card transaction cancellation with cloud processing disabled\",\n      \"approach\": \"State-based testing with configuration validation\",\n      \"risk_focus\": \"Incorrect terminal message display and configuration file mismatches\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore gift card transaction cancellation with cloud processing disabled using state-based testing with configuration validation to discover incorrect terminal message display and configuration file mismatches.\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"POS terminal display messaging during gift card operations\",\n      \"approach\": \"Comparative testing between different transaction cancellation scenarios\",\n      \"risk_focus\": \"Message inconsistencies across different cancellation contexts and transaction types\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\",\n      \"description\": \"Explore POS terminal display messaging during gift card operations using comparative testing between different transaction cancellation scenarios to discover message inconsistencies across different cancellation contexts and transaction types.\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Configuration file loading and override mechanisms\",\n      \"approach\": \"Fault injection and configuration manipulation\",\n      \"risk_focus\": \"Residual overrides, configuration precedence issues, and file loading failures\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore configuration file loading and override mechanisms using fault injection and configuration manipulation to discover residual overrides, configuration precedence issues, and file loading failures.\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Gift card transaction workflow with cloud processing toggle\",\n      \"approach\": \"Boundary and edge case testing around cloud processing states\",\n      \"risk_focus\": \"Unexpected behavior during cloud processing state transitions and edge conditions\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\",\n      \"description\": \"Explore gift card transaction workflow with cloud processing toggle using boundary and edge case testing around cloud processing states to discover unexpected behavior during cloud processing state transitions and edge conditions.\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Crew member interaction flow during gift card cancellation\",\n      \"approach\": \"User journey simulation with interruption patterns\",\n      \"risk_focus\": \"Confusing user experience, workflow disruptions, and crew member error potential due to incorrect messaging\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\",\n      \"description\": \"Explore crew member interaction flow during gift card cancellation using user journey simulation with interruption patterns to discover confusing user experience, workflow disruptions, and crew member error potential due to incorrect messaging.\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-15",
+      "original_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-15",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:12.787333+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Existing serialized coupons with current BIN ranges at POS",
+            "approach": "scenario-based testing with real-world coupon redemption workflows",
+            "risk_focus": "interference or rejection of valid existing coupons after new BIN ranges are added",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "BIN range validation logic in coupon processing system",
+            "approach": "boundary value analysis on BIN range boundaries (old and new)",
+            "risk_focus": "conflicts, overlaps, or incorrect routing between old and new BIN range configurations",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Discount calculation engine with mixed coupon types",
+            "approach": "combinatorial testing using existing and new promotional coupons together",
+            "risk_focus": "incorrect discount stacking, calculation errors, or priority conflicts when multiple coupon types are applied",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Content management system coupon configuration data integrity",
+            "approach": "data validation and comparison testing between pre and post BIN range addition",
+            "risk_focus": "corruption, overwriting, or unintended modification of existing coupon configuration records",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "POS error handling and user feedback for coupon validation failures",
+            "approach": "negative testing with edge cases and invalid coupon scenarios",
+            "risk_focus": "misleading error messages, system crashes, or incorrect rejection reasons for legitimate coupons",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Existing serialized coupons with current BIN ranges at POS\",\n      \"approach\": \"scenario-based testing with real-world coupon redemption workflows\",\n      \"risk_focus\": \"interference or rejection of valid existing coupons after new BIN ranges are added\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"BIN range validation logic in coupon processing system\",\n      \"approach\": \"boundary value analysis on BIN range boundaries (old and new)\",\n      \"risk_focus\": \"conflicts, overlaps, or incorrect routing between old and new BIN range configurations\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Discount calculation engine with mixed coupon types\",\n      \"approach\": \"combinatorial testing using existing and new promotional coupons together\",\n      \"risk_focus\": \"incorrect discount stacking, calculation errors, or priority conflicts when multiple coupon types are applied\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Content management system coupon configuration data integrity\",\n      \"approach\": \"data validation and comparison testing between pre and post BIN range addition\",\n      \"risk_focus\": \"corruption, overwriting, or unintended modification of existing coupon configuration records\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"POS error handling and user feedback for coupon validation failures\",\n      \"approach\": \"negative testing with edge cases and invalid coupon scenarios\",\n      \"risk_focus\": \"misleading error messages, system crashes, or incorrect rejection reasons for legitimate coupons\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-16",
+      "original_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-16",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:23.771840+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Windows Defender exclusion script execution on POS terminals",
+            "approach": "Boundary and edge case testing with varied system states",
+            "risk_focus": "Script failures, partial exclusion application, or system instability when executed on terminals with different Windows Defender configurations, update states, or existing exclusion lists",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "POS terminal core transaction and payment processing functionality",
+            "approach": "Scenario-based testing of critical business workflows",
+            "risk_focus": "Degradation or failure of payment processing, receipt printing, inventory updates, or customer-facing operations after antivirus exclusion deployment",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Remote management tool connectivity and session establishment",
+            "approach": "State transition testing across connection lifecycle",
+            "risk_focus": "Remote tunneling tool still being blocked, quarantined, or generating false positives despite exclusion, or failures in establishing, maintaining, and terminating support sessions",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Windows Defender security posture and threat detection capabilities",
+            "approach": "Negative testing with simulated threats and malicious payloads",
+            "risk_focus": "Over-permissive exclusions creating security vulnerabilities, legitimate threats being ignored, or unintended paths/processes being excluded from antivirus scanning",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "POS terminal system performance and resource utilization",
+            "approach": "Observational monitoring during normal and peak operations",
+            "risk_focus": "Performance degradation, memory leaks, CPU spikes, disk I/O issues, or unexpected system behavior resulting from script execution or modified antivirus scanning patterns",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Windows Defender exclusion script execution on POS terminals\",\n      \"approach\": \"Boundary and edge case testing with varied system states\",\n      \"risk_focus\": \"Script failures, partial exclusion application, or system instability when executed on terminals with different Windows Defender configurations, update states, or existing exclusion lists\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"POS terminal core transaction and payment processing functionality\",\n      \"approach\": \"Scenario-based testing of critical business workflows\",\n      \"risk_focus\": \"Degradation or failure of payment processing, receipt printing, inventory updates, or customer-facing operations after antivirus exclusion deployment\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Remote management tool connectivity and session establishment\",\n      \"approach\": \"State transition testing across connection lifecycle\",\n      \"risk_focus\": \"Remote tunneling tool still being blocked, quarantined, or generating false positives despite exclusion, or failures in establishing, maintaining, and terminating support sessions\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Windows Defender security posture and threat detection capabilities\",\n      \"approach\": \"Negative testing with simulated threats and malicious payloads\",\n      \"risk_focus\": \"Over-permissive exclusions creating security vulnerabilities, legitimate threats being ignored, or unintended paths/processes being excluded from antivirus scanning\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"POS terminal system performance and resource utilization\",\n      \"approach\": \"Observational monitoring during normal and peak operations\",\n      \"risk_focus\": \"Performance degradation, memory leaks, CPU spikes, disk I/O issues, or unexpected system behavior resulting from script execution or modified antivirus scanning patterns\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-17",
+      "original_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-17",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:33.844797+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS notification display during crew member clock-in workflow",
+            "approach": "session-based exploratory testing with varied clock-in scenarios and timing variations",
+            "risk_focus": "notification display failures, timing issues, or workflow interruptions that prevent crew members from completing clock-in or missing critical notifications",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Notification scheduling interface for store owners and managers",
+            "approach": "boundary value analysis and input fuzzing with edge cases",
+            "risk_focus": "data validation vulnerabilities, scheduling conflicts, timezone handling errors, or ability to create malformed notifications that could crash the POS system",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Multi-user notification management and permission controls",
+            "approach": "role-based access testing with concurrent user actions",
+            "risk_focus": "unauthorized access to notification management, privilege escalation, or data corruption when multiple managers simultaneously create, edit, or delete notifications",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "POS workstation performance and resource utilization with active notifications",
+            "approach": "load and stress testing with varying notification volumes and content sizes",
+            "risk_focus": "system slowdown, memory leaks, or POS transaction processing delays caused by notification feature overhead during peak business hours",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Notification content rendering and display across different message types",
+            "approach": "compatibility testing with special characters, formatting, and content length variations",
+            "risk_focus": "UI rendering issues, text truncation, character encoding problems, or display inconsistencies that could make notifications unreadable or unprofessional",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"POS notification display during crew member clock-in workflow\",\n      \"approach\": \"session-based exploratory testing with varied clock-in scenarios and timing variations\",\n      \"risk_focus\": \"notification display failures, timing issues, or workflow interruptions that prevent crew members from completing clock-in or missing critical notifications\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Notification scheduling interface for store owners and managers\",\n      \"approach\": \"boundary value analysis and input fuzzing with edge cases\",\n      \"risk_focus\": \"data validation vulnerabilities, scheduling conflicts, timezone handling errors, or ability to create malformed notifications that could crash the POS system\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Multi-user notification management and permission controls\",\n      \"approach\": \"role-based access testing with concurrent user actions\",\n      \"risk_focus\": \"unauthorized access to notification management, privilege escalation, or data corruption when multiple managers simultaneously create, edit, or delete notifications\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"POS workstation performance and resource utilization with active notifications\",\n      \"approach\": \"load and stress testing with varying notification volumes and content sizes\",\n      \"risk_focus\": \"system slowdown, memory leaks, or POS transaction processing delays caused by notification feature overhead during peak business hours\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Notification content rendering and display across different message types\",\n      \"approach\": \"compatibility testing with special characters, formatting, and content length variations\",\n      \"risk_focus\": \"UI rendering issues, text truncation, character encoding problems, or display inconsistencies that could make notifications unreadable or unprofessional\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-18",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-18",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:45.310364+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Payment processing and gift card/loyalty transactions during DNS failover scenarios",
+            "approach": "Simulated network degradation and DNS provider switching with real transaction attempts",
+            "risk_focus": "Payment failures, transaction data loss, or loyalty point corruption during DNS resolution delays or failures",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Online ordering and delivery platform integrations end-to-end flow",
+            "approach": "Boundary testing with concurrent order submissions across multiple channels during peak load simulation",
+            "risk_focus": "Order loss, duplicate orders, routing failures, or delivery integration disconnections due to DNS resolution timing issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Kitchen display system order routing and third-party order alert integrations",
+            "approach": "State transition testing through various order lifecycle stages with intermittent connectivity",
+            "risk_focus": "Order display delays, missing alerts, incorrect order sequencing, or kitchen workflow disruptions caused by DNS lookup latency",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Database reload, reporting/analytics data synchronization, and remote management tools",
+            "approach": "Timing-based exploratory testing focusing on scheduled and on-demand data operations",
+            "risk_focus": "Data synchronization failures, incomplete database refreshes, stale reporting data, or remote management access issues during DNS provider failover",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Employee management workflows, digital menu boards, and sales notification systems",
+            "approach": "User workflow tours covering typical daily operational tasks across multiple user roles",
+            "risk_focus": "Employee creation failures, menu/price update propagation delays, notification delivery gaps, or authentication issues stemming from DNS resolution changes",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Payment processing and gift card/loyalty transactions during DNS failover scenarios\",\n      \"approach\": \"Simulated network degradation and DNS provider switching with real transaction attempts\",\n      \"risk_focus\": \"Payment failures, transaction data loss, or loyalty point corruption during DNS resolution delays or failures\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Online ordering and delivery platform integrations end-to-end flow\",\n      \"approach\": \"Boundary testing with concurrent order submissions across multiple channels during peak load simulation\",\n      \"risk_focus\": \"Order loss, duplicate orders, routing failures, or delivery integration disconnections due to DNS resolution timing issues\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Kitchen display system order routing and third-party order alert integrations\",\n      \"approach\": \"State transition testing through various order lifecycle stages with intermittent connectivity\",\n      \"risk_focus\": \"Order display delays, missing alerts, incorrect order sequencing, or kitchen workflow disruptions caused by DNS lookup latency\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Database reload, reporting/analytics data synchronization, and remote management tools\",\n      \"approach\": \"Timing-based exploratory testing focusing on scheduled and on-demand data operations\",\n      \"risk_focus\": \"Data synchronization failures, incomplete database refreshes, stale reporting data, or remote management access issues during DNS provider failover\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Employee management workflows, digital menu boards, and sales notification systems\",\n      \"approach\": \"User workflow tours covering typical daily operational tasks across multiple user roles\",\n      \"risk_focus\": \"Employee creation failures, menu/price update propagation delays, notification delivery gaps, or authentication issues stemming from DNS resolution changes\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-19",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-19",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:55:56.398644+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "charter": "Explore beverage size selection functionality using boundary value and state transition testing to discover pricing calculation errors, incorrect size modifier application, or inconsistent behavior across different beverage types.",
+            "target_area": "Beverage size selection buttons (S, M, L) and price modification",
+            "approach": "Boundary value and state transition testing",
+            "risk_focus": "Pricing calculation errors, incorrect size modifier application, or inconsistent behavior across different beverage types",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "charter": "Explore main product panel navigation and item accessibility using catalog completeness verification to discover orphaned menu items, missing products, or items that became unreachable after tab removal.",
+            "target_area": "Main product panel with relocated Bakery and Beverage items",
+            "approach": "Catalog completeness verification",
+            "risk_focus": "Orphaned menu items, missing products, or items that became unreachable after tab removal",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "charter": "Explore end-to-end order processing workflow using scenario-based testing with complex mixed orders to discover data transmission failures, incorrect item descriptions on kitchen display or receipts, or order integrity issues.",
+            "target_area": "Order transmission to kitchen display and receipt printer",
+            "approach": "Scenario-based testing with complex mixed orders",
+            "risk_focus": "Data transmission failures, incorrect item descriptions on kitchen display or receipts, or order integrity issues",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "charter": "Explore visual layout and UI rendering using cross-device compatibility testing to discover layout breaking issues, unreadable text, overlapping elements, or touch target problems across different POS hardware form factors and screen resolutions.",
+            "target_area": "Updated main panel visual design and layout",
+            "approach": "Cross-device compatibility testing",
+            "risk_focus": "Layout breaking issues, unreadable text, overlapping elements, or touch target problems across different POS hardware form factors and screen resolutions",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "charter": "Explore edge case handling for specialty beverages using negative testing and exception scenarios to discover inappropriate size button display, system errors when size selection is unavailable, or confusing user experience for fixed-size items.",
+            "target_area": "Beverage items that do not support size selection",
+            "approach": "Negative testing and exception scenarios",
+            "risk_focus": "Inappropriate size button display, system errors when size selection is unavailable, or confusing user experience for fixed-size items",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"charter\": \"Explore beverage size selection functionality using boundary value and state transition testing to discover pricing calculation errors, incorrect size modifier application, or inconsistent behavior across different beverage types.\",\n      \"target_area\": \"Beverage size selection buttons (S, M, L) and price modification\",\n      \"approach\": \"Boundary value and state transition testing\",\n      \"risk_focus\": \"Pricing calculation errors, incorrect size modifier application, or inconsistent behavior across different beverage types\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"charter\": \"Explore main product panel navigation and item accessibility using catalog completeness verification to discover orphaned menu items, missing products, or items that became unreachable after tab removal.\",\n      \"target_area\": \"Main product panel with relocated Bakery and Beverage items\",\n      \"approach\": \"Catalog completeness verification\",\n      \"risk_focus\": \"Orphaned menu items, missing products, or items that became unreachable after tab removal\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"charter\": \"Explore end-to-end order processing workflow using scenario-based testing with complex mixed orders to discover data transmission failures, incorrect item descriptions on kitchen display or receipts, or order integrity issues.\",\n      \"target_area\": \"Order transmission to kitchen display and receipt printer\",\n      \"approach\": \"Scenario-based testing with complex mixed orders\",\n      \"risk_focus\": \"Data transmission failures, incorrect item descriptions on kitchen display or receipts, or order integrity issues\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"charter\": \"Explore visual layout and UI rendering using cross-device compatibility testing to discover layout breaking issues, unreadable text, overlapping elements, or touch target problems across different POS hardware form factors and screen resolutions.\",\n      \"target_area\": \"Updated main panel visual design and layout\",\n      \"approach\": \"Cross-device compatibility testing\",\n      \"risk_focus\": \"Layout breaking issues, unreadable text, overlapping elements, or touch target problems across different POS hardware form factors and screen resolutions\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"charter\": \"Explore edge case handling for specialty beverages using negative testing and exception scenarios to discover inappropriate size button display, system errors when size selection is unavailable, or confusing user experience for fixed-size items.\",\n      \"target_area\": \"Beverage items that do not support size selection\",\n      \"approach\": \"Negative testing and exception scenarios\",\n      \"risk_focus\": \"Inappropriate size button display, system errors when size selection is unavailable, or confusing user experience for fixed-size items\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-20",
+      "original_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-20",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:08.171626+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Transaction posting to reporting and analytics system after host file override",
+            "approach": "Baseline comparison testing with timing measurements and log analysis",
+            "risk_focus": "Posting delays, timeout errors, or data loss that could impact financial reporting accuracy",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore transaction posting to reporting and analytics system after host file override using baseline comparison testing with timing measurements and log analysis to discover posting delays, timeout errors, or data loss that could impact financial reporting accuracy."
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "DNS resolution and caching behavior across different POS workstation models",
+            "approach": "Variability testing across hardware configurations with cache manipulation",
+            "risk_focus": "Inconsistent endpoint resolution, stale cache issues, or hardware-specific failures requiring application restarts",
+            "priority": "High",
+            "estimated_duration": "60 min",
+            "description": "Explore DNS resolution and caching behavior across different POS workstation models using variability testing across hardware configurations with cache manipulation to discover inconsistent endpoint resolution, stale cache issues, or hardware-specific failures requiring application restarts."
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Labour management system integration during endpoint transition",
+            "approach": "State transition testing with rapid sequential actions",
+            "risk_focus": "Lost or corrupted labour events, incorrect timestamps, or synchronization failures during clock-in/out and job code changes",
+            "priority": "High",
+            "estimated_duration": "45 min",
+            "description": "Explore labour management system integration during endpoint transition using state transition testing with rapid sequential actions to discover lost or corrupted labour events, incorrect timestamps, or synchronization failures during clock-in/out and job code changes."
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "System resilience when new endpoint becomes temporarily unreachable",
+            "approach": "Fault injection testing by simulating network interruptions and endpoint unavailability",
+            "risk_focus": "Application hangs, indefinite timeouts, or cascading failures that prevent graceful degradation",
+            "priority": "Medium",
+            "estimated_duration": "45 min",
+            "description": "Explore system resilience when new endpoint becomes temporarily unreachable using fault injection testing by simulating network interruptions and endpoint unavailability to discover application hangs, indefinite timeouts, or cascading failures that prevent graceful degradation."
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Rollback process and DNS resolution restoration after host file override removal",
+            "approach": "Reversal testing with immediate transaction validation",
+            "risk_focus": "Residual configuration issues, failed reconnection to original endpoint, or data routing errors after reverting changes",
+            "priority": "Medium",
+            "estimated_duration": "30 min",
+            "description": "Explore rollback process and DNS resolution restoration after host file override removal using reversal testing with immediate transaction validation to discover residual configuration issues, failed reconnection to original endpoint, or data routing errors after reverting changes."
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Transaction posting to reporting and analytics system after host file override\",\n      \"approach\": \"Baseline comparison testing with timing measurements and log analysis\",\n      \"risk_focus\": \"Posting delays, timeout errors, or data loss that could impact financial reporting accuracy\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore transaction posting to reporting and analytics system after host file override using baseline comparison testing with timing measurements and log analysis to discover posting delays, timeout errors, or data loss that could impact financial reporting accuracy.\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"DNS resolution and caching behavior across different POS workstation models\",\n      \"approach\": \"Variability testing across hardware configurations with cache manipulation\",\n      \"risk_focus\": \"Inconsistent endpoint resolution, stale cache issues, or hardware-specific failures requiring application restarts\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\",\n      \"description\": \"Explore DNS resolution and caching behavior across different POS workstation models using variability testing across hardware configurations with cache manipulation to discover inconsistent endpoint resolution, stale cache issues, or hardware-specific failures requiring application restarts.\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Labour management system integration during endpoint transition\",\n      \"approach\": \"State transition testing with rapid sequential actions\",\n      \"risk_focus\": \"Lost or corrupted labour events, incorrect timestamps, or synchronization failures during clock-in/out and job code changes\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\",\n      \"description\": \"Explore labour management system integration during endpoint transition using state transition testing with rapid sequential actions to discover lost or corrupted labour events, incorrect timestamps, or synchronization failures during clock-in/out and job code changes.\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"System resilience when new endpoint becomes temporarily unreachable\",\n      \"approach\": \"Fault injection testing by simulating network interruptions and endpoint unavailability\",\n      \"risk_focus\": \"Application hangs, indefinite timeouts, or cascading failures that prevent graceful degradation\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\",\n      \"description\": \"Explore system resilience when new endpoint becomes temporarily unreachable using fault injection testing by simulating network interruptions and endpoint unavailability to discover application hangs, indefinite timeouts, or cascading failures that prevent graceful degradation.\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Rollback process and DNS resolution restoration after host file override removal\",\n      \"approach\": \"Reversal testing with immediate transaction validation\",\n      \"risk_focus\": \"Residual configuration issues, failed reconnection to original endpoint, or data routing errors after reverting changes\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\",\n      \"description\": \"Explore rollback process and DNS resolution restoration after host file override removal using reversal testing with immediate transaction validation to discover residual configuration issues, failed reconnection to original endpoint, or data routing errors after reverting changes.\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-21",
+      "original_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-21",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:17.374577+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "charter": "Explore order routing across all four COM port printers using boundary and concurrent order scenarios to discover cross-routing defects and print job conflicts.",
+            "target_area": "Order routing logic across COM1, COM2, COM3, and COM5 printers",
+            "approach": "Boundary and concurrent order scenarios",
+            "risk_focus": "Cross-routing defects and print job conflicts",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "charter": "Explore COM5 printer connectivity and the RJ45-to-RJ12 adapter using sustained load testing to discover intermittent connectivity issues and latency problems.",
+            "target_area": "COM5 printer connectivity and RJ45-to-RJ12 adapter",
+            "approach": "Sustained load testing",
+            "risk_focus": "Intermittent connectivity issues and latency problems",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "charter": "Explore printer error handling and fault tolerance using fault injection techniques to discover silent print job failures and inadequate error messaging.",
+            "target_area": "Printer error handling across all COM ports",
+            "approach": "Fault injection techniques",
+            "risk_focus": "Silent print job failures and inadequate error messaging",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "charter": "Explore configuration persistence using system restart and software update scenarios to discover COM port assignment loss and configuration reset defects.",
+            "target_area": "COM port configuration persistence",
+            "approach": "System restart and software update scenarios",
+            "risk_focus": "COM port assignment loss and configuration reset defects",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "charter": "Explore KDS-less operation and order workflow using end-to-end transaction flows to discover workflow gaps and missing order fulfillment indicators.",
+            "target_area": "Non-KDS order fulfillment workflow",
+            "approach": "End-to-end transaction flows",
+            "risk_focus": "Workflow gaps and missing order fulfillment indicators",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"charter\": \"Explore order routing across all four COM port printers using boundary and concurrent order scenarios to discover cross-routing defects and print job conflicts.\",\n      \"target_area\": \"Order routing logic across COM1, COM2, COM3, and COM5 printers\",\n      \"approach\": \"Boundary and concurrent order scenarios\",\n      \"risk_focus\": \"Cross-routing defects and print job conflicts\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"charter\": \"Explore COM5 printer connectivity and the RJ45-to-RJ12 adapter using sustained load testing to discover intermittent connectivity issues and latency problems.\",\n      \"target_area\": \"COM5 printer connectivity and RJ45-to-RJ12 adapter\",\n      \"approach\": \"Sustained load testing\",\n      \"risk_focus\": \"Intermittent connectivity issues and latency problems\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"charter\": \"Explore printer error handling and fault tolerance using fault injection techniques to discover silent print job failures and inadequate error messaging.\",\n      \"target_area\": \"Printer error handling across all COM ports\",\n      \"approach\": \"Fault injection techniques\",\n      \"risk_focus\": \"Silent print job failures and inadequate error messaging\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"charter\": \"Explore configuration persistence using system restart and software update scenarios to discover COM port assignment loss and configuration reset defects.\",\n      \"target_area\": \"COM port configuration persistence\",\n      \"approach\": \"System restart and software update scenarios\",\n      \"risk_focus\": \"COM port assignment loss and configuration reset defects\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"charter\": \"Explore KDS-less operation and order workflow using end-to-end transaction flows to discover workflow gaps and missing order fulfillment indicators.\",\n      \"target_area\": \"Non-KDS order fulfillment workflow\",\n      \"approach\": \"End-to-end transaction flows\",\n      \"risk_focus\": \"Workflow gaps and missing order fulfillment indicators\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-22",
+      "original_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-22",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:26.299296+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "charter": "Explore offline transaction queueing and retry behaviour using forced network disconnection and reconnection cycles to discover continuous retry loops or duplicate transaction processing.",
+            "target_area": "Offline transaction queueing and retry behaviour",
+            "approach": "Forced network disconnection and reconnection cycles",
+            "risk_focus": "Continuous retry loops or duplicate transaction processing",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "charter": "Explore DLL version compatibility and integration using varied loyalty transaction types and provider operations to discover transaction failures, incorrect data handling, or unsupported operation errors.",
+            "target_area": "DLL version compatibility and integration",
+            "approach": "Varied loyalty transaction types and provider operations",
+            "risk_focus": "Transaction failures, incorrect data handling, or unsupported operation errors",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "charter": "Explore error handling and edge case resilience using invalid, expired, and malformed loyalty account inputs to discover unintended retry states, application crashes, or poor error recovery.",
+            "target_area": "Error handling and edge case resilience",
+            "approach": "Invalid, expired, and malformed loyalty account inputs",
+            "risk_focus": "Unintended retry states, application crashes, or poor error recovery",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "charter": "Explore system performance and stability under load using sustained high-volume transaction sessions with mixed loyalty operations to discover memory leaks, performance degradation, or application freezing.",
+            "target_area": "System performance and stability under load",
+            "approach": "Sustained high-volume transaction sessions with mixed loyalty operations",
+            "risk_focus": "Memory leaks, performance degradation, or application freezing",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "charter": "Explore logging and diagnostic accuracy using intermittent network instability scenarios to discover missing log entries, incorrect retry counts, or misleading diagnostic information.",
+            "target_area": "Logging and diagnostic accuracy",
+            "approach": "Intermittent network instability scenarios",
+            "risk_focus": "Missing log entries, incorrect retry counts, or misleading diagnostic information",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"charter\": \"Explore offline transaction queueing and retry behaviour using forced network disconnection and reconnection cycles to discover continuous retry loops or duplicate transaction processing.\",\n      \"target_area\": \"Offline transaction queueing and retry behaviour\",\n      \"approach\": \"Forced network disconnection and reconnection cycles\",\n      \"risk_focus\": \"Continuous retry loops or duplicate transaction processing\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"charter\": \"Explore DLL version compatibility and integration using varied loyalty transaction types and provider operations to discover transaction failures, incorrect data handling, or unsupported operation errors.\",\n      \"target_area\": \"DLL version compatibility and integration\",\n      \"approach\": \"Varied loyalty transaction types and provider operations\",\n      \"risk_focus\": \"Transaction failures, incorrect data handling, or unsupported operation errors\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"charter\": \"Explore error handling and edge case resilience using invalid, expired, and malformed loyalty account inputs to discover unintended retry states, application crashes, or poor error recovery.\",\n      \"target_area\": \"Error handling and edge case resilience\",\n      \"approach\": \"Invalid, expired, and malformed loyalty account inputs\",\n      \"risk_focus\": \"Unintended retry states, application crashes, or poor error recovery\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"charter\": \"Explore system performance and stability under load using sustained high-volume transaction sessions with mixed loyalty operations to discover memory leaks, performance degradation, or application freezing.\",\n      \"target_area\": \"System performance and stability under load\",\n      \"approach\": \"Sustained high-volume transaction sessions with mixed loyalty operations\",\n      \"risk_focus\": \"Memory leaks, performance degradation, or application freezing\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"charter\": \"Explore logging and diagnostic accuracy using intermittent network instability scenarios to discover missing log entries, incorrect retry counts, or misleading diagnostic information.\",\n      \"target_area\": \"Logging and diagnostic accuracy\",\n      \"approach\": \"Intermittent network instability scenarios\",\n      \"risk_focus\": \"Missing log entries, incorrect retry counts, or misleading diagnostic information\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-23",
+      "original_id": "SPEC-23",
+      "domain": "Healthcare",
+      "etcg_output": {
+        "spec_id": "SPEC-23",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:35.800270+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "charter": "Explore FHIR integration and lab result synchronization using fault injection and boundary testing to discover data integrity issues, partial sync failures, and incomplete result panel displays.",
+            "target_area": "FHIR integration and lab result synchronization",
+            "approach": "Fault injection and boundary testing",
+            "risk_focus": "Data integrity issues, partial sync failures, and incomplete result panel displays",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "charter": "Explore provider-configured release delay mechanism using time-based scenario testing to discover timing vulnerabilities, premature result visibility, and delay override failures.",
+            "target_area": "Provider-configured release delay mechanism",
+            "approach": "Time-based scenario testing",
+            "risk_focus": "Timing vulnerabilities, premature result visibility, and delay override failures",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "charter": "Explore critical result notification workflow using state transition testing to discover notification delivery failures, fallback mechanism defects, and alert display inconsistencies.",
+            "target_area": "Critical result notification workflow",
+            "approach": "State transition testing",
+            "risk_focus": "Notification delivery failures, fallback mechanism defects, and alert display inconsistencies",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "charter": "Explore secure messaging with contextual lab result attachment using workflow combination testing to discover context loss, attachment failures, and cross-provider message routing errors.",
+            "target_area": "Secure messaging with contextual lab result attachment",
+            "approach": "Workflow combination testing",
+            "risk_focus": "Context loss, attachment failures, and cross-provider message routing errors",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "charter": "Explore audit logging and compliance tracking using negative path testing to discover missing audit entries, timestamp inconsistencies, and user identity tracking gaps.",
+            "target_area": "Audit logging and compliance tracking",
+            "approach": "Negative path testing",
+            "risk_focus": "Missing audit entries, timestamp inconsistencies, and user identity tracking gaps",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"charter\": \"Explore FHIR integration and lab result synchronization using fault injection and boundary testing to discover data integrity issues, partial sync failures, and incomplete result panel displays.\",\n      \"target_area\": \"FHIR integration and lab result synchronization\",\n      \"approach\": \"Fault injection and boundary testing\",\n      \"risk_focus\": \"Data integrity issues, partial sync failures, and incomplete result panel displays\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"charter\": \"Explore provider-configured release delay mechanism using time-based scenario testing to discover timing vulnerabilities, premature result visibility, and delay override failures.\",\n      \"target_area\": \"Provider-configured release delay mechanism\",\n      \"approach\": \"Time-based scenario testing\",\n      \"risk_focus\": \"Timing vulnerabilities, premature result visibility, and delay override failures\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"charter\": \"Explore critical result notification workflow using state transition testing to discover notification delivery failures, fallback mechanism defects, and alert display inconsistencies.\",\n      \"target_area\": \"Critical result notification workflow\",\n      \"approach\": \"State transition testing\",\n      \"risk_focus\": \"Notification delivery failures, fallback mechanism defects, and alert display inconsistencies\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"charter\": \"Explore secure messaging with contextual lab result attachment using workflow combination testing to discover context loss, attachment failures, and cross-provider message routing errors.\",\n      \"target_area\": \"Secure messaging with contextual lab result attachment\",\n      \"approach\": \"Workflow combination testing\",\n      \"risk_focus\": \"Context loss, attachment failures, and cross-provider message routing errors\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"charter\": \"Explore audit logging and compliance tracking using negative path testing to discover missing audit entries, timestamp inconsistencies, and user identity tracking gaps.\",\n      \"target_area\": \"Audit logging and compliance tracking\",\n      \"approach\": \"Negative path testing\",\n      \"risk_focus\": \"Missing audit entries, timestamp inconsistencies, and user identity tracking gaps\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"30 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-24",
+      "original_id": "SPEC-24",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-24",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:45.236646+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Real-time GPS tracking and map visualization",
+            "approach": "Time-based observation with simulated GPS signal interruptions",
+            "risk_focus": "GPS data staleness, update frequency failures, and stale-location indicator accuracy under intermittent connectivity",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Exception alerting and notification delivery system",
+            "approach": "Scenario-based testing with multiple exception types and notification channels",
+            "risk_focus": "Notification delivery failures, SLA breaches beyond 5-minute window, and channel-specific routing errors",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Multi-carrier shipment timeline integration",
+            "approach": "Data manipulation testing with out-of-order and missing carrier API events",
+            "risk_focus": "Timeline ordering defects, missing handoff event handling, and data consistency issues across carrier boundaries",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Shipment lookup and search functionality",
+            "approach": "Boundary value analysis and negative testing with varied input formats",
+            "risk_focus": "Search failures with partial matches, special characters, case sensitivity issues, and performance degradation with ambiguous queries",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Proof of delivery capture and display workflow",
+            "approach": "End-to-end workflow testing with timing validation and media handling variations",
+            "risk_focus": "SLA compliance failures beyond 10-minute window, signature/photo upload errors, and display rendering issues across device types",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Real-time GPS tracking and map visualization\",\n      \"approach\": \"Time-based observation with simulated GPS signal interruptions\",\n      \"risk_focus\": \"GPS data staleness, update frequency failures, and stale-location indicator accuracy under intermittent connectivity\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Exception alerting and notification delivery system\",\n      \"approach\": \"Scenario-based testing with multiple exception types and notification channels\",\n      \"risk_focus\": \"Notification delivery failures, SLA breaches beyond 5-minute window, and channel-specific routing errors\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Multi-carrier shipment timeline integration\",\n      \"approach\": \"Data manipulation testing with out-of-order and missing carrier API events\",\n      \"risk_focus\": \"Timeline ordering defects, missing handoff event handling, and data consistency issues across carrier boundaries\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Shipment lookup and search functionality\",\n      \"approach\": \"Boundary value analysis and negative testing with varied input formats\",\n      \"risk_focus\": \"Search failures with partial matches, special characters, case sensitivity issues, and performance degradation with ambiguous queries\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Proof of delivery capture and display workflow\",\n      \"approach\": \"End-to-end workflow testing with timing validation and media handling variations\",\n      \"risk_focus\": \"SLA compliance failures beyond 10-minute window, signature/photo upload errors, and display rendering issues across device types\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    }\n  ]\n}\n```"
+      }
+    },
+    {
+      "spec_id": "SPEC-25",
+      "original_id": "SPEC-25",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-25",
+        "model_used": "anthropic/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:56:57.270484+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Cycle count variance calculation and automatic hold triggering mechanism",
+            "approach": "boundary value analysis with threshold manipulation and concurrent transaction testing",
+            "risk_focus": "incorrect hold triggers, race conditions between picks and counts, or threshold bypass scenarios that allow inaccurate inventory to remain available",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Offline mode data synchronization for handheld devices during cycle count operations",
+            "approach": "fault injection and state transition testing by simulating network interruptions at various workflow stages",
+            "risk_focus": "data loss, duplicate record creation, or inventory corruption when connectivity is lost and restored during scanning and count entry",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Receiving workflow with over-receipt and short-receipt scenarios across multiple purchase orders",
+            "approach": "combinatorial testing with varied quantity discrepancies, reason codes, and barcode scanning sequences",
+            "risk_focus": "incorrect quantity logging, missing discrepancy flags, or data integrity issues when processing edge-case receipt scenarios",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Multi-UOM SKU handling in cycle count interface and variance calculation",
+            "approach": "equivalence partitioning with conversion scenarios between different units of measure during count entry",
+            "risk_focus": "UOM conversion errors, mismatched unit displays, or incorrect variance calculations that lead to false discrepancies or missed actual variances",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Audit trail completeness and finance reconciliation report accuracy across user roles and adjustment types",
+            "approach": "end-to-end workflow tracing with timestamp verification and cross-role data validation",
+            "risk_focus": "missing audit entries, incorrect timestamps, incomplete reason code capture, or report aggregation errors that compromise compliance and financial accuracy",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          }
+        ],
+        "raw_content": "```json\n{\n  \"charters\": [\n    {\n      \"charter_id\": \"ET-01\",\n      \"target_area\": \"Cycle count variance calculation and automatic hold triggering mechanism\",\n      \"approach\": \"boundary value analysis with threshold manipulation and concurrent transaction testing\",\n      \"risk_focus\": \"incorrect hold triggers, race conditions between picks and counts, or threshold bypass scenarios that allow inaccurate inventory to remain available\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-02\",\n      \"target_area\": \"Offline mode data synchronization for handheld devices during cycle count operations\",\n      \"approach\": \"fault injection and state transition testing by simulating network interruptions at various workflow stages\",\n      \"risk_focus\": \"data loss, duplicate record creation, or inventory corruption when connectivity is lost and restored during scanning and count entry\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"60 min\"\n    },\n    {\n      \"charter_id\": \"ET-03\",\n      \"target_area\": \"Receiving workflow with over-receipt and short-receipt scenarios across multiple purchase orders\",\n      \"approach\": \"combinatorial testing with varied quantity discrepancies, reason codes, and barcode scanning sequences\",\n      \"risk_focus\": \"incorrect quantity logging, missing discrepancy flags, or data integrity issues when processing edge-case receipt scenarios\",\n      \"priority\": \"High\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-04\",\n      \"target_area\": \"Multi-UOM SKU handling in cycle count interface and variance calculation\",\n      \"approach\": \"equivalence partitioning with conversion scenarios between different units of measure during count entry\",\n      \"risk_focus\": \"UOM conversion errors, mismatched unit displays, or incorrect variance calculations that lead to false discrepancies or missed actual variances\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"45 min\"\n    },\n    {\n      \"charter_id\": \"ET-05\",\n      \"target_area\": \"Audit trail completeness and finance reconciliation report accuracy across user roles and adjustment types\",\n      \"approach\": \"end-to-end workflow tracing with timestamp verification and cross-role data validation\",\n      \"risk_focus\": \"missing audit entries, incorrect timestamps, incomplete reason code capture, or report aggregation errors that compromise compliance and financial accuracy\",\n      \"priority\": \"Medium\",\n      \"estimated_duration\": \"60 min\"\n    }\n  ]\n}\n```"
+      }
+    }
+  ]
+}

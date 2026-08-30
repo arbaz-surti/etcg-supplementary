@@ -1,0 +1,1346 @@
+{
+  "run_metadata": {
+    "purpose": "multi-model generation (revision task 2.3)",
+    "condition": "etcg",
+    "generator_slug": "gemini",
+    "model": "google/gemini-2.5-pro",
+    "label": "Gemini 2.5 Pro (Google)",
+    "temperature": 0.2,
+    "max_tokens": 3000,
+    "reasoning": {
+      "max_tokens": 128
+    },
+    "prompt_source": "identical to the primary run's condition prompt",
+    "timestamp": "2026-08-29T11:43:55+00:00",
+    "spec_count": 25,
+    "success_count": 25,
+    "complete": true
+  },
+  "results": [
+    {
+      "spec_id": "SPEC-01",
+      "original_id": "SPEC-01",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-01",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:08.935757+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the real-time status update of an 'Out of Stock' item on the online ordering portal",
+            "approach": "a Scenario-Based Test",
+            "risk_focus": "potential race conditions or sync delays that prevent the 'Out of Stock' status from propagating correctly, leading to failed customer orders.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the system's behavior when an item's stock status is rapidly toggled",
+            "approach": "a Stress Test",
+            "risk_focus": "the system's ability to handle rapid, repeated status changes without getting into an inconsistent state or dropping sync messages.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the system's recovery and data integrity after a network interruption during a menu sync",
+            "approach": "a Disruption Test",
+            "risk_focus": "data corruption or a permanent de-synchronization between the POS and online portal if the connection is lost mid-update.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the end-to-end user experience for both 'Out of Stock' and 'Back in Stock' scenarios",
+            "approach": "a User Journey Test",
+            "risk_focus": "any usability issues or confusing error messages a customer might encounter when an item's availability changes while they are browsing or checking out.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the system's handling of multiple, simultaneous menu item updates",
+            "approach": "a Concurrency Test",
+            "risk_focus": "the possibility of partial updates or data overwrites when several items are marked 'Out of Stock' at the same time from different POS terminals.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-02",
+      "original_id": "SPEC-02",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-02",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:16.436801+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the payment device reconnection logic after a network interruption",
+            "approach": "the Scenario-Based Testing technique",
+            "risk_focus": "whether the primary fix correctly resolves the reconnection failure after a mid-transaction network disconnect and reconnect event.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the firmware's behavior across different device and POS version combinations",
+            "approach": "the Configuration Testing technique",
+            "risk_focus": "any regressions or inconsistent behavior when the fix is applied to the six specified POS/terminal model combinations (v18/v19 with models A, B, C).",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the system's stability and resource usage during repeated connection failures and recoveries",
+            "approach": "the Stress Testing technique",
+            "risk_focus": "potential memory leaks, performance degradation, or system crashes on the POS or terminal when subjected to rapid, repeated network disconnect/reconnect cycles.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the user experience and error handling messages presented to the cashier",
+            "approach": "the Usability Testing technique",
+            "risk_focus": "unclear, misleading, or incorrect error messages displayed during the network failure and successful reconnection phases, which could confuse the user.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the firmware's handling of unexpected or alternative interruption scenarios",
+            "approach": "the Guerrilla Testing technique (or ad-hoc testing)",
+            "risk_focus": "unforeseen failure modes by introducing variations to the primary scenario, such as disconnecting power, using a faulty cable, or interrupting other transaction types.",
+            "priority": "Low",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-03",
+      "original_id": "SPEC-03",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-03",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:23.618287+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "POS/line-busting network connectivity with the new Wi-Fi 7 AP",
+            "approach": "Scenario-based testing",
+            "risk_focus": "transaction failures or data loss during critical POS operations due to network instability or dropouts.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Device roaming and handoff between old Wi-Fi 6 and new Wi-Fi 7 access points",
+            "approach": "Touring (Landmark Tour)",
+            "risk_focus": "session interruptions or connectivity loss for mobile devices (like line-busting tablets) as they move through areas with mixed AP models.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Guest network performance and user experience on the new Wi-Fi 7 AP",
+            "approach": "Interruption testing",
+            "risk_focus": "poor user experience, connection timeouts, or authentication issues when the network is under load or when a user's session is interrupted.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Compatibility and performance across all specified network types (Staff, Brand-approved, POS, Guest)",
+            "approach": "Configuration testing",
+            "risk_focus": "misconfigurations or compatibility issues where certain device types or network profiles fail to connect or perform optimally on the new hardware.",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The fallback and recovery process when a primary Wi-Fi 7 AP fails",
+            "approach": "Forcing error conditions",
+            "risk_focus": "failure of devices to correctly switch to the secondary network template or another available AP, leading to a complete loss of service in the affected area.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-04",
+      "original_id": "SPEC-04",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-04",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:30.570065+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "The transaction experience with the new catering voucher tender key",
+            "approach": "Scenario-based testing",
+            "risk_focus": "Incorrect transaction processing, calculation errors, or usability issues during payment with single or multiple vouchers.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "The POS financial reports (Property, Employee, Revenue Center)",
+            "approach": "Data-flow analysis",
+            "risk_focus": "Inaccurate or missing catering voucher tender data, leading to reconciliation failures and incorrect financial statements.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "The interaction between the new catering voucher and existing POS functionality",
+            "approach": "Interruption testing",
+            "risk_focus": "System instability, data corruption, or unexpected behavior when transactions are interrupted (e.g., voided, suspended, or during power loss).",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "The analytics reports (sales, tender media, tax, etc.)",
+            "approach": "Variable manipulation",
+            "risk_focus": "Incorrect aggregation or categorization of sales data in analytics dashboards when using edge case transaction values (e.g., zero-value, max-value, partial payments).",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The third-party data pipeline to the business intelligence platform",
+            "approach": "End-to-end testing",
+            "risk_focus": "Data loss, transformation errors, or latency issues in the data flow from POS transaction completion to its appearance in the BI platform.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-05",
+      "original_id": "SPEC-05",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-05",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:36.933778+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the pricing engine for the new Extra-Large size",
+            "approach": "scenario-based testing",
+            "risk_focus": "incorrect pricing calculations, especially the '2x medium price' rule and modifier pricing.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the POS ordering interface with the new Extra-Large size",
+            "approach": "touring (landmark tour)",
+            "risk_focus": "UI/UX defects, such as incorrect display, missing options, or confusing user flows when selecting the new size and its modifiers.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the modifier system for Extra-Large beverages",
+            "approach": "boundary value analysis",
+            "risk_focus": "defects related to the default modifier count (6) and how the system handles adding fewer, exactly, or more than the default number of modifiers.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the menu configuration for seasonal hero build variants",
+            "approach": "comparison testing",
+            "risk_focus": "inconsistencies or incorrect application of rules between standard Extra-Large items and the special seasonal variants.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the system's behavior with invalid or unexpected inputs for Extra-Large orders",
+            "approach": "error guessing",
+            "risk_focus": "unhandled exceptions, system crashes, or data corruption when interacting with the new size in non-standard ways.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-06",
+      "original_id": "SPEC-06",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-06",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:43.867243+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the new daily recurring time window configuration",
+            "approach": "a scenario-based test",
+            "risk_focus": "potential misinterpretations of the start/end date and time logic, leading to items being available or unavailable at incorrect times.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the app's behavior on the older POS platform (version 18.x)",
+            "approach": "a backward compatibility test",
+            "risk_focus": "critical failures or unexpected behavior due to the dependency on non-traditional store locations and older platform architecture.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the user interface for setting separate dates and times",
+            "approach": "a usability tour",
+            "risk_focus": "confusing UI elements, validation errors, or data entry issues that could lead to incorrect schedule configurations by the user.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the system's handling of edge cases and invalid data in the new scheduling fields",
+            "approach": "a defect bash focused on boundary conditions",
+            "risk_focus": "crashes, data corruption, or unpredictable behavior when schedules span midnight, have end times before start times, or use invalid date/time formats.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the transition from the old single datetime range to the new recurring schedule",
+            "approach": "a data migration test",
+            "risk_focus": "data loss or incorrect mapping of existing schedules after the software update, causing legacy configurations to fail.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-07",
+      "original_id": "SPEC-08",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-07",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:51.081395+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "The 'Void Check' function for restricted roles (e.g., Brand A Manager, Brand B Shift Leader)",
+            "approach": "Scenario-based testing",
+            "risk_focus": "The primary fraud vector where a void is attempted on an empty check (no items added).",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Transaction management functions for restricted roles",
+            "approach": "Negative testing",
+            "risk_focus": "Unintended side effects of the change, such as preventing legitimate voids of individual items, full transaction returns, or opening previously closed checks.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "The POS system behavior for roles that were already restricted (e.g., Brand A Crew, Brand B Crew Member)",
+            "approach": "Regression testing",
+            "risk_focus": "Regressions or unexpected permission changes for roles that should not have been affected by this update.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "The specific conditions under which the void restriction is triggered",
+            "approach": "Boundary value analysis",
+            "risk_focus": "Edge cases, such as attempting a void on a check with only a food item versus only a beverage item, or a check with a mix of both.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The complete user workflow from order creation to void attempt across all affected roles for both brands",
+            "approach": "End-to-end testing",
+            "risk_focus": "Disruption to the overall user experience and operational flow, ensuring the security fix is correctly applied to all specified roles without creating usability issues.",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-08",
+      "original_id": "SPEC-09",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-08",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:41:57.389077+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the Reporting and Analytics Configuration Tool",
+            "approach": "the Configuration Tour",
+            "risk_focus": "how the new 26% markup is configured and if it correctly applies only to the specified third-party platform and brands without affecting others.",
+            "priority": "High",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the data pipeline for new transactions",
+            "approach": "the Landmark Tour",
+            "risk_focus": "whether transactions processed after the effective date correctly reflect the new 26% markup, while transactions before the date retain the old 25% markup.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "historical transaction data",
+            "approach": "Backwards-Forwards Testing",
+            "risk_focus": "any unintended retroactive application of the new 26% markup to transactions that occurred prior to the change's effective date.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the system with invalid or edge case data",
+            "approach": "Error Guessing",
+            "risk_focus": "potential system instability or incorrect calculations when processing transactions with zero value, negative values, or from other unaffected delivery platforms.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the end-to-end data flow across UAT, Pre-Production, and Production environments",
+            "approach": "the Supermodel Tour",
+            "risk_focus": "inconsistencies or configuration drift between environments that could cause the markup change to fail upon production deployment.",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-09",
+      "original_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-09",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:04.199130+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the POS terminal and tablet certificate import process",
+            "approach": "a configuration tour",
+            "risk_focus": "improper certificate installation or configuration errors that prevent the new certificates from being recognized.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the end-to-end loyalty platform integration on the new UAT environment zone",
+            "approach": "a scenario-based test",
+            "risk_focus": "service disruptions or transaction failures due to certificate trust issues after the renewal.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the system's behavior during a simulated certificate expiration event",
+            "approach": "a time-shift testing technique",
+            "risk_focus": "unhandled exceptions, data corruption, or silent failures when the old certificate expires and the new one is not correctly utilized.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the content management page settings for the loyalty integration",
+            "approach": "a variable testing approach",
+            "risk_focus": "incorrect or missing configuration that could cause the POS to reference the wrong certificate or fail to connect.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the system's error handling and logging mechanisms",
+            "approach": "a fault injection test",
+            "risk_focus": "inadequate or misleading error messages and logs that would hinder troubleshooting efforts during a real incident.",
+            "priority": "Low",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-10",
+      "original_id": "SPEC-11",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-10",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:10.968058+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the advance order fulfillment process",
+            "approach": "scenario-based testing",
+            "risk_focus": "price discrepancies between the mobile app order and the final POS transaction when item prices change overnight",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the mobile app's order history and digital receipt",
+            "approach": "data integrity testing",
+            "risk_focus": "inconsistencies in the displayed price (pre-change vs. post-change) after the order is fulfilled",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the system's error handling and logging mechanisms",
+            "approach": "force-error testing",
+            "risk_focus": "silent failures or unhandled exceptions when the POS system receives an order with legacy pricing",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the order modification and cancellation flow for advance orders",
+            "approach": "interruption testing",
+            "risk_focus": "unexpected behavior or incorrect refund calculations if a user cancels or modifies an order after a price change has occurred",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the interaction between different item types (e.g., standard, promotional, weighted)",
+            "approach": "domain testing",
+            "risk_focus": "how price lock behavior is applied differently across various product categories, potentially leading to partial price updates",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-11",
+      "original_id": "SPEC-12",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-11",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:18.149328+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the Property Financial Report's overall layout and data integrity",
+            "approach": "the Comparison Technique (before vs. after change)",
+            "risk_focus": "unintended data discrepancies or corruption in sections adjacent to the moved block.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the relationship between the Order Type summary and the relocated Third-Party Delivery detail section",
+            "approach": "the Landmark Tour technique",
+            "risk_focus": "broken data links or incorrect summarization logic now that the detail section is physically distant.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the report's presentation across different output formats (PDF, CSV, Print Preview)",
+            "approach": "the All-Pairs Testing technique on format and data combinations",
+            "risk_focus": "formatting errors, page break issues, or data truncation caused by the reordering of a large data block.",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the report generation with extreme or unusual data values",
+            "approach": "the Scenario-Based Testing technique (e.g., zero delivery sales, massive delivery sales)",
+            "risk_focus": "layout collapses or calculation errors when the moved section is empty, unusually small, or exceptionally large.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the user experience for accountants and franchisees interacting with the new report layout",
+            "approach": "the Persona-Based Testing technique",
+            "risk_focus": "confusion or reduced efficiency in finding and reconciling data due to the new section placement.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-12",
+      "original_id": "SPEC-13",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-12",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:27.721099+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the new 'Full-Menu Non-Traditional' zone configuration",
+            "approach": "Configuration Testing",
+            "risk_focus": "incorrect inheritance of POS settings, ensuring it pulls from the standard brand configuration and not the limited-menu configuration.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the POS menu and page design for a store in the new zone",
+            "approach": "Scenario Testing",
+            "risk_focus": "the display of incorrect menu items, specifically the appearance of limited-menu bakery or beverage-only pages instead of the full-menu layout.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the process of assigning and re-assigning stores to and from the new zone",
+            "approach": "Boundary Value Analysis",
+            "risk_focus": "data integrity issues or configuration update failures when a store's zone assignment is changed, particularly when moving between traditional, non-traditional, and the new full-menu non-traditional zones.",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the system's behavior with invalid or edge-case configurations related to the new zone",
+            "approach": "Error Guessing",
+            "risk_focus": "unexpected system errors, crashes, or incorrect fallback behaviors when a store in the new zone has missing properties or conflicting settings.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the interaction between the new zone's configuration and other existing non-traditional zones",
+            "approach": "Comparison Testing",
+            "risk_focus": "unintended side-effects or regressions in other non-traditional zones (e.g., limited-menu locations) caused by the introduction of the new full-menu zone.",
+            "priority": "Low",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-13",
+      "original_id": "SPEC-14",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-13",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:35.103628+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "core ordering functionality on Gen 10 tablets with iOS 18.5",
+            "approach": "Scenario-Based Testing",
+            "risk_focus": "regressions in the primary user workflow (placing an order) on the current production hardware and OS combination",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the application's behavior on Gen 11 tablets with the new iOS 26.1",
+            "approach": "Configuration Testing",
+            "risk_focus": "compatibility issues, rendering problems, or performance degradation on the future-state hardware and OS",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the application's state management across interruptions on both iOS versions",
+            "approach": "Interruption Testing",
+            "risk_focus": "data loss, session corruption, or application crashes when multitasking, receiving notifications, or experiencing network drops",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the application's user interface and experience across all four hardware/OS configurations",
+            "approach": "Comparative Testing (Supermodel)",
+            "risk_focus": "inconsistencies, visual defects, or usability differences between the Gen 10/iOS 18.5 baseline and other configurations",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the application's error handling and recovery mechanisms",
+            "approach": "Error Guessing",
+            "risk_focus": "unhandled exceptions, cryptic error messages, or application freezes when invalid data is entered or unexpected actions are performed",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-14",
+      "original_id": "SPEC-15",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-14",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:41.748056+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the gift card transaction cancellation flow with cloud processing disabled",
+            "approach": "scenario-based testing",
+            "risk_focus": "whether the correct 'CANCEL TRANSACTION' message is displayed consistently across various cancellation points",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the POS terminal's state and configuration files",
+            "approach": "configuration testing",
+            "risk_focus": "any residual incorrect configurations or overrides that could cause the wrong message to reappear under different conditions",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the gift card transaction flow with cloud processing re-enabled",
+            "approach": "comparative testing (cloud on vs. cloud off)",
+            "risk_focus": "any unintended side effects or regressions in messaging when the system is in its normal operating state",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the POS terminal's behavior during error conditions in gift card transactions",
+            "approach": "error guessing",
+            "risk_focus": "incorrect or confusing messages when transactions are cancelled due to system errors, timeouts, or invalid inputs",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the interaction between gift card cancellations and other transaction types (e.g., sales, returns)",
+            "approach": "interruption testing",
+            "risk_focus": "message corruption or incorrect state transitions when a gift card cancellation is performed within a mixed-item transaction",
+            "priority": "Low",
+            "estimated_duration": "60 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-15",
+      "original_id": "SPEC-16",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-15",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:48.607075+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "existing serialized coupons at the Point of Sale (POS)",
+            "approach": "the Scenario-Based Testing technique",
+            "risk_focus": "any interference or incorrect application of discounts when existing serialized coupons are used in typical customer transaction flows.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the interaction between new promotional BIN ranges and existing serialized coupon BIN ranges",
+            "approach": "the Boundary Value Analysis technique",
+            "risk_focus": "any incorrect coupon validation or application for coupons with BINs at the edges of, or adjacent to, the newly added promotional ranges.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the coupon and discount processing logic",
+            "approach": "the State-Transition Testing technique",
+            "risk_focus": "any unexpected state changes or errors when applying, removing, or stacking existing serialized coupons with other items or discounts.",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the system's handling of invalid or expired serialized coupons",
+            "approach": "the Error Guessing technique",
+            "risk_focus": "any new or unexpected error messages, system crashes, or incorrect behavior when processing invalid, expired, or previously used serialized coupons after the new BIN range deployment.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the content management system's configuration for all coupon BIN ranges",
+            "approach": "the Configuration Testing technique",
+            "risk_focus": "any data corruption, misconfiguration, or unintended overwrites of existing serialized coupon BIN range data following the addition of the new promotional ranges.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-16",
+      "original_id": "SPEC-17",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-16",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:42:57.508896+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the successful execution of the antivirus exclusion script",
+            "approach": "the 'Supermodel' technique by focusing on a single, ideal execution path",
+            "risk_focus": "any failures in the script's core functionality under perfect conditions, such as incorrect exclusion paths or syntax errors.",
+            "priority": "High",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the POS terminal's state after the script is applied",
+            "approach": "the 'Landmark Tour' by checking key system areas in a specific order (e.g., Defender settings, Event Viewer, POS application launch, remote tool connection)",
+            "risk_focus": "unintended side effects or system instability caused by the new exclusion, such as corrupted configurations or critical service failures.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the remote management tool's interaction with Windows Defender",
+            "approach": "the 'Back Alley Tour' by attempting to use the tool in ways that previously triggered alerts",
+            "risk_focus": "scenarios where the exclusion is incomplete or ineffective, causing the tool to still be flagged by the antivirus under specific operational conditions.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the script's behavior under adverse conditions",
+            "approach": "the 'FedEx' technique by manipulating system variables and states before script execution (e.g., insufficient permissions, disconnected network, pre-existing conflicting exclusions)",
+            "risk_focus": "a lack of graceful error handling or unpredictable outcomes when the script is run in a non-standard or degraded environment.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the process of reverting the changes made by the script",
+            "approach": "the 'All-Nighter' or 'Obsessive' technique by repeatedly applying and then manually removing the exclusion",
+            "risk_focus": "the inability to cleanly roll back the configuration, potentially leaving the system in an insecure or altered state after a failed deployment or policy change.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-17",
+      "original_id": "SPEC-18",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-17",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:04.886140+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the notification display during the employee clock-in workflow",
+            "approach": "Scenario Testing",
+            "risk_focus": "how different types of notifications (e.g., long text, short text, multiple messages) impact the user experience and workflow timing.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the notification scheduling and management interface",
+            "approach": "CRUD Testing (Create, Read, Update, Delete)",
+            "risk_focus": "data integrity issues when managers create, schedule, modify, and delete various notifications.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the interaction between notifications and other POS functions",
+            "approach": "Interruption Testing",
+            "risk_focus": "system instability or data loss when a notification appears while a user is performing critical tasks like processing a payment or managing inventory.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the system's behavior under unusual or extreme conditions",
+            "approach": "Stray Bullet Testing (random inputs and actions)",
+            "risk_focus": "unexpected crashes, freezes, or error states when interacting with the notification feature in non-standard ways.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the notification feature's usability and value from a user's perspective",
+            "approach": "User Persona Testing (as a busy crew member and a non-technical manager)",
+            "risk_focus": "whether the feature is intuitive, helpful, and non-intrusive for both crew members and managers in a real-world store environment.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-18",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-18",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:10.710269+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Payment Processing and Device Connectivity",
+            "approach": "Scenario-Based Testing",
+            "risk_focus": "failures in payment authorization and settlement during a DNS failover event.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Online Ordering and Delivery Platform Integrations",
+            "approach": "Integration Testing",
+            "risk_focus": "delays or failures in receiving and acknowledging orders from third-party platforms.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Offline Mode for Gift Card and Loyalty Processing",
+            "approach": "Interruption Testing",
+            "risk_focus": "data synchronization issues or transaction loss when connectivity is restored after the secondary DNS is engaged.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Kitchen Display System (KDS) and Digital Menu Boards",
+            "approach": "Configuration Testing",
+            "risk_focus": "incorrect order routing or stale menu/pricing information being displayed due to DNS resolution problems.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "Reporting, Analytics, and Remote Management Tools",
+            "approach": "Data-Driven Testing",
+            "risk_focus": "data integrity and completeness issues in reports generated while the system relies on the secondary DNS provider.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-19",
+      "original_id": "SPEC-19",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-19",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:17.254876+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the beverage size selection buttons",
+            "approach": "Scenario-Based Testing",
+            "risk_focus": "incorrect pricing, size modification, or kitchen display system (KDS) communication when handling various order combinations and sequences.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the consolidated main product panel",
+            "approach": "Item-Tour Testing",
+            "risk_focus": "orphaned or missing menu items after the removal of the Bakery and Beverage tabs.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the redesigned visual layout across different hardware",
+            "approach": "Configuration Testing",
+            "risk_focus": "rendering issues, usability problems, or layout inconsistencies on various POS hardware form factors and screen resolutions.",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the conditional logic for beverage size buttons",
+            "approach": "Edge Case Testing",
+            "risk_focus": "the incorrect appearance or behavior of size buttons for beverage items that do not support variable sizing.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "the end-to-end order workflow with the new panel",
+            "approach": "User Flow Testing",
+            "risk_focus": "disruptions or inefficiencies in the Team Member's ability to quickly and accurately complete a mixed order (beverage, bakery, food) from start to finish.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-20",
+      "original_id": "SPEC-20",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-20",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:23.406124+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "The core transaction and order storage flows with the host file override active",
+            "approach": "Scenario-Based Testing",
+            "risk_focus": "potential transaction posting delays or order storage failures due to the new endpoint",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "The system's behaviour when the host file override is removed",
+            "approach": "Back-to-Back Testing",
+            "risk_focus": "the system's ability to revert to the original endpoint via DNS without errors or data loss",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "The POS application's connection caching mechanism",
+            "approach": "Forced-Failure Testing",
+            "risk_focus": "the application's resilience and recovery when the new endpoint is unreachable or the old IP is cached",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "The labour management functions (clock-in/out, job code changes)",
+            "approach": "Domain Testing",
+            "risk_focus": "inaccurate or failed recording of labour events after the endpoint migration",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The application logs and system-level network resolution across different POS hardware models",
+            "approach": "Configuration Testing",
+            "risk_focus": "hidden timeout errors or inconsistent DNS resolution behaviour specific to certain hardware configurations",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-21",
+      "original_id": "SPEC-21",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-21",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:29.624444+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Concurrent order processing and print job queuing",
+            "approach": "Scenario Testing",
+            "risk_focus": "cross-routing, dropped print jobs, or race conditions when multiple order types are processed simultaneously",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Printer error handling and system recovery",
+            "approach": "Forced-Failure Testing",
+            "risk_focus": "silent print job failures, incorrect error messaging, or data loss when a printer is offline, jammed, or disconnected",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "Configuration persistence across system events",
+            "approach": "Interruption Testing",
+            "risk_focus": "the loss of COM port-to-printer assignments after a POS application restart, system reboot, or software update",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "The physical hardware connection for the COM5 printer",
+            "approach": "Interface Testing",
+            "risk_focus": "intermittent connectivity, data corruption, or latency introduced by the RJ45-to-RJ12 adapter for on-the-go orders",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The core print routing logic for all order types",
+            "approach": "Domain Testing",
+            "risk_focus": "incorrect print job routing by exploring variations and combinations of order types, items, and payment methods",
+            "priority": "High",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-22",
+      "original_id": "SPEC-22",
+      "domain": "Restaurant Technology",
+      "etcg_output": {
+        "spec_id": "SPEC-22",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:35.759283+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "Offline transaction queuing and retry logic",
+            "approach": "Scenario-based testing",
+            "risk_focus": "the possibility of the system entering a continuous retry loop or failing to process queued transactions upon reconnection",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "Standard loyalty transaction processing with the new DLL",
+            "approach": "Feature parity testing",
+            "risk_focus": "any regression in core functionality, such as incorrect point balances, reward application, or transaction failures under normal online conditions",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "POS application stability and performance",
+            "approach": "Soak testing",
+            "risk_focus": "performance degradation, memory leaks, freezing, or crashes caused by the new DLL during sustained, high-volume transaction sessions",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "Error handling for invalid loyalty accounts",
+            "approach": "Negative testing",
+            "risk_focus": "improper error handling, such as the system entering a retry loop or crashing when processing transactions with expired, invalid, or non-existent loyalty accounts",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "DLL deployment and configuration",
+            "approach": "Configuration testing",
+            "risk_focus": "issues related to incorrect deployment, version mismatches, or misconfigurations that prevent the new DLL from loading or functioning as expected",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-23",
+      "original_id": "SPEC-23",
+      "domain": "Healthcare",
+      "etcg_output": {
+        "spec_id": "SPEC-23",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:41.882176+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "The lab result release delay mechanism",
+            "approach": "Scenario-based testing",
+            "risk_focus": "incorrect or inconsistent result visibility for patients due to timing issues or provider overrides.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "The critical result notification system",
+            "approach": "Error guessing",
+            "risk_focus": "failures in notification delivery (visual, SMS, email) or fallback logic when contact information is invalid.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "The secure messaging feature from the lab result page",
+            "approach": "User journey testing",
+            "risk_focus": "broken context linking, message delivery failures, or incorrect audit trail entries for patient-provider communication.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "The FHIR integration and data synchronization process",
+            "approach": "Interruption testing",
+            "risk_focus": "data corruption or partial result display when the synchronization process is interrupted or fails mid-batch.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The lab result PDF download functionality",
+            "approach": "Data-driven testing",
+            "risk_focus": "inaccurate or incomplete data rendering in the generated PDF, especially with abnormal flags, long comments, or complex panel structures.",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-24",
+      "original_id": "SPEC-24",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-24",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:48.146707+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "The multi-carrier shipment timeline",
+            "approach": "Scenario-based testing",
+            "risk_focus": "incorrect event ordering and missing handoff data",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "The exception alerting mechanism",
+            "approach": "State-transition testing",
+            "risk_focus": "delayed, missed, or incorrect notifications across different channels (email, SMS, webhook)",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "The interactive map's real-time GPS updates",
+            "approach": "Interruption testing",
+            "risk_focus": "how the system handles GPS signal loss, stale data, and recovery",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "The shipment lookup functionality",
+            "approach": "Domain testing",
+            "risk_focus": "failures in retrieving shipments using various valid, invalid, and boundary-value identifiers (tracking number, order reference, consignee name)",
+            "priority": "Medium",
+            "estimated_duration": "30 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "The Dispatch Coordinator dashboard",
+            "approach": "Role-based testing",
+            "risk_focus": "data integrity and functionality of filtering, sorting, and drill-down actions under high load or with complex data sets",
+            "priority": "Low",
+            "estimated_duration": "45 min"
+          }
+        ]
+      }
+    },
+    {
+      "spec_id": "SPEC-25",
+      "original_id": "SPEC-25",
+      "domain": "Logistics",
+      "etcg_output": {
+        "spec_id": "SPEC-25",
+        "model_used": "google/gemini-2.5-pro",
+        "temperature": 0.2,
+        "timestamp": "2026-08-29T11:43:55.455966+00:00Z",
+        "charters": [
+          {
+            "charter_id": "ET-01",
+            "target_area": "the cycle count discrepancy and hold mechanism",
+            "approach": "scenario testing",
+            "risk_focus": "improper SKU holds or failures to trigger holds when discrepancy thresholds are met or exceeded.",
+            "priority": "High",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-02",
+            "target_area": "the handheld device's offline functionality during cycle counts",
+            "approach": "interruption testing (e.g., toggling Wi-Fi, simulating battery drain)",
+            "risk_focus": "data loss, data duplication, or synchronization errors when network connectivity is lost and restored.",
+            "priority": "High",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-03",
+            "target_area": "the inventory adjustment audit trail and reconciliation reporting",
+            "approach": "data-flow analysis",
+            "risk_focus": "incomplete or inaccurate data in the audit trail, leading to failed financial audits.",
+            "priority": "Medium",
+            "estimated_duration": "60 min"
+          },
+          {
+            "charter_id": "ET-04",
+            "target_area": "the receiving workflow for inbound shipments",
+            "approach": "boundary value analysis on receipt quantities",
+            "risk_focus": "incorrect flagging of over-receipts and short-receipts against purchase order quantities.",
+            "priority": "Medium",
+            "estimated_duration": "45 min"
+          },
+          {
+            "charter_id": "ET-05",
+            "target_area": "concurrent inventory operations (picking and cycle counting)",
+            "approach": "concurrency testing",
+            "risk_focus": "race conditions that could lead to inaccurate counts or incorrect system inventory levels.",
+            "priority": "Low",
+            "estimated_duration": "30 min"
+          }
+        ]
+      }
+    }
+  ]
+}

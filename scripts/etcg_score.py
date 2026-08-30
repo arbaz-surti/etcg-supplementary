@@ -147,6 +147,11 @@ def score_charter(charter_text: str) -> dict:
 
 # ── Charter Extractor ──────────────────────────────────────────────────────────
 
+# A charter chunk opens with an enumeration or an explicit "Charter" heading;
+# anything else the splitter produces is framing prose, not a charter.
+CHARTER_MARKER = re.compile(r'^\s*(?:\d+\.|\*\*Charter|Charter\s?\d|#{1,3}\s|\*\*\d)', re.I)
+
+
 def extract_baseline_charters(raw_output: str) -> list[str]:
     """
     Split baseline free-text output into individual charter texts.
@@ -163,6 +168,22 @@ def extract_baseline_charters(raw_output: str) -> list[str]:
     # If we got too many sub-splits, try a simpler split on double newlines
     if len(charters) > 7:
         charters = [p.strip() for p in raw_output.split("\n\n") if p.strip()]
+    # Drop chunks that are not charters. Models often open with a preamble line
+    # ("Here are five exploratory testing charters based on the provided
+    # specification:"), which the split above captures as its own chunk. Counting
+    # it as a charter did two things at once: it fed a non-charter to the scorer,
+    # which duly rated it 1/1/1/1/1, and it pushed the real fifth charter out of
+    # the [:5] window entirely. Three of the 25 baseline responses were affected.
+    charters = [c for c in charters if CHARTER_MARKER.match(c)]
+    # A second framing case, seen with other models' markdown: the reply opens
+    # with a document-title heading on its own line ("# Exploratory Testing
+    # Charters for <feature>"), which the split isolates as a chunk. It passes
+    # CHARTER_MARKER (via "#{1,3}\s") but carries no body. A real charter chunk
+    # always has a body, so drop any chunk that is a lone heading line. The
+    # frozen GPT-4o corpus contains no such chunk, so this does not disturb the
+    # primary results.
+    charters = [c for c in charters
+                if not (re.match(r'#{1,3}\s+\S', c) and "\n" not in c.strip())]
     # Take first 5
     return charters[:5]
 

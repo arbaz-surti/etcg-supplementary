@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "CHR-R2-001",
+    "spec_id": "SPEC-04",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "round1_id": "CHR-012",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-002",
+    "spec_id": "SPEC-07",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-034",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-003",
+    "spec_id": "SPEC-17",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-004",
+    "spec_id": "SPEC-16",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "round1_id": "CHR-042",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-005",
+    "spec_id": "SPEC-19",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-006",
+    "spec_id": "SPEC-14",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-007",
+    "spec_id": "SPEC-10",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-008",
+    "spec_id": "SPEC-09",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-009",
+    "spec_id": "SPEC-05",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-010",
+    "spec_id": "SPEC-22",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-011",
+    "spec_id": "SPEC-08",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 93.3
+  },
+  {
+    "id": "CHR-R2-012",
+    "spec_id": "SPEC-10",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "round1_id": "CHR-027",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-013",
+    "spec_id": "SPEC-01",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 93.3
+  },
+  {
+    "id": "CHR-R2-014",
+    "spec_id": "SPEC-18",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-015",
+    "spec_id": "SPEC-03",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-045",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-016",
+    "spec_id": "SPEC-06",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "round1_id": "CHR-048",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-017",
+    "spec_id": "SPEC-14",
+    "condition": "etcg",
+    "charter_id": "ET-01",
+    "round1_id": "CHR-009",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-018",
+    "spec_id": "SPEC-23",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "round1_id": "CHR-043",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-019",
+    "spec_id": "SPEC-04",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "round1_id": "CHR-028",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-020",
+    "spec_id": "SPEC-19",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "round1_id": "CHR-047",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-021",
+    "spec_id": "SPEC-13",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "round1_id": "CHR-040",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-022",
+    "spec_id": "SPEC-15",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "round1_id": "CHR-050",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-023",
+    "spec_id": "SPEC-18",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "round1_id": "CHR-037",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-024",
+    "spec_id": "SPEC-07",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-004",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-025",
+    "spec_id": "SPEC-25",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-026",
+    "spec_id": "SPEC-25",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-018",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-027",
+    "spec_id": "SPEC-09",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "round1_id": "CHR-038",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-028",
+    "spec_id": "SPEC-20",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "round1_id": "CHR-013",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 2,
+      "actionability": 2
+    },
+    "auto_pct": 66.7
+  },
+  {
+    "id": "CHR-R2-029",
+    "spec_id": "SPEC-02",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "round1_id": "CHR-003",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 93.3
+  },
+  {
+    "id": "CHR-R2-030",
+    "spec_id": "SPEC-02",
+    "condition": "intermediate",
+    "charter_id": "IM-03",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-031",
+    "spec_id": "SPEC-08",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-015",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-032",
+    "spec_id": "SPEC-11",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "round1_id": "CHR-046",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-033",
+    "spec_id": "SPEC-24",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-024",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-034",
+    "spec_id": "SPEC-17",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-002",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-035",
+    "spec_id": "SPEC-20",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "round1_id": "CHR-020",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-036",
+    "spec_id": "SPEC-23",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "round1_id": "CHR-010",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-037",
+    "spec_id": "SPEC-09",
+    "condition": "etcg",
+    "charter_id": "ET-01",
+    "round1_id": "CHR-030",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-038",
+    "spec_id": "SPEC-02",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "round1_id": "CHR-039",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-039",
+    "spec_id": "SPEC-12",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-040",
+    "spec_id": "SPEC-14",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "round1_id": "CHR-035",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-041",
+    "spec_id": "SPEC-01",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "round1_id": "CHR-036",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-042",
+    "spec_id": "SPEC-22",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "round1_id": "CHR-006",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-043",
+    "spec_id": "SPEC-18",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "round1_id": "CHR-022",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-044",
+    "spec_id": "SPEC-05",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-005",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-045",
+    "spec_id": "SPEC-24",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-046",
+    "spec_id": "SPEC-12",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "round1_id": "CHR-033",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-047",
+    "spec_id": "SPEC-01",
+    "condition": "baseline",
+    "charter_id": "BL-03",
+    "round1_id": "CHR-025",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-048",
+    "spec_id": "SPEC-22",
+    "condition": "etcg",
+    "charter_id": "ET-03",
+    "round1_id": "CHR-049",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-049",
+    "spec_id": "SPEC-03",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-023",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-050",
+    "spec_id": "SPEC-10",
+    "condition": "etcg",
+    "charter_id": "ET-03",
+    "round1_id": "CHR-017",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-051",
+    "spec_id": "SPEC-21",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-026",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-052",
+    "spec_id": "SPEC-21",
+    "condition": "intermediate",
+    "charter_id": "IM-03",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-053",
+    "spec_id": "SPEC-16",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "round1_id": "CHR-021",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-054",
+    "spec_id": "SPEC-06",
+    "condition": "intermediate",
+    "charter_id": "IM-02",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-055",
+    "spec_id": "SPEC-25",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-032",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-056",
+    "spec_id": "SPEC-17",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-044",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-057",
+    "spec_id": "SPEC-11",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-058",
+    "spec_id": "SPEC-23",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-059",
+    "spec_id": "SPEC-20",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-060",
+    "spec_id": "SPEC-19",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "round1_id": "CHR-007",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-061",
+    "spec_id": "SPEC-03",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-062",
+    "spec_id": "SPEC-21",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-019",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-063",
+    "spec_id": "SPEC-05",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "round1_id": "CHR-008",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-064",
+    "spec_id": "SPEC-06",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-011",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-065",
+    "spec_id": "SPEC-12",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "round1_id": "CHR-001",
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 2,
+      "actionability": 2
+    },
+    "auto_pct": 66.7
+  },
+  {
+    "id": "CHR-R2-066",
+    "spec_id": "SPEC-08",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-031",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-067",
+    "spec_id": "SPEC-07",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-068",
+    "spec_id": "SPEC-13",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 2,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 73.3
+  },
+  {
+    "id": "CHR-R2-069",
+    "spec_id": "SPEC-04",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 2,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 2
+    },
+    "auto_pct": 80.0
+  },
+  {
+    "id": "CHR-R2-070",
+    "spec_id": "SPEC-15",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "round1_id": "CHR-029",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-071",
+    "spec_id": "SPEC-24",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "round1_id": "CHR-014",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-072",
+    "spec_id": "SPEC-16",
+    "condition": "intermediate",
+    "charter_id": "IM-02",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-073",
+    "spec_id": "SPEC-15",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "round1_id": null,
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  },
+  {
+    "id": "CHR-R2-074",
+    "spec_id": "SPEC-11",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "round1_id": "CHR-041",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 2,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 93.3
+  },
+  {
+    "id": "CHR-R2-075",
+    "spec_id": "SPEC-13",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "round1_id": "CHR-016",
+    "auto_scores": {
+      "specificity": 3,
+      "testability": 3,
+      "risk_coverage": 3,
+      "clarity": 3,
+      "actionability": 3
+    },
+    "auto_pct": 100.0
+  }
+]
