@@ -13,6 +13,14 @@
         "rows_removed": 3,
         "rows_added": 3,
         "scored_by": "openai/gpt-4o"
+      },
+      {
+        "date": "2026-08-31T22:21:05+00:00",
+        "what": "baseline charter split repaired; preamble chunks removed, discarded fifth charters restored and scored",
+        "rows_renumbered": 4,
+        "rows_removed": 1,
+        "rows_added": 1,
+        "scored_by": "openai/gpt-4o"
       }
     ],
     "complete": true
@@ -2296,15 +2304,15 @@
       "condition": "baseline",
       "charter_id": "BL-01",
       "scores": {
-        "specificity": 1,
-        "testability": 1,
-        "risk_coverage": 1,
-        "clarity": 1,
-        "actionability": 1,
-        "rationale": "The charter is vague and lacks detail on the feature, approach, risk, and testing direction, making it unclear and not actionable."
+        "specificity": 3,
+        "testability": 3,
+        "risk_coverage": 3,
+        "clarity": 3,
+        "actionability": 3,
+        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
       },
-      "total_score": 5,
-      "percentage": 33.3
+      "total_score": 15,
+      "percentage": 100.0
     },
     {
       "spec_id": "SPEC-10",
@@ -2333,7 +2341,7 @@
         "risk_coverage": 3,
         "clarity": 3,
         "actionability": 3,
-        "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
       },
       "total_score": 15,
       "percentage": 100.0
@@ -2349,7 +2357,7 @@
         "risk_coverage": 3,
         "clarity": 3,
         "actionability": 3,
-        "rationale": "The charter is highly specific, directly testable, targets a meaningful risk, is clearly written, and provides a distinct exploratory approach."
+        "rationale": "The charter is specific, testable, and targets a meaningful risk with clear and actionable guidance."
       },
       "total_score": 15,
       "percentage": 100.0
@@ -2360,15 +2368,15 @@
       "condition": "baseline",
       "charter_id": "BL-05",
       "scores": {
-        "specificity": 3,
-        "testability": 3,
-        "risk_coverage": 3,
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
         "clarity": 3,
-        "actionability": 3,
-        "rationale": "The charter is specific, testable, and targets a meaningful risk with clear and actionable guidance."
+        "actionability": 2,
+        "rationale": "The charter identifies a feature area and objective but lacks a precise approach or specific risk, requiring some interpretation for execution."
       },
-      "total_score": 15,
-      "percentage": 100.0
+      "total_score": 11,
+      "percentage": 73.3
     },
     {
       "spec_id": "SPEC-10",

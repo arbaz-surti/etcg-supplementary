@@ -24,6 +24,14 @@
         "rows_removed": 3,
         "rows_added": 3,
         "scored_by": "anthropic/claude-sonnet-4.5"
+      },
+      {
+        "date": "2026-08-31T22:21:08+00:00",
+        "what": "baseline charter split repaired; preamble chunks removed, discarded fifth charters restored and scored",
+        "rows_renumbered": 4,
+        "rows_removed": 1,
+        "rows_added": 1,
+        "scored_by": "anthropic/claude-sonnet-4.5"
       }
     ]
   },
@@ -3554,32 +3562,6 @@
       "domain": "Restaurant Technology",
       "condition": "baseline",
       "charter_id": "BL-01",
-      "text_sha256": "ac4fda40ecf2b6429b8cbfa849fa74a6dbb7b650f1326614a98efbe9356d85b5",
-      "scores": {
-        "specificity": 3,
-        "testability": 3,
-        "risk_coverage": 3,
-        "clarity": 3,
-        "actionability": 3,
-        "rationale": "This charter precisely targets price lock behavior in mobile advance orders with a clear feature scope, directly testable scenarios, meaningful financial risk coverage, unambiguous language, and a distinct testing approach focused on price integrity validation."
-      },
-      "total_score": 15,
-      "percentage": 100.0,
-      "usage": {
-        "prompt_tokens": 522,
-        "completion_tokens": 106,
-        "total_tokens": 628,
-        "cost_usd": 0.003156
-      },
-      "latency_s": 3.828,
-      "scorer_model_resolved": "anthropic/claude-sonnet-4.5",
-      "finish_reason": "stop"
-    },
-    {
-      "spec_id": "SPEC-10",
-      "domain": "Restaurant Technology",
-      "condition": "baseline",
-      "charter_id": "BL-02",
       "text_sha256": "e061fd0719acd9533063d7fc7583dc94d301dffd6b7afb732bbee6555613b668",
       "scores": {
         "specificity": 2,
@@ -3605,7 +3587,7 @@
       "spec_id": "SPEC-10",
       "domain": "Restaurant Technology",
       "condition": "baseline",
-      "charter_id": "BL-03",
+      "charter_id": "BL-02",
       "text_sha256": "73453ec13be83992fc51626adf7ec0eb97b26dee286981939c99ea12ff76c2a7",
       "scores": {
         "specificity": 3,
@@ -3631,7 +3613,7 @@
       "spec_id": "SPEC-10",
       "domain": "Restaurant Technology",
       "condition": "baseline",
-      "charter_id": "BL-04",
+      "charter_id": "BL-03",
       "text_sha256": "d026e04f14c119daff223c56b75aaa464875254e67ec9a460b8c7f4bc90f1792",
       "scores": {
         "specificity": 3,
@@ -3657,7 +3639,7 @@
       "spec_id": "SPEC-10",
       "domain": "Restaurant Technology",
       "condition": "baseline",
-      "charter_id": "BL-05",
+      "charter_id": "BL-04",
       "text_sha256": "8395047d1ec9c86c9ab315fec892d9a05d16d7376e2b7c249a757e4a0e1d0ae4",
       "scores": {
         "specificity": 3,
@@ -3677,6 +3659,32 @@
       },
       "latency_s": 3.256,
       "scorer_model_resolved": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "spec_id": "SPEC-10",
+      "domain": "Restaurant Technology",
+      "condition": "baseline",
+      "charter_id": "BL-05",
+      "scores": {
+        "specificity": 2,
+        "testability": 2,
+        "risk_coverage": 2,
+        "clarity": 3,
+        "actionability": 2,
+        "rationale": "Charter is well-written and clear but lacks specific feature components, concrete testing approaches, and precise risk scenarios that would make it highly actionable for an exploratory session."
+      },
+      "total_score": 11,
+      "percentage": 73.3,
+      "text_sha256": "ad4356e23a0257f5c86c78343a8eba1616fac20e9772ca0b10f1a6783039704c",
+      "usage": {
+        "prompt_tokens": 603,
+        "completion_tokens": 97,
+        "total_tokens": 700,
+        "cost_usd": 0.003264
+      },
+      "latency_s": 3.253,
+      "scorer_model_resolved": "anthropic/claude-sonnet-4.5",
+      "finish_reason": "stop"
     },
     {
       "spec_id": "SPEC-10",

@@ -125,9 +125,11 @@ def make_radar(matrices: dict, reg, out_dirs: list[Path]) -> list[Path]:
     ax.set_theta_direction(-1)
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(DIMENSION_LABELS, fontsize=9)
-    ax.set_ylim(2.4, 3.02)
-    ax.set_yticks([2.5, 2.7, 2.9])
-    ax.set_yticklabels(["2.5", "2.7", "2.9"], fontsize=7.5, color="grey")
+    # The full rubric scale prevents small differences near the ceiling from being
+    # visually magnified into apparently separate profiles.
+    ax.set_ylim(1.0, 3.0)
+    ax.set_yticks([1.0, 1.5, 2.0, 2.5, 3.0])
+    ax.set_yticklabels(["1.0", "1.5", "2.0", "2.5", "3.0"], fontsize=7.5, color="grey")
     ax.grid(color="#D5D5D5", linewidth=0.6)
     ax.spines["polar"].set_color("#CCCCCC")
 
@@ -153,10 +155,10 @@ def make_radar(matrices: dict, reg, out_dirs: list[Path]) -> list[Path]:
 def make_richness_barchart(matrices: dict, reg, out_dirs: list[Path]) -> list[Path]:
     """Mean quality by specification richness group, with the group n made explicit.
 
-    Error bars are 95% confidence intervals rather than +/-1 SD: the structured group holds
-    seven specifications, and a CI shows that uncertainty where an SD bar understates it.
+    Error bars are deterministic percentile-bootstrap 95% confidence intervals. The method
+    respects the bounded percentage scale and avoids normal-theory intervals above 100%.
     """
-    from analysis import SPARSE_SPECS, STRUCTURED_SPECS, ci_mean
+    from analysis import SPARSE_SPECS, STRUCTURED_SPECS
 
     specs = matrices["specs"]
     groups = {
@@ -170,10 +172,11 @@ def make_richness_barchart(matrices: dict, reg, out_dirs: list[Path]) -> list[Pa
 
     for k, cond in enumerate(CONDITIONS):
         means, errs = [], [[], []]
-        for idxs in groups.values():
+        for group, idxs in groups.items():
             vals = matrices["spec_pct"][cond][idxs]
             m = float(vals.mean())
-            lo, hi = ci_mean(vals)
+            lo = reg.get(f"rq4.{cond}.{group.lower()}.ci_low")
+            hi = reg.get(f"rq4.{cond}.{group.lower()}.ci_high")
             means.append(m)
             errs[0].append(max(0.0, m - lo))
             errs[1].append(max(0.0, hi - m))

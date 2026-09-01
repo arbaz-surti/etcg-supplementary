@@ -79,7 +79,7 @@ SPEC_MEAN_DP = 10
 # Baseline cells whose charter numbering changed when the preamble-split defect was
 # repaired (see scripts/repair_baseline_split.py). Charter ids in these cells do not
 # denote the same charter before and after the repair.
-REPAIRED_SPECS = ["SPEC-01", "SPEC-06", "SPEC-23"]
+REPAIRED_SPECS = ["SPEC-01", "SPEC-06", "SPEC-10", "SPEC-23"]
 REPAIRED_CELLS = {(s, "baseline", f"BL-{i:02d}")
                   for s in REPAIRED_SPECS for i in range(1, 6)}
 
@@ -315,6 +315,24 @@ def ci_mean(x: np.ndarray, conf: float = 0.95) -> tuple[float, float]:
     return (m - t * se, m + t * se)
 
 
+def bootstrap_ci_mean(x: np.ndarray, conf: float = 0.95, *, n_resamples: int = 10_000,
+                      seed: int = 0) -> tuple[float, float]:
+    """Deterministic percentile-bootstrap confidence interval for a sample mean.
+
+    A t interval can extend past the 0--100 bounds of a percentage score. Resampling the
+    observed specification means instead keeps the plotted interval within the scale and
+    is more appropriate for the small, ceilinged RQ4 groups. A fixed seed makes the
+    generated figure and traceability values reproducible.
+    """
+    x = np.asarray(x, dtype=float)
+    if len(x) < 2:
+        return (float("nan"), float("nan"))
+    rng = np.random.default_rng(seed)
+    draws = x[rng.integers(0, len(x), size=(n_resamples, len(x)))].mean(axis=1)
+    alpha = (1.0 - conf) / 2.0
+    return (float(np.quantile(draws, alpha)), float(np.quantile(draws, 1.0 - alpha)))
+
+
 def rank_biserial_paired(diff: np.ndarray) -> float:
     """Matched-pairs rank-biserial correlation — the effect size that pairs with the
     Wilcoxon signed-rank test. Ranges -1..1; sign follows the direction of the difference."""
@@ -385,8 +403,8 @@ def superseded_unpaired(a: np.ndarray, b: np.ndarray) -> dict:
 def prerepair_headline(path: Path) -> dict | None:
     """RQ1 condition means and pairwise contrasts on the pre-repair scoring file.
 
-    repair_baseline_split.py corrected a splitter defect that had scored a model framing
-    line as a charter in three baseline cells (REPAIRED_SPECS), depressing the baseline
+    repair_baseline_split.py corrected a splitter defect that had scored a non-charter
+    preamble or heading as a charter in four baseline cells (REPAIRED_SPECS), depressing the baseline
     mean on exactly the ETCG-versus-baseline contrast the earlier analysis called
     significant. The manuscript discloses what the repair changed; this recomputes the
     superseded numbers from the retained pre-repair file so that disclosure is traceable
@@ -834,6 +852,11 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
             contrasts[slug_c] = res
 
         ranking = sorted(CONDITIONS, key=lambda c: -cond_stats[c]["mean"])
+        generation = generation_cost(mm_dir / slug / "generation-instrumentation.json")
+        generation_cost_usd = generation["total_cost_usd"] if generation else None
+        scoring_cost_usd = meta.get("total_cost_usd")
+        if not isinstance(scoring_cost_usd, (int, float)):
+            scoring_cost_usd = None
         models[slug] = {
             "slug": slug,
             "label": meta.get("generator_label", slug),
@@ -846,6 +869,8 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
             "baseline_last": ranking[-1] == "baseline",
             "beats_primary_etcg_with_baseline": cond_stats["baseline"]["mean"] > primary_means["etcg"],
             "etcg_minus_primary_etcg_pp": cond_stats["etcg"]["mean"] - primary_means["etcg"],
+            "generation_cost_usd": generation_cost_usd,
+            "scoring_cost_usd": scoring_cost_usd,
         }
 
     if not models:
@@ -872,6 +897,10 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
         + int(prim["schema"]["mean_diff"] < 0)
     baseline_last = sum(1 for m in models.values() if m["baseline_last"]) \
         + int(primary_ranking[-1] == "baseline")
+    cost_complete = all(m["generation_cost_usd"] is not None and
+                        m["scoring_cost_usd"] is not None for m in models.values())
+    total_cost_usd = (sum(m["generation_cost_usd"] + m["scoring_cost_usd"]
+                          for m in models.values()) if cost_complete else None)
 
     n_total = len(models) + 1
     return {
@@ -889,6 +918,7 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
         "baseline_last_in": baseline_last,
         "any_beats_primary_etcg_with_baseline": any(
             m["beats_primary_etcg_with_baseline"] for m in models.values()),
+        "total_cost_usd": total_cost_usd,
     }
 
 
@@ -1772,9 +1802,10 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
     sparse_idx = [i for i, s in enumerate(specs) if s in SPARSE_SPECS]
     struct_idx = [i for i, s in enumerate(specs) if s in STRUCTURED_SPECS]
 
-    for cond in CONDITIONS:
+    rq4_pvals: dict[str, float] = {}
+    for cond_i, cond in enumerate(CONDITIONS):
         spec_vals = matrices["spec_pct"][cond]
-        for group, idxs in [("sparse", sparse_idx), ("structured", struct_idx)]:
+        for group_i, (group, idxs) in enumerate([("sparse", sparse_idx), ("structured", struct_idx)]):
             vals = spec_vals[idxs]
             reg.put(f"rq4.{cond}.{group}.mean", float(vals.mean()),
                     desc=f"{CONDITION_LABELS[cond]} mean on {group} specifications (%)",
@@ -1785,6 +1816,13 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
             reg.put(f"rq4.{cond}.{group}.n", len(idxs),
                     desc=f"Specifications in the {group} group", fmt="int",
                     method="group membership by spec ID")
+            ci_low, ci_high = bootstrap_ci_mean(vals, seed=10 * cond_i + group_i)
+            reg.put(f"rq4.{cond}.{group}.ci_low", ci_low,
+                    desc=f"{CONDITION_LABELS[cond]} bootstrap 95% CI lower bound on {group} specifications (%)",
+                    method="percentile bootstrap of specification means (10,000 deterministic resamples)")
+            reg.put(f"rq4.{cond}.{group}.ci_high", ci_high,
+                    desc=f"{CONDITION_LABELS[cond]} bootstrap 95% CI upper bound on {group} specifications (%)",
+                    method="percentile bootstrap of specification means (10,000 deterministic resamples)")
 
         a = spec_vals[struct_idx]
         b = spec_vals[sparse_idx]
@@ -1795,12 +1833,24 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
                 desc=f"{CONDITION_LABELS[cond]}: structured minus sparse (pp)", fmt="diff",
                 method="difference of group means at the specification level")
         reg.put(f"rq4.{cond}.contrast_p", float(p),
-                desc=f"{CONDITION_LABELS[cond]}: structured versus sparse p", fmt="p",
+                desc=f"{CONDITION_LABELS[cond]}: structured versus sparse raw p", fmt="p",
                 method="Mann-Whitney U — these are independent groups of specifications, "
                        "so an unpaired test is correct here")
+        rq4_pvals[cond] = float(p)
         reg.put(f"rq4.{cond}.contrast_d", float((a.mean() - b.mean()) / pooled) if pooled else float("nan"),
                 desc=f"{CONDITION_LABELS[cond]}: structured versus sparse Cohen's d",
                 fmt="{:.2f}", method="difference of means / pooled SD, specification level")
+
+    rq4_adjusted = holm_bonferroni(rq4_pvals)
+    reg.put("rq4.n_tests", len(rq4_pvals), desc="RQ4 condition-wise richness contrasts", fmt="int",
+            method="three Mann–Whitney tests form one RQ4 family")
+    reg.put("rq4.n_sig_holm", sum(p < 0.05 for p in rq4_adjusted.values()),
+            desc="RQ4 contrasts significant after Holm correction", fmt="int",
+            method="count of Holm-adjusted p < 0.05")
+    for cond, p_holm in rq4_adjusted.items():
+        reg.put(f"rq4.{cond}.contrast_p_holm", p_holm,
+                desc=f"{CONDITION_LABELS[cond]}: structured versus sparse Holm-adjusted p", fmt="p",
+                method=f"Holm-Bonferroni across {len(rq4_adjusted)} RQ4 condition-wise contrasts")
 
     for dim in DIMENSIONS:
         for group, idxs in [("sparse", sparse_idx), ("structured", struct_idx)]:
@@ -2065,6 +2115,10 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
         reg.put("mm.baseline_last_in", multimodel["baseline_last_in"], fmt="int",
                 desc="Generators whose lowest-scoring condition is Baseline",
                 method=m + "; count over all generators including GPT-4o")
+        if multimodel.get("total_cost_usd") is not None:
+            reg.put("mm.total_cost", multimodel["total_cost_usd"], fmt="{:.2f}",
+                    desc="Total API cost to regenerate and rescore all three conditions for the additional generator families (USD)",
+                    method="sum of completed per-call generation instrumentation and per-model scoring cost metadata")
         for slug, md in sorted(multimodel["models"].items()):
             k = f"mm.{slug}"
             reg.put(f"{k}.short", md["short"], fmt="{}",
@@ -2137,11 +2191,12 @@ def tex_table(caption: str, label: str, colspec: str, header: list[str],
         "\\midrule",
     ]
     out.extend(" & ".join(r) + " \\\\" for r in rows)
-    out.append("\\bottomrule")
     if notes:
+        out.append("\\addlinespace[0.25em]")
         ncols = len(header)
         for note in notes:
-            out.append(f"\\multicolumn{{{ncols}}}{{@{{}}l}}{{\\footnotesize {note}}} \\\\")
+            out.append(f"\\multicolumn{{{ncols}}}{{@{{}}p{{\\linewidth}}@{{}}}}{{\\footnotesize\\raggedright {note}}} \\\\")
+    out.append("\\bottomrule")
     out.extend(["\\end{tabular}", "\\end{table}", ""])
     return "\n".join(out)
 
@@ -2367,7 +2422,7 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
             CONDITION_LABELS[c],
             r(f"rq4.{c}.sparse.mean"), r(f"rq4.{c}.sparse.sd"),
             r(f"rq4.{c}.structured.mean"), r(f"rq4.{c}.structured.sd"),
-            r(f"rq4.{c}.contrast_diff"), r(f"rq4.{c}.contrast_d"), r(f"rq4.{c}.contrast_p"),
+            r(f"rq4.{c}.contrast_diff"), r(f"rq4.{c}.contrast_d"), r(f"rq4.{c}.contrast_p_holm"),
         ])
     path = out_dir / "table-rq4-richness.tex"
     path.write_text(tex_table(
@@ -2379,7 +2434,8 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
                 "$\\Delta$", "$d$", "$p$"],
         rows=rows,
         notes=["Structured and sparse specifications are independent groups, so an unpaired "
-               "test is used for this contrast."]),
+               "Mann--Whitney test is used for each contrast. $p$ is Holm-adjusted across "
+               f"the {r('rq4.n_tests')} condition-wise RQ4 contrasts."]),
         encoding="utf-8")
     written.append(path)
 
@@ -2424,7 +2480,9 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
                      "Every judge scored the identical frozen corpus with the identical "
                      "rubric prompt at temperature 0; only the judge model differs. "
                      "$\\Delta$ is the primary mean minus the judge mean, so a positive "
-                     "value means GPT-4o graded its own model's output more generously."),
+                     "value indicates an overall judge-severity gap: GPT-4o assigned "
+                     "higher scores under the shared rubric, not a preference for a "
+                     "particular generator."),
             label="tab:judgeagreement", colspec="lrrrrr",
             header=["Judge", "Mean (\\%)", "$\\Delta$ (pp)", "Exact (\\%)",
                     "Within-one (\\%)", "AC2"],

@@ -173,15 +173,23 @@ def extract_baseline_charters(raw_output: str) -> list[str]:
     # specification:"), which the split above captures as its own chunk. Counting
     # it as a charter did two things at once: it fed a non-charter to the scorer,
     # which duly rated it 1/1/1/1/1, and it pushed the real fifth charter out of
-    # the [:5] window entirely. Three of the 25 baseline responses were affected.
+    # the [:5] window entirely. Three of the 25 baseline responses opened with
+    # such a preamble; a fourth opened with a bare heading, handled just below.
     charters = [c for c in charters if CHARTER_MARKER.match(c)]
-    # A second framing case, seen with other models' markdown: the reply opens
-    # with a document-title heading on its own line ("# Exploratory Testing
-    # Charters for <feature>"), which the split isolates as a chunk. It passes
-    # CHARTER_MARKER (via "#{1,3}\s") but carries no body. A real charter chunk
-    # always has a body, so drop any chunk that is a lone heading line. The
-    # frozen GPT-4o corpus contains no such chunk, so this does not disturb the
-    # primary results.
+    # A second framing case: the reply opens with a document-title heading on its
+    # own line ("# Exploratory Testing Charters for <feature>"), which the split
+    # isolates as a chunk. It passes CHARTER_MARKER (via "#{1,3}\s") but carries
+    # no body. A real charter chunk always has a body, so drop any chunk that is
+    # a lone heading line.
+    #
+    # This guard was added 2026-08-29 while preparing the multi-model corpus, in
+    # the belief that the frozen GPT-4o corpus contained no such chunk and that
+    # the primary results were therefore undisturbed. That was wrong: SPEC-10's
+    # baseline reply opens with exactly this heading. Because the guard postdated
+    # repair_baseline_split.py's only run and the repair was not re-run, SPEC-10
+    # carried the stale split in all three scoring files until 2026-08-31. Never
+    # assert that a splitter change leaves the scored data untouched -- run
+    # verify_charter_integrity.py and let it say so.
     charters = [c for c in charters
                 if not (re.match(r'#{1,3}\s+\S', c) and "\n" not in c.strip())]
     # Take first 5
