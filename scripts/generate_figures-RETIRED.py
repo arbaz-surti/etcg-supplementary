@@ -1,5 +1,9 @@
 """
-Generate publication-quality figures for the ETCG paper.
+RETIRED — DO NOT RUN.
+
+Historical March figure generator for the ETCG paper. It predates the
+three-condition corpus and would overwrite current figures with superseded
+two-condition output. Use analysis.py (which calls figures.py) instead.
 
 Outputs (all saved to figures/ in the repo root):
   figure-02-boxplot.pdf   — RQ1: Score distribution, ETCG vs Baseline
@@ -8,7 +12,7 @@ Outputs (all saved to figures/ in the repo root):
 
 Usage:
   cd etcg-supplementary
-  python scripts/generate_figures.py
+  Historical reference only: python scripts/generate_figures-RETIRED.py
 
 Requirements:
   pip install matplotlib numpy
