@@ -743,6 +743,9 @@ def judge_convergence(primary_scores: list[dict], matrices: dict, specs: list[st
                 "judge_sd": float(j.std(ddof=1)),
                 "primary_mean": float(b.mean()),
                 "leniency_gap": float(b.mean() - j.mean()),
+                # Share of charters at the 15/15 maximum under this judge (Reviewer 3,
+                # round 2: the instrument's ceiling). Compared with rq1.{cond}.ceiling_pct.
+                "ceiling_pct": float((j >= 100.0).mean() * 100),
             }
 
         # Does the paper's inferential result survive this judge? Recompute the
@@ -1865,6 +1868,10 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
         reg.put("rq3.mean_delta_pct", ov["human_mean_pct"] - ov["auto_mean_pct"],
                 desc="Human minus automated mean on the IRR sample (pp)", fmt="diff",
                 method="difference of the two IRR sample means")
+        reg.put("rq3.auto_lead_pct", ov["auto_mean_pct"] - ov["human_mean_pct"],
+                desc="Automated minus human mean on the IRR sample (pp), unsigned for "
+                     "prose that already states the direction ('above by')", fmt="{:.2f}",
+                method="negative of rq3.mean_delta_pct")
         reg.put("rq3.mean_abs_total_diff", ov["mean_abs_total_diff"],
                 desc="Mean absolute difference in total charter score (of 15)",
                 method="mean |auto total - human total| across IRR charters")
@@ -1920,6 +1927,8 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
                 ("human_mean_pct", ov["human_mean_pct"], "{:.1f}", "rater 2 mean (%)"),
                 ("mean_delta_pct", ov["human_mean_pct"] - ov["auto_mean_pct"], "diff",
                  "rater 2 minus automated mean (pp)"),
+                ("auto_lead_pct", ov["auto_mean_pct"] - ov["human_mean_pct"], "{:.2f}",
+                 "automated minus rater 2 mean (pp), for prose that states the direction"),
                 ("mean_abs_total_diff", ov["mean_abs_total_diff"], "{:.2f}",
                  "mean |automated total - rater 2 total| (of 15)"),
                 ("n_conditions_covered", len(ov["conditions_covered"]), "int",
@@ -2217,6 +2226,17 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
                 reg.put(f"{k}.{cond}.gap", c["leniency_gap"], fmt="diff",
                         desc=(f"GPT-4o minus {j['label']} on {CONDITION_LABELS[cond]} (pp)"),
                         method=src)
+                reg.put(f"{k}.{cond}.ceiling_pct", c["ceiling_pct"], fmt="pct0",
+                        desc=(f"{CONDITION_LABELS[cond]} share of charters at the 15/15 "
+                              f"ceiling under {j['label']} (%)"),
+                        method=src + "; charters with percentage = 100, over 125")
+            ceils = [j["by_condition"][c]["ceiling_pct"] for c in CONDITIONS]
+            reg.put(f"{k}.ceiling_min", min(ceils), fmt="pct0",
+                    desc=f"Lowest per-condition ceiling share under {j['label']} (%)",
+                    method="minimum over the three conditions")
+            reg.put(f"{k}.ceiling_max", max(ceils), fmt="pct0",
+                    desc=f"Highest per-condition ceiling share under {j['label']} (%)",
+                    method="maximum over the three conditions")
 
             for slug_c, rep in sorted(j["replication"].items()):
                 jc = rep["judge"]
@@ -2272,6 +2292,31 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
             reg.put(f"judge.{word}_significant_in",
                     sum(c[slug_c]["p_signed_rank"] < 0.05 for c in per_judge), fmt="word",
                     desc=f"Judges under which the {slug_c} contrast reaches p < 0.05", method=jm)
+
+        # Reviewer 3 (round 2): the external judges are a post hoc sensitivity analysis,
+        # so every contrast under every judge is one family. Holm across judges x contrasts
+        # keeps a claim resting on a single external judge from riding on 9 uncorrected tests.
+        judge_tags = ["primary"] + sorted(judges["judges"])
+        fam = {f"{jt}|{sc}": c[sc]["p_signed_rank"]
+               for jt, c in zip(["primary"] + list(judges["judges"]), per_judge)
+               for sc in prim_c}
+        adj = holm_bonferroni(fam)
+        hm = (f"Holm-Bonferroni across {len(fam)} specification-level signed-rank tests "
+              f"({len(judge_tags)} judges x {len(prim_c)} contrasts), the primary judge included")
+        reg.put("judge.holm.n_tests", len(fam), fmt="int",
+                desc="Tests in the cross-judge Holm family", method=hm)
+        reg.put("judge.holm.n_tests_word", len(fam), fmt="word",
+                desc="Tests in the cross-judge Holm family, spelled out", method=hm)
+        n_sig = sum(v < 0.05 for v in adj.values())
+        reg.put("judge.holm.n_sig", n_sig, fmt="int",
+                desc="Cross-judge tests significant after Holm", method=hm)
+        reg.put("judge.holm.n_sig_word", n_sig, fmt="word",
+                desc="Cross-judge tests significant after Holm, spelled out", method=hm)
+        for key, val in adj.items():
+            jt, sc = key.split("|")
+            reg.put(f"judge.holm.{jt}.{sc}.p", val, fmt="p",
+                    desc=f"Holm-adjusted p ({len(fam)}-test cross-judge family), {sc}, {jt}",
+                    method=hm)
 
     # ---- Generation-side operational cost and latency (task 2.4) -------------
     if gencost:
@@ -2812,10 +2857,14 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
         if k.startswith("judge.") and k.endswith(".overall_mean")
     )
     if judge_slugs:
+        def ceil_cell(prefix: str) -> str:
+            return " / ".join(r(f"{prefix}.{c}.ceiling_pct") for c in CONDITIONS)
+
         rows = [[
             "GPT-4o (primary)",
             r("judge.primary_overall_mean"),
             "---", "---", "---", "---",
+            ceil_cell("rq1"),
         ]]
         for slug in judge_slugs:
             rows.append([
@@ -2825,7 +2874,9 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
                 r(f"judge.{slug}.exact"),
                 r(f"judge.{slug}.within_one"),
                 r(f"judge.{slug}.ac2"),
+                ceil_cell(f"judge.{slug}"),
             ])
+        cond_order = " / ".join(CONDITION_LABELS[c] for c in CONDITIONS)
         path = out_dir / "table-judge-agreement.tex"
         path.write_text(tex_table(
             caption=("Cross-model judge agreement with the primary GPT-4o evaluator. "
@@ -2835,16 +2886,21 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
                      "value indicates an overall judge-severity gap: GPT-4o assigned "
                      "higher scores under the shared rubric, not a preference for a "
                      "particular generator."),
-            label="tab:judgeagreement", colspec="lrrrrr",
+            label="tab:judgeagreement", colspec="lrrrrrr",
             header=["Judge", "Mean (\\%)", "$\\Delta$ (pp)", "Exact (\\%)",
-                    "Within-one (\\%)", "AC2"],
+                    "Within-1 (\\%)", "AC2", "Ceiling (\\%)"],
             rows=rows,
             notes=[f"Agreement computed over {r(f'judge.{judge_slugs[0]}.n_ratings')} "
-                   "dimension ratings (375 charters $\\times$ 5 dimensions)."]),
+                   "dimension ratings (375 charters $\\times$ 5 dimensions).",
+                   "Ceiling: share of the 125 charters per condition scored 15/15 by "
+                   f"that judge, in the order {cond_order}. The primary judge leaves "
+                   "little headroom above most charters, which limits the size of any "
+                   "contrast it can register."]),
             encoding="utf-8")
         written.append(path)
 
         # Table: does each contrast survive a change of judge?
+        has_holm = "judge.holm.n_tests" in reg.keys()
         header = ["Contrast", "GPT-4o $\\Delta$", "$p$"]
         for slug in judge_slugs:
             header += [f"{JUDGE_SHORT.get(slug, slug)} $\\Delta$", "$p$"]
@@ -2855,6 +2911,19 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
             for slug in judge_slugs:
                 row += [r(f"judge.{slug}.{slug_c}.diff"), r(f"judge.{slug}.{slug_c}.p")]
             rows.append(row)
+            if has_holm:
+                # A second row keeps the table at its original width.
+                holm_row = ["\\quad $p_{\\mathrm{Holm}}$", "", r(f"judge.holm.primary.{slug_c}.p")]
+                for slug in judge_slugs:
+                    holm_row += ["", r(f"judge.holm.{slug}.{slug_c}.p")]
+                rows.append(holm_row)
+        notes = []
+        if has_holm:
+            notes.append(
+                f"$p_{{\\mathrm{{Holm}}}}$: Holm--Bonferroni across all "
+                f"{r('judge.holm.n_tests')} tests in the table ({len(judge_slugs) + 1} judges "
+                f"$\\times$ {len(CONTRASTS)} contrasts). The external judges are a post hoc "
+                "sensitivity analysis, so the family is corrected as a whole.")
         path = out_dir / "table-judge-replication.tex"
         path.write_text(tex_table(
             caption=("Each pairwise contrast recomputed under every judge. Differences are "
@@ -2862,7 +2931,7 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
                      f"($n = {r('corpus.n_specs')}$), tested by Wilcoxon signed-rank, "
                      "identically to the primary analysis."),
             label="tab:judgereplication", colspec="l" + "rr" * (1 + len(judge_slugs)),
-            header=header, rows=rows),
+            header=header, rows=rows, notes=notes or None),
             encoding="utf-8")
         written.append(path)
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-03T23:10:13+00:00",
+  "generated": "2026-11-03T23:17:00+00:00",
   "generator": "scripts/analysis.py",
   "scoring_run_metadata": {
     "scorer_model": "openai/gpt-4o",
@@ -1205,6 +1205,12 @@
       "method": "difference of the two IRR sample means",
       "formatted": "$-$4.93"
     },
+    "rq3.auto_lead_pct": {
+      "value": 4.933333333333337,
+      "description": "Automated minus human mean on the IRR sample (pp), unsigned for prose that already states the direction ('above by')",
+      "method": "negative of rq3.mean_delta_pct",
+      "formatted": "4.93"
+    },
     "rq3.mean_abs_total_diff": {
       "value": 1.74,
       "description": "Mean absolute difference in total charter score (of 15)",
@@ -1528,6 +1534,12 @@
       "description": "Round 2 IRR, all conditions (n=75): rater 2 minus automated mean (pp)",
       "method": "automated evaluator versus rater 2 on the round 2 packet",
       "formatted": "$-$2.58"
+    },
+    "rq3.r2.auto_lead_pct": {
+      "value": 2.5777777777777686,
+      "description": "Round 2 IRR, all conditions (n=75): automated minus rater 2 mean (pp), for prose that states the direction",
+      "method": "automated evaluator versus rater 2 on the round 2 packet",
+      "formatted": "2.58"
     },
     "rq3.r2.mean_abs_total_diff": {
       "value": 0.8666666666666667,
@@ -1853,6 +1865,12 @@
       "method": "automated evaluator versus rater 2 on the round 2 packet",
       "formatted": "$-$5.60"
     },
+    "rq3.r2.etcg.auto_lead_pct": {
+      "value": 5.599999999999994,
+      "description": "Round 2 IRR, ETCG only: automated minus rater 2 mean (pp), for prose that states the direction",
+      "method": "automated evaluator versus rater 2 on the round 2 packet",
+      "formatted": "5.60"
+    },
     "rq3.r2.etcg.mean_abs_total_diff": {
       "value": 1.32,
       "description": "Round 2 IRR, ETCG only: mean |automated total - rater 2 total| (of 15)",
@@ -1937,6 +1955,12 @@
       "method": "automated evaluator versus rater 2 on the round 2 packet",
       "formatted": "$-$3.20"
     },
+    "rq3.r2.intermediate.auto_lead_pct": {
+      "value": 3.1999999999999886,
+      "description": "Round 2 IRR, Intermediate only: automated minus rater 2 mean (pp), for prose that states the direction",
+      "method": "automated evaluator versus rater 2 on the round 2 packet",
+      "formatted": "3.20"
+    },
     "rq3.r2.intermediate.mean_abs_total_diff": {
       "value": 0.8,
       "description": "Round 2 IRR, Intermediate only: mean |automated total - rater 2 total| (of 15)",
@@ -2020,6 +2044,12 @@
       "description": "Round 2 IRR, Baseline only: rater 2 minus automated mean (pp)",
       "method": "automated evaluator versus rater 2 on the round 2 packet",
       "formatted": "$+$1.07"
+    },
+    "rq3.r2.baseline.auto_lead_pct": {
+      "value": -1.066666666666677,
+      "description": "Round 2 IRR, Baseline only: automated minus rater 2 mean (pp), for prose that states the direction",
+      "method": "automated evaluator versus rater 2 on the round 2 packet",
+      "formatted": "$-$1.07"
     },
     "rq3.r2.baseline.mean_abs_total_diff": {
       "value": 0.48,
@@ -3053,6 +3083,12 @@
       "method": "rescore of the identical frozen corpus by Gemini 2.5 Pro (Google) (google/gemini-2.5-pro) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run",
       "formatted": "$+$10.09"
     },
+    "judge.gemini.etcg.ceiling_pct": {
+      "value": 44.800000000000004,
+      "description": "ETCG share of charters at the 15/15 ceiling under Gemini 2.5 Pro (Google) (%)",
+      "method": "rescore of the identical frozen corpus by Gemini 2.5 Pro (Google) (google/gemini-2.5-pro) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run; charters with percentage = 100, over 125",
+      "formatted": "45"
+    },
     "judge.gemini.intermediate.mean": {
       "value": 86.76559999999998,
       "description": "Intermediate mean under Gemini 2.5 Pro (Google) (%)",
@@ -3071,6 +3107,12 @@
       "method": "rescore of the identical frozen corpus by Gemini 2.5 Pro (Google) (google/gemini-2.5-pro) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run",
       "formatted": "$+$9.02"
     },
+    "judge.gemini.intermediate.ceiling_pct": {
+      "value": 48.0,
+      "description": "Intermediate share of charters at the 15/15 ceiling under Gemini 2.5 Pro (Google) (%)",
+      "method": "rescore of the identical frozen corpus by Gemini 2.5 Pro (Google) (google/gemini-2.5-pro) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run; charters with percentage = 100, over 125",
+      "formatted": "48"
+    },
     "judge.gemini.baseline.mean": {
       "value": 85.27359999999999,
       "description": "Baseline mean under Gemini 2.5 Pro (Google) (%)",
@@ -3088,6 +3130,24 @@
       "description": "GPT-4o minus Gemini 2.5 Pro (Google) on Baseline (pp)",
       "method": "rescore of the identical frozen corpus by Gemini 2.5 Pro (Google) (google/gemini-2.5-pro) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run",
       "formatted": "$+$8.91"
+    },
+    "judge.gemini.baseline.ceiling_pct": {
+      "value": 44.0,
+      "description": "Baseline share of charters at the 15/15 ceiling under Gemini 2.5 Pro (Google) (%)",
+      "method": "rescore of the identical frozen corpus by Gemini 2.5 Pro (Google) (google/gemini-2.5-pro) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run; charters with percentage = 100, over 125",
+      "formatted": "44"
+    },
+    "judge.gemini.ceiling_min": {
+      "value": 44.0,
+      "description": "Lowest per-condition ceiling share under Gemini 2.5 Pro (Google) (%)",
+      "method": "minimum over the three conditions",
+      "formatted": "44"
+    },
+    "judge.gemini.ceiling_max": {
+      "value": 48.0,
+      "description": "Highest per-condition ceiling share under Gemini 2.5 Pro (Google) (%)",
+      "method": "maximum over the three conditions",
+      "formatted": "48"
     },
     "judge.gemini.full_framework.diff": {
       "value": 0.10560000000000117,
@@ -3281,6 +3341,12 @@
       "method": "rescore of the identical frozen corpus by Claude Sonnet 4.5 (Anthropic) (anthropic/claude-sonnet-4.5) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run",
       "formatted": "$+$16.64"
     },
+    "judge.sonnet.etcg.ceiling_pct": {
+      "value": 13.600000000000001,
+      "description": "ETCG share of charters at the 15/15 ceiling under Claude Sonnet 4.5 (Anthropic) (%)",
+      "method": "rescore of the identical frozen corpus by Claude Sonnet 4.5 (Anthropic) (anthropic/claude-sonnet-4.5) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run; charters with percentage = 100, over 125",
+      "formatted": "14"
+    },
     "judge.sonnet.intermediate.mean": {
       "value": 85.06079999999999,
       "description": "Intermediate mean under Claude Sonnet 4.5 (Anthropic) (%)",
@@ -3299,6 +3365,12 @@
       "method": "rescore of the identical frozen corpus by Claude Sonnet 4.5 (Anthropic) (anthropic/claude-sonnet-4.5) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run",
       "formatted": "$+$10.72"
     },
+    "judge.sonnet.intermediate.ceiling_pct": {
+      "value": 25.6,
+      "description": "Intermediate share of charters at the 15/15 ceiling under Claude Sonnet 4.5 (Anthropic) (%)",
+      "method": "rescore of the identical frozen corpus by Claude Sonnet 4.5 (Anthropic) (anthropic/claude-sonnet-4.5) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run; charters with percentage = 100, over 125",
+      "formatted": "26"
+    },
     "judge.sonnet.baseline.mean": {
       "value": 79.1904,
       "description": "Baseline mean under Claude Sonnet 4.5 (Anthropic) (%)",
@@ -3316,6 +3388,24 @@
       "description": "GPT-4o minus Claude Sonnet 4.5 (Anthropic) on Baseline (pp)",
       "method": "rescore of the identical frozen corpus by Claude Sonnet 4.5 (Anthropic) (anthropic/claude-sonnet-4.5) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run",
       "formatted": "$+$14.99"
+    },
+    "judge.sonnet.baseline.ceiling_pct": {
+      "value": 18.4,
+      "description": "Baseline share of charters at the 15/15 ceiling under Claude Sonnet 4.5 (Anthropic) (%)",
+      "method": "rescore of the identical frozen corpus by Claude Sonnet 4.5 (Anthropic) (anthropic/claude-sonnet-4.5) at temperature 0 with the primary rubric prompt; only the judge model differs from the primary run; charters with percentage = 100, over 125",
+      "formatted": "18"
+    },
+    "judge.sonnet.ceiling_min": {
+      "value": 13.600000000000001,
+      "description": "Lowest per-condition ceiling share under Claude Sonnet 4.5 (Anthropic) (%)",
+      "method": "minimum over the three conditions",
+      "formatted": "14"
+    },
+    "judge.sonnet.ceiling_max": {
+      "value": 25.6,
+      "description": "Highest per-condition ceiling share under Claude Sonnet 4.5 (Anthropic) (%)",
+      "method": "maximum over the three conditions",
+      "formatted": "26"
     },
     "judge.sonnet.full_framework.diff": {
       "value": -0.36559999999999887,
@@ -3454,6 +3544,84 @@
       "description": "Judges under which the schema contrast reaches p < 0.05",
       "method": "count over the primary GPT-4o judge and every cross-model judge; specification-level Wilcoxon signed-rank, p < 0.05",
       "formatted": "one"
+    },
+    "judge.holm.n_tests": {
+      "value": 9,
+      "description": "Tests in the cross-judge Holm family",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "9"
+    },
+    "judge.holm.n_tests_word": {
+      "value": 9,
+      "description": "Tests in the cross-judge Holm family, spelled out",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "nine"
+    },
+    "judge.holm.n_sig": {
+      "value": 2,
+      "description": "Cross-judge tests significant after Holm",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "2"
+    },
+    "judge.holm.n_sig_word": {
+      "value": 2,
+      "description": "Cross-judge tests significant after Holm, spelled out",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "two"
+    },
+    "judge.holm.sonnet.schema.p": {
+      "value": 0.0023967054072516606,
+      "description": "Holm-adjusted p (9-test cross-judge family), schema, sonnet",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "0.002"
+    },
+    "judge.holm.sonnet.role_guidance.p": {
+      "value": 0.01253553576132318,
+      "description": "Holm-adjusted p (9-test cross-judge family), role_guidance, sonnet",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "0.013"
+    },
+    "judge.holm.primary.role_guidance.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), role_guidance, primary",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
+    },
+    "judge.holm.gemini.role_guidance.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), role_guidance, gemini",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
+    },
+    "judge.holm.gemini.schema.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), schema, gemini",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
+    },
+    "judge.holm.primary.full_framework.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), full_framework, primary",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
+    },
+    "judge.holm.sonnet.full_framework.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), full_framework, sonnet",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
+    },
+    "judge.holm.primary.schema.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), schema, primary",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
+    },
+    "judge.holm.gemini.full_framework.p": {
+      "value": 1.0,
+      "description": "Holm-adjusted p (9-test cross-judge family), full_framework, gemini",
+      "method": "Holm-Bonferroni across 9 specification-level signed-rank tests (3 judges x 3 contrasts), the primary judge included",
+      "formatted": "1.000"
     },
     "gen.model_display": {
       "value": "GPT-4o",
@@ -6127,21 +6295,24 @@
             "judge_mean": 85.37919999999998,
             "judge_sd": 17.09565732444467,
             "primary_mean": 95.4664,
-            "leniency_gap": 10.08720000000001
+            "leniency_gap": 10.08720000000001,
+            "ceiling_pct": 44.800000000000004
           },
           "intermediate": {
             "n": 125,
             "judge_mean": 86.76559999999998,
             "judge_sd": 15.612624668269525,
             "primary_mean": 95.784,
-            "leniency_gap": 9.018400000000028
+            "leniency_gap": 9.018400000000028,
+            "ceiling_pct": 48.0
           },
           "baseline": {
             "n": 125,
             "judge_mean": 85.27359999999999,
             "judge_sd": 15.179018541097042,
             "primary_mean": 94.1832,
-            "leniency_gap": 8.909600000000012
+            "leniency_gap": 8.909600000000012,
+            "ceiling_pct": 44.0
           }
         },
         "replication": {
@@ -6283,21 +6454,24 @@
             "judge_mean": 78.82479999999998,
             "judge_sd": 13.518706609254332,
             "primary_mean": 95.4664,
-            "leniency_gap": 16.64160000000001
+            "leniency_gap": 16.64160000000001,
+            "ceiling_pct": 13.600000000000001
           },
           "intermediate": {
             "n": 125,
             "judge_mean": 85.06079999999999,
             "judge_sd": 12.076502751611386,
             "primary_mean": 95.784,
-            "leniency_gap": 10.72320000000002
+            "leniency_gap": 10.72320000000002,
+            "ceiling_pct": 25.6
           },
           "baseline": {
             "n": 125,
             "judge_mean": 79.1904,
             "judge_sd": 14.481709398298745,
             "primary_mean": 94.1832,
-            "leniency_gap": 14.992800000000003
+            "leniency_gap": 14.992800000000003,
+            "ceiling_pct": 18.4
           }
         },
         "replication": {

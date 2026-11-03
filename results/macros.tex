@@ -2,7 +2,7 @@
 %
 % Every numeric value in the manuscript prose must come from one of these macros.
 % Hand-typing a number into main.tex is what produced the round 1 inconsistencies.
-% Generated: 2026-11-03T23:10:13+00:00
+% Generated: 2026-11-03T23:17:00+00:00
 
 % Specifications in the evaluation dataset
 \newcommand{\ETCGCorpusNSpecs}{25}
@@ -372,6 +372,8 @@
 \newcommand{\ETCGRqThreeHumanMeanPct}{89.07}
 % Human minus automated mean on the IRR sample (pp)
 \newcommand{\ETCGRqThreeMeanDeltaPct}{$-$4.93}
+% Automated minus human mean on the IRR sample (pp), unsigned for prose that already states the direction ('above by')
+\newcommand{\ETCGRqThreeAutoLeadPct}{4.93}
 % Mean absolute difference in total charter score (of 15)
 \newcommand{\ETCGRqThreeMeanAbsTotalDiff}{1.74}
 % Conditions represented in the IRR sample
@@ -480,6 +482,8 @@
 \newcommand{\ETCGRqThreeRTwoHumanMeanPct}{91.0}
 % Round 2 IRR, all conditions (n=75): rater 2 minus automated mean (pp)
 \newcommand{\ETCGRqThreeRTwoMeanDeltaPct}{$-$2.58}
+% Round 2 IRR, all conditions (n=75): automated minus rater 2 mean (pp), for prose that states the direction
+\newcommand{\ETCGRqThreeRTwoAutoLeadPct}{2.58}
 % Round 2 IRR, all conditions (n=75): mean |automated total - rater 2 total| (of 15)
 \newcommand{\ETCGRqThreeRTwoMeanAbsTotalDiff}{0.87}
 % Round 2 IRR, all conditions (n=75): conditions represented
@@ -588,6 +592,8 @@
 \newcommand{\ETCGRqThreeRTwoEtcgHumanMeanPct}{87.2}
 % Round 2 IRR, ETCG only: rater 2 minus automated mean (pp)
 \newcommand{\ETCGRqThreeRTwoEtcgMeanDeltaPct}{$-$5.60}
+% Round 2 IRR, ETCG only: automated minus rater 2 mean (pp), for prose that states the direction
+\newcommand{\ETCGRqThreeRTwoEtcgAutoLeadPct}{5.60}
 % Round 2 IRR, ETCG only: mean |automated total - rater 2 total| (of 15)
 \newcommand{\ETCGRqThreeRTwoEtcgMeanAbsTotalDiff}{1.32}
 % Round 2 IRR, ETCG only: conditions represented
@@ -616,6 +622,8 @@
 \newcommand{\ETCGRqThreeRTwoIntermediateHumanMeanPct}{90.9}
 % Round 2 IRR, Intermediate only: rater 2 minus automated mean (pp)
 \newcommand{\ETCGRqThreeRTwoIntermediateMeanDeltaPct}{$-$3.20}
+% Round 2 IRR, Intermediate only: automated minus rater 2 mean (pp), for prose that states the direction
+\newcommand{\ETCGRqThreeRTwoIntermediateAutoLeadPct}{3.20}
 % Round 2 IRR, Intermediate only: mean |automated total - rater 2 total| (of 15)
 \newcommand{\ETCGRqThreeRTwoIntermediateMeanAbsTotalDiff}{0.80}
 % Round 2 IRR, Intermediate only: conditions represented
@@ -644,6 +652,8 @@
 \newcommand{\ETCGRqThreeRTwoBaselineHumanMeanPct}{94.9}
 % Round 2 IRR, Baseline only: rater 2 minus automated mean (pp)
 \newcommand{\ETCGRqThreeRTwoBaselineMeanDeltaPct}{$+$1.07}
+% Round 2 IRR, Baseline only: automated minus rater 2 mean (pp), for prose that states the direction
+\newcommand{\ETCGRqThreeRTwoBaselineAutoLeadPct}{$-$1.07}
 % Round 2 IRR, Baseline only: mean |automated total - rater 2 total| (of 15)
 \newcommand{\ETCGRqThreeRTwoBaselineMeanAbsTotalDiff}{0.48}
 % Round 2 IRR, Baseline only: conditions represented
@@ -988,18 +998,28 @@
 \newcommand{\ETCGJudgeGeminiEtcgSd}{17.10}
 % GPT-4o minus Gemini 2.5 Pro (Google) on ETCG (pp)
 \newcommand{\ETCGJudgeGeminiEtcgGap}{$+$10.09}
+% ETCG share of charters at the 15/15 ceiling under Gemini 2.5 Pro (Google) (%)
+\newcommand{\ETCGJudgeGeminiEtcgCeilingPct}{45}
 % Intermediate mean under Gemini 2.5 Pro (Google) (%)
 \newcommand{\ETCGJudgeGeminiIntermediateMean}{86.77}
 % Intermediate charter SD under Gemini 2.5 Pro (Google) (%)
 \newcommand{\ETCGJudgeGeminiIntermediateSd}{15.61}
 % GPT-4o minus Gemini 2.5 Pro (Google) on Intermediate (pp)
 \newcommand{\ETCGJudgeGeminiIntermediateGap}{$+$9.02}
+% Intermediate share of charters at the 15/15 ceiling under Gemini 2.5 Pro (Google) (%)
+\newcommand{\ETCGJudgeGeminiIntermediateCeilingPct}{48}
 % Baseline mean under Gemini 2.5 Pro (Google) (%)
 \newcommand{\ETCGJudgeGeminiBaselineMean}{85.27}
 % Baseline charter SD under Gemini 2.5 Pro (Google) (%)
 \newcommand{\ETCGJudgeGeminiBaselineSd}{15.18}
 % GPT-4o minus Gemini 2.5 Pro (Google) on Baseline (pp)
 \newcommand{\ETCGJudgeGeminiBaselineGap}{$+$8.91}
+% Baseline share of charters at the 15/15 ceiling under Gemini 2.5 Pro (Google) (%)
+\newcommand{\ETCGJudgeGeminiBaselineCeilingPct}{44}
+% Lowest per-condition ceiling share under Gemini 2.5 Pro (Google) (%)
+\newcommand{\ETCGJudgeGeminiCeilingMin}{44}
+% Highest per-condition ceiling share under Gemini 2.5 Pro (Google) (%)
+\newcommand{\ETCGJudgeGeminiCeilingMax}{48}
 % ETCG versus Baseline (full framework) under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiFullFrameworkDiff}{$+$0.11}
 % ETCG versus Baseline (full framework) signed-rank p under Gemini 2.5 Pro (Google)
@@ -1064,18 +1084,28 @@
 \newcommand{\ETCGJudgeSonnetEtcgSd}{13.52}
 % GPT-4o minus Claude Sonnet 4.5 (Anthropic) on ETCG (pp)
 \newcommand{\ETCGJudgeSonnetEtcgGap}{$+$16.64}
+% ETCG share of charters at the 15/15 ceiling under Claude Sonnet 4.5 (Anthropic) (%)
+\newcommand{\ETCGJudgeSonnetEtcgCeilingPct}{14}
 % Intermediate mean under Claude Sonnet 4.5 (Anthropic) (%)
 \newcommand{\ETCGJudgeSonnetIntermediateMean}{85.06}
 % Intermediate charter SD under Claude Sonnet 4.5 (Anthropic) (%)
 \newcommand{\ETCGJudgeSonnetIntermediateSd}{12.08}
 % GPT-4o minus Claude Sonnet 4.5 (Anthropic) on Intermediate (pp)
 \newcommand{\ETCGJudgeSonnetIntermediateGap}{$+$10.72}
+% Intermediate share of charters at the 15/15 ceiling under Claude Sonnet 4.5 (Anthropic) (%)
+\newcommand{\ETCGJudgeSonnetIntermediateCeilingPct}{26}
 % Baseline mean under Claude Sonnet 4.5 (Anthropic) (%)
 \newcommand{\ETCGJudgeSonnetBaselineMean}{79.19}
 % Baseline charter SD under Claude Sonnet 4.5 (Anthropic) (%)
 \newcommand{\ETCGJudgeSonnetBaselineSd}{14.48}
 % GPT-4o minus Claude Sonnet 4.5 (Anthropic) on Baseline (pp)
 \newcommand{\ETCGJudgeSonnetBaselineGap}{$+$14.99}
+% Baseline share of charters at the 15/15 ceiling under Claude Sonnet 4.5 (Anthropic) (%)
+\newcommand{\ETCGJudgeSonnetBaselineCeilingPct}{18}
+% Lowest per-condition ceiling share under Claude Sonnet 4.5 (Anthropic) (%)
+\newcommand{\ETCGJudgeSonnetCeilingMin}{14}
+% Highest per-condition ceiling share under Claude Sonnet 4.5 (Anthropic) (%)
+\newcommand{\ETCGJudgeSonnetCeilingMax}{26}
 % ETCG versus Baseline (full framework) under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetFullFrameworkDiff}{$-$0.37}
 % ETCG versus Baseline (full framework) signed-rank p under Claude Sonnet 4.5 (Anthropic)
@@ -1122,6 +1152,32 @@
 \newcommand{\ETCGJudgeSchemaNegativeIn}{three}
 % Judges under which the schema contrast reaches p < 0.05
 \newcommand{\ETCGJudgeSchemaSignificantIn}{one}
+% Tests in the cross-judge Holm family
+\newcommand{\ETCGJudgeHolmNTests}{9}
+% Tests in the cross-judge Holm family, spelled out
+\newcommand{\ETCGJudgeHolmNTestsWord}{nine}
+% Cross-judge tests significant after Holm
+\newcommand{\ETCGJudgeHolmNSig}{2}
+% Cross-judge tests significant after Holm, spelled out
+\newcommand{\ETCGJudgeHolmNSigWord}{two}
+% Holm-adjusted p (9-test cross-judge family), schema, sonnet
+\newcommand{\ETCGJudgeHolmSonnetSchemaP}{0.002}
+% Holm-adjusted p (9-test cross-judge family), role_guidance, sonnet
+\newcommand{\ETCGJudgeHolmSonnetRoleGuidanceP}{0.013}
+% Holm-adjusted p (9-test cross-judge family), role_guidance, primary
+\newcommand{\ETCGJudgeHolmPrimaryRoleGuidanceP}{1.000}
+% Holm-adjusted p (9-test cross-judge family), role_guidance, gemini
+\newcommand{\ETCGJudgeHolmGeminiRoleGuidanceP}{1.000}
+% Holm-adjusted p (9-test cross-judge family), schema, gemini
+\newcommand{\ETCGJudgeHolmGeminiSchemaP}{1.000}
+% Holm-adjusted p (9-test cross-judge family), full_framework, primary
+\newcommand{\ETCGJudgeHolmPrimaryFullFrameworkP}{1.000}
+% Holm-adjusted p (9-test cross-judge family), full_framework, sonnet
+\newcommand{\ETCGJudgeHolmSonnetFullFrameworkP}{1.000}
+% Holm-adjusted p (9-test cross-judge family), schema, primary
+\newcommand{\ETCGJudgeHolmPrimarySchemaP}{1.000}
+% Holm-adjusted p (9-test cross-judge family), full_framework, gemini
+\newcommand{\ETCGJudgeHolmGeminiFullFrameworkP}{1.000}
 % Generator model, display form
 \newcommand{\ETCGGenModelDisplay}{GPT-4o}
 % Instrumented generation calls (3 conditions x 25 specifications)
