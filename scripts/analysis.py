@@ -58,14 +58,19 @@ DIMENSION_LABELS = {
 # The three pairwise contrasts, named for what each isolates.
 CONTRASTS = [
     ("etcg", "baseline", "full_framework", "ETCG versus Baseline (full framework)"),
-    ("intermediate", "baseline", "role_guidance", "Intermediate versus Baseline (role + guidance)"),
-    ("etcg", "intermediate", "schema", "ETCG versus Intermediate (output schema)"),
+    ("intermediate", "baseline", "role_guidance", "Intermediate versus Baseline (role-and-guidance step)"),
+    ("etcg", "intermediate", "schema", "ETCG versus Intermediate (structured-output step)"),
 ]
 
 # Specification richness groups. SPEC-01..18 are sparse (description-only, reused from the
 # ATSR study); SPEC-19..25 conform fully to the ETCG input model.
 SPARSE_SPECS = {f"SPEC-{i:02d}" for i in range(1, 19)}
 STRUCTURED_SPECS = {f"SPEC-{i:02d}" for i in range(19, 26)}
+
+# Small counts the prose states in words ("four of the five dimensions"). Rendering them
+# from the registry keeps the word tied to the data, as the decimals already are.
+NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five",
+                "six", "seven", "eight", "nine", "ten"]
 
 # Specification-level means are averages of five scores on a coarse 15-point scale, so
 # genuine ties in |difference| are common. Whether such a tie lands as exactly equal or
@@ -92,6 +97,12 @@ REPAIRED_CELLS = {(s, "baseline", f"BL-{i:02d}")
 PREREPAIR_SCORES_NAME = "etcg-scores.json.pre-splitfix-backup"
 
 SCALE_MIN, SCALE_MAX = 1, 3
+
+# Equivalence bound for the TOST tests (decided 2026-11-02, before the test was run).
+# Reviewer 1 (round 2) objected that a non-significant contrast is not evidence of no
+# effect; TOST asks the question that objection implies. +/-3 pp on a specification mean
+# is a little over two rubric points out of the 75 a five-charter set can earn.
+TOST_BOUND_PP = 3.0
 MAX_CHARTER_POINTS = len(DIMENSIONS) * SCALE_MAX
 CHARTERS_PER_CELL = 5
 
@@ -155,6 +166,8 @@ def render(value, fmt: str) -> str:
         return format_p(value)
     if fmt == "int":
         return f"{int(round(value)):d}"
+    if fmt == "word":
+        return NUMBER_WORDS[int(round(value))]
     if fmt == "pct0":
         return f"{value:.0f}"
 
@@ -382,6 +395,35 @@ def paired_contrast(a: np.ndarray, b: np.ndarray, label: str) -> dict:
         "p_paired_t": float(p_t),
         "dz": dz,
         "rank_biserial": rank_biserial_paired(diff),
+    }
+
+
+def tost_paired(a: np.ndarray, b: np.ndarray, bound: float = TOST_BOUND_PP) -> dict:
+    """Two one-sided tests for equivalence of paired specification means within +/-bound.
+
+    Paired-t TOST is primary: equivalence is declared at alpha = 0.05 exactly when the 90%
+    CI of the mean difference lies inside (-bound, +bound). The Wilcoxon version, on the
+    differences shifted by each bound, is the rank-based robustness check, matching the
+    primary contrast's test.
+    """
+    diff = np.asarray(a, dtype=float) - np.asarray(b, dtype=float)
+    n = len(diff)
+    se = diff.std(ddof=1) / np.sqrt(n)
+    df = n - 1
+    mean = float(diff.mean())
+    p_lower = float(1 - stats.t.cdf((mean + bound) / se, df))   # H0: diff <= -bound
+    p_upper = float(stats.t.cdf((mean - bound) / se, df))       # H0: diff >= +bound
+    half = float(stats.t.ppf(0.95, df) * se)
+    w_lower = stats.wilcoxon(diff + bound, alternative="greater").pvalue
+    w_upper = stats.wilcoxon(diff - bound, alternative="less").pvalue
+    p = max(p_lower, p_upper)
+    return {
+        "bound": bound,
+        "p": p,
+        "ci90_low": mean - half,
+        "ci90_high": mean + half,
+        "equivalent": bool(p < 0.05),
+        "p_wilcoxon": float(max(w_lower, w_upper)),
     }
 
 
@@ -849,6 +891,7 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
             pr = primary_contrasts[slug_c]
             res["same_sign_as_primary"] = bool((res["mean_diff"] >= 0) == (pr["mean_diff"] >= 0))
             res["significant"] = bool(res["p_signed_rank"] < 0.05)
+            res["tost"] = tost_paired(mats["spec_pct"][a], mats["spec_pct"][b])
             contrasts[slug_c] = res
 
         ranking = sorted(CONDITIONS, key=lambda c: -cond_stats[c]["mean"])
@@ -895,6 +938,9 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
         + int(not prim["schema"]["significant"])
     schema_negative = sum(1 for m in models.values() if schema(m["contrasts"])["mean_diff"] < 0) \
         + int(prim["schema"]["mean_diff"] < 0)
+    schema_equivalent = sum(1 for m in models.values() if schema(m["contrasts"])["tost"]["equivalent"]) \
+        + int(tost_paired(primary_matrices["spec_pct"]["etcg"],
+                          primary_matrices["spec_pct"]["intermediate"])["equivalent"])
     baseline_last = sum(1 for m in models.values() if m["baseline_last"]) \
         + int(primary_ranking[-1] == "baseline")
     cost_complete = all(m["generation_cost_usd"] is not None and
@@ -915,6 +961,7 @@ def multimodel_generalization(mm_dir: Path, primary_matrices: dict,
         "role_significant_in": role_significant,
         "schema_nonsignificant_in": schema_nonsig,
         "schema_negative_in": schema_negative,
+        "schema_equivalent_in": schema_equivalent,
         "baseline_last_in": baseline_last,
         "any_beats_primary_etcg_with_baseline": any(
             m["beats_primary_etcg_with_baseline"] for m in models.values()),
@@ -1293,11 +1340,46 @@ def weighted_kappa(pairs: list[tuple[int, int]], categories: list[int]) -> float
 # carried-over charter, which is the join for human-vs-human agreement.
 
 
-def load_irr_r2(key_path: Path, csv_path: Path) -> list[dict] | None:
+def load_rescore_overlay(rescore_key: Path | None, rescore_csv: Path | None) -> dict | None:
+    """Rater 2's re-scores of the charters first shown with the wrong specification context.
+
+    The August 2026 packet builder (build_irr_round2.py) looked specifications up by the
+    ATSR source ``spec_id`` rather than by study position, so 36 of the 75 charters
+    (SPEC-07..18, 12 per condition) were shown beside the neighbouring specification's
+    title. In November 2026 rater 2 re-scored exactly those 36, with the correct context,
+    under fresh neutral IDs CHR-C-nn in a new order (build_irr_rater2_rescore.py). The
+    rescore key maps each CHR-C-nn back to its packet ID CHR-R2-nnn.
+
+    Returns {CHR-R2-nnn: [5 scores]}, or None when either file is absent.
+    """
+    if not rescore_key or not rescore_csv or not rescore_key.exists() or not rescore_csv.exists():
+        return None
+    with rescore_key.open(encoding="utf-8") as fh:
+        to_orig = {e["id"]: e["original_id"] for e in json.load(fh)}
+    out: dict[str, list[int]] = {}
+    with rescore_csv.open(encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            cid = (row.get("charter_id") or "").strip()
+            if cid not in to_orig:
+                raise SystemExit(f"rescore response: unknown charter id {cid!r}")
+            vals = [int(row[d]) for d in DIMENSIONS]
+            if any(v < SCALE_MIN or v > SCALE_MAX for v in vals):
+                raise SystemExit(f"{cid}: rescore outside {SCALE_MIN}..{SCALE_MAX}")
+            out[to_orig[cid]] = vals
+    if set(out) != set(to_orig.values()):
+        raise SystemExit(f"rescore response covers {len(out)} of {len(to_orig)} charters")
+    return out
+
+
+def load_irr_r2(key_path: Path, csv_path: Path,
+                overlay: dict | None = None) -> list[dict] | None:
     """Pair the automated scores with rater 2's ratings for the 75-charter packet.
 
     Returns records in the same shape ``analyse_irr`` consumes, plus ``round1_id``
     (present only on the ETCG/Baseline charters carried over from round 1).
+    With ``overlay`` (load_rescore_overlay), the re-scored charters take their
+    correct-context scores; every record keeps ``human_august`` (the packet score as
+    first returned) and a ``rescored`` flag, so the August reading stays reproducible.
     """
     if not key_path.exists() or not csv_path.exists():
         return None
@@ -1319,6 +1401,11 @@ def load_irr_r2(key_path: Path, csv_path: Path) -> list[dict] | None:
                 raise SystemExit(f"{cid}: rater 2 score outside {SCALE_MIN}..{SCALE_MAX}")
             human[cid] = vals
 
+    overlay = overlay or {}
+    missing = set(overlay) - set(human)
+    if missing:
+        raise SystemExit(f"rescore overlay names charters absent from the packet: {sorted(missing)}")
+
     paired = []
     for cid, entry in key.items():
         if cid not in human:
@@ -1329,9 +1416,41 @@ def load_irr_r2(key_path: Path, csv_path: Path) -> list[dict] | None:
             "spec_id": entry["spec_id"],
             "condition": entry["condition"],
             "auto": [int(entry["auto_scores"][d]) for d in DIMENSIONS],
-            "human": human[cid],
+            "human": overlay.get(cid, human[cid]),
+            "human_august": human[cid],
+            "rescored": cid in overlay,
         })
     return paired or None
+
+
+def rescore_sensitivity(paired_r2: list[dict]) -> dict:
+    """What the correct-context re-score changed, for disclosure and sensitivity.
+
+    Agreement with the automated evaluator on the re-scored subset (August reading vs
+    re-score) and on the untouched subset, plus how many ratings rater 2 changed.
+    Change counts mix the context correction with ordinary within-rater drift over
+    ten weeks, so they are not a test-retest statistic.
+    """
+    re_ = [p for p in paired_r2 if p["rescored"]]
+    un = [p for p in paired_r2 if not p["rescored"]]
+    aug = [{**p, "human": p["human_august"]} for p in re_]
+
+    def mean_pct(rows, field):
+        return float(np.mean([sum(p[field]) for p in rows]) / MAX_CHARTER_POINTS * 100)
+
+    changed = sum(a != b for p in re_ for a, b in zip(p["human"], p["human_august"]))
+    return {
+        "n_rescored": len(re_),
+        "n_unaffected": len(un),
+        "subset_rescore": analyse_irr(re_)["overall"],
+        "subset_august": analyse_irr(aug)["overall"],
+        "unaffected": analyse_irr(un)["overall"] if un else None,
+        "ratings_changed": changed,
+        "ratings_changed_pct": changed / (len(re_) * len(DIMENSIONS)) * 100,
+        "charters_changed": sum(p["human"] != p["human_august"] for p in re_),
+        "r2_mean_pct_august": mean_pct(re_, "human_august"),
+        "r2_mean_pct_rescore": mean_pct(re_, "human"),
+    }
 
 
 def analyse_consensus(paired: list[dict]) -> dict:
@@ -1416,6 +1535,60 @@ def build_irr_r2_bundle(paired_r2: list[dict], paired_r1: list[dict] | None) -> 
 
 
 # ── Registration: compute once, register everything ──────────────────────────
+
+
+def wilson_ci(x: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Wilson score interval for a binomial proportion, in percent. Unlike the Wald
+    interval it stays inside [0, 100] and is informative when x = 0."""
+    if n == 0:
+        return (float("nan"), float("nan"))
+    p = x / n
+    denom = 1 + z * z / n
+    centre = (p + z * z / (2 * n)) / denom
+    half = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
+    return (max(0.0, centre - half) * 100, min(1.0, centre + half) * 100)
+
+
+def relevance_audit(path: Path) -> dict | None:
+    """Reviewer 1 (round 2): are charters hallucinated, off-topic, or redundant?
+
+    data/relevance-audit.csv (scripts/build_relevance_audit_data.py) holds one external
+    coder's answers for 75 charters in 15 whole sets (5 per condition, 15 distinct
+    specifications), with the full specification shown. Q1 "made up" is kept at both
+    the first pass and the final pass, because the coding took one clarification round.
+    Redundancy is a set property: a pair is counted once when the coder linked the two
+    charters (the coder recorded every link on both rows).
+    """
+    if not path or not path.exists():
+        return None
+    with path.open(encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+
+    def summarise(sub: list[dict]) -> dict:
+        sets = sorted({r["set"] for r in sub})
+        pairs = {frozenset((r["code"], o)) for r in sub
+                 for o in filter(None, r["q3_overlaps_with_code"].split(";"))}
+        n = len(sub)
+        made_up = sum(r["q1_made_up_final"] == "Yes" for r in sub)
+        off_topic = sum(r["q2_off_topic"] == "Yes" for r in sub)
+        return {
+            "n_charters": n,
+            "n_sets": len(sets),
+            "q1_first_pass": sum(r["q1_made_up_first_pass"] == "Yes" for r in sub),
+            "q1_final": made_up,
+            "q1_final_ci": wilson_ci(made_up, n),
+            "q2": off_topic,
+            "q2_ci": wilson_ci(off_topic, n),
+            "pairs": len(pairs),
+            "pairs_possible": len(sets) * CHARTERS_PER_CELL * (CHARTERS_PER_CELL - 1) // 2,
+            "sets_with_overlap": len({r["set"] for r in sub if r["q3_overlaps_with_code"]}),
+            "charters_in_pair": sum(bool(r["q3_overlaps_with_code"]) for r in sub),
+        }
+
+    out = {"all": summarise(rows), "n_specs": len({r["spec_id"] for r in rows})}
+    for c in CONDITIONS:
+        out[c] = summarise([r for r in rows if r["condition"] == c])
+    return out
 
 
 def register_all(reg: Registry, matrices: dict, scores: list[dict],
@@ -1514,6 +1687,10 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
     reg.put("rq1.ceiling_max", max(ceilings), desc="Highest ceiling share across conditions (%)",
             fmt="pct0", method="maximum of the three ceiling percentages")
 
+    reg.put("rq1.tost_bound", TOST_BOUND_PP, fmt="{:.0f}",
+            desc="Equivalence bound for the TOST tests (pp, symmetric)",
+            method="fixed in advance (2026-11-02); TOST_BOUND_PP in analysis.py")
+
     # ---- RQ1: pairwise contrasts ---------------------------------------------
     for a, b, slug, label in CONTRASTS:
         res = paired_contrast(matrices["spec_pct"][a], matrices["spec_pct"][b], label)
@@ -1549,6 +1726,22 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
                 method="Mann-Whitney U on 125 vs 125 charters — pseudoreplicated, reported "
                        "only for comparison in the response letter; the round 1 submission's "
                        "test re-run on the corrected scoring file, not the value it printed")
+        tost = tost_paired(matrices["spec_pct"][a], matrices["spec_pct"][b])
+        tm = (f"two one-sided paired t-tests against +/-{TOST_BOUND_PP:g} pp on the 25 "
+              f"specification-level differences; equivalent when both reject at 0.05")
+        reg.put(f"{base}.tost_p", tost["p"], fmt="p",
+                desc=f"{label}: TOST equivalence p (larger of the two one-sided p)", method=tm)
+        reg.put(f"{base}.tost_ci_low", tost["ci90_low"], fmt="diff",
+                desc=f"{label}: 90% CI lower bound (pp), the TOST interval", method=tm)
+        reg.put(f"{base}.tost_ci_high", tost["ci90_high"], fmt="diff",
+                desc=f"{label}: 90% CI upper bound (pp), the TOST interval", method=tm)
+        reg.put(f"{base}.tost_p_wilcoxon", tost["p_wilcoxon"], fmt="p",
+                desc=f"{label}: rank-based TOST p (robustness)",
+                method="two one-sided Wilcoxon signed-rank tests on the differences shifted "
+                       f"by +/-{TOST_BOUND_PP:g} pp")
+        reg.put(f"{base}.tost_equivalent", int(tost["equivalent"]), fmt="int",
+                desc=f"{label}: 1 if equivalence within +/-{TOST_BOUND_PP:g} pp is shown",
+                method=tm)
 
     # ---- RQ1: pre-repair headline (superseded; Threats provenance paragraph) ------
     # What the baseline-splitter repair changed, recomputed from the retained pre-repair
@@ -1610,6 +1803,30 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
     reg.put("rq2.n_sig_holm", sum(1 for p in adjusted.values() if p < 0.05),
             desc="Dimension-level tests significant after Holm correction", fmt="int",
             method="count of Holm-adjusted p < 0.05")
+    reg.put("rq2.n_sig_raw_word", reg.get("rq2.n_sig_raw"),
+            desc="rq2.n_sig_raw, spelled out for prose", fmt="word", method="as rq2.n_sig_raw")
+    reg.put("rq2.n_sig_holm_word", reg.get("rq2.n_sig_holm"),
+            desc="rq2.n_sig_holm, spelled out for prose", fmt="word", method="as rq2.n_sig_holm")
+
+    # Which condition sits above which, dimension by dimension. Round 2 found prose saying
+    # "above the baseline on all five" after the splitter repair had made it four; these
+    # counts are what the prose guard (prose_guard) checks such phrases against.
+    dim_mean = {cond: {dim: float(matrices["spec_dim"][cond][dim].mean()) for dim in DIMENSIONS}
+                for cond in CONDITIONS}
+    reg.put("rq2.n_dims", len(DIMENSIONS), desc="Rubric dimensions", fmt="word",
+            method="len(DIMENSIONS)")
+    for cond in ("etcg", "intermediate"):
+        reg.put(f"rq2.n_dims_{cond}_above_baseline",
+                sum(dim_mean[cond][d] > dim_mean["baseline"][d] for d in DIMENSIONS),
+                desc=f"Dimensions on which {CONDITION_LABELS[cond]} scores above Baseline",
+                fmt="word", method="count of dimensions with a strictly higher mean of "
+                                   "per-specification dimension means")
+    reg.put("rq2.n_dims_baseline_below_both",
+            sum(dim_mean["baseline"][d] < min(dim_mean["etcg"][d], dim_mean["intermediate"][d])
+                for d in DIMENSIONS),
+            desc="Dimensions on which Baseline scores below both prompted conditions",
+            fmt="word", method="count of dimensions with a strictly lower mean than ETCG and "
+                               "Intermediate")
 
     # ---- RQ3: inter-rater reliability ----------------------------------------
     if irr:
@@ -2034,6 +2251,28 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
                 desc="Independent judge models used to rescore the corpus",
                 method="count of completed cross-model rescoring runs")
 
+        # Ablation contrasts counted over every judge, the primary included. The round-2
+        # claims vocabulary rests on these: role + guidance is "directional" (same sign on
+        # every judge, significant on few), and these counts keep the words tied to the data.
+        prim_c = {slug_c: paired_contrast(matrices["spec_pct"][a], matrices["spec_pct"][b], lbl)
+                  for a, b, slug_c, lbl in CONTRASTS}
+        per_judge = [prim_c] + [{sc: r["judge"] for sc, r in j["replication"].items()}
+                                for j in judges["judges"].values()]
+        jm = ("count over the primary GPT-4o judge and every cross-model judge; "
+              "specification-level Wilcoxon signed-rank, p < 0.05")
+        reg.put("judge.n_all", len(per_judge), fmt="word",
+                desc="Judges in total, the primary GPT-4o judge included", method=jm)
+        for slug_c, word in (("role_guidance", "role"), ("schema", "schema")):
+            reg.put(f"judge.{word}_positive_in",
+                    sum(c[slug_c]["mean_diff"] > 0 for c in per_judge), fmt="word",
+                    desc=f"Judges under which the {slug_c} contrast is positive", method=jm)
+            reg.put(f"judge.{word}_negative_in",
+                    sum(c[slug_c]["mean_diff"] < 0 for c in per_judge), fmt="word",
+                    desc=f"Judges under which the {slug_c} contrast is negative", method=jm)
+            reg.put(f"judge.{word}_significant_in",
+                    sum(c[slug_c]["p_signed_rank"] < 0.05 for c in per_judge), fmt="word",
+                    desc=f"Judges under which the {slug_c} contrast reaches p < 0.05", method=jm)
+
     # ---- Generation-side operational cost and latency (task 2.4) -------------
     if gencost:
         m = ("dedicated instrumentation run (scripts/instrument_generation.py): the three "
@@ -2112,9 +2351,17 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
         reg.put("mm.schema_negative_in", multimodel["schema_negative_in"], fmt="int",
                 desc="Generators where adding the output schema lowers the mean",
                 method=m + "; count over all generators including GPT-4o")
+        reg.put("mm.schema_equivalent_in", multimodel["schema_equivalent_in"], fmt="int",
+                desc=f"Generators where TOST shows the output-schema contrast equivalent "
+                     f"within +/-{TOST_BOUND_PP:g} pp",
+                method=m + "; paired-t TOST; count over all generators including GPT-4o")
         reg.put("mm.baseline_last_in", multimodel["baseline_last_in"], fmt="int",
                 desc="Generators whose lowest-scoring condition is Baseline",
                 method=m + "; count over all generators including GPT-4o")
+        for _k in ("n_generators", "role_positive_in", "role_significant_in",
+                   "schema_negative_in", "schema_equivalent_in"):
+            reg.put(f"mm.{_k}_word", multimodel[_k], fmt="word",
+                    desc=f"mm.{_k}, spelled out for prose", method=f"as mm.{_k}")
         if multimodel.get("total_cost_usd") is not None:
             reg.put("mm.total_cost", multimodel["total_cost_usd"], fmt="{:.2f}",
                     desc="Total API cost to regenerate and rescore all three conditions for the additional generator families (USD)",
@@ -2146,9 +2393,114 @@ def register_all(reg: Registry, matrices: dict, scores: list[dict],
                         desc=f"{md['short']}: {res['label']} — 95% CI lower bound (pp)", method=m)
                 reg.put(f"{k}.{slug_c}.ci_high", res["ci_high"], fmt="diff",
                         desc=f"{md['short']}: {res['label']} — 95% CI upper bound (pp)", method=m)
+                reg.put(f"{k}.{slug_c}.tost_p", res["tost"]["p"], fmt="p",
+                        desc=f"{md['short']}: {res['label']} — TOST equivalence p "
+                             f"(+/-{TOST_BOUND_PP:g} pp)", method=m + "; paired-t TOST")
             reg.put(f"{k}.etcg_vs_primary_etcg", md["etcg_minus_primary_etcg_pp"], fmt="diff",
                     desc=f"{md['short']}: ETCG mean minus the primary GPT-4o ETCG mean (pp)",
                     method=m)
+
+
+def register_rescore(reg: Registry, irr_r2: dict | None) -> None:
+    """Register the rater 2 context re-score: what changed, and the August reading as a
+    sensitivity value. The primary rq3.r2.* / rq3.hh.* / rq3.cons.* values already use
+    the re-scores; nothing here feeds them."""
+    if not irr_r2 or "rescore" not in irr_r2:
+        return
+    rs, aug = irr_r2["rescore"], irr_r2["august"]
+    m = ("rater 2 re-scored, with the correct specification context, the charters the "
+         "August 2026 packet showed beside the wrong specification title; "
+         "data/irr-r2-rescore-response.csv via data/irr-r2-rescore-key.json")
+    reg.put("rq3.rescore.n_rescored", rs["n_rescored"], fmt="int",
+            desc="Round 2 IRR: charters re-scored with corrected specification context", method=m)
+    reg.put("rq3.rescore.n_unaffected", rs["n_unaffected"], fmt="int",
+            desc="Round 2 IRR: charters whose context was correct in the August packet", method=m)
+    reg.put("rq3.rescore.n_per_condition", rs["n_rescored"] // len(CONDITIONS), fmt="int",
+            desc="Round 2 IRR: re-scored charters per condition", method=m)
+    reg.put("rq3.rescore.ratings_changed", rs["ratings_changed"], fmt="int",
+            desc="Round 2 IRR: dimension ratings rater 2 changed on re-scoring", method=m)
+    reg.put("rq3.rescore.ratings_changed_pct", rs["ratings_changed_pct"], fmt="{:.1f}",
+            desc="Round 2 IRR: share of re-scored dimension ratings that changed (%)", method=m)
+    reg.put("rq3.rescore.charters_changed", rs["charters_changed"], fmt="int",
+            desc="Round 2 IRR: re-scored charters with at least one changed rating", method=m)
+    reg.put("rq3.rescore.r2_mean_august", rs["r2_mean_pct_august"], fmt="{:.1f}",
+            desc="Round 2 IRR: rater 2 mean on the re-scored charters, August reading (%)", method=m)
+    reg.put("rq3.rescore.r2_mean_rescore", rs["r2_mean_pct_rescore"], fmt="{:.1f}",
+            desc="Round 2 IRR: rater 2 mean on the re-scored charters, re-score (%)", method=m)
+    for tag, ov in [("subset_august", rs["subset_august"]),
+                    ("subset_rescore", rs["subset_rescore"]),
+                    ("unaffected", rs["unaffected"])]:
+        if not ov:
+            continue
+        slug = tag.replace("_", "")
+        for f, fmt, d in [("exact_pct", "{:.1f}", "exact agreement with the automated evaluator (%)"),
+                          ("two_point_n", "int", "two-point disagreements with the automated evaluator"),
+                          ("ac2", "{:.3f}", "Gwet's AC2 with the automated evaluator")]:
+            reg.put(f"rq3.rescore.{slug}.{f}", ov[f], fmt=fmt,
+                    desc=f"Round 2 IRR, {tag.replace('_', ' ')}: {d}", method=m)
+    # The August reading of the whole packet, kept as a sensitivity value.
+    am = m + "; August scores on every charter (sensitivity, not the primary analysis)"
+    a = aug["all"]["overall"]
+    for f, fmt, d in [("exact_pct", "{:.1f}", "exact agreement (%)"),
+                      ("two_point_n", "int", "two-point disagreements"),
+                      ("ac2", "{:.3f}", "Gwet's AC2"),
+                      ("alpha_ordinal", "{:.3f}", "Krippendorff's alpha (ordinal)")]:
+        reg.put(f"rq3.r2aug.{f}", a[f], fmt=fmt,
+                desc=f"Round 2 IRR, August reading, automated vs rater 2: {d}", method=am)
+    reg.put("rq3.r2aug.mean_delta_pct", a["human_mean_pct"] - a["auto_mean_pct"], fmt="diff",
+            desc="Round 2 IRR, August reading: rater 2 minus automated mean (pp)", method=am)
+    if "human_human" in aug:
+        h = aug["human_human"]["overall"]
+        for f, fmt, d in [("exact_pct", "{:.1f}", "exact agreement (%)"),
+                          ("two_point_n", "int", "two-point disagreements"),
+                          ("ac2", "{:.3f}", "Gwet's AC2"),
+                          ("alpha_ordinal", "{:.3f}", "Krippendorff's alpha (ordinal)")]:
+            reg.put(f"rq3.hhaug.{f}", h[f], fmt=fmt,
+                    desc=f"Human-human, August reading: {d}", method=am)
+
+
+def register_audit(reg: Registry, audit: dict | None) -> None:
+    """Register the relevance / hallucination / redundancy audit (Reviewer 1, round 2)."""
+    if not audit:
+        return
+    m = ("one external coder, blind to condition, full specification shown; 15 whole "
+         "five-charter sets, 5 per condition; data/relevance-audit.csv")
+    reg.put("audit.n_specs", audit["n_specs"], fmt="int",
+            desc="Distinct specifications in the relevance audit", method=m)
+    reg.put("audit.n_sets_per_condition", audit["etcg"]["n_sets"], fmt="word",
+            desc="Five-charter sets per condition in the relevance audit", method=m)
+    for scope in ("all",) + tuple(CONDITIONS):
+        a = audit[scope]
+        lbl = "all conditions" if scope == "all" else CONDITION_LABELS[scope]
+        k = f"audit.{scope}"
+        reg.put(f"{k}.n_charters", a["n_charters"], fmt="int",
+                desc=f"Relevance audit, {lbl}: charters coded", method=m)
+        reg.put(f"{k}.n_sets", a["n_sets"], fmt="int",
+                desc=f"Relevance audit, {lbl}: five-charter sets coded", method=m)
+        reg.put(f"{k}.q1_first_pass", a["q1_first_pass"], fmt="int",
+                desc=f"Relevance audit, {lbl}: charters coded 'made up' at the first pass",
+                method=m + "; before the clarification round")
+        reg.put(f"{k}.q1_final", a["q1_final"], fmt="int",
+                desc=f"Relevance audit, {lbl}: charters coded 'made up' (final)", method=m)
+        reg.put(f"{k}.q1_ci_high", a["q1_final_ci"][1], fmt="{:.1f}",
+                desc=f"Relevance audit, {lbl}: 95% Wilson upper bound on the 'made up' rate (%)",
+                method=m + "; Wilson score interval")
+        reg.put(f"{k}.q2", a["q2"], fmt="int",
+                desc=f"Relevance audit, {lbl}: charters coded off-topic", method=m)
+        reg.put(f"{k}.q2_ci_high", a["q2_ci"][1], fmt="{:.1f}",
+                desc=f"Relevance audit, {lbl}: 95% Wilson upper bound on the off-topic rate (%)",
+                method=m + "; Wilson score interval")
+        reg.put(f"{k}.pairs", a["pairs"], fmt="int",
+                desc=f"Relevance audit, {lbl}: overlapping charter pairs", method=m)
+        reg.put(f"{k}.pairs_possible", a["pairs_possible"], fmt="int",
+                desc=f"Relevance audit, {lbl}: charter pairs that could overlap",
+                method="10 within-set pairs per five-charter set")
+        reg.put(f"{k}.sets_with_overlap", a["sets_with_overlap"], fmt="int",
+                desc=f"Relevance audit, {lbl}: sets with at least one overlapping pair",
+                method=m)
+        reg.put(f"{k}.charters_in_pair", a["charters_in_pair"], fmt="int",
+                desc=f"Relevance audit, {lbl}: charters in at least one overlapping pair",
+                method=m)
 
 
 # ── Emission ─────────────────────────────────────────────────────────────────
@@ -2370,7 +2722,7 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
         path.write_text(tex_table(
             caption=("Round 2 inter-rater reliability by condition: automated evaluator "
                      "versus the second human reviewer. The Intermediate row is the first "
-                     "human validation of the schema-ablation condition."),
+                     "human validation of the condition at the centre of both ablation contrasts."),
             label="tab:rq3r2cond", colspec="lrrrrrrrr",
             header=["Condition", "$n$", "Auto", "Rater 2", "$\\Delta$", "Exact",
                     "Within-1", "2-pt", "AC2"],
@@ -2554,6 +2906,34 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
             rows=rows, notes=notes), encoding="utf-8")
         written.append(path)
 
+    # Table: relevance / hallucination / redundancy audit (Reviewer 1, round 2).
+    if "audit.all.n_charters" in reg.keys():
+        rows = []
+        for scope in tuple(CONDITIONS) + ("all",):
+            k = f"audit.{scope}"
+            rows.append([
+                "All" if scope == "all" else CONDITION_LABELS[scope],
+                r(f"{k}.n_charters"),
+                f"{r(f'{k}.q1_final')} ({r(f'{k}.q1_first_pass')})",
+                r(f"{k}.q2"),
+                f"{r(f'{k}.pairs')}/{r(f'{k}.pairs_possible')}",
+                f"{r(f'{k}.sets_with_overlap')}/{r(f'{k}.n_sets')}",
+            ])
+        path = out_dir / "table-relevance-audit.tex"
+        path.write_text(tex_table(
+            caption=("Relevance audit: one external coder, blind to condition, coded "
+                     f"{r('audit.all.n_charters')} charters in {r('audit.all.n_sets')} whole "
+                     "five-charter sets against the full specification."),
+            label="tab:audit", colspec="lrrrrr",
+            header=["Condition", "Charters", "Made up", "Off-topic",
+                    "Overlap pairs", "Sets with overlap"],
+            rows=rows, notes=[
+                "Made up: final count, with the first-pass count before the clarification "
+                "round in brackets. Overlap pairs: pairs a tester would run as substantially "
+                "the same session, out of the 10 possible pairs per set."]),
+            encoding="utf-8")
+        written.append(path)
+
     # Table: multi-model generalisation of the ablation contrasts (task 2.3).
     mm_slugs = sorted(
         k.split(".")[1] for k in reg.keys()
@@ -2579,10 +2959,14 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
             "(temperature 0); only the model that wrote the charters differs. Means are over "
             f"{r('corpus.n_specs')} specification-level means per condition; $\\Delta$ columns "
             "are paired specification-mean differences (pp), Wilcoxon signed-rank.",
-            f"Role framing (Baseline $\\rightarrow$ Intermediate) raises the mean for "
-            f"{r('mm.role_positive_in')}/{r('mm.n_generators')} generators. Adding the output "
-            f"schema (Intermediate $\\rightarrow$ ETCG) does not reach significance for "
-            f"{r('mm.schema_nonsignificant_in')}/{r('mm.n_generators')} and lowers the mean for "
+            f"R\\&G = role-and-guidance step; S-O = structured-output step. "
+            f"The role-and-guidance step (Baseline $\\rightarrow$ Intermediate) raises the mean "
+            f"for {r('mm.role_positive_in')}/{r('mm.n_generators')} generators and reaches "
+            f"significance for {r('mm.role_significant_in')}/{r('mm.n_generators')}. The "
+            f"structured-output step (Intermediate $\\rightarrow$ ETCG) does not reach "
+            f"significance for {r('mm.schema_nonsignificant_in')}/{r('mm.n_generators')}, is "
+            f"equivalent within $\\pm${r('rq1.tost_bound')} pp (TOST) for "
+            f"{r('mm.schema_equivalent_in')}/{r('mm.n_generators')}, and lowers the mean for "
             f"{r('mm.schema_negative_in')}/{r('mm.n_generators')}. Baseline is the "
             f"lowest-scoring condition for {r('mm.baseline_last_in')}/{r('mm.n_generators')}.",
         ]
@@ -2593,7 +2977,7 @@ def emit_tables(reg: Registry, out_dir: Path) -> list[Path]:
                      "specifications, and the GPT-4o rubric judge are all held fixed."),
             label="tab:multimodel", colspec="lrrrrrrr",
             header=["Generator", "Base.", "Inter.", "ETCG",
-                    "role $\\Delta$", "$p$", "schema $\\Delta$", "$p$"],
+                    "R\\&G $\\Delta$", "$p$", "S-O $\\Delta$", "$p$"],
             rows=rows, notes=notes), encoding="utf-8")
         written.append(path)
 
@@ -2745,6 +3129,85 @@ def audit_tex(reg: Registry, tex_path: Path) -> list[str]:
     return findings
 
 
+# Prompt template constant in each GPT-4o generator script -> listing file.
+PROMPT_SOURCES = [
+    ("etcg_tool.py", "SYSTEM_PROMPT", "prompt-etcg.txt"),
+    ("etcg_intermediate_tool.py", "INTERMEDIATE_PROMPT", "prompt-intermediate.txt"),
+    ("etcg_baseline_tool.py", "BASELINE_PROMPT_TEMPLATE", "prompt-baseline.txt"),
+]
+
+
+def emit_prompt_listings(scripts_dir: Path, out_dir: Path) -> list[Path]:
+    """Write each condition's prompt template exactly as the generator sends it.
+
+    Round 2 found the manuscript's hand-copied listings had drifted from the code
+    (a different output instruction, missing clauses). The manuscript now
+    \\lstinputlisting's these files, so the listings cannot drift again. The
+    constants are read with ast rather than imported, because importing a
+    generator script requires an API key.
+    """
+    import ast
+    written = []
+    for script, const, name in PROMPT_SOURCES:
+        tree = ast.parse((scripts_dir / script).read_text(encoding="utf-8"))
+        value = next(node.value.value for node in tree.body
+                     if isinstance(node, ast.Assign)
+                     and any(isinstance(t, ast.Name) and t.id == const for t in node.targets))
+        path = out_dir / name
+        path.write_text(value + "\n", encoding="utf-8")
+        written.append(path)
+    return written
+
+
+def prose_guard(reg: Registry, tex_path: Path) -> list[str]:
+    """Report phrases whose truth depends on a registered count that now contradicts them.
+
+    audit_tex guards the numbers; this guards the words beside them. Round 2 found
+    "no dimension-level contrast survives" next to a macro that read 1, and "above the
+    baseline on all five" where the data gave four -- both left behind when the baseline
+    splitter repair changed the numbers underneath. The last two rules enforce the
+    revision's vocabulary: a non-significant contrast is "not detected", never evidence
+    that a component does nothing, and an ablation step is a bundle, never an isolated
+    component.
+    """
+    text = re.sub(r"(?<!\\)%.*", "", tex_path.read_text(encoding="utf-8"))
+    g = reg.get
+    rules = [
+        (g("rq2.n_sig_holm") > 0, "a dimension contrast survives Holm (rq2.n_sig_holm > 0)",
+         r"no\s+(?:dimension(?:-level)?\s+)?contrast\s+(?:survives|is\s+statistically\s+established)"
+         r"|neither\s+(?:clarity\s+)?contrast\s+survives|none\s+(?:of\s+them\s+)?survives?"),
+        (g("rq2.n_dims_intermediate_above_baseline") < 5
+         or g("rq2.n_dims_etcg_above_baseline") < 5,
+         "a prompted condition is above Baseline on fewer than five dimensions",
+         r"(?:above|exceeds?)\s+(?:the\s+)?(?:baseline|it)\s+on\s+all\s+five"),
+        (g("rq2.n_dims_baseline_below_both") < 5,
+         "Baseline is not at or below both prompted conditions on every dimension",
+         r"at\s+or\s+below\s+both\s+on\s+every\s+dimension"),
+        ("mm.role_significant_in" in reg.keys() and g("mm.role_significant_in") == 0,
+         "the role+guidance contrast is significant on no generator",
+         r"accounts\s+for\s+the\s+whole|role\s+framing\s+and\s+guidance\s+carry"
+         r"|attribut\w+\s+(?:any\s+small\s+difference\s+)?to\s+role\s+framing"),
+        (True, "a non-significant contrast is not evidence of no effect",
+         r"adds?\s+nothing|does\s+nothing|contributes\s+no\s+improvement"
+         r"|(?<!of\s)(?<!from\s)\bno\s+effect\b"
+         r"|model-independent"),
+        (True, "each ablation step changes a bundle of prompt elements, so no contrast "
+               "isolates a single component (round-2 R3.1/R3.2)",
+         r"isolat\w+\s+(?:the\s+)?(?:effect|schema|json|structured)"
+         r"|schema\s+(?:contrast|ablation)|component\s+worth\s+attending"
+         r"|ensured\s+that\s+any"),
+    ]
+    findings = []
+    for active, why, pattern in rules:
+        if not active:
+            continue
+        for m in re.finditer(pattern, text, re.IGNORECASE):
+            line_no = text.count("\n", 0, m.start()) + 1
+            phrase = " ".join(m.group(0).split())
+            findings.append(f"line {line_no}: \"{phrase}\" — {why}")
+    return sorted(findings, key=lambda f: int(f.split(":")[0].split()[1]))
+
+
 def file_meta(path: Path, root: Path | None = None) -> dict:
     """Hash an input file. Paths are recorded relative to the repository so the
     traceability appendix is portable for anyone replicating the analysis."""
@@ -2825,11 +3288,29 @@ def main() -> int:
     irr_r2_csv = next((p for p in [repo / "data" / "irr-r2-rater2-response.csv",
                                    paper / "research" / "irr-r2-rater2-response.csv"]
                        if p.exists()), None)
+    # Correct-context re-score of the 36 charters the August packet mislabelled. Primary
+    # RQ3 uses the re-scores; the August reading is kept as a registered sensitivity value.
+    rescore_key = next((p for p in [repo / "data" / "irr-r2-rescore-key.json",
+                                    paper / "research" / "irr-r2-rescore-key.json"]
+                        if p.exists()), None)
+    rescore_csv = repo / "data" / "irr-r2-rescore-response.csv"
+    overlay = load_rescore_overlay(rescore_key, rescore_csv)
     irr_r2 = None
     if irr_r2_key and irr_r2_csv:
-        paired_r2 = load_irr_r2(irr_r2_key, irr_r2_csv)
+        paired_r2 = load_irr_r2(irr_r2_key, irr_r2_csv, overlay)
         if paired_r2:
             irr_r2 = build_irr_r2_bundle(paired_r2, paired)
+            if overlay:
+                august = [{**p, "human": p["human_august"]} for p in paired_r2]
+                irr_r2["august"] = build_irr_r2_bundle(august, paired)
+                irr_r2["rescore"] = rescore_sensitivity(paired_r2)
+                rs = irr_r2["rescore"]
+                print(f"  IRR round 2 re-score: {rs['n_rescored']} charters substituted; "
+                      f"subset exact {rs['subset_august']['exact_pct']:.1f}% (August) -> "
+                      f"{rs['subset_rescore']['exact_pct']:.1f}% (re-score); "
+                      f"{rs['ratings_changed']} ratings changed")
+            else:
+                print("  IRR round 2 re-score: not found — August packet scores used for all charters")
             allr = irr_r2["all"]["overall"]
             msg = (f"  IRR round 2: {allr['n_charters']} charters "
                    f"({', '.join(allr['conditions_covered'])}), "
@@ -2942,6 +3423,14 @@ def main() -> int:
     reg = Registry()
     register_all(reg, matrices, scores, design, irr, mixed, stability, vocab, worked, judges,
                  irr_r2, gencost, multimodel, prerepair)
+    audit_path = repo / "data" / "relevance-audit.csv"
+    audit = relevance_audit(audit_path)
+    register_audit(reg, audit)
+    register_rescore(reg, irr_r2)
+    if audit:
+        print(f"  relevance audit: {audit['all']['n_charters']} charters, made up "
+              f"{audit['all']['q1_final']} (first pass {audit['all']['q1_first_pass']}), "
+              f"off-topic {audit['all']['q2']}, overlap pairs {audit['all']['pairs']}")
     print(f"  registered {len(reg.keys())} values")
 
     inputs = {"scoring": file_meta(scores_path, repo),
@@ -2956,6 +3445,9 @@ def main() -> int:
         inputs["irr_r2_key"] = file_meta(irr_r2_key, repo)
     if irr_r2_csv:
         inputs["irr_r2_human_scores"] = file_meta(irr_r2_csv, repo)
+    if overlay:
+        inputs["irr_r2_rescore_key"] = file_meta(rescore_key, repo)
+        inputs["irr_r2_rescore_scores"] = file_meta(rescore_csv, repo)
     gen_instr_path = repo / "data" / "generation-instrumentation.json"
     if gencost and gen_instr_path.exists():
         inputs["generation_instrumentation"] = file_meta(gen_instr_path, repo)
@@ -3003,6 +3495,10 @@ def main() -> int:
         (gen_dir / src.name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     print(f"mirrored {len(tables) + 1} .tex files -> {gen_dir}")
 
+    for src in emit_prompt_listings(repo / "scripts", results_dir):
+        (gen_dir / src.name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"mirrored {src.name} (verbatim from the generator script)")
+
     if not args.no_figures:
         try:
             import figures
@@ -3024,6 +3520,13 @@ def main() -> int:
                 print(f"    {f}")
         else:
             print("  clean — every decimal literal traces to a registered value")
+        guard = prose_guard(reg, target)
+        if guard:
+            print(f"  prose guard: {len(guard)} phrase(s) contradicted by the registered values:")
+            for f in guard:
+                print(f"    {f}")
+        else:
+            print("  prose guard clean — no phrase contradicts a registered count")
 
     return 0
 

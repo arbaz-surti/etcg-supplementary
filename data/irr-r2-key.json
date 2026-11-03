@@ -168,16 +168,18 @@
     "id": "CHR-R2-012",
     "spec_id": "SPEC-10",
     "condition": "baseline",
-    "charter_id": "BL-03",
+    "charter_id": "BL-02",
     "round1_id": "CHR-027",
     "auto_scores": {
       "specificity": 3,
       "testability": 3,
       "risk_coverage": 3,
       "clarity": 3,
-      "actionability": 3
+      "actionability": 3,
+      "rationale": "The charter is specific, testable, covers a meaningful risk, is clearly written, and provides a distinct exploratory approach."
     },
-    "auto_pct": 100.0
+    "auto_pct": 100.0,
+    "key_correction": "Corrected 2026-11-02 from BL-03: the rater sheet showed the text that the August 2026 baseline split repair renumbered to BL-02 (SPEC-10 is a repaired spec). Automated dimension scores are identical for BL-02 and BL-03, so no reported value changes."
   },
   {
     "id": "CHR-R2-013",

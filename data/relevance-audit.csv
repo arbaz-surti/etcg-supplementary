@@ -1,0 +1,76 @@
+code,set,spec_id,condition,charter_id,q1_made_up_first_pass,q1_first_pass_reason,q1_made_up_final,q2_off_topic,q2_reason,q3_overlaps_with,q3_overlaps_with_code
+A1,A,SPEC-06,etcg,ET-01,No,,No,No,,,
+A2,A,SPEC-06,etcg,ET-02,No,,No,No,,,
+A3,A,SPEC-06,etcg,ET-03,Yes,"The charter assumes that scheduling UI controls may be confusing or misleading. The specification describes the date/time configuration behavior but does not describe any particular UI defect or confusing control; this is a proposed usability risk, not a documented issue.",No,No,,,
+A4,A,SPEC-06,etcg,ET-04,No,,No,No,,,
+A5,A,SPEC-06,etcg,ET-05,Yes,"The charter names failure of time-sensitive operations at non-traditional stores. The specification mentions a time-sensitive testing dependency at these stores, but does not establish an operational failure; that failure mode is hypothetical.",No,Yes,"The charter primarily explores time-sensitive operational failures at non-traditional store locations rather than the recurring scheduling-window configuration change. Although those locations are mentioned in the specification, they are a testing dependency, not the feature being modified. This is somewhat borderline, but I would retain Q2 = Yes because of the charter's main focus.",,
+B1,B,SPEC-04,baseline,BL-01,No,,No,No,,,
+B2,B,SPEC-04,baseline,BL-02,No,,No,No,,,
+B3,B,SPEC-04,baseline,BL-03,No,,No,No,,BL-05,B5
+B4,B,SPEC-04,baseline,BL-04,No,,No,No,,,
+B5,B,SPEC-04,baseline,BL-05,No,,No,No,,BL-03,B3
+C1,C,SPEC-09,intermediate,IM-01,No,,No,No,,,
+C2,C,SPEC-09,intermediate,IM-02,No,,No,No,,,
+C3,C,SPEC-09,intermediate,IM-03,No,,No,No,,,
+C4,C,SPEC-09,intermediate,IM-04,Yes,The charter proposes environment-specific UAT problems that would not reproduce in production. The specification confirms a new UAT zone but does not claim such UAT/production differences occur; this is a hypothetical risk.,No,No,,,
+C5,C,SPEC-09,intermediate,IM-05,No,,No,No,,,
+D1,D,SPEC-14,intermediate,IM-01,No,,No,No,,IM-05,D5
+D2,D,SPEC-14,intermediate,IM-02,No,,No,No,,,
+D3,D,SPEC-14,intermediate,IM-03,No,,No,No,,,
+D4,D,SPEC-14,intermediate,IM-04,No,,No,No,,,
+D5,D,SPEC-14,intermediate,IM-05,Yes,The charter generalizes to messaging consistency across different transaction states. The specification only identifies the incorrect message when a crew member cancels a gift-card transaction with cloud processing disabled; other states are not described.,No,No,,IM-01,D1
+E1,E,SPEC-22,etcg,ET-01,No,,No,No,,,
+E2,E,SPEC-22,etcg,ET-02,No,,No,No,,,
+E3,E,SPEC-22,etcg,ET-03,No,,No,No,,,
+E4,E,SPEC-22,etcg,ET-04,No,,No,No,,,
+E5,E,SPEC-22,etcg,ET-05,No,,No,No,,,
+F1,F,SPEC-13,baseline,BL-01,Yes,"The charter specifies login/logout, payment confirmation, user-error recovery, and crashes as test targets. The specification asks for standard app functionality, but does not explicitly enumerate these workflows or claim associated defects; these are suggested tests, not confirmed new requirements.",No,No,,BL-02,F2
+F2,F,SPEC-13,baseline,BL-02,Yes,"The charter proposes investigating undocumented new features and UI elements. The specification says vendor release notes are pending, not that undocumented features or new UI controls exist; these are hypotheses for exploration.",No,No,,BL-01,F1
+F3,F,SPEC-13,baseline,BL-03,Yes,"The charter proposes speed/responsiveness problems and OS-specific compatibility differences. The specification requires validation on iOS 26.1, but does not report such differences or performance issues; they are exploratory risks, not observed facts.",No,No,,,
+F4,F,SPEC-13,baseline,BL-04,Yes,"The charter assumes device-specific features and potential hardware-specific performance differences. The specification identifies Gen 10 and Gen 11 device coverage, but no device-specific feature or defect; those possibilities are speculative.",No,No,,,
+F5,F,SPEC-13,baseline,BL-05,Yes,"The charter adds high-traffic, concurrent-transaction load scenarios and peak-load thresholds. The specification calls for compatibility and standard functionality testing but does not specify concurrency/load testing or peak-traffic requirements.",No,No,,,
+G1,G,SPEC-21,etcg,ET-01,No,,No,No,,,
+G2,G,SPEC-21,etcg,ET-02,No,,No,No,,ET-04,G4
+G3,G,SPEC-21,etcg,ET-03,No,,No,No,,,
+G4,G,SPEC-21,etcg,ET-04,No,,No,No,,ET-02,G2
+G5,G,SPEC-21,etcg,ET-05,No,,No,No,,,
+H1,H,SPEC-07,intermediate,IM-01,No,,No,No,,,
+H2,H,SPEC-07,intermediate,IM-02,No,,No,No,,,
+H3,H,SPEC-07,intermediate,IM-03,No,,No,No,,,
+H4,H,SPEC-07,intermediate,IM-04,No,,No,No,,,
+H5,H,SPEC-07,intermediate,IM-05,No,,No,No,,,
+I1,I,SPEC-19,baseline,BL-01,No,,No,No,,BL-03,I3
+I2,I,SPEC-19,baseline,BL-02,No,,No,No,,,
+I3,I,SPEC-19,baseline,BL-03,No,,No,No,,BL-01,I1
+I4,I,SPEC-19,baseline,BL-04,Yes,"The charter introduces transaction delays and tendering errors as specific risks. The specification does explicitly require a mixed-order tender flow, kitchen display, and receipt accuracy, but does not identify delays or errors; these are possible risks, not established behavior.",No,No,,,
+I5,I,SPEC-19,baseline,BL-05,Yes,"The charter introduces limited customization options as a possible management-console risk. The specification requires layout review in the management console, but does not describe customization capabilities or limitations; that portion is an assumption.",No,No,,,
+J1,J,SPEC-16,etcg,ET-01,No,,No,No,,,
+J2,J,SPEC-16,etcg,ET-02,No,,No,No,,,
+J3,J,SPEC-16,etcg,ET-03,No,,No,No,,,
+J4,J,SPEC-16,etcg,ET-04,No,,No,No,,,
+J5,J,SPEC-16,etcg,ET-05,No,,No,No,,,
+K1,K,SPEC-10,baseline,BL-01,No,,No,No,,,
+K2,K,SPEC-10,baseline,BL-02,No,,No,No,,BL-04,K4
+K3,K,SPEC-10,baseline,BL-03,No,,No,No,,,
+K4,K,SPEC-10,baseline,BL-04,No,,No,No,,BL-02,K2
+K5,K,SPEC-10,baseline,BL-05,Yes,The charter assumes the app may show price-change alerts/messages and order-processing errors during fulfillment. The specification expects the original paid price to remain locked with no errors or discrepancies; it does not specify alerts or a price-change notification UI.,No,No,,,
+L1,L,SPEC-02,intermediate,IM-01,No,,No,No,,,
+L2,L,SPEC-02,intermediate,IM-02,No,,No,No,,,
+L3,L,SPEC-02,intermediate,IM-03,No,,No,No,,,
+L4,L,SPEC-02,intermediate,IM-04,No,,No,No,,,
+L5,L,SPEC-02,intermediate,IM-05,No,,No,No,,,
+M1,M,SPEC-08,etcg,ET-01,No,,No,No,,,
+M2,M,SPEC-08,etcg,ET-02,No,,No,No,,,
+M3,M,SPEC-08,etcg,ET-03,No,,No,No,,,
+M4,M,SPEC-08,etcg,ET-04,No,,No,No,,,
+M5,M,SPEC-08,etcg,ET-05,No,,No,No,,,
+N1,N,SPEC-23,intermediate,IM-01,No,,No,No,,IM-04,N4
+N2,N,SPEC-23,intermediate,IM-02,No,,No,No,,,
+N3,N,SPEC-23,intermediate,IM-03,No,,No,No,,,
+N4,N,SPEC-23,intermediate,IM-04,No,,No,No,,IM-01,N1
+N5,N,SPEC-23,intermediate,IM-05,No,,No,No,,,
+O1,O,SPEC-03,baseline,BL-01,No,,No,No,,,
+O2,O,SPEC-03,baseline,BL-02,No,,No,No,,,
+O3,O,SPEC-03,baseline,BL-03,No,,No,No,,,
+O4,O,SPEC-03,baseline,BL-04,No,,No,No,,,
+O5,O,SPEC-03,baseline,BL-05,No,,No,No,,,

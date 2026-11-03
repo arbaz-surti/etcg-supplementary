@@ -1,0 +1,326 @@
+[
+  {
+    "id": "CHR-C-01",
+    "original_id": "CHR-R2-004",
+    "spec_id": "SPEC-16",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "context_shown_originally": "Regression Testing for Existing Serialized Coupons After New Promotional BIN Ranges Added",
+    "context_shown_now": "Antivirus Exclusion Script Deployment for Remote Management Tool \u2014 POS Terminal Validation"
+  },
+  {
+    "id": "CHR-C-02",
+    "original_id": "CHR-R2-072",
+    "spec_id": "SPEC-16",
+    "condition": "intermediate",
+    "charter_id": "IM-02",
+    "context_shown_originally": "Regression Testing for Existing Serialized Coupons After New Promotional BIN Ranges Added",
+    "context_shown_now": "Antivirus Exclusion Script Deployment for Remote Management Tool \u2014 POS Terminal Validation"
+  },
+  {
+    "id": "CHR-C-03",
+    "original_id": "CHR-R2-022",
+    "spec_id": "SPEC-15",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "context_shown_originally": "Gift Card Transaction Cancel Messaging Fix \u2014 Validate Correct Terminal Display With Cloud Processing Disabled",
+    "context_shown_now": "Regression Testing for Existing Serialized Coupons After New Promotional BIN Ranges Added"
+  },
+  {
+    "id": "CHR-C-04",
+    "original_id": "CHR-R2-075",
+    "spec_id": "SPEC-13",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "context_shown_originally": "POS Hierarchy Zone Addition for Full-Menu Non-Traditional Store Locations",
+    "context_shown_now": "Digital Ordering App Version Upgrade \u2014 Multi-Device and Multi-OS Compatibility Testing"
+  },
+  {
+    "id": "CHR-C-05",
+    "original_id": "CHR-R2-065",
+    "spec_id": "SPEC-12",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "context_shown_originally": "Financial Report Layout Change \u2014 Move Third-Party Delivery Detail Section to Bottom",
+    "context_shown_now": "POS Hierarchy Zone Addition for Full-Menu Non-Traditional Store Locations"
+  },
+  {
+    "id": "CHR-C-06",
+    "original_id": "CHR-R2-050",
+    "spec_id": "SPEC-10",
+    "condition": "etcg",
+    "charter_id": "ET-03",
+    "context_shown_originally": "SSL Certificate Renewal for Loyalty Platform Integration",
+    "context_shown_now": "Mobile App Advance Order \u2014 Price Lock Behavior When Item Prices Change Before Fulfillment"
+  },
+  {
+    "id": "CHR-C-07",
+    "original_id": "CHR-R2-031",
+    "spec_id": "SPEC-08",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "context_shown_originally": "Role-Based Access Control \u2014 Restrict Void on Empty Check for Fraud Prevention",
+    "context_shown_now": "Delivery Markup Percentage Update for Third-Party Delivery Platform"
+  },
+  {
+    "id": "CHR-C-08",
+    "original_id": "CHR-R2-068",
+    "spec_id": "SPEC-13",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "context_shown_originally": "POS Hierarchy Zone Addition for Full-Menu Non-Traditional Store Locations",
+    "context_shown_now": "Digital Ordering App Version Upgrade \u2014 Multi-Device and Multi-OS Compatibility Testing"
+  },
+  {
+    "id": "CHR-C-09",
+    "original_id": "CHR-R2-002",
+    "spec_id": "SPEC-07",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "context_shown_originally": "",
+    "context_shown_now": "Role-Based Access Control \u2014 Restrict Void on Empty Check for Fraud Prevention"
+  },
+  {
+    "id": "CHR-C-10",
+    "original_id": "CHR-R2-073",
+    "spec_id": "SPEC-15",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "context_shown_originally": "Gift Card Transaction Cancel Messaging Fix \u2014 Validate Correct Terminal Display With Cloud Processing Disabled",
+    "context_shown_now": "Regression Testing for Existing Serialized Coupons After New Promotional BIN Ranges Added"
+  },
+  {
+    "id": "CHR-C-11",
+    "original_id": "CHR-R2-014",
+    "spec_id": "SPEC-18",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "POS Crew Notification Feature Enablement on POS Workstations",
+    "context_shown_now": "Secondary DNS Provider Change \u2014 Broad System Regression Across All Network-Dependent Functions"
+  },
+  {
+    "id": "CHR-C-12",
+    "original_id": "CHR-R2-006",
+    "spec_id": "SPEC-14",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "Digital Ordering App Version Upgrade \u2014 Multi-Device and Multi-OS Compatibility Testing",
+    "context_shown_now": "Gift Card Transaction Cancel Messaging Fix \u2014 Validate Correct Terminal Display With Cloud Processing Disabled"
+  },
+  {
+    "id": "CHR-C-13",
+    "original_id": "CHR-R2-056",
+    "spec_id": "SPEC-17",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "context_shown_originally": "Antivirus Exclusion Script Deployment for Remote Management Tool \u2014 POS Terminal Validation",
+    "context_shown_now": "POS Crew Notification Feature Enablement on POS Workstations"
+  },
+  {
+    "id": "CHR-C-14",
+    "original_id": "CHR-R2-037",
+    "spec_id": "SPEC-09",
+    "condition": "etcg",
+    "charter_id": "ET-01",
+    "context_shown_originally": "Delivery Markup Percentage Update for Third-Party Delivery Platform",
+    "context_shown_now": "SSL Certificate Renewal for Loyalty Platform Integration"
+  },
+  {
+    "id": "CHR-C-15",
+    "original_id": "CHR-R2-017",
+    "spec_id": "SPEC-14",
+    "condition": "etcg",
+    "charter_id": "ET-01",
+    "context_shown_originally": "Digital Ordering App Version Upgrade \u2014 Multi-Device and Multi-OS Compatibility Testing",
+    "context_shown_now": "Gift Card Transaction Cancel Messaging Fix \u2014 Validate Correct Terminal Display With Cloud Processing Disabled"
+  },
+  {
+    "id": "CHR-C-16",
+    "original_id": "CHR-R2-043",
+    "spec_id": "SPEC-18",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "context_shown_originally": "POS Crew Notification Feature Enablement on POS Workstations",
+    "context_shown_now": "Secondary DNS Provider Change \u2014 Broad System Regression Across All Network-Dependent Functions"
+  },
+  {
+    "id": "CHR-C-17",
+    "original_id": "CHR-R2-024",
+    "spec_id": "SPEC-07",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "context_shown_originally": "",
+    "context_shown_now": "Role-Based Access Control \u2014 Restrict Void on Empty Check for Fraud Prevention"
+  },
+  {
+    "id": "CHR-C-18",
+    "original_id": "CHR-R2-034",
+    "spec_id": "SPEC-17",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "context_shown_originally": "Antivirus Exclusion Script Deployment for Remote Management Tool \u2014 POS Terminal Validation",
+    "context_shown_now": "POS Crew Notification Feature Enablement on POS Workstations"
+  },
+  {
+    "id": "CHR-C-19",
+    "original_id": "CHR-R2-008",
+    "spec_id": "SPEC-09",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "Delivery Markup Percentage Update for Third-Party Delivery Platform",
+    "context_shown_now": "SSL Certificate Renewal for Loyalty Platform Integration"
+  },
+  {
+    "id": "CHR-C-20",
+    "original_id": "CHR-R2-046",
+    "spec_id": "SPEC-12",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "context_shown_originally": "Financial Report Layout Change \u2014 Move Third-Party Delivery Detail Section to Bottom",
+    "context_shown_now": "POS Hierarchy Zone Addition for Full-Menu Non-Traditional Store Locations"
+  },
+  {
+    "id": "CHR-C-21",
+    "original_id": "CHR-R2-066",
+    "spec_id": "SPEC-08",
+    "condition": "etcg",
+    "charter_id": "ET-02",
+    "context_shown_originally": "Role-Based Access Control \u2014 Restrict Void on Empty Check for Fraud Prevention",
+    "context_shown_now": "Delivery Markup Percentage Update for Third-Party Delivery Platform"
+  },
+  {
+    "id": "CHR-C-22",
+    "original_id": "CHR-R2-027",
+    "spec_id": "SPEC-09",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "context_shown_originally": "Delivery Markup Percentage Update for Third-Party Delivery Platform",
+    "context_shown_now": "SSL Certificate Renewal for Loyalty Platform Integration"
+  },
+  {
+    "id": "CHR-C-23",
+    "original_id": "CHR-R2-039",
+    "spec_id": "SPEC-12",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "Financial Report Layout Change \u2014 Move Third-Party Delivery Detail Section to Bottom",
+    "context_shown_now": "POS Hierarchy Zone Addition for Full-Menu Non-Traditional Store Locations"
+  },
+  {
+    "id": "CHR-C-24",
+    "original_id": "CHR-R2-032",
+    "spec_id": "SPEC-11",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "context_shown_originally": "Mobile App Advance Order \u2014 Price Lock Behavior When Item Prices Change Before Fulfillment",
+    "context_shown_now": "Financial Report Layout Change \u2014 Move Third-Party Delivery Detail Section to Bottom"
+  },
+  {
+    "id": "CHR-C-25",
+    "original_id": "CHR-R2-023",
+    "spec_id": "SPEC-18",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "context_shown_originally": "POS Crew Notification Feature Enablement on POS Workstations",
+    "context_shown_now": "Secondary DNS Provider Change \u2014 Broad System Regression Across All Network-Dependent Functions"
+  },
+  {
+    "id": "CHR-C-26",
+    "original_id": "CHR-R2-067",
+    "spec_id": "SPEC-07",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "",
+    "context_shown_now": "Role-Based Access Control \u2014 Restrict Void on Empty Check for Fraud Prevention"
+  },
+  {
+    "id": "CHR-C-27",
+    "original_id": "CHR-R2-011",
+    "spec_id": "SPEC-08",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "Role-Based Access Control \u2014 Restrict Void on Empty Check for Fraud Prevention",
+    "context_shown_now": "Delivery Markup Percentage Update for Third-Party Delivery Platform"
+  },
+  {
+    "id": "CHR-C-28",
+    "original_id": "CHR-R2-040",
+    "spec_id": "SPEC-14",
+    "condition": "baseline",
+    "charter_id": "BL-01",
+    "context_shown_originally": "Digital Ordering App Version Upgrade \u2014 Multi-Device and Multi-OS Compatibility Testing",
+    "context_shown_now": "Gift Card Transaction Cancel Messaging Fix \u2014 Validate Correct Terminal Display With Cloud Processing Disabled"
+  },
+  {
+    "id": "CHR-C-29",
+    "original_id": "CHR-R2-070",
+    "spec_id": "SPEC-15",
+    "condition": "etcg",
+    "charter_id": "ET-05",
+    "context_shown_originally": "Gift Card Transaction Cancel Messaging Fix \u2014 Validate Correct Terminal Display With Cloud Processing Disabled",
+    "context_shown_now": "Regression Testing for Existing Serialized Coupons After New Promotional BIN Ranges Added"
+  },
+  {
+    "id": "CHR-C-30",
+    "original_id": "CHR-R2-074",
+    "spec_id": "SPEC-11",
+    "condition": "etcg",
+    "charter_id": "ET-04",
+    "context_shown_originally": "Mobile App Advance Order \u2014 Price Lock Behavior When Item Prices Change Before Fulfillment",
+    "context_shown_now": "Financial Report Layout Change \u2014 Move Third-Party Delivery Detail Section to Bottom"
+  },
+  {
+    "id": "CHR-C-31",
+    "original_id": "CHR-R2-003",
+    "spec_id": "SPEC-17",
+    "condition": "intermediate",
+    "charter_id": "IM-01",
+    "context_shown_originally": "Antivirus Exclusion Script Deployment for Remote Management Tool \u2014 POS Terminal Validation",
+    "context_shown_now": "POS Crew Notification Feature Enablement on POS Workstations"
+  },
+  {
+    "id": "CHR-C-32",
+    "original_id": "CHR-R2-057",
+    "spec_id": "SPEC-11",
+    "condition": "intermediate",
+    "charter_id": "IM-05",
+    "context_shown_originally": "Mobile App Advance Order \u2014 Price Lock Behavior When Item Prices Change Before Fulfillment",
+    "context_shown_now": "Financial Report Layout Change \u2014 Move Third-Party Delivery Detail Section to Bottom"
+  },
+  {
+    "id": "CHR-C-33",
+    "original_id": "CHR-R2-012",
+    "spec_id": "SPEC-10",
+    "condition": "baseline",
+    "charter_id": "BL-02",
+    "context_shown_originally": "SSL Certificate Renewal for Loyalty Platform Integration",
+    "context_shown_now": "Mobile App Advance Order \u2014 Price Lock Behavior When Item Prices Change Before Fulfillment"
+  },
+  {
+    "id": "CHR-C-34",
+    "original_id": "CHR-R2-021",
+    "spec_id": "SPEC-13",
+    "condition": "baseline",
+    "charter_id": "BL-05",
+    "context_shown_originally": "POS Hierarchy Zone Addition for Full-Menu Non-Traditional Store Locations",
+    "context_shown_now": "Digital Ordering App Version Upgrade \u2014 Multi-Device and Multi-OS Compatibility Testing"
+  },
+  {
+    "id": "CHR-C-35",
+    "original_id": "CHR-R2-053",
+    "spec_id": "SPEC-16",
+    "condition": "baseline",
+    "charter_id": "BL-04",
+    "context_shown_originally": "Regression Testing for Existing Serialized Coupons After New Promotional BIN Ranges Added",
+    "context_shown_now": "Antivirus Exclusion Script Deployment for Remote Management Tool \u2014 POS Terminal Validation"
+  },
+  {
+    "id": "CHR-C-36",
+    "original_id": "CHR-R2-007",
+    "spec_id": "SPEC-10",
+    "condition": "intermediate",
+    "charter_id": "IM-04",
+    "context_shown_originally": "SSL Certificate Renewal for Loyalty Platform Integration",
+    "context_shown_now": "Mobile App Advance Order \u2014 Price Lock Behavior When Item Prices Change Before Fulfillment"
+  }
+]

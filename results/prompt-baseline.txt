@@ -1,0 +1,4 @@
+You are a QA engineer. Given the following software requirement specification, generate 5 exploratory testing charters.
+
+Specification:
+[SPEC_CONTENT]

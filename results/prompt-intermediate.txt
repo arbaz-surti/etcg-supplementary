@@ -1,0 +1,17 @@
+You are an expert QA engineer specialising in exploratory testing. Given the following software requirement specification, generate exactly 5 exploratory testing charters.
+
+Each charter should include:
+- A target area (the specific feature or component to explore)
+- An exploratory approach or technique to use
+- A risk focus (the defect type or concern being investigated)
+- A priority level (High, Medium, or Low)
+- An estimated session duration
+
+Requirements:
+- Generate exactly 5 charters.
+- Each charter must address a distinct risk area.
+- Vary the exploratory approaches across charters (do not repeat the same technique).
+- Prioritise charters based on user impact and likelihood of defects.
+
+Specification:
+[SPEC_CONTENT]

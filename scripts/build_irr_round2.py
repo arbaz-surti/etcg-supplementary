@@ -60,12 +60,19 @@ CONDITIONS = ("etcg", "intermediate", "baseline")
 
 
 def load_spec_context() -> dict[str, dict]:
-    """Title, system area and description for all 25 specifications."""
+    """Title, system area and description for all 25 specifications.
+
+    The 18 ATSR specs are keyed SPEC-01..SPEC-18 by position, mirroring
+    etcg_tool.load_all_specs(). The source file's own IDs skip SPEC-07, so
+    keying by them -- as the version that built the round 2 sheet did --
+    showed every SPEC-07..SPEC-18 charter the neighbouring spec's context
+    and left SPEC-07 blank. See build_irr_rater2_rescore.py.
+    """
     ctx: dict[str, dict] = {}
 
     with (ATSR / "research" / "all-specs-18.json").open() as fh:
-        for s in json.load(fh):
-            ctx[s["spec_id"]] = {
+        for i, s in enumerate(json.load(fh), 1):
+            ctx[f"SPEC-{i:02d}"] = {
                 "title": s.get("title", ""),
                 "system_area": s.get("system_area", ""),
                 "description": s.get("description", ""),
@@ -79,6 +86,8 @@ def load_spec_context() -> dict[str, dict]:
                 "description": s.get("description", ""),
             }
 
+    if len(ctx) != 25:
+        raise SystemExit(f"expected 25 specifications, found {len(ctx)}")
     return ctx
 
 
@@ -319,8 +328,9 @@ the accompanying `irr-r2-response-template.csv` and return that. Either is fine.
 """
 
 
-def write_sheet(path: Path, items: list[dict], ctx: dict, texts: dict) -> None:
-    parts = [SHEET_HEADER.format(n=len(items))]
+def write_sheet(path: Path, items: list[dict], ctx: dict, texts: dict,
+                header: str = SHEET_HEADER) -> None:
+    parts = [header.format(n=len(items))]
 
     for item in items:
         spec = ctx.get(item["spec_id"], {})

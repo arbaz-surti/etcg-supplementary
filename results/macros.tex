@@ -2,7 +2,7 @@
 %
 % Every numeric value in the manuscript prose must come from one of these macros.
 % Hand-typing a number into main.tex is what produced the round 1 inconsistencies.
-% Generated: 2026-09-01T00:19:35+00:00
+% Generated: 2026-11-03T23:10:13+00:00
 
 % Specifications in the evaluation dataset
 \newcommand{\ETCGCorpusNSpecs}{25}
@@ -88,6 +88,8 @@
 \newcommand{\ETCGRqOneCeilingMin}{74}
 % Highest ceiling share across conditions (%)
 \newcommand{\ETCGRqOneCeilingMax}{81}
+% Equivalence bound for the TOST tests (pp, symmetric)
+\newcommand{\ETCGRqOneTostBound}{3}
 % ETCG versus Baseline (full framework): mean difference (pp)
 \newcommand{\ETCGRqOneFullFrameworkMeanDiff}{$+$1.28}
 % ETCG versus Baseline (full framework): 95% CI lower bound (pp)
@@ -108,46 +110,76 @@
 \newcommand{\ETCGRqOneFullFrameworkNZero}{5}
 % ETCG versus Baseline (full framework): superseded charter-level Mann-Whitney p (round 1 method, recomputed on the current repaired data)
 \newcommand{\ETCGRqOneFullFrameworkPSuperseded}{0.240}
-% Intermediate versus Baseline (role + guidance): mean difference (pp)
+% ETCG versus Baseline (full framework): TOST equivalence p (larger of the two one-sided p)
+\newcommand{\ETCGRqOneFullFrameworkTostP}{0.097}
+% ETCG versus Baseline (full framework): 90% CI lower bound (pp), the TOST interval
+\newcommand{\ETCGRqOneFullFrameworkTostCiLow}{$-$0.92}
+% ETCG versus Baseline (full framework): 90% CI upper bound (pp), the TOST interval
+\newcommand{\ETCGRqOneFullFrameworkTostCiHigh}{$+$3.48}
+% ETCG versus Baseline (full framework): rank-based TOST p (robustness)
+\newcommand{\ETCGRqOneFullFrameworkTostPWilcoxon}{0.083}
+% ETCG versus Baseline (full framework): 1 if equivalence within +/-3 pp is shown
+\newcommand{\ETCGRqOneFullFrameworkTostEquivalent}{0}
+% Intermediate versus Baseline (role-and-guidance step): mean difference (pp)
 \newcommand{\ETCGRqOneRoleGuidanceMeanDiff}{$+$1.60}
-% Intermediate versus Baseline (role + guidance): 95% CI lower bound (pp)
+% Intermediate versus Baseline (role-and-guidance step): 95% CI lower bound (pp)
 \newcommand{\ETCGRqOneRoleGuidanceCiLow}{$-$1.38}
-% Intermediate versus Baseline (role + guidance): 95% CI upper bound (pp)
+% Intermediate versus Baseline (role-and-guidance step): 95% CI upper bound (pp)
 \newcommand{\ETCGRqOneRoleGuidanceCiHigh}{$+$4.58}
-% Intermediate versus Baseline (role + guidance): Wilcoxon signed-rank W
+% Intermediate versus Baseline (role-and-guidance step): Wilcoxon signed-rank W
 \newcommand{\ETCGRqOneRoleGuidanceW}{92.0}
-% Intermediate versus Baseline (role + guidance): p-value (primary test)
+% Intermediate versus Baseline (role-and-guidance step): p-value (primary test)
 \newcommand{\ETCGRqOneRoleGuidanceP}{0.261}
-% Intermediate versus Baseline (role + guidance): paired t-test p (robustness)
+% Intermediate versus Baseline (role-and-guidance step): paired t-test p (robustness)
 \newcommand{\ETCGRqOneRoleGuidancePT}{0.278}
-% Intermediate versus Baseline (role + guidance): Cohen's dz
+% Intermediate versus Baseline (role-and-guidance step): Cohen's dz
 \newcommand{\ETCGRqOneRoleGuidanceDz}{$+$0.222}
-% Intermediate versus Baseline (role + guidance): matched-pairs rank-biserial correlation
+% Intermediate versus Baseline (role-and-guidance step): matched-pairs rank-biserial correlation
 \newcommand{\ETCGRqOneRoleGuidanceRb}{0.273}
-% Intermediate versus Baseline (role + guidance): specifications with zero difference
+% Intermediate versus Baseline (role-and-guidance step): specifications with zero difference
 \newcommand{\ETCGRqOneRoleGuidanceNZero}{3}
-% Intermediate versus Baseline (role + guidance): superseded charter-level Mann-Whitney p (round 1 method, recomputed on the current repaired data)
+% Intermediate versus Baseline (role-and-guidance step): superseded charter-level Mann-Whitney p (round 1 method, recomputed on the current repaired data)
 \newcommand{\ETCGRqOneRoleGuidancePSuperseded}{0.465}
-% ETCG versus Intermediate (output schema): mean difference (pp)
+% Intermediate versus Baseline (role-and-guidance step): TOST equivalence p (larger of the two one-sided p)
+\newcommand{\ETCGRqOneRoleGuidanceTostP}{0.171}
+% Intermediate versus Baseline (role-and-guidance step): 90% CI lower bound (pp), the TOST interval
+\newcommand{\ETCGRqOneRoleGuidanceTostCiLow}{$-$0.87}
+% Intermediate versus Baseline (role-and-guidance step): 90% CI upper bound (pp), the TOST interval
+\newcommand{\ETCGRqOneRoleGuidanceTostCiHigh}{$+$4.07}
+% Intermediate versus Baseline (role-and-guidance step): rank-based TOST p (robustness)
+\newcommand{\ETCGRqOneRoleGuidanceTostPWilcoxon}{0.121}
+% Intermediate versus Baseline (role-and-guidance step): 1 if equivalence within +/-3 pp is shown
+\newcommand{\ETCGRqOneRoleGuidanceTostEquivalent}{0}
+% ETCG versus Intermediate (structured-output step): mean difference (pp)
 \newcommand{\ETCGRqOneSchemaMeanDiff}{$-$0.32}
-% ETCG versus Intermediate (output schema): 95% CI lower bound (pp)
+% ETCG versus Intermediate (structured-output step): 95% CI lower bound (pp)
 \newcommand{\ETCGRqOneSchemaCiLow}{$-$2.52}
-% ETCG versus Intermediate (output schema): 95% CI upper bound (pp)
+% ETCG versus Intermediate (structured-output step): 95% CI upper bound (pp)
 \newcommand{\ETCGRqOneSchemaCiHigh}{$+$1.89}
-% ETCG versus Intermediate (output schema): Wilcoxon signed-rank W
+% ETCG versus Intermediate (structured-output step): Wilcoxon signed-rank W
 \newcommand{\ETCGRqOneSchemaW}{86.5}
-% ETCG versus Intermediate (output schema): p-value (primary test)
+% ETCG versus Intermediate (structured-output step): p-value (primary test)
 \newcommand{\ETCGRqOneSchemaP}{0.732}
-% ETCG versus Intermediate (output schema): paired t-test p (robustness)
+% ETCG versus Intermediate (structured-output step): paired t-test p (robustness)
 \newcommand{\ETCGRqOneSchemaPT}{0.769}
-% ETCG versus Intermediate (output schema): Cohen's dz
+% ETCG versus Intermediate (structured-output step): Cohen's dz
 \newcommand{\ETCGRqOneSchemaDz}{$-$0.059}
-% ETCG versus Intermediate (output schema): matched-pairs rank-biserial correlation
+% ETCG versus Intermediate (structured-output step): matched-pairs rank-biserial correlation
 \newcommand{\ETCGRqOneSchemaRb}{$-$0.089}
-% ETCG versus Intermediate (output schema): specifications with zero difference
+% ETCG versus Intermediate (structured-output step): specifications with zero difference
 \newcommand{\ETCGRqOneSchemaNZero}{6}
-% ETCG versus Intermediate (output schema): superseded charter-level Mann-Whitney p (round 1 method, recomputed on the current repaired data)
+% ETCG versus Intermediate (structured-output step): superseded charter-level Mann-Whitney p (round 1 method, recomputed on the current repaired data)
 \newcommand{\ETCGRqOneSchemaPSuperseded}{0.507}
+% ETCG versus Intermediate (structured-output step): TOST equivalence p (larger of the two one-sided p)
+\newcommand{\ETCGRqOneSchemaTostP}{0.010}
+% ETCG versus Intermediate (structured-output step): 90% CI lower bound (pp), the TOST interval
+\newcommand{\ETCGRqOneSchemaTostCiLow}{$-$2.14}
+% ETCG versus Intermediate (structured-output step): 90% CI upper bound (pp), the TOST interval
+\newcommand{\ETCGRqOneSchemaTostCiHigh}{$+$1.51}
+% ETCG versus Intermediate (structured-output step): rank-based TOST p (robustness)
+\newcommand{\ETCGRqOneSchemaTostPWilcoxon}{0.009}
+% ETCG versus Intermediate (structured-output step): 1 if equivalence within +/-3 pp is shown
+\newcommand{\ETCGRqOneSchemaTostEquivalent}{1}
 % Baseline mean charter quality before the splitter repair (%)
 \newcommand{\ETCGRqOneBaselineMeanPrerepair}{92.64}
 % Baseline SD across individual charters before the splitter repair (%)
@@ -160,21 +192,21 @@
 \newcommand{\ETCGRqOneFullFrameworkCiLowPrerepair}{$+$0.11}
 % ETCG versus Baseline (full framework): 95% CI upper bound before the splitter repair (pp)
 \newcommand{\ETCGRqOneFullFrameworkCiHighPrerepair}{$+$5.55}
-% Intermediate versus Baseline (role + guidance): mean difference before the splitter repair (pp)
+% Intermediate versus Baseline (role-and-guidance step): mean difference before the splitter repair (pp)
 \newcommand{\ETCGRqOneRoleGuidanceMeanDiffPrerepair}{$+$3.15}
-% Intermediate versus Baseline (role + guidance): signed-rank p before the splitter repair
+% Intermediate versus Baseline (role-and-guidance step): signed-rank p before the splitter repair
 \newcommand{\ETCGRqOneRoleGuidancePPrerepair}{0.064}
-% Intermediate versus Baseline (role + guidance): 95% CI lower bound before the splitter repair (pp)
+% Intermediate versus Baseline (role-and-guidance step): 95% CI lower bound before the splitter repair (pp)
 \newcommand{\ETCGRqOneRoleGuidanceCiLowPrerepair}{$-$0.23}
-% Intermediate versus Baseline (role + guidance): 95% CI upper bound before the splitter repair (pp)
+% Intermediate versus Baseline (role-and-guidance step): 95% CI upper bound before the splitter repair (pp)
 \newcommand{\ETCGRqOneRoleGuidanceCiHighPrerepair}{$+$6.52}
-% ETCG versus Intermediate (output schema): mean difference before the splitter repair (pp)
+% ETCG versus Intermediate (structured-output step): mean difference before the splitter repair (pp)
 \newcommand{\ETCGRqOneSchemaMeanDiffPrerepair}{$-$0.32}
-% ETCG versus Intermediate (output schema): signed-rank p before the splitter repair
+% ETCG versus Intermediate (structured-output step): signed-rank p before the splitter repair
 \newcommand{\ETCGRqOneSchemaPPrerepair}{0.732}
-% ETCG versus Intermediate (output schema): 95% CI lower bound before the splitter repair (pp)
+% ETCG versus Intermediate (structured-output step): 95% CI lower bound before the splitter repair (pp)
 \newcommand{\ETCGRqOneSchemaCiLowPrerepair}{$-$2.52}
-% ETCG versus Intermediate (output schema): 95% CI upper bound before the splitter repair (pp)
+% ETCG versus Intermediate (structured-output step): 95% CI upper bound before the splitter repair (pp)
 \newcommand{\ETCGRqOneSchemaCiHighPrerepair}{$+$1.89}
 % Specificity mean for ETCG (1-3 scale)
 \newcommand{\ETCGRqTwoSpecificityEtcgMean}{2.816}
@@ -186,13 +218,13 @@
 \newcommand{\ETCGRqTwoSpecificityFullFrameworkP}{0.217}
 % Specificity, ETCG versus Baseline (full framework): mean difference
 \newcommand{\ETCGRqTwoSpecificityFullFrameworkDiff}{$+$0.080}
-% Specificity, Intermediate versus Baseline (role + guidance): p-value
+% Specificity, Intermediate versus Baseline (role-and-guidance step): p-value
 \newcommand{\ETCGRqTwoSpecificityRoleGuidanceP}{0.331}
-% Specificity, Intermediate versus Baseline (role + guidance): mean difference
+% Specificity, Intermediate versus Baseline (role-and-guidance step): mean difference
 \newcommand{\ETCGRqTwoSpecificityRoleGuidanceDiff}{$+$0.064}
-% Specificity, ETCG versus Intermediate (output schema): p-value
+% Specificity, ETCG versus Intermediate (structured-output step): p-value
 \newcommand{\ETCGRqTwoSpecificitySchemaP}{1.000}
-% Specificity, ETCG versus Intermediate (output schema): mean difference
+% Specificity, ETCG versus Intermediate (structured-output step): mean difference
 \newcommand{\ETCGRqTwoSpecificitySchemaDiff}{$+$0.016}
 % Testability mean for ETCG (1-3 scale)
 \newcommand{\ETCGRqTwoTestabilityEtcgMean}{2.888}
@@ -204,13 +236,13 @@
 \newcommand{\ETCGRqTwoTestabilityFullFrameworkP}{0.596}
 % Testability, ETCG versus Baseline (full framework): mean difference
 \newcommand{\ETCGRqTwoTestabilityFullFrameworkDiff}{$+$0.040}
-% Testability, Intermediate versus Baseline (role + guidance): p-value
+% Testability, Intermediate versus Baseline (role-and-guidance step): p-value
 \newcommand{\ETCGRqTwoTestabilityRoleGuidanceP}{0.357}
-% Testability, Intermediate versus Baseline (role + guidance): mean difference
+% Testability, Intermediate versus Baseline (role-and-guidance step): mean difference
 \newcommand{\ETCGRqTwoTestabilityRoleGuidanceDiff}{$+$0.056}
-% Testability, ETCG versus Intermediate (output schema): p-value
+% Testability, ETCG versus Intermediate (structured-output step): p-value
 \newcommand{\ETCGRqTwoTestabilitySchemaP}{0.426}
-% Testability, ETCG versus Intermediate (output schema): mean difference
+% Testability, ETCG versus Intermediate (structured-output step): mean difference
 \newcommand{\ETCGRqTwoTestabilitySchemaDiff}{$-$0.016}
 % Risk Coverage mean for ETCG (1-3 scale)
 \newcommand{\ETCGRqTwoRiskCoverageEtcgMean}{2.856}
@@ -222,13 +254,13 @@
 \newcommand{\ETCGRqTwoRiskCoverageFullFrameworkP}{0.345}
 % Risk Coverage, ETCG versus Baseline (full framework): mean difference
 \newcommand{\ETCGRqTwoRiskCoverageFullFrameworkDiff}{$+$0.056}
-% Risk Coverage, Intermediate versus Baseline (role + guidance): p-value
+% Risk Coverage, Intermediate versus Baseline (role-and-guidance step): p-value
 \newcommand{\ETCGRqTwoRiskCoverageRoleGuidanceP}{0.077}
-% Risk Coverage, Intermediate versus Baseline (role + guidance): mean difference
+% Risk Coverage, Intermediate versus Baseline (role-and-guidance step): mean difference
 \newcommand{\ETCGRqTwoRiskCoverageRoleGuidanceDiff}{$+$0.088}
-% Risk Coverage, ETCG versus Intermediate (output schema): p-value
+% Risk Coverage, ETCG versus Intermediate (structured-output step): p-value
 \newcommand{\ETCGRqTwoRiskCoverageSchemaP}{0.277}
-% Risk Coverage, ETCG versus Intermediate (output schema): mean difference
+% Risk Coverage, ETCG versus Intermediate (structured-output step): mean difference
 \newcommand{\ETCGRqTwoRiskCoverageSchemaDiff}{$-$0.032}
 % Clarity mean for ETCG (1-3 scale)
 \newcommand{\ETCGRqTwoClarityEtcgMean}{2.928}
@@ -240,13 +272,13 @@
 \newcommand{\ETCGRqTwoClarityFullFrameworkP}{0.003}
 % Clarity, ETCG versus Baseline (full framework): mean difference
 \newcommand{\ETCGRqTwoClarityFullFrameworkDiff}{$-$0.072}
-% Clarity, Intermediate versus Baseline (role + guidance): p-value
+% Clarity, Intermediate versus Baseline (role-and-guidance step): p-value
 \newcommand{\ETCGRqTwoClarityRoleGuidanceP}{0.317}
-% Clarity, Intermediate versus Baseline (role + guidance): mean difference
+% Clarity, Intermediate versus Baseline (role-and-guidance step): mean difference
 \newcommand{\ETCGRqTwoClarityRoleGuidanceDiff}{$-$0.008}
-% Clarity, ETCG versus Intermediate (output schema): p-value
+% Clarity, ETCG versus Intermediate (structured-output step): p-value
 \newcommand{\ETCGRqTwoClaritySchemaP}{0.011}
-% Clarity, ETCG versus Intermediate (output schema): mean difference
+% Clarity, ETCG versus Intermediate (structured-output step): mean difference
 \newcommand{\ETCGRqTwoClaritySchemaDiff}{$-$0.064}
 % Actionability mean for ETCG (1-3 scale)
 \newcommand{\ETCGRqTwoActionabilityEtcgMean}{2.832}
@@ -258,13 +290,13 @@
 \newcommand{\ETCGRqTwoActionabilityFullFrameworkP}{0.143}
 % Actionability, ETCG versus Baseline (full framework): mean difference
 \newcommand{\ETCGRqTwoActionabilityFullFrameworkDiff}{$+$0.088}
-% Actionability, Intermediate versus Baseline (role + guidance): p-value
+% Actionability, Intermediate versus Baseline (role-and-guidance step): p-value
 \newcommand{\ETCGRqTwoActionabilityRoleGuidanceP}{0.660}
-% Actionability, Intermediate versus Baseline (role + guidance): mean difference
+% Actionability, Intermediate versus Baseline (role-and-guidance step): mean difference
 \newcommand{\ETCGRqTwoActionabilityRoleGuidanceDiff}{$+$0.040}
-% Actionability, ETCG versus Intermediate (output schema): p-value
+% Actionability, ETCG versus Intermediate (structured-output step): p-value
 \newcommand{\ETCGRqTwoActionabilitySchemaP}{0.551}
-% Actionability, ETCG versus Intermediate (output schema): mean difference
+% Actionability, ETCG versus Intermediate (structured-output step): mean difference
 \newcommand{\ETCGRqTwoActionabilitySchemaDiff}{$+$0.048}
 % Clarity, full_framework: Holm-adjusted p
 \newcommand{\ETCGRqTwoClarityFullFrameworkPHolm}{0.040}
@@ -302,6 +334,18 @@
 \newcommand{\ETCGRqTwoNSigRaw}{2}
 % Dimension-level tests significant after Holm correction
 \newcommand{\ETCGRqTwoNSigHolm}{1}
+% rq2.n_sig_raw, spelled out for prose
+\newcommand{\ETCGRqTwoNSigRawWord}{two}
+% rq2.n_sig_holm, spelled out for prose
+\newcommand{\ETCGRqTwoNSigHolmWord}{one}
+% Rubric dimensions
+\newcommand{\ETCGRqTwoNDims}{five}
+% Dimensions on which ETCG scores above Baseline
+\newcommand{\ETCGRqTwoNDimsEtcgAboveBaseline}{four}
+% Dimensions on which Intermediate scores above Baseline
+\newcommand{\ETCGRqTwoNDimsIntermediateAboveBaseline}{four}
+% Dimensions on which Baseline scores below both prompted conditions
+\newcommand{\ETCGRqTwoNDimsBaselineBelowBoth}{four}
 % Charters in the IRR sample
 \newcommand{\ETCGRqThreeNCharters}{50}
 % Individual dimension ratings compared
@@ -417,75 +461,75 @@
 % Round 2 IRR, all conditions (n=75): dimension ratings compared
 \newcommand{\ETCGRqThreeRTwoNRatings}{375}
 % Round 2 IRR, all conditions (n=75): exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoExactPct}{72.3}
+\newcommand{\ETCGRqThreeRTwoExactPct}{81.1}
 % Round 2 IRR, all conditions (n=75): within-one-point agreement (%)
-\newcommand{\ETCGRqThreeRTwoWithinOnePct}{99.7}
+\newcommand{\ETCGRqThreeRTwoWithinOnePct}{100.0}
 % Round 2 IRR, all conditions (n=75): two-point disagreements
-\newcommand{\ETCGRqThreeRTwoTwoPointN}{1}
+\newcommand{\ETCGRqThreeRTwoTwoPointN}{0}
 % Round 2 IRR, all conditions (n=75): two-point disagreement rate (%)
-\newcommand{\ETCGRqThreeRTwoTwoPointPct}{0.3}
+\newcommand{\ETCGRqThreeRTwoTwoPointPct}{0.0}
 % Round 2 IRR, all conditions (n=75): Krippendorff's alpha (ordinal)
-\newcommand{\ETCGRqThreeRTwoAlpha}{0.246}
+\newcommand{\ETCGRqThreeRTwoAlpha}{0.467}
 % Round 2 IRR, all conditions (n=75): Gwet's AC2 (linear weights)
-\newcommand{\ETCGRqThreeRTwoAcTwo}{0.799}
+\newcommand{\ETCGRqThreeRTwoAcTwo}{0.866}
 % Round 2 IRR, all conditions (n=75): linear weighted kappa
-\newcommand{\ETCGRqThreeRTwoKappaW}{0.250}
+\newcommand{\ETCGRqThreeRTwoKappaW}{0.471}
 % Round 2 IRR, all conditions (n=75): automated evaluator mean (%)
 \newcommand{\ETCGRqThreeRTwoAutoMeanPct}{93.6}
 % Round 2 IRR, all conditions (n=75): rater 2 mean (%)
-\newcommand{\ETCGRqThreeRTwoHumanMeanPct}{90.3}
+\newcommand{\ETCGRqThreeRTwoHumanMeanPct}{91.0}
 % Round 2 IRR, all conditions (n=75): rater 2 minus automated mean (pp)
-\newcommand{\ETCGRqThreeRTwoMeanDeltaPct}{$-$3.29}
+\newcommand{\ETCGRqThreeRTwoMeanDeltaPct}{$-$2.58}
 % Round 2 IRR, all conditions (n=75): mean |automated total - rater 2 total| (of 15)
-\newcommand{\ETCGRqThreeRTwoMeanAbsTotalDiff}{1.27}
+\newcommand{\ETCGRqThreeRTwoMeanAbsTotalDiff}{0.87}
 % Round 2 IRR, all conditions (n=75): conditions represented
 \newcommand{\ETCGRqThreeRTwoNConditionsCovered}{3}
 % Round 2 IRR, all conditions (n=75), Specificity: automated mean
 \newcommand{\ETCGRqThreeRTwoSpecificityAutoMean}{2.72}
 % Round 2 IRR, all conditions (n=75), Specificity: rater 2 mean
-\newcommand{\ETCGRqThreeRTwoSpecificityHumanMean}{2.71}
+\newcommand{\ETCGRqThreeRTwoSpecificityHumanMean}{2.75}
 % Round 2 IRR, all conditions (n=75), Specificity: rater 2 minus automated
-\newcommand{\ETCGRqThreeRTwoSpecificityDelta}{$-$0.01}
+\newcommand{\ETCGRqThreeRTwoSpecificityDelta}{$+$0.03}
 % Round 2 IRR, all conditions (n=75), Specificity: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoSpecificityExactPct}{70.7}
+\newcommand{\ETCGRqThreeRTwoSpecificityExactPct}{78.7}
 % Round 2 IRR, all conditions (n=75), Specificity: within-one agreement (%)
-\newcommand{\ETCGRqThreeRTwoSpecificityWithinOnePct}{98.7}
+\newcommand{\ETCGRqThreeRTwoSpecificityWithinOnePct}{100.0}
 % Round 2 IRR, all conditions (n=75), Specificity: Krippendorff's alpha
-\newcommand{\ETCGRqThreeRTwoSpecificityAlphaOrdinal}{0.299}
+\newcommand{\ETCGRqThreeRTwoSpecificityAlphaOrdinal}{0.458}
 % Round 2 IRR, all conditions (n=75), Specificity: Gwet's AC2
-\newcommand{\ETCGRqThreeRTwoSpecificityAcTwo}{0.769}
+\newcommand{\ETCGRqThreeRTwoSpecificityAcTwo}{0.842}
 % Round 2 IRR, all conditions (n=75), Specificity: two-point disagreements
-\newcommand{\ETCGRqThreeRTwoSpecificityTwoPointN}{1}
+\newcommand{\ETCGRqThreeRTwoSpecificityTwoPointN}{0}
 % Round 2 IRR, all conditions (n=75), Testability: automated mean
 \newcommand{\ETCGRqThreeRTwoTestabilityAutoMean}{2.84}
 % Round 2 IRR, all conditions (n=75), Testability: rater 2 mean
-\newcommand{\ETCGRqThreeRTwoTestabilityHumanMean}{2.37}
+\newcommand{\ETCGRqThreeRTwoTestabilityHumanMean}{2.41}
 % Round 2 IRR, all conditions (n=75), Testability: rater 2 minus automated
-\newcommand{\ETCGRqThreeRTwoTestabilityDelta}{$-$0.47}
+\newcommand{\ETCGRqThreeRTwoTestabilityDelta}{$-$0.43}
 % Round 2 IRR, all conditions (n=75), Testability: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoTestabilityExactPct}{45.3}
+\newcommand{\ETCGRqThreeRTwoTestabilityExactPct}{52.0}
 % Round 2 IRR, all conditions (n=75), Testability: within-one agreement (%)
 \newcommand{\ETCGRqThreeRTwoTestabilityWithinOnePct}{100.0}
 % Round 2 IRR, all conditions (n=75), Testability: Krippendorff's alpha
-\newcommand{\ETCGRqThreeRTwoTestabilityAlphaOrdinal}{$-$0.138}
+\newcommand{\ETCGRqThreeRTwoTestabilityAlphaOrdinal}{$-$0.019}
 % Round 2 IRR, all conditions (n=75), Testability: Gwet's AC2
-\newcommand{\ETCGRqThreeRTwoTestabilityAcTwo}{0.546}
+\newcommand{\ETCGRqThreeRTwoTestabilityAcTwo}{0.607}
 % Round 2 IRR, all conditions (n=75), Testability: two-point disagreements
 \newcommand{\ETCGRqThreeRTwoTestabilityTwoPointN}{0}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: automated mean
 \newcommand{\ETCGRqThreeRTwoRiskCoverageAutoMean}{2.77}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: rater 2 mean
-\newcommand{\ETCGRqThreeRTwoRiskCoverageHumanMean}{2.68}
+\newcommand{\ETCGRqThreeRTwoRiskCoverageHumanMean}{2.75}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: rater 2 minus automated
-\newcommand{\ETCGRqThreeRTwoRiskCoverageDelta}{$-$0.09}
+\newcommand{\ETCGRqThreeRTwoRiskCoverageDelta}{$-$0.03}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoRiskCoverageExactPct}{74.7}
+\newcommand{\ETCGRqThreeRTwoRiskCoverageExactPct}{84.0}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: within-one agreement (%)
 \newcommand{\ETCGRqThreeRTwoRiskCoverageWithinOnePct}{100.0}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: Krippendorff's alpha
-\newcommand{\ETCGRqThreeRTwoRiskCoverageAlphaOrdinal}{0.367}
+\newcommand{\ETCGRqThreeRTwoRiskCoverageAlphaOrdinal}{0.564}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: Gwet's AC2
-\newcommand{\ETCGRqThreeRTwoRiskCoverageAcTwo}{0.811}
+\newcommand{\ETCGRqThreeRTwoRiskCoverageAcTwo}{0.885}
 % Round 2 IRR, all conditions (n=75), Risk Coverage: two-point disagreements
 \newcommand{\ETCGRqThreeRTwoRiskCoverageTwoPointN}{0}
 % Round 2 IRR, all conditions (n=75), Clarity: automated mean
@@ -507,17 +551,17 @@
 % Round 2 IRR, all conditions (n=75), Actionability: automated mean
 \newcommand{\ETCGRqThreeRTwoActionabilityAutoMean}{2.73}
 % Round 2 IRR, all conditions (n=75), Actionability: rater 2 mean
-\newcommand{\ETCGRqThreeRTwoActionabilityHumanMean}{2.79}
+\newcommand{\ETCGRqThreeRTwoActionabilityHumanMean}{2.75}
 % Round 2 IRR, all conditions (n=75), Actionability: rater 2 minus automated
-\newcommand{\ETCGRqThreeRTwoActionabilityDelta}{$+$0.05}
+\newcommand{\ETCGRqThreeRTwoActionabilityDelta}{$+$0.01}
 % Round 2 IRR, all conditions (n=75), Actionability: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoActionabilityExactPct}{73.3}
+\newcommand{\ETCGRqThreeRTwoActionabilityExactPct}{93.3}
 % Round 2 IRR, all conditions (n=75), Actionability: within-one agreement (%)
 \newcommand{\ETCGRqThreeRTwoActionabilityWithinOnePct}{100.0}
 % Round 2 IRR, all conditions (n=75), Actionability: Krippendorff's alpha
-\newcommand{\ETCGRqThreeRTwoActionabilityAlphaOrdinal}{0.274}
+\newcommand{\ETCGRqThreeRTwoActionabilityAlphaOrdinal}{0.828}
 % Round 2 IRR, all conditions (n=75), Actionability: Gwet's AC2
-\newcommand{\ETCGRqThreeRTwoActionabilityAcTwo}{0.808}
+\newcommand{\ETCGRqThreeRTwoActionabilityAcTwo}{0.951}
 % Round 2 IRR, all conditions (n=75), Actionability: two-point disagreements
 \newcommand{\ETCGRqThreeRTwoActionabilityTwoPointN}{0}
 % Round 2 IRR, ETCG only: charters compared
@@ -525,27 +569,27 @@
 % Round 2 IRR, ETCG only: dimension ratings compared
 \newcommand{\ETCGRqThreeRTwoEtcgNRatings}{125}
 % Round 2 IRR, ETCG only: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoEtcgExactPct}{59.2}
+\newcommand{\ETCGRqThreeRTwoEtcgExactPct}{73.6}
 % Round 2 IRR, ETCG only: within-one-point agreement (%)
-\newcommand{\ETCGRqThreeRTwoEtcgWithinOnePct}{99.2}
+\newcommand{\ETCGRqThreeRTwoEtcgWithinOnePct}{100.0}
 % Round 2 IRR, ETCG only: two-point disagreements
-\newcommand{\ETCGRqThreeRTwoEtcgTwoPointN}{1}
+\newcommand{\ETCGRqThreeRTwoEtcgTwoPointN}{0}
 % Round 2 IRR, ETCG only: two-point disagreement rate (%)
-\newcommand{\ETCGRqThreeRTwoEtcgTwoPointPct}{0.8}
+\newcommand{\ETCGRqThreeRTwoEtcgTwoPointPct}{0.0}
 % Round 2 IRR, ETCG only: Krippendorff's alpha (ordinal)
-\newcommand{\ETCGRqThreeRTwoEtcgAlpha}{0.136}
+\newcommand{\ETCGRqThreeRTwoEtcgAlpha}{0.374}
 % Round 2 IRR, ETCG only: Gwet's AC2 (linear weights)
-\newcommand{\ETCGRqThreeRTwoEtcgAcTwo}{0.660}
+\newcommand{\ETCGRqThreeRTwoEtcgAcTwo}{0.797}
 % Round 2 IRR, ETCG only: linear weighted kappa
-\newcommand{\ETCGRqThreeRTwoEtcgKappaW}{0.197}
+\newcommand{\ETCGRqThreeRTwoEtcgKappaW}{0.392}
 % Round 2 IRR, ETCG only: automated evaluator mean (%)
 \newcommand{\ETCGRqThreeRTwoEtcgAutoMeanPct}{92.8}
 % Round 2 IRR, ETCG only: rater 2 mean (%)
-\newcommand{\ETCGRqThreeRTwoEtcgHumanMeanPct}{82.7}
+\newcommand{\ETCGRqThreeRTwoEtcgHumanMeanPct}{87.2}
 % Round 2 IRR, ETCG only: rater 2 minus automated mean (pp)
-\newcommand{\ETCGRqThreeRTwoEtcgMeanDeltaPct}{$-$10.13}
+\newcommand{\ETCGRqThreeRTwoEtcgMeanDeltaPct}{$-$5.60}
 % Round 2 IRR, ETCG only: mean |automated total - rater 2 total| (of 15)
-\newcommand{\ETCGRqThreeRTwoEtcgMeanAbsTotalDiff}{2.08}
+\newcommand{\ETCGRqThreeRTwoEtcgMeanAbsTotalDiff}{1.32}
 % Round 2 IRR, ETCG only: conditions represented
 \newcommand{\ETCGRqThreeRTwoEtcgNConditionsCovered}{1}
 % Round 2 IRR, Intermediate only: charters compared
@@ -553,7 +597,7 @@
 % Round 2 IRR, Intermediate only: dimension ratings compared
 \newcommand{\ETCGRqThreeRTwoIntermediateNRatings}{125}
 % Round 2 IRR, Intermediate only: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoIntermediateExactPct}{74.4}
+\newcommand{\ETCGRqThreeRTwoIntermediateExactPct}{80.8}
 % Round 2 IRR, Intermediate only: within-one-point agreement (%)
 \newcommand{\ETCGRqThreeRTwoIntermediateWithinOnePct}{100.0}
 % Round 2 IRR, Intermediate only: two-point disagreements
@@ -561,19 +605,19 @@
 % Round 2 IRR, Intermediate only: two-point disagreement rate (%)
 \newcommand{\ETCGRqThreeRTwoIntermediateTwoPointPct}{0.0}
 % Round 2 IRR, Intermediate only: Krippendorff's alpha (ordinal)
-\newcommand{\ETCGRqThreeRTwoIntermediateAlpha}{0.284}
+\newcommand{\ETCGRqThreeRTwoIntermediateAlpha}{0.450}
 % Round 2 IRR, Intermediate only: Gwet's AC2 (linear weights)
-\newcommand{\ETCGRqThreeRTwoIntermediateAcTwo}{0.818}
+\newcommand{\ETCGRqThreeRTwoIntermediateAcTwo}{0.865}
 % Round 2 IRR, Intermediate only: linear weighted kappa
-\newcommand{\ETCGRqThreeRTwoIntermediateKappaW}{0.294}
+\newcommand{\ETCGRqThreeRTwoIntermediateKappaW}{0.455}
 % Round 2 IRR, Intermediate only: automated evaluator mean (%)
 \newcommand{\ETCGRqThreeRTwoIntermediateAutoMeanPct}{94.1}
 % Round 2 IRR, Intermediate only: rater 2 mean (%)
-\newcommand{\ETCGRqThreeRTwoIntermediateHumanMeanPct}{90.4}
+\newcommand{\ETCGRqThreeRTwoIntermediateHumanMeanPct}{90.9}
 % Round 2 IRR, Intermediate only: rater 2 minus automated mean (pp)
-\newcommand{\ETCGRqThreeRTwoIntermediateMeanDeltaPct}{$-$3.73}
+\newcommand{\ETCGRqThreeRTwoIntermediateMeanDeltaPct}{$-$3.20}
 % Round 2 IRR, Intermediate only: mean |automated total - rater 2 total| (of 15)
-\newcommand{\ETCGRqThreeRTwoIntermediateMeanAbsTotalDiff}{0.96}
+\newcommand{\ETCGRqThreeRTwoIntermediateMeanAbsTotalDiff}{0.80}
 % Round 2 IRR, Intermediate only: conditions represented
 \newcommand{\ETCGRqThreeRTwoIntermediateNConditionsCovered}{1}
 % Round 2 IRR, Baseline only: charters compared
@@ -581,7 +625,7 @@
 % Round 2 IRR, Baseline only: dimension ratings compared
 \newcommand{\ETCGRqThreeRTwoBaselineNRatings}{125}
 % Round 2 IRR, Baseline only: exact agreement (%)
-\newcommand{\ETCGRqThreeRTwoBaselineExactPct}{83.2}
+\newcommand{\ETCGRqThreeRTwoBaselineExactPct}{88.8}
 % Round 2 IRR, Baseline only: within-one-point agreement (%)
 \newcommand{\ETCGRqThreeRTwoBaselineWithinOnePct}{100.0}
 % Round 2 IRR, Baseline only: two-point disagreements
@@ -589,19 +633,19 @@
 % Round 2 IRR, Baseline only: two-point disagreement rate (%)
 \newcommand{\ETCGRqThreeRTwoBaselineTwoPointPct}{0.0}
 % Round 2 IRR, Baseline only: Krippendorff's alpha (ordinal)
-\newcommand{\ETCGRqThreeRTwoBaselineAlpha}{0.230}
+\newcommand{\ETCGRqThreeRTwoBaselineAlpha}{0.601}
 % Round 2 IRR, Baseline only: Gwet's AC2 (linear weights)
-\newcommand{\ETCGRqThreeRTwoBaselineAcTwo}{0.897}
+\newcommand{\ETCGRqThreeRTwoBaselineAcTwo}{0.927}
 % Round 2 IRR, Baseline only: linear weighted kappa
-\newcommand{\ETCGRqThreeRTwoBaselineKappaW}{0.251}
+\newcommand{\ETCGRqThreeRTwoBaselineKappaW}{0.600}
 % Round 2 IRR, Baseline only: automated evaluator mean (%)
 \newcommand{\ETCGRqThreeRTwoBaselineAutoMeanPct}{93.9}
 % Round 2 IRR, Baseline only: rater 2 mean (%)
-\newcommand{\ETCGRqThreeRTwoBaselineHumanMeanPct}{97.9}
+\newcommand{\ETCGRqThreeRTwoBaselineHumanMeanPct}{94.9}
 % Round 2 IRR, Baseline only: rater 2 minus automated mean (pp)
-\newcommand{\ETCGRqThreeRTwoBaselineMeanDeltaPct}{$+$4.00}
+\newcommand{\ETCGRqThreeRTwoBaselineMeanDeltaPct}{$+$1.07}
 % Round 2 IRR, Baseline only: mean |automated total - rater 2 total| (of 15)
-\newcommand{\ETCGRqThreeRTwoBaselineMeanAbsTotalDiff}{0.76}
+\newcommand{\ETCGRqThreeRTwoBaselineMeanAbsTotalDiff}{0.48}
 % Round 2 IRR, Baseline only: conditions represented
 \newcommand{\ETCGRqThreeRTwoBaselineNConditionsCovered}{1}
 % Human-human agreement: charters on the round 1 / round 2 overlap
@@ -609,73 +653,73 @@
 % Human-human agreement: dimension ratings compared
 \newcommand{\ETCGRqThreeHhNRatings}{250}
 % Human-human agreement: exact agreement between the two human raters (%)
-\newcommand{\ETCGRqThreeHhExactPct}{66.0}
+\newcommand{\ETCGRqThreeHhExactPct}{64.8}
 % Human-human agreement: within-one-point agreement between the two human raters (%)
-\newcommand{\ETCGRqThreeHhWithinOnePct}{97.6}
+\newcommand{\ETCGRqThreeHhWithinOnePct}{98.0}
 % Human-human agreement: two-point disagreements between the two human raters
-\newcommand{\ETCGRqThreeHhTwoPointN}{6}
+\newcommand{\ETCGRqThreeHhTwoPointN}{5}
 % Human-human agreement: two-point disagreement rate between the two human raters (%)
-\newcommand{\ETCGRqThreeHhTwoPointPct}{2.4}
+\newcommand{\ETCGRqThreeHhTwoPointPct}{2.0}
 % Human-human agreement: Krippendorff's alpha (ordinal), rater 1 vs rater 2
-\newcommand{\ETCGRqThreeHhAlpha}{0.230}
+\newcommand{\ETCGRqThreeHhAlpha}{0.197}
 % Human-human agreement: Gwet's AC2 (linear weights), rater 1 vs rater 2
-\newcommand{\ETCGRqThreeHhAcTwo}{0.720}
+\newcommand{\ETCGRqThreeHhAcTwo}{0.718}
 % Human-human agreement: linear weighted kappa, rater 1 vs rater 2
-\newcommand{\ETCGRqThreeHhKappaW}{0.209}
+\newcommand{\ETCGRqThreeHhKappaW}{0.166}
 % Human-human agreement: rater 1 mean on the overlap (%)
 \newcommand{\ETCGRqThreeHhROneMeanPct}{89.1}
 % Human-human agreement: rater 2 mean on the overlap (%)
-\newcommand{\ETCGRqThreeHhRTwoMeanPct}{90.3}
+\newcommand{\ETCGRqThreeHhRTwoMeanPct}{91.1}
 % Human-human agreement: rater 2 minus rater 1 mean (pp)
-\newcommand{\ETCGRqThreeHhMeanDeltaPct}{$+$1.20}
+\newcommand{\ETCGRqThreeHhMeanDeltaPct}{$+$2.00}
 % Human-human agreement: mean |rater 1 total - rater 2 total| (of 15)
-\newcommand{\ETCGRqThreeHhMeanAbsTotalDiff}{1.02}
+\newcommand{\ETCGRqThreeHhMeanAbsTotalDiff}{1.10}
 % Human-human, Specificity: rater 1 mean
 \newcommand{\ETCGRqThreeHhSpecificityAutoMean}{2.66}
 % Human-human, Specificity: rater 2 mean
-\newcommand{\ETCGRqThreeHhSpecificityHumanMean}{2.68}
+\newcommand{\ETCGRqThreeHhSpecificityHumanMean}{2.74}
 % Human-human, Specificity: rater 2 minus rater 1
-\newcommand{\ETCGRqThreeHhSpecificityDelta}{$+$0.02}
+\newcommand{\ETCGRqThreeHhSpecificityDelta}{$+$0.08}
 % Human-human, Specificity: exact agreement (%)
-\newcommand{\ETCGRqThreeHhSpecificityExactPct}{72.0}
+\newcommand{\ETCGRqThreeHhSpecificityExactPct}{68.0}
 % Human-human, Specificity: within-one agreement (%)
-\newcommand{\ETCGRqThreeHhSpecificityWithinOnePct}{98.0}
+\newcommand{\ETCGRqThreeHhSpecificityWithinOnePct}{100.0}
 % Human-human, Specificity: Krippendorff's alpha
-\newcommand{\ETCGRqThreeHhSpecificityAlphaOrdinal}{0.398}
+\newcommand{\ETCGRqThreeHhSpecificityAlphaOrdinal}{0.337}
 % Human-human, Specificity: Gwet's AC2
-\newcommand{\ETCGRqThreeHhSpecificityAcTwo}{0.766}
+\newcommand{\ETCGRqThreeHhSpecificityAcTwo}{0.756}
 % Human-human, Specificity: two-point disagreements
-\newcommand{\ETCGRqThreeHhSpecificityTwoPointN}{1}
+\newcommand{\ETCGRqThreeHhSpecificityTwoPointN}{0}
 % Human-human, Testability: rater 1 mean
 \newcommand{\ETCGRqThreeHhTestabilityAutoMean}{2.72}
 % Human-human, Testability: rater 2 mean
-\newcommand{\ETCGRqThreeHhTestabilityHumanMean}{2.42}
+\newcommand{\ETCGRqThreeHhTestabilityHumanMean}{2.46}
 % Human-human, Testability: rater 2 minus rater 1
-\newcommand{\ETCGRqThreeHhTestabilityDelta}{$-$0.30}
+\newcommand{\ETCGRqThreeHhTestabilityDelta}{$-$0.26}
 % Human-human, Testability: exact agreement (%)
 \newcommand{\ETCGRqThreeHhTestabilityExactPct}{54.0}
 % Human-human, Testability: within-one agreement (%)
 \newcommand{\ETCGRqThreeHhTestabilityWithinOnePct}{100.0}
 % Human-human, Testability: Krippendorff's alpha
-\newcommand{\ETCGRqThreeHhTestabilityAlphaOrdinal}{0.123}
+\newcommand{\ETCGRqThreeHhTestabilityAlphaOrdinal}{0.110}
 % Human-human, Testability: Gwet's AC2
-\newcommand{\ETCGRqThreeHhTestabilityAcTwo}{0.608}
+\newcommand{\ETCGRqThreeHhTestabilityAcTwo}{0.612}
 % Human-human, Testability: two-point disagreements
 \newcommand{\ETCGRqThreeHhTestabilityTwoPointN}{0}
 % Human-human, Risk Coverage: rater 1 mean
 \newcommand{\ETCGRqThreeHhRiskCoverageAutoMean}{2.68}
 % Human-human, Risk Coverage: rater 2 mean
-\newcommand{\ETCGRqThreeHhRiskCoverageHumanMean}{2.68}
+\newcommand{\ETCGRqThreeHhRiskCoverageHumanMean}{2.72}
 % Human-human, Risk Coverage: rater 2 minus rater 1
-\newcommand{\ETCGRqThreeHhRiskCoverageDelta}{$+$0.00}
+\newcommand{\ETCGRqThreeHhRiskCoverageDelta}{$+$0.04}
 % Human-human, Risk Coverage: exact agreement (%)
 \newcommand{\ETCGRqThreeHhRiskCoverageExactPct}{64.0}
 % Human-human, Risk Coverage: within-one agreement (%)
 \newcommand{\ETCGRqThreeHhRiskCoverageWithinOnePct}{100.0}
 % Human-human, Risk Coverage: Krippendorff's alpha
-\newcommand{\ETCGRqThreeHhRiskCoverageAlphaOrdinal}{0.228}
+\newcommand{\ETCGRqThreeHhRiskCoverageAlphaOrdinal}{0.198}
 % Human-human, Risk Coverage: Gwet's AC2
-\newcommand{\ETCGRqThreeHhRiskCoverageAcTwo}{0.718}
+\newcommand{\ETCGRqThreeHhRiskCoverageAcTwo}{0.724}
 % Human-human, Risk Coverage: two-point disagreements
 \newcommand{\ETCGRqThreeHhRiskCoverageTwoPointN}{0}
 % Human-human, Clarity: rater 1 mean
@@ -697,17 +741,17 @@
 % Human-human, Actionability: rater 1 mean
 \newcommand{\ETCGRqThreeHhActionabilityAutoMean}{2.52}
 % Human-human, Actionability: rater 2 mean
-\newcommand{\ETCGRqThreeHhActionabilityHumanMean}{2.76}
+\newcommand{\ETCGRqThreeHhActionabilityHumanMean}{2.74}
 % Human-human, Actionability: rater 2 minus rater 1
-\newcommand{\ETCGRqThreeHhActionabilityDelta}{$+$0.24}
+\newcommand{\ETCGRqThreeHhActionabilityDelta}{$+$0.22}
 % Human-human, Actionability: exact agreement (%)
-\newcommand{\ETCGRqThreeHhActionabilityExactPct}{58.0}
+\newcommand{\ETCGRqThreeHhActionabilityExactPct}{56.0}
 % Human-human, Actionability: within-one agreement (%)
 \newcommand{\ETCGRqThreeHhActionabilityWithinOnePct}{94.0}
 % Human-human, Actionability: Krippendorff's alpha
-\newcommand{\ETCGRqThreeHhActionabilityAlphaOrdinal}{0.162}
+\newcommand{\ETCGRqThreeHhActionabilityAlphaOrdinal}{0.134}
 % Human-human, Actionability: Gwet's AC2
-\newcommand{\ETCGRqThreeHhActionabilityAcTwo}{0.617}
+\newcommand{\ETCGRqThreeHhActionabilityAcTwo}{0.596}
 % Human-human, Actionability: two-point disagreements
 \newcommand{\ETCGRqThreeHhActionabilityTwoPointN}{3}
 % Automated vs two-rater consensus: charters (two-human overlap)
@@ -715,11 +759,11 @@
 % Automated vs two-rater consensus: automated evaluator mean (%)
 \newcommand{\ETCGRqThreeConsAutoMeanPct}{94.0}
 % Automated vs two-rater consensus: two-rater consensus mean (%)
-\newcommand{\ETCGRqThreeConsConsensusMeanPct}{89.7}
+\newcommand{\ETCGRqThreeConsConsensusMeanPct}{90.1}
 % Automated vs two-rater consensus: automated minus consensus mean (pp)
-\newcommand{\ETCGRqThreeConsMeanDeltaPct}{$+$4.33}
+\newcommand{\ETCGRqThreeConsMeanDeltaPct}{$+$3.93}
 % Automated vs two-rater consensus: mean |automated total - consensus total| (of 15)
-\newcommand{\ETCGRqThreeConsMeanAbsTotalDiff}{1.55}
+\newcommand{\ETCGRqThreeConsMeanAbsTotalDiff}{1.29}
 % ETCG mean on sparse specifications (%)
 \newcommand{\ETCGRqFourEtcgSparseMean}{94.07}
 % ETCG SD on sparse specifications (%)
@@ -852,9 +896,9 @@
 \newcommand{\ETCGChecksShapiroBaselineP}{0.001}
 % Shapiro-Wilk p on the paired differences, ETCG versus Baseline (full framework)
 \newcommand{\ETCGChecksShapiroDiffFullFrameworkP}{0.335}
-% Shapiro-Wilk p on the paired differences, Intermediate versus Baseline (role + guidance)
+% Shapiro-Wilk p on the paired differences, Intermediate versus Baseline (role-and-guidance step)
 \newcommand{\ETCGChecksShapiroDiffRoleGuidanceP}{0.824}
-% Shapiro-Wilk p on the paired differences, ETCG versus Intermediate (output schema)
+% Shapiro-Wilk p on the paired differences, ETCG versus Intermediate (structured-output step)
 \newcommand{\ETCGChecksShapiroDiffSchemaP}{0.300}
 % Charters scored in both runs
 \newcommand{\ETCGStabilityNCompared}{230}
@@ -882,21 +926,21 @@
 \newcommand{\ETCGMixedFullFrameworkZ}{1.107}
 % Mixed model p, ETCG versus Baseline (full framework)
 \newcommand{\ETCGMixedFullFrameworkP}{0.268}
-% Mixed model estimate, Intermediate versus Baseline (role + guidance) (pp)
+% Mixed model estimate, Intermediate versus Baseline (role-and-guidance step) (pp)
 \newcommand{\ETCGMixedRoleGuidanceCoef}{$+$1.60}
-% Mixed model standard error, Intermediate versus Baseline (role + guidance)
+% Mixed model standard error, Intermediate versus Baseline (role-and-guidance step)
 \newcommand{\ETCGMixedRoleGuidanceSe}{1.159}
-% Mixed model z, Intermediate versus Baseline (role + guidance)
+% Mixed model z, Intermediate versus Baseline (role-and-guidance step)
 \newcommand{\ETCGMixedRoleGuidanceZ}{1.381}
-% Mixed model p, Intermediate versus Baseline (role + guidance)
+% Mixed model p, Intermediate versus Baseline (role-and-guidance step)
 \newcommand{\ETCGMixedRoleGuidanceP}{0.167}
-% Mixed model estimate, ETCG versus Intermediate (output schema) (pp)
+% Mixed model estimate, ETCG versus Intermediate (structured-output step) (pp)
 \newcommand{\ETCGMixedSchemaCoef}{$-$0.32}
-% Mixed model standard error, ETCG versus Intermediate (output schema)
+% Mixed model standard error, ETCG versus Intermediate (structured-output step)
 \newcommand{\ETCGMixedSchemaSe}{1.159}
-% Mixed model z, ETCG versus Intermediate (output schema)
+% Mixed model z, ETCG versus Intermediate (structured-output step)
 \newcommand{\ETCGMixedSchemaZ}{$-$0.274}
-% Mixed model p, ETCG versus Intermediate (output schema)
+% Mixed model p, ETCG versus Intermediate (structured-output step)
 \newcommand{\ETCGMixedSchemaP}{0.784}
 % Between-specification variance component
 \newcommand{\ETCGMixedGroupVar}{6.689}
@@ -964,21 +1008,21 @@
 \newcommand{\ETCGJudgeGeminiFullFrameworkCiLow}{$-$4.32}
 % ETCG versus Baseline (full framework) 95% CI upper bound under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiFullFrameworkCiHigh}{$+$4.53}
-% Intermediate versus Baseline (role + guidance) under Gemini 2.5 Pro (Google) (pp)
+% Intermediate versus Baseline (role-and-guidance step) under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiRoleGuidanceDiff}{$+$1.49}
-% Intermediate versus Baseline (role + guidance) signed-rank p under Gemini 2.5 Pro (Google)
+% Intermediate versus Baseline (role-and-guidance step) signed-rank p under Gemini 2.5 Pro (Google)
 \newcommand{\ETCGJudgeGeminiRoleGuidanceP}{0.353}
-% Intermediate versus Baseline (role + guidance) 95% CI lower bound under Gemini 2.5 Pro (Google) (pp)
+% Intermediate versus Baseline (role-and-guidance step) 95% CI lower bound under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiRoleGuidanceCiLow}{$-$2.79}
-% Intermediate versus Baseline (role + guidance) 95% CI upper bound under Gemini 2.5 Pro (Google) (pp)
+% Intermediate versus Baseline (role-and-guidance step) 95% CI upper bound under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiRoleGuidanceCiHigh}{$+$5.77}
-% ETCG versus Intermediate (output schema) under Gemini 2.5 Pro (Google) (pp)
+% ETCG versus Intermediate (structured-output step) under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiSchemaDiff}{$-$1.39}
-% ETCG versus Intermediate (output schema) signed-rank p under Gemini 2.5 Pro (Google)
+% ETCG versus Intermediate (structured-output step) signed-rank p under Gemini 2.5 Pro (Google)
 \newcommand{\ETCGJudgeGeminiSchemaP}{0.353}
-% ETCG versus Intermediate (output schema) 95% CI lower bound under Gemini 2.5 Pro (Google) (pp)
+% ETCG versus Intermediate (structured-output step) 95% CI lower bound under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiSchemaCiLow}{$-$4.91}
-% ETCG versus Intermediate (output schema) 95% CI upper bound under Gemini 2.5 Pro (Google) (pp)
+% ETCG versus Intermediate (structured-output step) 95% CI upper bound under Gemini 2.5 Pro (Google) (pp)
 \newcommand{\ETCGJudgeGeminiSchemaCiHigh}{$+$2.14}
 % Total API cost to rescore the corpus with Gemini 2.5 Pro (Google) (USD)
 \newcommand{\ETCGJudgeGeminiCost}{0.86}
@@ -1040,21 +1084,21 @@
 \newcommand{\ETCGJudgeSonnetFullFrameworkCiLow}{$-$3.88}
 % ETCG versus Baseline (full framework) 95% CI upper bound under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetFullFrameworkCiHigh}{$+$3.15}
-% Intermediate versus Baseline (role + guidance) under Claude Sonnet 4.5 (Anthropic) (pp)
+% Intermediate versus Baseline (role-and-guidance step) under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetRoleGuidanceDiff}{$+$5.87}
-% Intermediate versus Baseline (role + guidance) signed-rank p under Claude Sonnet 4.5 (Anthropic)
+% Intermediate versus Baseline (role-and-guidance step) signed-rank p under Claude Sonnet 4.5 (Anthropic)
 \newcommand{\ETCGJudgeSonnetRoleGuidanceP}{0.002}
-% Intermediate versus Baseline (role + guidance) 95% CI lower bound under Claude Sonnet 4.5 (Anthropic) (pp)
+% Intermediate versus Baseline (role-and-guidance step) 95% CI lower bound under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetRoleGuidanceCiLow}{$+$2.59}
-% Intermediate versus Baseline (role + guidance) 95% CI upper bound under Claude Sonnet 4.5 (Anthropic) (pp)
+% Intermediate versus Baseline (role-and-guidance step) 95% CI upper bound under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetRoleGuidanceCiHigh}{$+$9.15}
-% ETCG versus Intermediate (output schema) under Claude Sonnet 4.5 (Anthropic) (pp)
+% ETCG versus Intermediate (structured-output step) under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetSchemaDiff}{$-$6.24}
-% ETCG versus Intermediate (output schema) signed-rank p under Claude Sonnet 4.5 (Anthropic)
+% ETCG versus Intermediate (structured-output step) signed-rank p under Claude Sonnet 4.5 (Anthropic)
 \newcommand{\ETCGJudgeSonnetSchemaP}{$<$0.001}
-% ETCG versus Intermediate (output schema) 95% CI lower bound under Claude Sonnet 4.5 (Anthropic) (pp)
+% ETCG versus Intermediate (structured-output step) 95% CI lower bound under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetSchemaCiLow}{$-$8.69}
-% ETCG versus Intermediate (output schema) 95% CI upper bound under Claude Sonnet 4.5 (Anthropic) (pp)
+% ETCG versus Intermediate (structured-output step) 95% CI upper bound under Claude Sonnet 4.5 (Anthropic) (pp)
 \newcommand{\ETCGJudgeSonnetSchemaCiHigh}{$-$3.79}
 % Total API cost to rescore the corpus with Claude Sonnet 4.5 (Anthropic) (USD)
 \newcommand{\ETCGJudgeSonnetCost}{1.27}
@@ -1064,6 +1108,20 @@
 \newcommand{\ETCGJudgePrimaryOverallMean}{95.14}
 % Independent judge models used to rescore the corpus
 \newcommand{\ETCGJudgeN}{2}
+% Judges in total, the primary GPT-4o judge included
+\newcommand{\ETCGJudgeNAll}{three}
+% Judges under which the role_guidance contrast is positive
+\newcommand{\ETCGJudgeRolePositiveIn}{three}
+% Judges under which the role_guidance contrast is negative
+\newcommand{\ETCGJudgeRoleNegativeIn}{zero}
+% Judges under which the role_guidance contrast reaches p < 0.05
+\newcommand{\ETCGJudgeRoleSignificantIn}{one}
+% Judges under which the schema contrast is positive
+\newcommand{\ETCGJudgeSchemaPositiveIn}{zero}
+% Judges under which the schema contrast is negative
+\newcommand{\ETCGJudgeSchemaNegativeIn}{three}
+% Judges under which the schema contrast reaches p < 0.05
+\newcommand{\ETCGJudgeSchemaSignificantIn}{one}
 % Generator model, display form
 \newcommand{\ETCGGenModelDisplay}{GPT-4o}
 % Instrumented generation calls (3 conditions x 25 specifications)
@@ -1174,8 +1232,20 @@
 \newcommand{\ETCGMmSchemaNonsignificantIn}{4}
 % Generators where adding the output schema lowers the mean
 \newcommand{\ETCGMmSchemaNegativeIn}{2}
+% Generators where TOST shows the output-schema contrast equivalent within +/-3 pp
+\newcommand{\ETCGMmSchemaEquivalentIn}{4}
 % Generators whose lowest-scoring condition is Baseline
 \newcommand{\ETCGMmBaselineLastIn}{4}
+% mm.n_generators, spelled out for prose
+\newcommand{\ETCGMmNGeneratorsWord}{four}
+% mm.role_positive_in, spelled out for prose
+\newcommand{\ETCGMmRolePositiveInWord}{four}
+% mm.role_significant_in, spelled out for prose
+\newcommand{\ETCGMmRoleSignificantInWord}{zero}
+% mm.schema_negative_in, spelled out for prose
+\newcommand{\ETCGMmSchemaNegativeInWord}{two}
+% mm.schema_equivalent_in, spelled out for prose
+\newcommand{\ETCGMmSchemaEquivalentInWord}{four}
 % Total API cost to regenerate and rescore all three conditions for the additional generator families (USD)
 \newcommand{\ETCGMmTotalCost}{4.02}
 % Display name for the Gemini 2.5 Pro (Google) generator
@@ -1204,22 +1274,28 @@
 \newcommand{\ETCGMmGeminiFullFrameworkCiLow}{$-$1.43}
 % Gemini 2.5 Pro: ETCG versus Baseline (full framework) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmGeminiFullFrameworkCiHigh}{$+$2.28}
-% Gemini 2.5 Pro: Intermediate versus Baseline (role + guidance) — specification-level mean difference (pp)
+% Gemini 2.5 Pro: ETCG versus Baseline (full framework) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmGeminiFullFrameworkTostP}{0.004}
+% Gemini 2.5 Pro: Intermediate versus Baseline (role-and-guidance step) — specification-level mean difference (pp)
 \newcommand{\ETCGMmGeminiRoleGuidanceDiff}{$+$0.32}
-% Gemini 2.5 Pro: Intermediate versus Baseline (role + guidance) — Wilcoxon signed-rank p
+% Gemini 2.5 Pro: Intermediate versus Baseline (role-and-guidance step) — Wilcoxon signed-rank p
 \newcommand{\ETCGMmGeminiRoleGuidanceP}{0.635}
-% Gemini 2.5 Pro: Intermediate versus Baseline (role + guidance) — 95% CI lower bound (pp)
+% Gemini 2.5 Pro: Intermediate versus Baseline (role-and-guidance step) — 95% CI lower bound (pp)
 \newcommand{\ETCGMmGeminiRoleGuidanceCiLow}{$-$1.69}
-% Gemini 2.5 Pro: Intermediate versus Baseline (role + guidance) — 95% CI upper bound (pp)
+% Gemini 2.5 Pro: Intermediate versus Baseline (role-and-guidance step) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmGeminiRoleGuidanceCiHigh}{$+$2.33}
-% Gemini 2.5 Pro: ETCG versus Intermediate (output schema) — specification-level mean difference (pp)
+% Gemini 2.5 Pro: Intermediate versus Baseline (role-and-guidance step) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmGeminiRoleGuidanceTostP}{0.006}
+% Gemini 2.5 Pro: ETCG versus Intermediate (structured-output step) — specification-level mean difference (pp)
 \newcommand{\ETCGMmGeminiSchemaDiff}{$+$0.10}
-% Gemini 2.5 Pro: ETCG versus Intermediate (output schema) — Wilcoxon signed-rank p
+% Gemini 2.5 Pro: ETCG versus Intermediate (structured-output step) — Wilcoxon signed-rank p
 \newcommand{\ETCGMmGeminiSchemaP}{0.529}
-% Gemini 2.5 Pro: ETCG versus Intermediate (output schema) — 95% CI lower bound (pp)
+% Gemini 2.5 Pro: ETCG versus Intermediate (structured-output step) — 95% CI lower bound (pp)
 \newcommand{\ETCGMmGeminiSchemaCiLow}{$-$1.80}
-% Gemini 2.5 Pro: ETCG versus Intermediate (output schema) — 95% CI upper bound (pp)
+% Gemini 2.5 Pro: ETCG versus Intermediate (structured-output step) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmGeminiSchemaCiHigh}{$+$2.01}
+% Gemini 2.5 Pro: ETCG versus Intermediate (structured-output step) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmGeminiSchemaTostP}{0.002}
 % Gemini 2.5 Pro: ETCG mean minus the primary GPT-4o ETCG mean (pp)
 \newcommand{\ETCGMmGeminiEtcgVsPrimaryEtcg}{$+$3.41}
 % Display name for the Llama 3.3 70B Instruct (Meta, open-weight) generator
@@ -1248,22 +1324,28 @@
 \newcommand{\ETCGMmLlamaFullFrameworkCiLow}{$+$1.31}
 % Llama 3.3 70B: ETCG versus Baseline (full framework) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmLlamaFullFrameworkCiHigh}{$+$5.42}
-% Llama 3.3 70B: Intermediate versus Baseline (role + guidance) — specification-level mean difference (pp)
+% Llama 3.3 70B: ETCG versus Baseline (full framework) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmLlamaFullFrameworkTostP}{0.640}
+% Llama 3.3 70B: Intermediate versus Baseline (role-and-guidance step) — specification-level mean difference (pp)
 \newcommand{\ETCGMmLlamaRoleGuidanceDiff}{$+$2.03}
-% Llama 3.3 70B: Intermediate versus Baseline (role + guidance) — Wilcoxon signed-rank p
+% Llama 3.3 70B: Intermediate versus Baseline (role-and-guidance step) — Wilcoxon signed-rank p
 \newcommand{\ETCGMmLlamaRoleGuidanceP}{0.161}
-% Llama 3.3 70B: Intermediate versus Baseline (role + guidance) — 95% CI lower bound (pp)
+% Llama 3.3 70B: Intermediate versus Baseline (role-and-guidance step) — 95% CI lower bound (pp)
 \newcommand{\ETCGMmLlamaRoleGuidanceCiLow}{$-$0.61}
-% Llama 3.3 70B: Intermediate versus Baseline (role + guidance) — 95% CI upper bound (pp)
+% Llama 3.3 70B: Intermediate versus Baseline (role-and-guidance step) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmLlamaRoleGuidanceCiHigh}{$+$4.66}
-% Llama 3.3 70B: ETCG versus Intermediate (output schema) — specification-level mean difference (pp)
+% Llama 3.3 70B: Intermediate versus Baseline (role-and-guidance step) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmLlamaRoleGuidanceTostP}{0.226}
+% Llama 3.3 70B: ETCG versus Intermediate (structured-output step) — specification-level mean difference (pp)
 \newcommand{\ETCGMmLlamaSchemaDiff}{$+$1.34}
-% Llama 3.3 70B: ETCG versus Intermediate (output schema) — Wilcoxon signed-rank p
+% Llama 3.3 70B: ETCG versus Intermediate (structured-output step) — Wilcoxon signed-rank p
 \newcommand{\ETCGMmLlamaSchemaP}{0.133}
-% Llama 3.3 70B: ETCG versus Intermediate (output schema) — 95% CI lower bound (pp)
+% Llama 3.3 70B: ETCG versus Intermediate (structured-output step) — 95% CI lower bound (pp)
 \newcommand{\ETCGMmLlamaSchemaCiLow}{$-$0.52}
-% Llama 3.3 70B: ETCG versus Intermediate (output schema) — 95% CI upper bound (pp)
+% Llama 3.3 70B: ETCG versus Intermediate (structured-output step) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmLlamaSchemaCiHigh}{$+$3.20}
+% Llama 3.3 70B: ETCG versus Intermediate (structured-output step) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmLlamaSchemaTostP}{0.039}
 % Llama 3.3 70B: ETCG mean minus the primary GPT-4o ETCG mean (pp)
 \newcommand{\ETCGMmLlamaEtcgVsPrimaryEtcg}{$+$1.87}
 % Display name for the Claude Sonnet 4.5 (Anthropic) generator
@@ -1292,21 +1374,171 @@
 \newcommand{\ETCGMmSonnetFullFrameworkCiLow}{$-$0.18}
 % Claude Sonnet 4.5: ETCG versus Baseline (full framework) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmSonnetFullFrameworkCiHigh}{$+$1.04}
-% Claude Sonnet 4.5: Intermediate versus Baseline (role + guidance) — specification-level mean difference (pp)
+% Claude Sonnet 4.5: ETCG versus Baseline (full framework) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmSonnetFullFrameworkTostP}{$<$0.001}
+% Claude Sonnet 4.5: Intermediate versus Baseline (role-and-guidance step) — specification-level mean difference (pp)
 \newcommand{\ETCGMmSonnetRoleGuidanceDiff}{$+$0.53}
-% Claude Sonnet 4.5: Intermediate versus Baseline (role + guidance) — Wilcoxon signed-rank p
+% Claude Sonnet 4.5: Intermediate versus Baseline (role-and-guidance step) — Wilcoxon signed-rank p
 \newcommand{\ETCGMmSonnetRoleGuidanceP}{0.238}
-% Claude Sonnet 4.5: Intermediate versus Baseline (role + guidance) — 95% CI lower bound (pp)
+% Claude Sonnet 4.5: Intermediate versus Baseline (role-and-guidance step) — 95% CI lower bound (pp)
 \newcommand{\ETCGMmSonnetRoleGuidanceCiLow}{$-$0.31}
-% Claude Sonnet 4.5: Intermediate versus Baseline (role + guidance) — 95% CI upper bound (pp)
+% Claude Sonnet 4.5: Intermediate versus Baseline (role-and-guidance step) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmSonnetRoleGuidanceCiHigh}{$+$1.37}
-% Claude Sonnet 4.5: ETCG versus Intermediate (output schema) — specification-level mean difference (pp)
+% Claude Sonnet 4.5: Intermediate versus Baseline (role-and-guidance step) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmSonnetRoleGuidanceTostP}{$<$0.001}
+% Claude Sonnet 4.5: ETCG versus Intermediate (structured-output step) — specification-level mean difference (pp)
 \newcommand{\ETCGMmSonnetSchemaDiff}{$-$0.11}
-% Claude Sonnet 4.5: ETCG versus Intermediate (output schema) — Wilcoxon signed-rank p
+% Claude Sonnet 4.5: ETCG versus Intermediate (structured-output step) — Wilcoxon signed-rank p
 \newcommand{\ETCGMmSonnetSchemaP}{0.785}
-% Claude Sonnet 4.5: ETCG versus Intermediate (output schema) — 95% CI lower bound (pp)
+% Claude Sonnet 4.5: ETCG versus Intermediate (structured-output step) — 95% CI lower bound (pp)
 \newcommand{\ETCGMmSonnetSchemaCiLow}{$-$0.78}
-% Claude Sonnet 4.5: ETCG versus Intermediate (output schema) — 95% CI upper bound (pp)
+% Claude Sonnet 4.5: ETCG versus Intermediate (structured-output step) — 95% CI upper bound (pp)
 \newcommand{\ETCGMmSonnetSchemaCiHigh}{$+$0.57}
+% Claude Sonnet 4.5: ETCG versus Intermediate (structured-output step) — TOST equivalence p (+/-3 pp)
+\newcommand{\ETCGMmSonnetSchemaTostP}{$<$0.001}
 % Claude Sonnet 4.5: ETCG mean minus the primary GPT-4o ETCG mean (pp)
 \newcommand{\ETCGMmSonnetEtcgVsPrimaryEtcg}{$+$4.21}
+% Distinct specifications in the relevance audit
+\newcommand{\ETCGAuditNSpecs}{15}
+% Five-charter sets per condition in the relevance audit
+\newcommand{\ETCGAuditNSetsPerCondition}{five}
+% Relevance audit, all conditions: charters coded
+\newcommand{\ETCGAuditAllNCharters}{75}
+% Relevance audit, all conditions: five-charter sets coded
+\newcommand{\ETCGAuditAllNSets}{15}
+% Relevance audit, all conditions: charters coded 'made up' at the first pass
+\newcommand{\ETCGAuditAllQOneFirstPass}{12}
+% Relevance audit, all conditions: charters coded 'made up' (final)
+\newcommand{\ETCGAuditAllQOneFinal}{0}
+% Relevance audit, all conditions: 95% Wilson upper bound on the 'made up' rate (%)
+\newcommand{\ETCGAuditAllQOneCiHigh}{4.9}
+% Relevance audit, all conditions: charters coded off-topic
+\newcommand{\ETCGAuditAllQTwo}{1}
+% Relevance audit, all conditions: 95% Wilson upper bound on the off-topic rate (%)
+\newcommand{\ETCGAuditAllQTwoCiHigh}{7.2}
+% Relevance audit, all conditions: overlapping charter pairs
+\newcommand{\ETCGAuditAllPairs}{7}
+% Relevance audit, all conditions: charter pairs that could overlap
+\newcommand{\ETCGAuditAllPairsPossible}{150}
+% Relevance audit, all conditions: sets with at least one overlapping pair
+\newcommand{\ETCGAuditAllSetsWithOverlap}{7}
+% Relevance audit, all conditions: charters in at least one overlapping pair
+\newcommand{\ETCGAuditAllChartersInPair}{14}
+% Relevance audit, ETCG: charters coded
+\newcommand{\ETCGAuditEtcgNCharters}{25}
+% Relevance audit, ETCG: five-charter sets coded
+\newcommand{\ETCGAuditEtcgNSets}{5}
+% Relevance audit, ETCG: charters coded 'made up' at the first pass
+\newcommand{\ETCGAuditEtcgQOneFirstPass}{2}
+% Relevance audit, ETCG: charters coded 'made up' (final)
+\newcommand{\ETCGAuditEtcgQOneFinal}{0}
+% Relevance audit, ETCG: 95% Wilson upper bound on the 'made up' rate (%)
+\newcommand{\ETCGAuditEtcgQOneCiHigh}{13.3}
+% Relevance audit, ETCG: charters coded off-topic
+\newcommand{\ETCGAuditEtcgQTwo}{1}
+% Relevance audit, ETCG: 95% Wilson upper bound on the off-topic rate (%)
+\newcommand{\ETCGAuditEtcgQTwoCiHigh}{19.5}
+% Relevance audit, ETCG: overlapping charter pairs
+\newcommand{\ETCGAuditEtcgPairs}{1}
+% Relevance audit, ETCG: charter pairs that could overlap
+\newcommand{\ETCGAuditEtcgPairsPossible}{50}
+% Relevance audit, ETCG: sets with at least one overlapping pair
+\newcommand{\ETCGAuditEtcgSetsWithOverlap}{1}
+% Relevance audit, ETCG: charters in at least one overlapping pair
+\newcommand{\ETCGAuditEtcgChartersInPair}{2}
+% Relevance audit, Intermediate: charters coded
+\newcommand{\ETCGAuditIntermediateNCharters}{25}
+% Relevance audit, Intermediate: five-charter sets coded
+\newcommand{\ETCGAuditIntermediateNSets}{5}
+% Relevance audit, Intermediate: charters coded 'made up' at the first pass
+\newcommand{\ETCGAuditIntermediateQOneFirstPass}{2}
+% Relevance audit, Intermediate: charters coded 'made up' (final)
+\newcommand{\ETCGAuditIntermediateQOneFinal}{0}
+% Relevance audit, Intermediate: 95% Wilson upper bound on the 'made up' rate (%)
+\newcommand{\ETCGAuditIntermediateQOneCiHigh}{13.3}
+% Relevance audit, Intermediate: charters coded off-topic
+\newcommand{\ETCGAuditIntermediateQTwo}{0}
+% Relevance audit, Intermediate: 95% Wilson upper bound on the off-topic rate (%)
+\newcommand{\ETCGAuditIntermediateQTwoCiHigh}{13.3}
+% Relevance audit, Intermediate: overlapping charter pairs
+\newcommand{\ETCGAuditIntermediatePairs}{2}
+% Relevance audit, Intermediate: charter pairs that could overlap
+\newcommand{\ETCGAuditIntermediatePairsPossible}{50}
+% Relevance audit, Intermediate: sets with at least one overlapping pair
+\newcommand{\ETCGAuditIntermediateSetsWithOverlap}{2}
+% Relevance audit, Intermediate: charters in at least one overlapping pair
+\newcommand{\ETCGAuditIntermediateChartersInPair}{4}
+% Relevance audit, Baseline: charters coded
+\newcommand{\ETCGAuditBaselineNCharters}{25}
+% Relevance audit, Baseline: five-charter sets coded
+\newcommand{\ETCGAuditBaselineNSets}{5}
+% Relevance audit, Baseline: charters coded 'made up' at the first pass
+\newcommand{\ETCGAuditBaselineQOneFirstPass}{8}
+% Relevance audit, Baseline: charters coded 'made up' (final)
+\newcommand{\ETCGAuditBaselineQOneFinal}{0}
+% Relevance audit, Baseline: 95% Wilson upper bound on the 'made up' rate (%)
+\newcommand{\ETCGAuditBaselineQOneCiHigh}{13.3}
+% Relevance audit, Baseline: charters coded off-topic
+\newcommand{\ETCGAuditBaselineQTwo}{0}
+% Relevance audit, Baseline: 95% Wilson upper bound on the off-topic rate (%)
+\newcommand{\ETCGAuditBaselineQTwoCiHigh}{13.3}
+% Relevance audit, Baseline: overlapping charter pairs
+\newcommand{\ETCGAuditBaselinePairs}{4}
+% Relevance audit, Baseline: charter pairs that could overlap
+\newcommand{\ETCGAuditBaselinePairsPossible}{50}
+% Relevance audit, Baseline: sets with at least one overlapping pair
+\newcommand{\ETCGAuditBaselineSetsWithOverlap}{4}
+% Relevance audit, Baseline: charters in at least one overlapping pair
+\newcommand{\ETCGAuditBaselineChartersInPair}{8}
+% Round 2 IRR: charters re-scored with corrected specification context
+\newcommand{\ETCGRqThreeRescoreNRescored}{36}
+% Round 2 IRR: charters whose context was correct in the August packet
+\newcommand{\ETCGRqThreeRescoreNUnaffected}{39}
+% Round 2 IRR: re-scored charters per condition
+\newcommand{\ETCGRqThreeRescoreNPerCondition}{12}
+% Round 2 IRR: dimension ratings rater 2 changed on re-scoring
+\newcommand{\ETCGRqThreeRescoreRatingsChanged}{46}
+% Round 2 IRR: share of re-scored dimension ratings that changed (%)
+\newcommand{\ETCGRqThreeRescoreRatingsChangedPct}{25.6}
+% Round 2 IRR: re-scored charters with at least one changed rating
+\newcommand{\ETCGRqThreeRescoreChartersChanged}{29}
+% Round 2 IRR: rater 2 mean on the re-scored charters, August reading (%)
+\newcommand{\ETCGRqThreeRescoreRTwoMeanAugust}{88.0}
+% Round 2 IRR: rater 2 mean on the re-scored charters, re-score (%)
+\newcommand{\ETCGRqThreeRescoreRTwoMeanRescore}{89.4}
+% Round 2 IRR, subset august: exact agreement with the automated evaluator (%)
+\newcommand{\ETCGRqThreeRescoreSubsetaugustExactPct}{64.4}
+% Round 2 IRR, subset august: two-point disagreements with the automated evaluator
+\newcommand{\ETCGRqThreeRescoreSubsetaugustTwoPointN}{1}
+% Round 2 IRR, subset august: Gwet's AC2 with the automated evaluator
+\newcommand{\ETCGRqThreeRescoreSubsetaugustAcTwo}{0.724}
+% Round 2 IRR, subset rescore: exact agreement with the automated evaluator (%)
+\newcommand{\ETCGRqThreeRescoreSubsetrescoreExactPct}{82.8}
+% Round 2 IRR, subset rescore: two-point disagreements with the automated evaluator
+\newcommand{\ETCGRqThreeRescoreSubsetrescoreTwoPointN}{0}
+% Round 2 IRR, subset rescore: Gwet's AC2 with the automated evaluator
+\newcommand{\ETCGRqThreeRescoreSubsetrescoreAcTwo}{0.871}
+% Round 2 IRR, unaffected: exact agreement with the automated evaluator (%)
+\newcommand{\ETCGRqThreeRescoreUnaffectedExactPct}{79.5}
+% Round 2 IRR, unaffected: two-point disagreements with the automated evaluator
+\newcommand{\ETCGRqThreeRescoreUnaffectedTwoPointN}{0}
+% Round 2 IRR, unaffected: Gwet's AC2 with the automated evaluator
+\newcommand{\ETCGRqThreeRescoreUnaffectedAcTwo}{0.862}
+% Round 2 IRR, August reading, automated vs rater 2: exact agreement (%)
+\newcommand{\ETCGRqThreeRTwoaugExactPct}{72.3}
+% Round 2 IRR, August reading, automated vs rater 2: two-point disagreements
+\newcommand{\ETCGRqThreeRTwoaugTwoPointN}{1}
+% Round 2 IRR, August reading, automated vs rater 2: Gwet's AC2
+\newcommand{\ETCGRqThreeRTwoaugAcTwo}{0.799}
+% Round 2 IRR, August reading, automated vs rater 2: Krippendorff's alpha (ordinal)
+\newcommand{\ETCGRqThreeRTwoaugAlphaOrdinal}{0.246}
+% Round 2 IRR, August reading: rater 2 minus automated mean (pp)
+\newcommand{\ETCGRqThreeRTwoaugMeanDeltaPct}{$-$3.29}
+% Human-human, August reading: exact agreement (%)
+\newcommand{\ETCGRqThreeHhaugExactPct}{66.0}
+% Human-human, August reading: two-point disagreements
+\newcommand{\ETCGRqThreeHhaugTwoPointN}{6}
+% Human-human, August reading: Gwet's AC2
+\newcommand{\ETCGRqThreeHhaugAcTwo}{0.720}
+% Human-human, August reading: Krippendorff's alpha (ordinal)
+\newcommand{\ETCGRqThreeHhaugAlphaOrdinal}{0.230}
