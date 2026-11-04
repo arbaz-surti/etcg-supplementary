@@ -5,7 +5,7 @@ Supplementary data and scripts for:
 > **LLM-Based Exploratory Testing Charter Generation: An Ablation Study of Prompt Structure**
 > Arbaz Surti
 > *Automated Software Engineering* (Springer) — Special Issue on Automated, Verifiable, and
-> Generative Approaches to Software Engineering. Under review (major revision).
+> Generative Approaches to Software Engineering. Under review (minor revision, round 2).
 
 ---
 
@@ -22,10 +22,13 @@ data/
                                       a required input (see "Key Results" note), not a stray backup
   etcg-scores-gemini.json           — full 375-charter corpus rescored by Gemini 2.5 Pro
   etcg-scores-sonnet.json           — full 375-charter corpus rescored by Claude Sonnet 4.5
-  generation-instrumentation.json   — per-call tokens, USD cost, latency, retries (Section 5.6)
+  generation-instrumentation.json   — per-call tokens, USD cost, latency, retries (Section 5.7)
   irr-r1-key.json                   — first human-reviewer IRR key (50 charters)
   irr-r2-key.json                   — combined all-conditions IRR key (75 charters)
-  irr-r2-rater2-response.csv        — second human-reviewer response export
+  irr-r2-rater2-response.csv        — second human-reviewer response export (original packet)
+  irr-r2-rescore-key.json           — key for the 36 charters re-rated with corrected context
+  irr-r2-rescore-response.csv       — the second reviewer's corrected-context re-ratings
+  relevance-audit.csv               — relevance audit: 75 charters, one blinded coder, both passes
   Paper 2 IRR Scoring Sheet.xlsx    — original second-reviewer scoring workbook
   scorer-stability-prior.json       — frozen March scorer-stability comparison input
   multimodel/<model>/               — the 3-condition design re-run on Sonnet 4.5, Gemini 2.5
@@ -43,6 +46,9 @@ scripts/
   instrument_generation.py          — replay generation under identical config to measure cost
   ingest_rater2.py                  — parse the second human rater's response sheet
   build_irr_round2.py               — assemble the round-2 IRR key from both raters
+  build_irr_rater2_rescore.py       — build the corrected-context re-rating packet (36 charters)
+  build_relevance_audit.py          — build the blinded relevance-audit coding packet
+  build_relevance_audit_data.py     — convert the coder's returned sheets to relevance-audit.csv
   repair_baseline_split.py          — one-off fix for the baseline free-text splitter (see below)
   verify_charter_integrity.py       — checks that every scored row maps to a real generated charter
   figures.py                        — renders every figure from the same values as the tables
@@ -94,7 +100,8 @@ python scripts/analysis.py
 #          data/etcg-scores-{gemini,sonnet}.json     (cross-model judges)
 #          data/multimodel/<model>/scores.json       (multi-model generalisation)
 #          data/generation-instrumentation.json      (cost and latency)
-#          the two human raters' scoring sheets
+#          the two human raters' scoring sheets, and rater 2's corrected-context re-ratings
+#          data/relevance-audit.csv                  (relevance audit)
 # Outputs: results/results.json, results/macros.tex, results/table-*.tex,
 #          results/TRACEABILITY.md, and every figure
 ```
@@ -133,7 +140,7 @@ values they put in the tables.
 |-----------|-------|
 | Specifications | 25 (SPEC-01–25); 18 sparse description-only tickets, 7 structured |
 | Domains | Restaurant Technology, Healthcare, Logistics |
-| Conditions | ETCG (role + guidance + JSON schema), Intermediate (role + guidance, no schema), Baseline (unstructured) |
+| Conditions | ETCG (role + guidance + structured output), Intermediate (role + guidance, free-form output), Baseline (unstructured) |
 | Charters | 375 total — 125 per condition (5 per spec × 25 specs) |
 | Rubric dimensions | Specificity, Testability, Risk Coverage, Clarity, Actionability |
 | Scoring scale | 1–3 per dimension (max 15 per charter) |
@@ -165,13 +172,17 @@ the mixed-effects column is from a random-intercept model.
 |---|---|---|---|
 | ETCG vs Baseline (full framework) | +1.28 pp | 0.380 | 0.268 |
 | Intermediate vs Baseline (role + guidance) | +1.60 pp | 0.261 | 0.167 |
-| ETCG vs Intermediate (output schema) | −0.32 pp | 0.732 | 0.784 |
+| ETCG vs Intermediate (structured output) | −0.32 pp | 0.732 | 0.784 |
 
 **No pairwise contrast reaches significance.** The headline result is a null: the full
 framework is not distinguishable from an unstructured prompt at the correct unit of analysis.
-The ablation finding is that role framing and explicit guidance carry whatever small point
-difference exists; the JSON output schema adds nothing to the mean (its value is
-machine-readability, not quality). Intraclass correlation by specification = 0.074.
+Each ablation step changes a bundle of prompt elements, so neither result can be assigned to a
+single component. The role-and-guidance step is directional: positive, but not significant.
+The structured-output step is not detected, and an equivalence test (TOST, bound ±3 pp fixed
+before it was run) places it within the bound under the primary judge (TOST *p* = 0.010). That
+equivalence describes a near-saturated instrument, not charter quality; under the judge with the
+most headroom the same step is significantly negative (see Cross-model judges). Intraclass
+correlation by specification = 0.074.
 
 > **Provenance note.** `data/etcg-scores.json.pre-splitfix-backup` is retained solely to
 > regenerate the manuscript's historical splitter-repair disclosure. Current results always
@@ -180,17 +191,25 @@ machine-readability, not quality). Intraclass correlation by specification = 0.0
 
 ### RQ2 — per-dimension decomposition (exploratory)
 
-15 dimension-level contrasts; 2 reach *p* < 0.05 before correction, **0 survive Holm–Bonferroni**.
-RQ2 is reported as an exploratory decomposition of RQ1, not as confirmatory tests. No
-dimension-level result should be read as confirmed.
+15 dimension-level contrasts; 2 reach *p* < 0.05 before correction, and **one survives
+Holm–Bonferroni**: ETCG below the baseline on Clarity (−0.072 on the three-point scale, adjusted
+*p* = 0.040). It runs against the framework, and the baseline's Clarity mean is at the scale
+maximum (3.000). RQ2 is reported as an exploratory decomposition of RQ1, not as confirmatory
+tests.
 
 ### RQ3 — inter-rater reliability
 
 | Pairing | Exact | Within one | Two-point | Gwet's AC2 |
 |---|---|---|---|---|
 | Automated vs rater 1 (250 ratings) | 65.6% | 97.2% | 7 | 0.733 |
-| Automated vs rater 2 (375 ratings, all conditions) | 72.3% | 99.7% | 1 | 0.799 |
-| Rater 1 vs rater 2 (50-charter overlap) | 66.0% | 97.6% | 6 | 0.720 |
+| Automated vs rater 2 (375 ratings, all conditions) | 81.1% | 100.0% | 0 | 0.866 |
+| Rater 1 vs rater 2 (50-charter overlap) | 64.8% | 98.0% | 5 | 0.718 |
+
+Rater 2's original packet printed the wrong specification context above 36 of the 75 charters
+(the builder looked specifications up by source identifier, not by study position). The reviewer
+re-rated those 36 with the correct context; the figures above use the re-ratings. The original
+ratings are kept, and `analysis.py` reports both readings (original packet: 72.3% exact,
+AC2 0.799).
 
 Gwet's AC2 is the primary reliability statistic. The generated reliability tables also report
 Krippendorff's ordinal alpha, exact agreement, within-one agreement, and every two-point
@@ -209,17 +228,30 @@ reported as preliminary.
 
 The full frozen corpus was rescored by Gemini 2.5 Pro and Claude Sonnet 4.5 under an identical
 rubric prompt. ETCG--Baseline is +0.11 pp under Gemini and −0.37 pp under Sonnet; neither
-contrast is significant. The role-and-guidance and schema contrasts are judge-sensitive, so
-the package reports every contrast rather than treating one judge as a replication. GPT-4o is
-more lenient overall by +9.34 pp versus Gemini and +14.12 pp versus Sonnet.
+contrast is significant. GPT-4o is more lenient overall by +9.34 pp versus Gemini and
++14.12 pp versus Sonnet, and leaves less headroom: the share of charters at 15/15 is 74–81%
+under GPT-4o, 44–48% under Gemini and 14–26% under Sonnet. Under Sonnet the role-and-guidance
+step is +5.87 pp and the structured-output step −6.24 pp; across all nine judge-by-contrast
+tests these are the two that survive Holm correction (adjusted *p* = 0.013 and 0.002). They are
+exploratory: one judge, added post hoc, with judge severity confounded with vendor.
 
 ### Multi-model generation
 
 The three conditions were re-run on Claude Sonnet 4.5, Gemini 2.5 Pro, and Llama 3.3 70B, each
 scored by the fixed GPT-4o judge. Role framing and guidance raise the mean on all 4/4 generators;
-the schema contrast is non-significant on all four and its sign differs across generators. A
+the structured-output contrast is non-significant on all four and its sign differs across
+generators. A
 framework advantage over the unstructured prompt is significant only under Llama 3.3 70B
 (+3.36 pp, *p* = 0.004), the only open-weight model tested.
+
+---
+
+### Relevance audit
+
+One external coder, blind to condition, coded 75 charters (15 whole sets, 5 per condition) against
+the full specification text. Made up: 0 of 75 in the final pass (95% Wilson upper bound 4.9%);
+the first pass marked 12, all re-coded to No after one clarification round that re-quoted the
+coding rule, and both passes are kept. Off-topic: 1 of 75. Overlap: 7 of 150 within-set pairs.
 
 ---
 
