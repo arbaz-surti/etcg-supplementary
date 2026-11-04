@@ -2,6 +2,7 @@
 \begin{table}[t]
 \caption{The ablation contrasts recomputed with the charter generator swapped for other model families. The prompt design, the conditions, the specifications, and the GPT-4o rubric judge are all held fixed.}
 \label{tab:multimodel}
+\centering
 \begin{tabular}{@{}lrrrrrrr@{}}
 \toprule
 Generator & Base. & Inter. & ETCG & R\&G $\Delta$ & $p$ & S-O $\Delta$ & $p$ \\
@@ -10,9 +11,9 @@ GPT-4o (primary) & 94.18 & 95.78 & 95.47 & $+$1.60 & 0.261 & $-$0.32 & 0.732 \\
 Gemini 2.5 Pro & 98.45 & 98.77 & 98.88 & $+$0.32 & 0.635 & $+$0.10 & 0.529 \\
 Llama 3.3 70B & 93.97 & 96.00 & 97.33 & $+$2.03 & 0.161 & $+$1.34 & 0.133 \\
 Claude Sonnet 4.5 & 99.25 & 99.79 & 99.68 & $+$0.53 & 0.238 & $-$0.11 & 0.785 \\
-\addlinespace[0.25em]
-\multicolumn{8}{@{}p{\linewidth}@{}}{\footnotesize\raggedright Every generator's charters were scored by the same fixed GPT-4o rubric judge (temperature 0); only the model that wrote the charters differs. Means are over 25 specification-level means per condition; $\Delta$ columns are paired specification-mean differences (pp), Wilcoxon signed-rank.} \\
-\multicolumn{8}{@{}p{\linewidth}@{}}{\footnotesize\raggedright R\&G = role-and-guidance step; S-O = structured-output step. The role-and-guidance step (Baseline $\rightarrow$ Intermediate) raises the mean for 4/4 generators and reaches significance for 0/4. The structured-output step (Intermediate $\rightarrow$ ETCG) does not reach significance for 4/4, is equivalent within $\pm$3 pp (TOST) for 4/4, and lowers the mean for 2/4. Baseline is the lowest-scoring condition for 4/4.} \\
 \bottomrule
 \end{tabular}
+\par\smallskip
+{\footnotesize\raggedright Every generator's charters were scored by the same fixed GPT-4o rubric judge (temperature 0); only the model that wrote the charters differs. Means are over 25 specification-level means per condition; $\Delta$ columns are paired specification-mean differences (pp), Wilcoxon signed-rank.\par}
+{\footnotesize\raggedright R\&G = role-and-guidance step; S-O = structured-output step. The role-and-guidance step (Baseline $\rightarrow$ Intermediate) raises the mean for 4/4 generators and reaches significance for 0/4. The structured-output step (Intermediate $\rightarrow$ ETCG) does not reach significance for 4/4, is equivalent within $\pm$3 pp (TOST) for 4/4, and lowers the mean for 2/4. Baseline is the lowest-scoring condition for 4/4.\par}
 \end{table}

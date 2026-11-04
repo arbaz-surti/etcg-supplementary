@@ -2,6 +2,7 @@
 \begin{table}[t]
 \caption{Cross-model judge agreement with the primary GPT-4o evaluator. Every judge scored the identical frozen corpus with the identical rubric prompt at temperature 0; only the judge model differs. $\Delta$ is the primary mean minus the judge mean, so a positive value indicates an overall judge-severity gap: GPT-4o assigned higher scores under the shared rubric, not a preference for a particular generator.}
 \label{tab:judgeagreement}
+\centering
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
 Judge & Mean (\%) & $\Delta$ (pp) & Exact (\%) & Within-1 (\%) & AC2 & Ceiling (\%) \\
@@ -9,9 +10,9 @@ Judge & Mean (\%) & $\Delta$ (pp) & Exact (\%) & Within-1 (\%) & AC2 & Ceiling (
 GPT-4o (primary) & 95.14 & --- & --- & --- & --- & 81 / 75 / 74 \\
 Gemini 2.5 Pro & 85.81 & $+$9.34 & 70.67 & 99.31 & 0.775 & 45 / 48 / 44 \\
 Claude Sonnet 4.5 & 81.03 & $+$14.12 & 57.71 & 99.31 & 0.652 & 14 / 26 / 18 \\
-\addlinespace[0.25em]
-\multicolumn{7}{@{}p{\linewidth}@{}}{\footnotesize\raggedright Agreement computed over 1875 dimension ratings (375 charters $\times$ 5 dimensions).} \\
-\multicolumn{7}{@{}p{\linewidth}@{}}{\footnotesize\raggedright Ceiling: share of the 125 charters per condition scored 15/15 by that judge, in the order ETCG / Intermediate / Baseline. The primary judge leaves little headroom above most charters, which limits the size of any contrast it can register.} \\
 \bottomrule
 \end{tabular}
+\par\smallskip
+{\footnotesize\raggedright Agreement computed over 1875 dimension ratings (375 charters $\times$ 5 dimensions).\par}
+{\footnotesize\raggedright Ceiling: share of the 125 charters per condition scored 15/15 by that judge, in the order ETCG / Intermediate / Baseline. The primary judge leaves little headroom above most charters, which limits the size of any contrast it can register.\par}
 \end{table}

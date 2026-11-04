@@ -2,9 +2,12 @@
 \begin{table}[t]
 \caption{Each pairwise contrast recomputed under every judge. Differences are in percentage points between paired specification means ($n = 25$), tested by Wilcoxon signed-rank, identically to the primary analysis.}
 \label{tab:judgereplication}
+\centering
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
-Contrast & GPT-4o $\Delta$ & $p$ & Gemini 2.5 Pro $\Delta$ & $p$ & Claude Sonnet 4.5 $\Delta$ & $p$ \\
+ & \multicolumn{2}{c}{GPT-4o} & \multicolumn{2}{c}{Gemini 2.5 Pro} & \multicolumn{2}{c}{Claude Sonnet 4.5} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Contrast & $\Delta$ & $p$ & $\Delta$ & $p$ & $\Delta$ & $p$ \\
 \midrule
 ETCG versus Baseline & $+$1.28 & 0.380 & $+$0.11 & 0.957 & $-$0.37 & 0.658 \\
 \quad $p_{\mathrm{Holm}}$ &  & 1.000 &  & 1.000 &  & 1.000 \\
@@ -12,8 +15,8 @@ Intermediate versus Baseline & $+$1.60 & 0.261 & $+$1.49 & 0.353 & $+$5.87 & 0.0
 \quad $p_{\mathrm{Holm}}$ &  & 1.000 &  & 1.000 &  & 0.013 \\
 ETCG versus Intermediate & $-$0.32 & 0.732 & $-$1.39 & 0.353 & $-$6.24 & $<$0.001 \\
 \quad $p_{\mathrm{Holm}}$ &  & 1.000 &  & 1.000 &  & 0.002 \\
-\addlinespace[0.25em]
-\multicolumn{7}{@{}p{\linewidth}@{}}{\footnotesize\raggedright $p_{\mathrm{Holm}}$: Holm--Bonferroni across all 9 tests in the table (3 judges $\times$ 3 contrasts). The external judges are a post hoc sensitivity analysis, so the family is corrected as a whole.} \\
 \bottomrule
 \end{tabular}
+\par\smallskip
+{\footnotesize\raggedright $p_{\mathrm{Holm}}$: Holm--Bonferroni across all 9 tests in the table (3 judges $\times$ 3 contrasts). The external judges are a post hoc sensitivity analysis, so the family is corrected as a whole.\par}
 \end{table}
